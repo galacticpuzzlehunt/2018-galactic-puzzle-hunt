@@ -1,0 +1,368 @@
+
+
+
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9HXglGF1lcVw==","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":31}</script>
+        
+<title>Solution: Adventure</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="../static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="../static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='../index.html'>Home</a>
+                    <a href='../rules.html'>Rules</a>
+                    
+                        <a href='../story.html'>Story</a>
+                    
+                    
+                        <a href='../puzzles.html'>Puzzles</a>
+                    
+                    <a href='../teams.html'>Teams</a>
+                    <a href='../faq.html'>FAQ</a>
+                    
+                        <a href='../errata.html'>Updates</a>
+                    
+                    
+                        <a href='../wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='../archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+<a href="../puzzle/adventure.html" class="btn btn--small">Back to the puzzle</a>
+
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="../login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+
+<style>
+.puzzle-body img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+.puzzle-body table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.puzzle-body tr:empty {
+  height: 1em;
+}
+.puzzle-body td {
+  padding: 5px;
+  border: 1px solid black;
+}
+.puzzle-body th {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+.puzzle-body hr {
+  border-color: initial;
+}
+.puzzle-body ol li {
+  list-style-type: inherit;
+}
+.puzzle-body td pre {
+  margin: 0;
+}
+</style>
+
+<div class="puzzle-page-body">
+    <h1 class="page-header puzzle-page__title">
+        
+        Solution: Adventure
+        <div class="solved-title-marker">Answer: <span class="solved-title-answer">PASIPHAE</span></div>
+        
+    </h1>
+    <div class="puzzle-body solution-body">
+        <h5 class="solution-puzzle-subheader">
+            
+            Written by
+            
+Jon Schneider
+
+            
+        </h5>
+        
+
+<p>Players are dropped into a text-based adventure game that takes place in a series of interconnected rooms. Each room contains a giant letter on the floor, a blackboard, a button, and occasionally a monkey which gives you some information about the game.</p>
+
+<p>Navigating through the dungeon reveals that there are 26 rooms, arranged in (roughly) the same layout as the 26 letter keys on a keyboard. Sorting the 26 letters on the floors of each room by the letter on the corresponding key on a QWERTY keyboard reveals the message: “TYPESAMETHINGBOTHKEYBOARDS”.</p>
+
+<p>What are the two keyboards? The first is the keyboard you (the player) are typing on when entering commands into the game. The second is the dungeon in the text adventure itself. Here typing a key means pressing the button in the associated room. Your goal is to type a sequence of commands on the first keyboard (the <i>real keyboard</i>) which results in the same sequence of letters being typed on the second keyboard (the <i>game keyboard</i>). Further confirming this to the solver is the fact that typing a key on the game keyboard that causes its letters typed so far to stop being a substring of the letters typed so far on the real keyboard causes the game to immediately reset. For simplicity, all spaces and line breaks are ignored, and case does not matter (the relevant keys do not even appear on the game keyboard).</p>
+
+<p>The puzzle now reduces to constructing this sequence of commands (which the reader may recognize as being a type of <a href="https://en.wikipedia.org/wiki/Quine_(computing)">quine</a>). Some thought makes it clear that it is impossible to construct such a sequence just by navigating around the dungeon and pressing buttons: typing each key on the game keyboard requires at least one (and often many more, to navigate to the correct key) character on the real keyboard, so it will be impossible to cause the two strings to match in this way. To succeed we need to use the remaining mechanics present in the text adventure, the key mechanic (haha) being our ability to write commands to a blackboard and later execute them with a single command by reading from that blackboard.</p>
+
+<p>For completeness, we list below all the available commands in the text adventure. (Multiple commands can be entered in a single line, but some commands like ‘T’ and ‘A’ consume the rest of the content on the line.) Players learn what these commands do through the advice provided by the monkeys in-game.</p>
+
+<ul>
+<li>‘E’, ‘W’, ‘NE’, ‘NW’, ‘SE’, ‘SW’: move in the corresponding hexagonal direction (assuming it is possible to move in that direction).</li>
+<li>‘P’: press the button in the current room.</li>
+<li>‘T’: write the remainder of the line to the blackboard in the current room (overwriting whatever previously existed on the blackboard).</li>
+<li>‘R’: read from the blackboard in the current room, executing its contents as if you entered them as a single line in the text adventure.</li>
+<li>‘A’: append the remainder of the line to the blackboard in the current room.</li>
+<li>‘D’: erase the last character of whatever text is written on the blackboard in the current room.</li>
+<li>‘I’: execute the remainder of the line only if the blackboard in this room is empty.</li>
+<li>‘J’: execute the remainder of the line only if the blackboard in this room is not empty.</li>
+<li>‘L’: display a log of the characters you have typed on the real keyboard.</li>
+<li>‘K’: display a log of the characters you have typed on the game keyboard.</li>
+<li>‘V’: toggle ‘verbose’ mode (whether the actions you take while reading a blackboard are described or not).</li>
+<li>‘Q’: restart the game.</li>
+</ul>
+
+<p>There are several possible ways to construct a successful sequence of commands. Many of these ways only use a small subset of the above commands (some of the commands, like ‘L’, ‘K’, and ‘V’ are primarily intended for debugging purposes). Here we describe one way to come up with a successful sequence that only uses the ‘A’, ‘P’, ‘R’, ‘E’, ‘W’, ‘N’, and ‘S’ keys.</p>
+
+<p>Let’s call the log of characters we’ve typed on the real keyboard the <i>real log</i>, and the log of characters we’ve typed on the game keyboard the <i>game log</i>. No matter what we do, at the start the real log will grow faster than the game log. Our goal is to reach a state where we can somehow deal with whatever string of letters has accumulated in the real log.</p>
+
+<p>One way to achieve this is as follows. We will designate one of the blackboards as the “master blackboard”; this will be the blackboard we read from at the very end of the solution. Initially the master blackboard will be empty. For every key we might want to press (one of ‘APREWNS’ in this solution), we assign a “key blackboard” (for simplicity, this can just be the blackboard located at that key’s room). Each key’s blackboard contains a sequence of commands that when read will 1. type that key (on the game keyboard) and 2. append a sequence of commands to the master blackboard that, when read, will press whatever sequence of keys were entered on the game keyboard to read from the key blackboard. Our strategy then proceeds in three phases:</p>
+
+<ul>
+<li>Phase 1: Set up all the key blackboards by navigating to them and writing the appropriate sequence of commands on them. Navigate back to the master blackboard when finished.</li>
+<li>Phase 2: Now the real log is full of a bunch of commands, and the game log is empty. Let s be the state of the real log at the beginning of this phase. For each character c in s, in order, navigate to room c and read the blackboard in this room. This will enter c in the game log, return to the master blackboard room, and append some stuff to the master blackboard.</li>
+<li>Phase 3: Finally, read from the master blackboard. This will append to the game log any commands that were written to the real log during phase 2, thus completing the quine.</li>
+</ul>
+
+<p>For example, let’s say we’ve set up all the key blackboards, the master blackboard is at room H, and we are at room H. Assume our real log starts with the character “N” (and we haven’t typed any keys on the game keyboard yet, so the game log is empty). The first button we must press is in the N room. To do that, we enter the command ‘SE R’, which moves southeast to the N room and reads from the board in the N room. Reading from this board types N on the game keyboard, navigates back to the master blackboard, and appends a sequence of commands to the master blackboard which, when read, will type ‘SER’ on the game keyboard. We proceed like this until we have dealt with the initial backlog of commands in the real log, and then we read from the master keyboard to deal with whatever we have added to the real log while dealing with the initial backlog of commands.</p>
+
+<p>(Technically, this solution does not deal with the very final ‘R’ command needed in phase 3 to read from the master blackboard. This can be dealt with by setting up an “auxiliary” blackboard that simply reads from the master blackboard, and then finally types ‘R’ on the game keyboard). A detailed description of this strategy along with a sample sequence of commands is provided at the end of this document.</p>
+
+<p>There are many other solution strategies. A strategy similar to the above can be implemented using only the commands ‘TPREWNS’. A substantially different strategy is to use the commands ‘I’ or ‘J’ to create a “god string” of commands that performs radically different actions depending on how line breaks are added to it, and have the input be copies of the god string with different line breaks; in this way, the real log can be made very regular, making it much easier to type the same keys on the game keyboard.</p>
+
+<p>Completing this task successfully reveals to the player that the answer to this puzzle is <b>PASIPHAE</b>.</p>
+
+<hr>
+
+<style>pre { white-space: pre-wrap; word-wrap: break-word; }</style>
+<pre>
+We start in room H. We will call this room our “home”. We will only ever use the keys ‘n’, ‘e’, ‘w’, ‘s’, ‘a’, ‘p’, and ‘r’. We will write on the blackboards in rooms G, H, N, E, W, S, A, P, and R.
+
+The blackboard in room G is the “master blackboard”. We will not directly write anything to the “master blackboard” (we will only write on it when reading commands from other blackboards).
+
+The blackboards in rooms N, E, W, S, A, P, and R are “key” blackboards. Each of these blackboards has an “address”: a fixed sequence of commands that navigates from home to that key, reads it, and then returns home. We will write a sequence of commands on each key blackboard that presses the button in its room, then navigates to room G and appends a sequence of commands to the master blackboard that types the key’s address on the game keyboard.
+
+For example, the address of room P is “ne e e e r e”, since “ne e e e” navigates from room H to room P, “r” reads the key blackboard in P (which navigates the player to room G), and “e” moves the player from room G back to home. So the sequence of commands we write on the blackboard in room P is:
+
+p               # type p on the game keyboard
+sw w w w w      # move to room G
+a               # write a sequence of commands to the master blackboard that types “ne e e e r e” on the game keyboard (and then returns to the master blackboard)
+    se e p
+    w w w nw nw p
+    p
+    p
+    p
+    e p
+    w p
+    se e e
+
+Here is what we’ll write on each key blackboard, displayed in the form:
+
+&lt;key&gt; (&lt;address&gt;):
+	&lt;blackboard nicely formatted&gt;
+&lt;blackboard concatenated on one line&gt;
+
+N (sere):
+    p               # type n on the game keyboard
+    nw w            # move to G
+    a               # append commands that type address
+        w w w p
+        ne p
+        e p
+        w p
+        se e e
+pnwwawwwpnepepwpseee
+
+E (nwwwwre):
+    p               # type e on the game keyboard
+    se e e          # move to G
+    a               # append commands that type address
+        se e p
+        w w w w nw nw p
+        p
+        p
+        p
+        e e p
+        w p
+        se e e
+pseeeaseepwwwwnwnwppppeepwpseee
+
+W (nwwwwwre):
+    p               # type w on the game keyboard
+    se e e e        # move to G
+    a               # append commands that type address
+        se e p
+        w w w w nw nw p
+        p
+        p
+        p
+        p
+        e e p
+        w p
+        se e e
+pseeeeaseepwwwwnwnwpppppeepwpseee
+
+S (wwwwre):
+    p               # type s on the game keyboard
+    e e e           # move to G
+    a               # append commands that type address
+        w w w nw p
+        p
+        p
+        p
+        e e p
+        w p
+        se e e
+peeeawwwnwppppeepwpseee
+
+A (wwwwwre):
+    p               # type a on the game keyboard
+    e e e e         # move to G
+    a               # append commands that type address
+        w w w nw p
+        p
+        p
+        p
+        p
+        e e p
+        w p
+        se e e
+peeeeawwwnwpppppeepwpseee
+
+P (neeeere):
+    p               # type p on the game keyboard
+    sw w w w w      # move to G
+    a               # append commands that type address
+        se e p
+        w w w nw nw p
+        p
+        p
+        p
+        e p
+        w p
+        se e e
+pswwwwwaseepwwwnwnwppppepwpseee
+
+R (nwwwre):
+    p               # type r on the game keyboard
+    se e            # move to G
+    a               # append commands that type address
+        se e p
+        w w w w nw nw p
+        p
+        p
+        e e p
+        w p
+        se e e
+pseeaseepwwwwnwnwpppeepwpseee
+
+The blackboard in room H will be the final blackboard we read. It navigates to room G, reads from the master blackboard, and then finally navigates to room R and presses it to take care of the final ‘r’ command.
+
+H:
+    w r         # append all the things
+    w nw p      # press R
+wrwnwp
+
+In phase 1 we must navigate to all of these keys and write to their blackboards as described above. We need to visit rooms H, N, E, W, S, A, P, and R. We will take the path H -> N -> P -> R -> E -> W -> A -> S -> H.
+
+# start at H
+awrwnwp                                     # write to H
+se                                          # go to N
+apnwwawwwpnepepwpseee                       # write to N
+enenee                                      # go to P
+apswwwwwaseepwwwnwnwppppepwpseee            # write to P
+wwwwww                                      # go to R
+apseeaseepwwwwnwnwpppeepwpseee              # write to R
+w                                           # go to E
+apseeeaseepwwwwnwnwppppeepwpseee            # write to E
+w                                           # go to W
+apseeeeaseepwwwwnwnwpppppeepwpseee          # write to W
+sw                                          # go to A
+apeeeeawwwnwpppppeepwpseee                  # write to A
+e                                           # go to S
+apeeeawwwnwppppeepwpseee                    # write to S
+eeee                                        # go to H
+
+The real log after phase 1 is:
+
+awrwnwpseapnwwawwwpnepepwpseeeeneneeapswwwwwaseepwwwnwnwppppepwpseeewwwwwwapseeaseepwwwwnwnwpppeepwpseeewapseeeaseepwwwwnwnwppppeepwpseeewapseeeeaseepwwwwnwnwpppppeepwpseeeswapeeeeawwwnwpppppeepwpseeeeapeeeawwwnwppppeepwpseeeeeee
+
+For each character in this real log, we need to enter the address of that character. This address navigates to the corresponding key blackboard, reads from that key blackboard, and then navigates back to home. Recall that the addresses are
+
+N: sere
+E: nwwwwre
+W: nwwwwwre
+S: wwwwre
+A: wwwwwre
+P: neeeere
+R: nwwwre
+
+We can generate a sequence of commands by replacing each character in the above log with its address (one good way to do this is via judicious use of find-and-replace). This results in the following command for phase 2:
+
+wwwwwrenwwwwwrenwwwrenwwwwwreserenwwwwwreneeeerewwwwrenwwwwrewwwwwreneeeereserenwwwwwrenwwwwwrewwwwwrenwwwwwrenwwwwwrenwwwwwreneeeereserenwwwwreneeeerenwwwwreneeeerenwwwwwreneeeerewwwwrenwwwwrenwwwwrenwwwwrenwwwwreserenwwwwreserenwwwwrenwwwwrewwwwwreneeeerewwwwrenwwwwwrenwwwwwrenwwwwwrenwwwwwrenwwwwwrewwwwwrewwwwrenwwwwrenwwwwreneeeerenwwwwwrenwwwwwrenwwwwwreserenwwwwwreserenwwwwwreneeeereneeeereneeeereneeeerenwwwwreneeeerenwwwwwreneeeerewwwwrenwwwwrenwwwwrenwwwwrenwwwwwrenwwwwwrenwwwwwrenwwwwwrenwwwwwrenwwwwwrewwwwwreneeeerewwwwrenwwwwrenwwwwrewwwwwrewwwwrenwwwwrenwwwwreneeeerenwwwwwrenwwwwwrenwwwwwrenwwwwwreserenwwwwwreserenwwwwwreneeeereneeeereneeeerenwwwwrenwwwwreneeeerenwwwwwreneeeerewwwwrenwwwwrenwwwwrenwwwwrenwwwwwrewwwwwreneeeerewwwwrenwwwwrenwwwwrenwwwwrewwwwwrewwwwrenwwwwrenwwwwreneeeerenwwwwwrenwwwwwrenwwwwwrenwwwwwreserenwwwwwreserenwwwwwreneeeereneeeereneeeereneeeerenwwwwrenwwwwreneeeerenwwwwwreneeeerewwwwrenwwwwrenwwwwrenwwwwrenwwwwwrewwwwwreneeeerewwwwrenwwwwrenwwwwrenwwwwrenwwwwrewwwwwrewwwwrenwwwwrenwwwwreneeeerenwwwwwrenwwwwwrenwwwwwrenwwwwwreserenwwwwwreserenwwwwwreneeeereneeeereneeeereneeeereneeeerenwwwwrenwwwwreneeeerenwwwwwreneeeerewwwwrenwwwwrenwwwwrenwwwwrewwwwrenwwwwwrewwwwwreneeeerenwwwwrenwwwwrenwwwwrenwwwwrewwwwwrenwwwwwrenwwwwwrenwwwwwreserenwwwwwreneeeereneeeereneeeereneeeereneeeerenwwwwrenwwwwreneeeerenwwwwwreneeeerewwwwrenwwwwrenwwwwrenwwwwrenwwwwrewwwwwreneeeerenwwwwrenwwwwrenwwwwrewwwwwrenwwwwwrenwwwwwrenwwwwwreserenwwwwwreneeeereneeeereneeeereneeeerenwwwwrenwwwwreneeeerenwwwwwreneeeerewwwwrenwwwwrenwwwwrenwwwwrenwwwwrenwwwwrenwwwwrenwwwwre
+
+Finally in phase 3 we simply read from the blackboard in room H:
+
+r
+</pre>
+
+<hr>
+
+<p>The approach detailed here uses 18 lines of commands and 1830 commands in total. If you’ve found a way to solve the puzzle using fewer lines or fewer commands, please contact us at <a href="mailto:galacticpuzzlesetters@gmail.com">galacticpuzzlesetters@gmail.com</a>. We’d love to hear from you!</p> 
+
+
+        
+
+        
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="../static/images/btnleft8-h.png%3F1517887534">
+            <img src="../static/images/btnmid8-h.png%3F1517887534">
+            <img src="../static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>

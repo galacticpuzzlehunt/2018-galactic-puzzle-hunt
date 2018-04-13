@@ -1,0 +1,225 @@
+
+
+
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9HXglGF1lcVw==","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":29}</script>
+        
+<title>Solution: Cryptic Command</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="../static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="../static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='../index.html'>Home</a>
+                    <a href='../rules.html'>Rules</a>
+                    
+                        <a href='../story.html'>Story</a>
+                    
+                    
+                        <a href='../puzzles.html'>Puzzles</a>
+                    
+                    <a href='../teams.html'>Teams</a>
+                    <a href='../faq.html'>FAQ</a>
+                    
+                        <a href='../errata.html'>Updates</a>
+                    
+                    
+                        <a href='../wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='../archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+<a href="../puzzle/cryptic-command.html" class="btn btn--small">Back to the puzzle</a>
+
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="../login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+
+<style>
+.puzzle-body img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+.puzzle-body table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.puzzle-body tr:empty {
+  height: 1em;
+}
+.puzzle-body td {
+  padding: 5px;
+  border: 1px solid black;
+}
+.puzzle-body th {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+.puzzle-body hr {
+  border-color: initial;
+}
+.puzzle-body ol li {
+  list-style-type: inherit;
+}
+.puzzle-body td pre {
+  margin: 0;
+}
+</style>
+
+<div class="puzzle-page-body">
+    <h1 class="page-header puzzle-page__title">
+        
+        Solution: Cryptic Command
+        <div class="solved-title-marker">Answer: <span class="solved-title-answer">MANAGER</span></div>
+        
+    </h1>
+    <div class="puzzle-body solution-body">
+        <h5 class="solution-puzzle-subheader">
+            
+            Written by
+            
+Seth Mulhall<br>
+Additional clues by Lewis Chen, Anderson Wang, Jon Schneider, and Charles Tam
+
+            
+        </h5>
+        
+
+<p>Upon opening this puzzle, we are greeted with a very strange Cryptic Command, a card from Magic: the Gathering. Whereas the actual <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=438614">Cryptic Command</a> is a powerful card in the game, this one allows us to change cryptic clues.</p>
+<p>As we will discover later, each pair of modes corresponds to a specific color of mana, or numbers.</p>
+<table>
+<tr><th>Mode Pair</th><th>Color</th></tr>
+<tr><td>1 + 2</td><td>Numbers</td></tr>
+<tr><td>1 + 3</td><td>Red</td></tr>
+<tr><td>1 + 4</td><td>Blue</td></tr>
+<tr><td>2 + 3</td><td>Black</td></tr>
+<tr><td>2 + 4</td><td>Green</td></tr>
+<tr><td>3 + 4</td><td>White</td></tr>
+</table>
+<p>Below the Cryptic Command are 17 more cards with a letter for art and 1-3 cryptic clues each. These cryptic clues can be solved after applying two of the modes from the Cryptic Command to it, as shown below. Each answer is associated with either one of the 5 Magic colors or a number. Taken together, the clues on a card indicate the <a href="https://mtg.gamepedia.com/Mana_cost">casting cost</a> of a unique card in Magic: the Gathering (e.g., Emrakul, the Promised End has a casting cost of {13}, and no other card does). These costs can be searched for using the official MtG card database, <a href="http://gatherer.wizards.com/Pages/Advanced.aspx">Gatherer</a>, or any number of unofficial MtG card search websites.</p>
+<table>
+<tr><th>Card</th><th>Clue</th><th>Modes</th><th>Actual Clue</th><th>Answer</th><th>Word play</th><th>Color / Number</th><th>Actual Card</th></tr>
+<tr><td>T</td><td>Uniform, erratic ovary without a following one</td><td>3: E -&gt; O<br>4: -L</td><td>Uniform, erratic ovary without a following one</td><td>LIVERY -&gt; IVORY</td><td>OVARY - A anagram after I</td><td>White</td><td>Archangel&rsquo;s Light</td></tr>
+<tr><td></td><td>Grand prize: car and tweed</td><td>1: +D<br>2: -T</td><td>Grand prize: card and weed</td><td>JACKPOT</td><td>JACK + POT</td><td>7</td><td></td></tr>
+<tr><td>C</td><td>First fight crippled tough</td><td>1: +R<br>3: U -&gt; A</td><td>First fight crippled trough</td><td>FLUME -&gt; FLAME</td><td>Fight + LAME</td><td>Red</td><td>Bearer of the Heavens</td></tr>
+<tr><td></td><td>Rime and din: Indianapolis, Indiana</td><td>1: +C<br>2: -D</td><td>Crime and In: Indianapolis, Indiana</td><td>SIN</td><td>indianapoliS INdiana</td><td>7</td><td></td></tr>
+<tr><td>U</td><td>I hear dome and corn bun</td><td>1: +A<br>2: -M</td><td>I hear doe and acorn bun</td><td>DOUGHNUT</td><td>DOE homophone + NUT</td><td>12</td><td>Blinkmoth Infusion</td></tr>
+<tr><td></td><td>I&#39;ve occupied railroad cub</td><td>1: +L<br>4: -D</td><td>I&#39;ve occupied railroad club</td><td>DRIVER -&gt; RIVER</td><td>IVE in RR</td><td>Blue</td><td></td></tr>
+<tr><td></td><td>Winter Olympians, Sir Sikes</td><td>1: +T<br>4: -R</td><td>Winter Olympians stir Sikes</td><td>SKIERS -&gt; SKIES</td><td>E + KISS anagram</td><td>Blue</td><td></td></tr>
+<tr><td>I</td><td>Defeat Bert without right</td><td>1: +E<br>3: A -&gt; E</td><td>Defeat beret without right</td><td>BEAT -&gt; BEET</td><td>BERET - R</td><td>Red</td><td>Boros Battleshaper</td></tr>
+<tr><td></td><td>Loved without large rent quilt</td><td>3: U -&gt; O<br>4: -T</td><td>Loved without large rent quilt</td><td>DUVET -&gt; DOVE</td><td>LOVED - L anagram</td><td>White</td><td></td></tr>
+<tr><td></td><td>Toned sinner thighs</td><td>1: +S<br>2: -S</td><td>Stoned inner thighs</td><td>HIGH</td><td>tHIGHs</td><td>5</td><td></td></tr>
+<tr><td>F</td><td>Empty fleet without a consult </td><td>2: -T<br>4: -O</td><td>Empty fleet without a consul</td><td>ENVOY -&gt; ENVY</td><td>E + NAVY - A</td><td>Green</td><td>Death Mutation</td></tr>
+<tr><td></td><td>Shaped a cure with endless agony</td><td>1: +S<br>2: -D</td><td>Shape a curse with endless agony</td><td>HEXAGON</td><td>HEX + AGONy</td><td>6</td><td></td></tr>
+<tr><td></td><td>Social events hurt</td><td>2: -T<br>3: A -&gt; O</td><td>Social evens hurt</td><td>AIL -&gt; OIL</td><td>sOcIaL</td><td>Black</td><td></td></tr>
+<tr><td>O</td><td>Ice alien camel after directions</td><td>1: +N<br>2: -L</td><td>Nice alien came after directions</td><td>SWEET</td><td>ET after SWE</td><td>16</td><td>Draco</td></tr>
+<tr><td>M</td><td>Unfortunate, amusing and old lose stops</td><td>1: +B<br>2: -S</td><td>Unfortunate, amusing and bold lose tops</td><td>UNLUCKY</td><td>fUN + pLUCKY</td><td>13</td><td>Emrakul, the Promised End</td></tr>
+<tr><td>G</td><td>I bin my orangutan</td><td>2: -B<br>4: -K</td><td>I in my orangutan</td><td>MONKEY -&gt; MONEY</td><td>ONE in MY</td><td>Green</td><td>Garruk, Apex Predator</td></tr>
+<tr><td></td><td>Sea animal and diver&#39;s fire hidden in stash</td><td>1: +E<br>2: -E</td><td>Sea animal and diverse fir hidden in stash stash</td><td>STARFISH</td><td>FIR anagram in STASH</td><td>5</td><td></td></tr>
+<tr><td></td><td>Hill brat returns</td><td>2: -B<br>3: O -&gt; A</td><td>Hill rat returns</td><td>TOR -&gt; TAR</td><td>RAT reversed</td><td>Black</td><td></td></tr>
+<tr><td>L</td><td>Steam&#39;s hundred rank</td><td>2: -S<br>3: E -&gt; O</td><td>Team&#39;s hundred rank</td><td>CREW -&gt; CROW</td><td>C + ROW</td><td>Black</td><td>Glissa, the Traitor</td></tr>
+<tr><td></td><td>Microsoft acquires operating system from Red Sea partner</td><td>2: -N<br>4: -E</td><td>Microsoft acquires operating system from Red Sea parter</td><td>MOSES -&gt; MOSS</td><td>MS in OS</td><td></td><td></td></tr>
+<tr><td></td><td>Marsh is your nineteenth backup option?</td><td>2: -H<br>4: -E</td><td>Mars is your nineteenth backup option?</td><td>PLANET -&gt; PLANT</td><td>PLAN T</td><td>Green</td><td></td></tr>
+<tr><td>Y</td><td>Thin sound of nun preceders</td><td>1: +K<br>2: -N</td><td>Think sound of nu preceders</td><td>MUSE</td><td>MUS homophone</td><td>9</td><td>Greater Gargadon</td></tr>
+<tr><td></td><td>Leave every other root shed </td><td>1: +N<br>3: I -&gt; O</td><td>Leaven every other root shed</td><td>RISE -&gt; ROSE</td><td>RoOt ShEd</td><td>Red</td><td></td></tr>
+<tr><td>P</td><td>Concluded carbon forte</td><td>3: E -&gt; U<br>4: -S</td><td>Concluded carbon forte</td><td>CLOSED -&gt; CLOUD</td><td>C + LOUD</td><td>White</td><td>Guardian of Vitu-Ghazi</td></tr>
+<tr><td></td><td>Holds fast French souffle starter</td><td>2: -S<br>4: -P</td><td>Holds fat French souffle starter</td><td>GRASPS -&gt; GRASS</td><td>GRAS + S</td><td>Green</td><td></td></tr>
+<tr><td></td><td>Wax cells, wheat, and Spanish sour</td><td>1: +C<br>2: -A</td><td>Wax cells, whet, and Spanish scour</td><td>HONEYCOMB</td><td>HONE + Y + COMB</td><td>6</td><td></td></tr>
+<tr><td>N</td><td>Buy the rapper&#39;s data</td><td>1: +W<br>2: -U</td><td>By the wrappers data</td><td>BYTE</td><td>BY + ThE</td><td>8</td><td>Primal Surge</td></tr>
+<tr><td></td><td>Teen actor Smith Todd Jean dies </td><td>2: -T<br>4: -N</td><td>Teen actor Smith odd Jean dies</td><td>JADEN -&gt; JADE</td><td>JeAn DiEs</td><td>Green</td><td></td></tr>
+<tr><td></td><td>Apex mangled highest point</td><td>2: -X<br>4: -K</td><td>Ape mangled highest point</td><td>PEAK -&gt; PEA</td><td>APE anagram</td><td>Green</td><td></td></tr>
+<tr><td>S</td><td>Princess met con </td><td>1: +I<br>2: -T</td><td>Princess me coin</td><td>DIME</td><td>DI + ME</td><td>10</td><td>Primeval Protector</td></tr>
+<tr><td></td><td>Poem closes Morty&#39;s partner goop</td><td>2: -C<br>4: -S</td><td>Poem loses Morty&#39;s partner goop</td><td>SLIME -&gt; LIME</td><td>LIMERICK - RICK</td><td>Green</td><td></td></tr>
+<tr><td>A</td><td>Fool starts to delight tall regal kings</td><td>2: -T<br>3: O -&gt; A</td><td>Fool starts to delight all regal kings</td><td>DORK -&gt; DARK</td><td>Delight + All + Regal + Kings</td><td>Black</td><td>Rakdos Augermage</td></tr>
+<tr><td></td><td>Rice of gendered anger</td><td>1: +P<br>3: A -&gt; I</td><td>Price of gendered anger</td><td>FARE -&gt; FIRE</td><td>F + IRE</td><td>Red</td><td></td></tr>
+<tr><td></td><td>Beheaded scarred puzzle adventure game</td><td>2: -R<br>3: I -&gt; A</td><td>Beheaded scared puzzle adventure game</td><td>RIVEN -&gt; RAVEN</td><td>cRAVEN</td><td>Black</td><td></td></tr>
+<tr><td>E</td><td>Public relations about gorilla seasoning</td><td>3: E -&gt; A<br>4: -P</td><td>Public relations about gorilla seasoning</td><td>PEPPER -&gt; PAPER</td><td>PR around APE</td><td>White</td><td>Storm Herd</td></tr>
+<tr><td></td><td>Tissue owns Twister</td><td>3: E -&gt; O<br>4: -I</td><td>Tissue owns Twister</td><td>SINEW -&gt; SNOW</td><td>OWNS anagram</td><td>White</td><td></td></tr>
+<tr><td></td><td>Waver, recalling red zone addendum</td><td>1: +E<br>2: -Z</td><td>Weaver, recalling red one addendum</td><td>SPIDER</td><td>RED + I + PS all reversed</td><td>8</td><td></td></tr>
+<tr><td>D</td><td>Trendy, glutted reef part</td><td>2: -L<br>3: O -&gt; A</td><td>Trendy, gutted reef part</td><td>COOL -&gt; COAL</td><td>COrAL</td><td>Black</td><td>Undermine</td></tr>
+<tr><td></td><td>Told stories about ad forerunners</td><td>1: +D<br>4: -I</td><td>Told stories about dad forerunners</td><td>SAID -&gt; SAD</td><td>Stories + About + Dad</td><td>Blue</td><td></td></tr>
+<tr><td></td><td>Sever the borders in conflict</td><td>1: +R<br>4: -I</td><td>Server the borders in conflict</td><td>WAITER -&gt; WATER</td><td>ThE in WAR</td><td>Blue</td><td></td></tr>
+<tr><td>R</td><td>Cuts up unfinished group of tees</td><td>1: +R<br>4: -H</td><td>Cuts up unfinished group of trees</td><td>CHOPS -&gt; COPS</td><td>COPSe</td><td>Blue</td><td>Voidslime</td></tr>
+<tr><td></td><td>Transfer 500 French, God Almighty at last</td><td>1: +L<br>4: -W</td><td>Transfer 500 French gold almighty at last</td><td>DOWRY -&gt; DORY</td><td>D + OR + almightY</td><td>Blue</td><td></td></tr>
+<tr><td></td><td>The French and Latin birds&#39; cults</td><td>2: -L<br>4: -C</td><td>The French and Latin birds&#39; cuts</td><td>CLEAVES -&gt; LEAVES</td><td>LE AVES</td><td>Green</td><td></td></tr>
+</table>
+<p>After identifying these cards, we find that the words at the bottom of the puzzle can be found in exactly one of these cards&rsquo; textboxes (e.g. &ldquo;step&rdquo; appears on <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=380378">Bearer of the Heavens</a> and none of the other 16 cards). By replacing the word with the associated card&rsquo;s letter (e.g. the first word &ldquo;step&rdquo; goes to C), we can translate it into the following:</p>
+<p style="text-align: center">Clan cod consume you (5)<br>Old smelly fruit missing a good start (6)<br>Former girlfriend island in France emit air (5)<br>Spirits spin menagerie yeast (4)<br>Appropriated affirmation in tern (5)<br>After time gateau loses first ten fastener (4)<br>Incendiary Generic Austere Generic Profane Cryptic Primal</p>
+<p>The first six are further cryptic clues, with solutions as follows:</p>
+<table>
+<tr><th>Clue</th><th>Modes</th><th>Actual Clue</th><th>Answer</th><th>Word play</th></tr>
+<tr><td>Clan cod consume you</td><td>1: +L<br>2: -L</td><td>Can cold consume you</td><td>COULD</td><td>COLD around U</td></tr>
+<tr><td>Old smelly fruit missing a good start</td><td>1: +B<br>3: A -&gt; U</td><td>Bold smelly fruit missing a good start</td><td>DARING -&gt; DURING</td><td>DURIAN - A + Good</td></tr>
+<tr><td>Former girlfriend island in France emit air</td><td>3: A -&gt; I<br>4: -H</td><td>Former girlfriend, island in France emit air</td><td>EXHALE -&gt; EXILE</td><td>EX + ILE</td></tr>
+<tr><td>Spirits spin menagerie yeast</td><td>2: -Y<br>4: -B</td><td>Spirits spin menagerie east</td><td>BOOZE -&gt; OOZE</td><td>ZOO reversed + E</td></tr>
+<tr><td>After time gateau loses first ten fastener</td><td>1: +T<br>4: -S</td><td>After time gateau loses first tent fastener</td><td>STAKE -&gt; TAKE</td><td>T + cAKE</td></tr>
+<tr><td>Appropriated affirmation in tern</td><td>2: -R<br>3: A -&gt; O</td><td>Appropriated affirmation in ten</td><td>TAKEN -&gt; TOKEN</td><td>OK in TEN</td></tr>
+</table>
+<p>The last 7 lines are the names of the <a href="https://mtg.gamepedia.com/Lorwyn#Cycles">cycle of Commands</a> in Magic (including our very own Cryptic Command) and the word GENERIC twice. Each Command is one of the five colors, and &ldquo;generic&rdquo; mana is used to describe the numbers in casting costs. Since each pair of modes is associated with a color, we can assign these six final clued words to the words in the final line, giving the phrase:</p>
+<p style="text-align: center">DURING COULD EXILE COULD TOKEN TAKE OOZE</p>
+<p>Replacing these words with the appropriate card&rsquo;s letter once more gives the answer <b>MANAGER</b>.</p>
+
+
+
+        
+
+        
+        <hr>
+        <h5 class="solution-puzzle-subheader">Author&rsquo;s Notes</h5>
+        <p>This puzzle was inspired by the fact that certain geographical features can be used to clue colors of Magic (like using GALAPAGOS to indicate Blue). In fact, this is what a first draft of the puzzle did, but we quickly saw that using cryptics for words like WAIPOUA and OKEFENOKEE wouldn&rsquo;t be fun for anyone. Even after going with shorter words, this puzzle still turned out really difficult. I hope it was still fun!</p><p>When this answer was assigned to me, the editor said &ldquo;I just thought of a manager as someone who commands&rdquo;. He missed the great pun in &ldquo;mana&rdquo;-ger, and I&rsquo;m grateful this answer was assigned to this puzzle.</p><p>An initial version of this puzzle had words at the bottom, like &ldquo;Stokov&rdquo;, that could more easily be associated with cards. This turned out to be a bit of a disaster in testsolving when the testsolving group solved a few of the cryptics and then managed to identify all 17 cards using only the words in their boxes, eventually solving the puzzle &ldquo;backwards&rdquo;! The original version also didn&rsquo;t provide the card to letter mapping, as we intended it to be a &ldquo;cryptic-gram&rdquo;, but we added those letters when we realized that the cryptogram was not that clear without having exactly 26 cards, and it wasn&rsquo;t the interesting part of the puzzle anyways.</p>
+        
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="../static/images/btnleft8-h.png%3F1517887534">
+            <img src="../static/images/btnmid8-h.png%3F1517887534">
+            <img src="../static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>

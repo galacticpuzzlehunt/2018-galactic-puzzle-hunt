@@ -1,0 +1,319 @@
+
+
+
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9DQwRDFkA=","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":26}</script>
+        
+        <title>Galactic Puzzle Hunt</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='index.html'>Home</a>
+                    <a href='rules.html'>Rules</a>
+                    
+                        <a href='story.html'>Story</a>
+                    
+                    
+                        <a href='puzzles.html'>Puzzles</a>
+                    
+                    <a href='teams.html'>Teams</a>
+                    <a href='faq.html'>FAQ</a>
+                    
+                        <a href='errata.html'>Updates</a>
+                    
+                    
+                        <a href='wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+<a href="wrapup/submissions.html" class="btn btn--small">Submissions</a>
+<a href="wrapup/finishers.html" class="btn btn--small">Finishers</a>
+<a href="bigboard.html" class="btn btn--small">Bigboard</a>
+<a href="stats.1.html" class="btn btn--small">Stats</a>
+
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+
+<style>
+  .tight_margins * {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+
+  aside {
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  p img {
+    width: 600px;
+    max-width: 100%;
+  }
+</style>
+
+<div class="puzzle-page-body">
+<h1 class="page-header puzzle-page__title">Wrap-Up</h1>
+<div class="puzzle-body">
+<img src="static/images/oven32.png%3F1521187167" class="puzzle-page-round-logo">
+
+<p style="text-align: center">
+<iframe title="YouTube video player" class="youtube-player" type="text/html"
+width="600" height="400" src="https://www.youtube.com/embed/shbgRyColvE?rel=0"
+frameborder="0" allowFullScreen></iframe>
+</p>
+
+<p>First, congratulations to the top five teams, who all finished before hints were released on Monday: <strong>have you tried random anagramming</strong>; <strong>Tasty Samoas, Please Ingest</strong>; <strong>Killer Chicken Bones</strong>; <strong>Plugholate chip cookies</strong>; and <strong>Just for the Halibut</strong>. In total, 45 teams finished the hunt (with 4 more in endgame when it concluded)! Over 550 teams were registered, almost 450 of them solved a puzzle, and about 200 finished the intro round by solving Consolation Prize.</p>
+
+<p>The rest of this page will be a recap of the process of making this hunt, followed by some fun stats, so as a warning, there will be lots of puzzle spoilers. It’s also very long, so feel free to just skip to the <a href="wrapup.html#fun">fun stuff</a>!</p>
+
+<h2>Plot Summary</h2>
+
+<p>At the start of the hunt, all teams began an intense cookie clicking competition in a race to a billion cookies! Solving puzzles gave teams an ever-increasing number of cookies which would, in turn, unlock more puzzles. However, it soon became clear that something was amiss—a strange team, COOKIECOOKIECOOKIE, was gaining cookies at an alarmingly fast rate! Eventually, this mysterious team, with only the team member “me”, would win with a billion cookies, while every other team had far fewer cookies.</p>
+
+<p style="text-align:center"><img src="static/images/wrapup/image1.png%3F1522301360"><br>
+<em>A few teams noticed ahead of time.</em></p>
+
+<p>Each team saw a customized view of COOKIECOOKIECOOKIE’s progress on their leaderboard, which scaled with their own puzzle solves. After fully unlocking the first round, they were sent a notification that COOKIECOOKIECOOKIE had won the hunt. However, shortly after, they learned that this team did not in fact solve any puzzles and instead got their cookies through somewhat questionable means. Teams were therefore tasked with investigating COOKIECOOKIECOOKIE by solving the puzzle they had conveniently left behind: Consolation Prize, the first round meta (the specific emails we sent to teams are in the Story tab).</p>
+
+<p>Solving the meta revealed that COOKIECOOKIECOOKIE was in fact Cookie Monster, who had his own nefarious plans to take over the entire galaxy’s cookie supplies. This led to the second part of the hunt, where teams collected three other cookie types: Chessmen, Fortune Cookies, and Animal Crackers, each with a round of eight puzzles and one metapuzzle. By solving each meta, teams received three tools: an ANDROID, a BEST-SELLING CRIME NOVEL, and a CALL SIGN.</p>
+
+<p>However, these tools were unusable without The Great Galactic Oven, which had mysteriously disappeared. After finishing the three metas, teams followed the trail to the Great Galactic Bakery (the start of the metameta), where they learned that the Cookie Monster had stolen the Oven! They then had to use the three cookie meta answers to determine the Cookie Monster’s responses to the website’s three security questions, and then edit a suspicious-looking browser cookie in order to log-in as the Cookie Monster.</p>
+
+<p>Once teams broke into Cookie Monster’s account, they were tasked with getting rid of all of his cookies using the three tools, now powered by the Oven. Each tool was capable of performing a specific manipulation on the number values of the four cookie types. Teams that completed the hunt were thanked for saving the galaxy from the Cookie Monster, and were sent a certificate in lieu of the one billion cookies, which had sadly been appropriated for use in restoring the cookie economy.</p>
+
+<div class="no-break story-chunk">
+  <p class="story-chunk">Dear &lt;teamname&gt;,</p>
+
+  <p>You did it! You brought the Cookie Monster down to 0 cookies, and saved us from the cookie apocalypse. Congratulations on finishing the hunt!</p>
+
+  <p>Unfortunately, all of our cookies are being used to help rebuild the cookie economy in the aftermath of the Cookie Monster’s rampage, so we are unable to award you the prize of 1 billion cookies.</p>
+
+  <p>Instead, we hope this certificate will serve as an adequate replacement!</p>
+
+  <p>Best,</br>
+    Galactic Puzzlesetters</p>
+</div>
+
+<p style="text-align: center;"><img src="static/images/wrapup/certificate.png%3F1522301360"></p>
+
+<h2>Writing the Hunt</h2>
+
+<h4>Goals</h4>
+
+<p>Some of our goals for this year were:</p>
+<ul>
+<li>Better route easy puzzles to less experienced teams, and make the hunt more satisfying for people of all skill levels.</li>
+<li>More tightly integrate the theme into the puzzles and hunt structure.</li>
+<li>Do something clever with the scoreboard :)</li>
+<li>Develop a more organized system of writing, test-solving, and validating puzzles.</li>
+</ul>
+
+<h4>Theme and Structure</h4>
+
+<p>We had planned on starting work on the hunt around October/November, which we thought would give us plenty of time to get the hunt to a polished state. We started seriously discussing and voting on the theme towards the end of September.</p>
+
+<p>When thinking about the overall theme, we tried to consider combinations of story, structure, and a final metapuzzle that strongly complemented one another. The Cookie Clicker theme was suggested early on and many people were excited about it, so we decided to pursue it after fleshing out the structure of the metapuzzles.</p>
+
+<p>For the structure, we had the idea for the final hacking puzzle and “clickaround” relatively early on, although the details of the puzzle were revised a few times. We decided fairly early that we wanted to have an intro round as well as around the 40 puzzles we ended up making for the hunt this year, and called for round metapuzzle ideas in November, finalizing them in December. The metapuzzles were made mostly independently, so it was sort of a happy coincidence that we ended up with 8 puzzles in each round, despite the meta answers all having distinct lengths.</p>
+
+<p>Other parts of the structure were finalized much later. We waited until most of the puzzles had been written before deciding on the unlock structure and puzzle order, and the precise details of the story were modified multiple times. We ended up putting the most difficult/long puzzles (o ea / Wrd Srch, Destructive Interference, Adventure, Third Rail, Pride and Accomplishment, USPC) in the early/middle parts of each round because we thought a) Teams are more likely to encounter them when their brains are still sharp, b) Putting them later in the round would make them much more likely to get backsolved, and c) Getting a few easier puzzles near the end of the hunt might feel relaxing and rewarding after getting through some tough puzzles. The one exception was Cryptic Command, which was placed late in the round to separate it from the other cryptic, Earth-shattering.</p>
+
+<p>The hint system was also finalized very late. We didn’t want to use yes/no questions again, as we found last year that they weren’t nearly as helpful as we thought, so we considered either having canned hints or freeform hints (or some combination, like selecting from a dropdown of possible hints). We went with freeform hints as we thought those would be the most helpful overall, though we put a strict cap on the number, as we got really burned out by the “unlimited hints” from last year.</p>
+
+<h4>Puzzle Writing and Testsolving</h4>
+
+<p>This year we used <a href="https://github.com/mysteryhunt/puzzle-editing">puzzletron</a> to organize the puzzle-writing, editing, testsolving, and factchecking process. This proved fairly effective and was helpful when managing testsolving groups and monitoring the status of all the puzzles in our hunt, especially compared to the Google Sheets-based approach we used last year. Each puzzle was assigned an editor to review the idea and contribute feedback at each stage of writing and revision, although in most cases additional revision was done more informally.</p>
+
+<p>We did most of our puzzle writing after Mystery Hunt in late January and early February and set internal deadlines for various puzzle milestones. A lot of our testsolving was done impromptu, but later on we organized various internal testsolving sessions to refine our unfinalized puzzles.
+</p>
+
+<p>We tried running a “full-hunt testsolve” the weekend before the hunt, but we didn’t end up getting enough testsolvers to make it through the whole hunt. This meant that the end-game of editing your cookie to spoof as the Cookie Monster was untested going into the hunt, and to compensate we tried to make the flavortext clue browser cookies (and the security questions) as clearly as possible.</p>
+
+<h4>Organization</h4>
+
+<p>Once again, we used a Discord server as a primary means of communication and organization. We had numerous meetings early on to discuss the theme and structure, and meetings to finalize hunt details.</p>
+
+<p>As the hunt began, we had dedicated alert channels for team registrations, email reply discussion, hint requests and discussion, and answer submissions. (Submissions for The Answer to This Puzzle Is… were given a channel of their own.)</p>
+
+<h4>Website</h4>
+
+<p>The vast majority of our website was built using Django. We were able to reuse various parts of last year’s hunt code, although this year’s theme involved a lot of additional development work. The cookie clickers required extra considerations to handle the scale we were expecting. The backend was built using a Go websocket server with Redis to handle storage of the cookie state; the frontend was built with Vue.js.</p>
+
+<p>Several teams have asked us for the source code for our site so that they can build a hunt of their own. We are still discussing whether and how we would want to do this. However, if you have questions about how we accomplished something on the tech side, feel free to email us and we’ll do our best to answer.</p>
+
+<h2>Reflections on the Hunt</h2>
+
+<h4>Timing</h4>
+
+<p>We had some trouble predicting how long the hunt would take. We’d hoped that at least a few teams would finish by Sunday night, before hints were released on Monday, but for all we knew, 10 teams could have finished on Saturday; we ran a prediction contest, and guesses for the first finish ranged from Saturday evening to Monday afternoon. We were a little worried when many teams ran into all of the hard/long puzzles on Saturday, but solvers gradually made their way through the gauntlet and 5 teams ended up finishing Sunday evening, which we were very happy (and relieved) about.</p>
+
+<p>Some teams remarked that they weren’t expecting the hunt to take so long and wished that they would have known what they were getting into beforehand. While we also weren’t sure how long it would take, we could have made it clearer in the FAQs that the second half of the hunt would be quite hard.</p>
+
+<h4>General Format</h4>
+<p>In general, teams seemed to prefer this year’s progress-based format. Many teams liked the fact that the most competitive portion of the hunt was on a weekend, as it’s much easier to block out a weekend to do puzzles as opposed to finding time every day for a week. Teams also very much liked how they could solve at their own pace. However, a considerable number of teams said that they preferred the more relaxed pace of last year’s time-based (“Australian”) format, and also liked how you would be guaranteed new puzzles to work on each day, as opposed to potentially getting roadblocked on the harder puzzles in this format. In the future, we’ll continue to experiment with the format and try to address the issues brought up in feedback.</p>
+
+<p>Virtually every team that commented on the “intro round” of 12 easier puzzles thought it was a good idea, as it provided a warm-up for the later puzzles and also served as a milestone that yielded a sense of pride and accomplishment.</p>
+
+<p>One small thing we wish we had done was to start the hunt a few hours later (perhaps at 6:28 PM) to better accommodate work schedules for American solvers.</p>
+
+<h4>Unlock Structure</h4>
+
+<p>We had a lot of difficulty deciding how many puzzles would be open to teams: too few and you might have bottlenecks, too many and you can easily feel overwhelmed. We eventually came up with the unlock numbers you saw in the hunt, which meant that an average of ~5 puzzles were open at any time in the first round of 12 puzzles, and ~7 puzzles were open among the later rounds. These numbers worked well for top teams, but many others thought they felt too bottlenecked immediately after the first round (and no team said that they were overwhelmed with the number of open puzzles), so we think 8-9 puzzles open at a time may have provided a better experience overall.</p>
+
+<p>Because our three metas were fairly backsolvable, we intentionally required you to solve at least 6 out of 8 of the puzzles in the round before the meta could be unlocked. We also intentionally positioned some of the easier puzzles towards the end the round so that teams couldn’t simply backsolve all of our hardest puzzles. This did lead to some frustration, but we still think it was the right decision. However, it might have boosted teams’ morales to let them know that they could expect easier puzzles later on.</p>
+
+<p>We recognized that some teams would inevitably get stuck in our very difficult cookie rounds, so we also auto-unlocked more and more of the hunt over the course of the week so that every team would get a chance to see every puzzle. The reaction to this auto-unlocking was more mixed than we expected: several teams felt that they “lost their progress” when the auto-unlocking caught up to them, or that the large number of puzzles available at the end was too overwhelming. We do want teams to be able see the whole hunt if they want, but we’ll keep this feedback in mind for the future.</p>
+
+<h4>Difficulty/Puzzle Selection</h4>
+<p>This hunt had several very difficult and/or long puzzles. These have generally been the most polarizing in terms of feedback, partially because some were unnecessarily long or difficult, but also because spending time on a puzzle without solving it generally doesn’t feel very good. On the other hand, the difficult/long puzzles are often the most memorable and/or fun moments from a hunt if they do get solved, so there is a balance that needs to be made here (e.g. although some teams thought Adventure was too difficult or technical, many others saw it as one of the highlights of the hunt). We felt that we had a pretty good balance overall, though some of the harder puzzles could certainly have used a few tweaks.</p>
+
+<p>We also think we had a good variety in puzzles, from wordplay/crosswords to logic puzzles to more research-oriented puzzles. Everyone has different preferences and dislikes, so we hope that all solvers were able to find a good number of puzzles that clicked with them.</p>
+
+<h4>Hint System</h4>
+<p>Many teams preferred this year’s personalized, freeform hints to last year’s Y/N hints. We did get a few requests from teams who wanted more than two hints per day, but anything much more than the volume we experienced this year would be prohibitively time-consuming for us. We responded to 1646 hint requests in total, which is a comparable number to last year, but it didn’t feel nearly as overwhelming because it was spread out more evenly throughout the week.</p>
+
+<p>Some teams mentioned in the feedback that our hints could be overly cryptic at times. We tried to strike a balance between not giving away exactly what to do on a puzzle and still providing a useful nudge forward, though there was certainly variation in individual hints. We apologize if you received a particularly unhelpful hint, but we hope that the hint system was beneficial overall.</p>
+
+<p>In the future, we’ll consider further modifications to this system, such as potentially incorporating canned hints, or somehow using larger hints to help teams that feel bottlenecked.</p>
+
+<h4>Organization</h4>
+
+<p>We thought that our system of assigning “puzzle editors” to review and contribute to ideas worked well, and contributed to the (we hope) higher puzzle quality this year. However, there were a few puzzles that did not get the full testsolving treatment, including Cryptic Command and Pride and Accomplishment as mentioned above, mostly due to the fact that they required multiple revisions and each testsolve required multiple people due to their difficulty.</p>
+
+<p>We ended up revising puzzles as late as the week before the hunt. This was due to a combination of various factors including running out of unspoiled testsolvers—particularly for puzzles that had already been through multiple rounds of testsolving—and a lack of enforcement for puzzle-writing deadlines. We’re thinking of ways to improve our organizational structure next year, but we will also likely scale down the hunt a bit (or start preparing much earlier in the year), as a lot of us felt too overworked despite having about a month more time than last year.</p>
+
+<h2 id='fun'>Fun Stuff</h2>
+
+<p>Here’s some fun items we created and compiled over the course of the hunt:</p>
+
+<ul class="tight_margins">
+  <li>A <a href="wrapup/submissions.html">list</a> of most-common wrong answer submissions, as well as some submissions we liked</li>
+  <li>A <a href="https://open.spotify.com/user/1256912221/playlist/0C54Xkv8bIESdWy2hHl3YD?si=e7QGtKvUSD64hTKbFaa6Jg">playlist</a> of questionably-related songs</li>
+  <li>A <a href="https://docs.google.com/document/d/1nTDyceYF96cbeUJ7rLXJ_zFUYwi7AQNJF1v6icMnTcc/edit?usp=sharing">compilation</a> of fun stories / things solvers sent us</li>
+  <li>A <a href="puzzle/loaded-dice.html">bonus puzzle</a> that we didn’t end up using</li>
+
+</ul>
+
+<h2>Statistics</h2>
+
+<p>During and after the hunt, we put together several different things to visualize or better understand how teams were doing. Here are some of them:</p>
+
+<ul class="tight_margins">
+  <li>A <a href="https://docs.google.com/spreadsheets/d/1ZA-RwiJvQCIqkl_oCfFdau8EDFrCRr-5ei6x_bXj2rU/edit?usp=sharing">table</a> of first solve and clickaround statistics</li>
+  <li>A <a href="https://docs.google.com/spreadsheets/d/1zyY3qDtov7W79uqymbvwM24mrRrrhIdnpQ7zayp6BXE/edit?usp=sharing">spreadsheet</a> with puzzle statistics on forward solves vs. backsolves as well as solves with hints vs. no hints, and rankings of teams by first to N puzzles solved</li>
+  <li><a href="bigboard.html">Big Board</a> (the page we used to monitor team’s global progress)</li>
+  <li><a href="wrapup/finishers.html">Progress charts</a> for the 45 teams who finished the hunt</li>
+  <li>A complete <a href="bridge/csv">guess log</a> for the entire hunt (if you come up with any interesting statistics, please share them with us!)</li>
+  <li><a href="solution/the-answer-to-this-puzzle-is/stats.pdf">Extended stats and commentary</a> for The Answer to This Puzzle Is..., with a link to a spreadsheet for exploring the data</li>
+  <li>A general <a href="stats.1.html">stats page</a> with information on puzzle solves and hints used</li>
+</ul>
+
+<p>Finally, here are some fun one-off statistics:</p>
+
+<ul class="tight_margins">
+  <li><strong>447</strong> teams solved at least one puzzle.</li>
+  <li><strong>203</strong> teams solved the Consolation Prize.</li>
+  <li><strong>45</strong> teams finished the hunt.</li>
+  <li>Cookie Monster’s account received just over <strong>350</strong> password reset requests.</li>
+  <li>Team ducksoup clicked the most cookies, with <strong>2,888,776</strong>.</li>
+  <li>Portugal. The man. The plan. The canal. finished the hunt having earned the fewest cookies by clicking, with only <strong>1404</strong>.</li>
+  <li>Over the course of the hunt, a total of <strong>17,054,912</strong> cookies were made by clicking</strong>.</li>
+  <li>There were <strong>6,495</strong> solves over the duration of the hunt, and <strong>38,508</strong> guesses made.</li>
+  <li>Try and Eat was the most solved puzzle, with <strong>420</strong> solves.</li>
+  <li>The fastest meta solve came from Snickerdoodles, who solved the Animal Crackers meta within <strong>5:06</strong> of unlock (we knew they already had the mechanic figured out, as they were trying to backsolve answers before unlocking the meta!)</li>
+</ul>
+
+<p style="text-align:center"><a href="static/images/wrapup/solves.png%3F1522386086"><img src="static/images/wrapup/solves.png%3F1522386086"></a><br>
+<em>Solves over time for the top teams.</em></p>
+
+<h2>Best Solutions</h2>
+
+<p>Some of our puzzles this year, particularly Adventure and Make Your Own Fillomino, have a great many possible approaches. If you have a particularly interesting or efficient solution to one of these puzzles, we’d love to hear about it! Visit the <a href="solution/adventure.html">solution</a> <a href="solution/make-your-own-fillomino.html">pages</a> for those puzzles for more details.</p>
+
+<h2>Credits</h2>
+
+<p><strong>Editors</strong>: Colin Lu, Jon Schneider, Rahul Sridhar, Anderson Wang, and Ben Yang</p>
+
+<p><strong>Puzzle Authors</strong>: Josh Alman, Danny Bulmash, Abby Caron, Lewis Chen, Brian Chen, Alan Huang, Lennart Jansson, Chris Jones, Ivan Koswara, Mitchell Lee, Colin Lu, Seth Mulhall, Max Murin, Nathan Pinsker, Jon Schneider, Rahul Sridhar, Charles Tam, Robert Tunney, Anderson Wang, Patrick Xia, Ben Yang, Yannick Yao, and Lucy Zhang</p>
+
+<p><strong>Web Developers</strong>: Mitchell Gu, Alan Huang, Lennart Jansson, Chris Jones, Nathan Pinsker, Jon Schneider, Nick Wu, and Leon Zhou</p>
+
+<p><strong>Additional Test Solvers and Fact Checkers</strong>: Phillip Ai, Nick Baxter, Lillian Chin, Neil Fitzgerald, Andrew Hauge, DD Liu, Ian Osborn, Nick Wu, Patrick Yang, and Leon Zhou</p>
+
+<p><strong>Special Thanks:</strong><br>
+  Julien Thiennot, developer of Cookie Clicker<br>
+  The Cookie Monster<br>
+  Puzzlers like you! Thank you all for participating in our hunt.</p>
+
+</div>
+
+<center>
+<aside style="background-image: url(static/puzzle_resources/intro-round-meta/cookie_47292022.png)"></aside>
+<aside style="background-image: url(https://i.ytimg.com/vi/JXEKvuxwFnk/maxresdefault.jpg)"></aside>
+</center>
+<center>
+<aside style="background-image: url(static/puzzle_resources/now-get-ready-for/02.png)"></aside>
+<aside style="background-image: url(static/puzzle_resources/pride-and-accomplishment/images/7337b1992e1c44d244f667483495794b.png)"></aside>
+</center>
+
+</div>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="static/images/btnleft8-h.png%3F1517887534">
+            <img src="static/images/btnmid8-h.png%3F1517887534">
+            <img src="static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>

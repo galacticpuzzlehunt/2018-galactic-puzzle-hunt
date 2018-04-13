@@ -1,0 +1,36 @@
+var REQUEST_URL_SUBMIT = "/puzzle/make-your-own-fillomino/submit";
+
+var main = function() {
+    var clearErrors = function(){
+        $('#error').html('');
+    }
+
+    var process = function(data){
+        $('#reward').html(data.puzzle);
+    }
+
+    $('#submit').on('click', function(){
+        clearErrors();
+
+        var requestData = {"puzzle": $('#fillomino').val().trim()};
+
+        if(requestData.puzzle.length == 0) return;
+        
+        $('#submit').attr('disabled', true);
+        $('#submit').text('Checking...');
+        $.post(REQUEST_URL_SUBMIT, JSON.stringify(requestData),
+            function(response){
+                $('#submit').attr('disabled', false);
+                $('#submit').text('Submit');
+                var responseData = $.parseJSON(response);
+                if(responseData.error.length > 0){
+                    $('#error').html(responseData.error);
+                }else{
+                    process(responseData);
+                }
+            });
+    });
+
+};
+
+$(document).ready(main);

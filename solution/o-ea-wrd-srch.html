@@ -1,0 +1,316 @@
+
+
+
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9HXglGF1lcVw==","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":64}</script>
+        
+<title>Solution: o ea / Wrd Srch</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="../static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="../static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='../index.html'>Home</a>
+                    <a href='../rules.html'>Rules</a>
+                    
+                        <a href='../story.html'>Story</a>
+                    
+                    
+                        <a href='../puzzles.html'>Puzzles</a>
+                    
+                    <a href='../teams.html'>Teams</a>
+                    <a href='../faq.html'>FAQ</a>
+                    
+                        <a href='../errata.html'>Updates</a>
+                    
+                    
+                        <a href='../wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='../archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+<a href="../puzzle/o-ea-wrd-srch.html" class="btn btn--small">Back to the puzzle</a>
+
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="../login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+
+<style>
+.puzzle-body img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+.puzzle-body table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.puzzle-body tr:empty {
+  height: 1em;
+}
+.puzzle-body td {
+  padding: 5px;
+  border: 1px solid black;
+}
+.puzzle-body th {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+.puzzle-body hr {
+  border-color: initial;
+}
+.puzzle-body ol li {
+  list-style-type: inherit;
+}
+.puzzle-body td pre {
+  margin: 0;
+}
+</style>
+
+<div class="puzzle-page-body">
+    <h1 class="page-header puzzle-page__title">
+        
+        Solution: o ea / Wrd Srch
+        <div class="solved-title-marker">Answer: <span class="solved-title-answer">TWO-SIDED</span></div>
+        
+    </h1>
+    <div class="puzzle-body solution-body">
+        <h5 class="solution-puzzle-subheader">
+            
+            Written by
+            
+Chris Jones
+
+            
+        </h5>
+        
+
+<style>
+    .grid {
+        width: 430px;
+        margin: 0 20px 2.5rem;
+    }
+    .grid td {
+        padding: 4px;
+        border: 1px solid;
+    }
+    .grid td:first-child, td:last-child {
+        padding: 4px;
+    }
+    .grid td div {
+        min-height: 24px;
+        min-width: 24px;
+        text-align: center;
+    }
+</style>
+
+<p>
+This puzzle consists of a bunch of clues that are either missing all their vowels or all their consonants.
+For example, the clue &ldquo;Euoea o ioee Aeia i 1492 (8)&rdquo; is &ldquo;European who discovered America in 1492 (8)&rdquo;, which is COLUMBUS.
+As an aid, the answers in each column are in alphabetical order, and the number at the end of each clue is the length of the answer.
+</p>
+
+<p>
+The puzzle also contains two grids, one containing only consonants and the other containing only vowels, as well as a third blank grid at the bottom, with 17 lines of blanks next to it.
+For each of the 13 rows, the number of vowels plus the number of consonants is always equal to 13, which suggests that we can combine the rows together to make a full row of 13 letters in the bottom grid.
+The 17 lines of blanks next to the grid and the title suggest that it will be a word search that contains 17 words. To get these 17 words, we need to combine the vowels of the answers to the vowel-only clues with the consonants of the answers to the consonant-only clues (for example, EUIO from CENTURION and RDCTN from ERADICATION combine to form REDUCTION).
+This is hinted at by the title, as well as by the fact that there are both 17 vowel-only clues and 17 consonant-only clues, suggesting they can be paired up. Also, some of the consonant sequences stand out in the grid, like NHLST in the bottom row, CLKD in the top row, and SPRG down the first column.
+Here are the original clues, their answers, and the corresponding vowels/consonants of the answers:
+</p>
+
+<table>
+    <tr>
+        <th></th>
+        <th>Answer</th>
+        <th>Original clue (vowel side)</th>
+        <th></th>
+        <th>Answer</th>
+        <th>Original clue (consonant side)</th>
+    </tr>
+    <tr>
+        <td>AUE</td><td>AUSTEN</td><td>Author Jane of <i>Emma</i></td>
+        <td>BRK</td><td>BARK</td><td>Sound from a beagle or poodle</td>
+    </tr>
+    <tr>
+        <td>AAE</td><td>BANGLADESH</td><td>South Asian country surrounded by India</td>
+        <td>CTN</td><td>CATION</td><td>Na⁺ or Ca²⁺</td>
+	</tr>
+	<tr>
+		<td>AEA</td><td>CALENDAR</td><td>Item that starts on January 1 and ends on December 31</td>
+		<td>CLKD</td><td>CLOAKED</td><td>Robed or concealed</td>
+    </tr>
+    <tr>
+        <td>EUIO</td><td>CENTURION</td><td>Image on an American Express credit card</td>
+        <td>RDCTN</td><td>ERADICATION</td><td>Complete and total elimination of a disease</td>
+    </tr>
+    <tr>
+        <td>OUU</td><td>COLUMBUS</td><td>European who discovered America in 1492</td>
+        <td>GGL</td><td>GOOGLE</td><td>Creator of the Android operating system (and major competitor of another answer)</td>
+    </tr>
+    <tr>
+        <td>OO</td><td>DOROTHY</td><td>Character taken by a tornado to Oz, in <i>The Wizard of Oz</i></td>
+        <td>HNG</td><td>HOEING</td><td>Digging furrows, say</td>
+    </tr>
+    <tr>
+        <td>UI</td><td>FRUITS</td><td>Oranges, apples, pineapples, bananas, papayas, and tomatoes</td>
+        <td>JN</td><td>JUNE</td><td>6 : ___ :: 8 : August</td>
+    </tr>
+    <tr>
+        <td>UO</td><td>FURLONG</td><td>Unit of length equal to 1/8 mile or 1/5 kilometer</td>
+        <td>LGS</td><td>LEGS</td><td>They form half of a Barbie's height</td>
+    </tr>
+    <tr>
+        <td>III</td><td>INFINITY</td><td>Limit of the sequence one, two, three, four, five, six, ...</td>
+        <td>MNGR</td><td>MENAGERIE</td><td>Prop in a Tennessee Williams play</td>
+    </tr>
+    <tr>
+        <td>OAE</td><td>LOADED</td><td>Armed, like an AR-15 with .223 Remington ammunition</td>
+        <td>MN</td><td>MONA</td><td><i>___ Lisa</i> (da Vinci piece)</td>
+    </tr>
+    <tr>
+        <td>IOO</td><td>MICROSOFT</td><td>Creator of the Windows 10 operating system (and major competitor of another answer)</td>
+        <td>NT</td><td>NEAT</td><td>Bar term meaning &ldquo;without ice&rdquo;</td>
+    </tr>
+    <tr>
+        <td>OO</td><td>MOO</td><td>Cow onomatopoeia</td><td>R</td>
+        <td>OREO</td><td>Cookie with a Cool Mint flavor</td>
+    </tr>
+    <tr>
+        <td>EEIOU</td><td>REBELLIOUS</td><td>Insubordinate, like those ages 13-19</td>
+        <td>SPRG</td><td>SUPEREGO</td><td>Id, ego, and ____</td>
+    </tr>
+    <tr>
+        <td>U</td><td>SUN</td><td>What Venus, Earth, Jupiter, and Uranus orbit</td>
+        <td>TTR</td><td>TAUTER</td><td>More tightly drawn</td>
+    </tr>
+    <tr>
+        <td>I</td><td>SWIFT</td><td>Artist Taylor of &ldquo;Fearless&rdquo; (2008), &ldquo;Shake It Off&rdquo; (2014), and &ldquo;...Ready for It?&ldquo; (2017)</td>
+        <td>TNDNTS</td><td>TENDINITIS</td><td>Knee injury common among volleyball players</td>
+    </tr>
+    <tr>
+        <td>OI</td><td>TROPICS</td><td>Region between 23.5°S and 23.5°N of the Equator, with &ldquo;the&rdquo;</td>
+        <td>TRN</td><td>TRAIN</td><td>&ldquo;a girl a bottle a boat&rdquo; band</td>
+    </tr>
+    <tr>
+        <td>UO</td><td>UFO</td><td>E.T. spaceship supposedly found at Area 51</td>
+        <td>NHLST</td><td>UNHOLIEST</td><td>Most satanic</td>
+    </tr>
+</table>
+
+<p>
+The vowel and consonant stripped strings can in fact be paired up in a unique way to make 17 different words matching the given enumerations at the bottom:
+</p>
+
+<pre><table>
+<tr><td>AREA</td><td>AEA</td><td>R</td></td></tr>
+<tr><td>BROOK</td><td>OO</td><td>BRK</td></td></tr>
+<tr><td>CAULKED</td><td>AUE</td><td>CLKD</td></td></tr>
+<tr><td>GIGOLO</td><td>IOO</td><td>GGL</td></td></tr>
+<tr><td>HUNG</td><td>U</td><td>HNG</td></td></tr>
+<tr><td>JOIN</td><td>OI</td><td>JN</td></td></tr>
+<tr><td>LOGOS</td><td>OO</td><td>LGS</td></td></tr>
+<tr><td>MANAGER</td><td>AAE</td><td>MNGR</td></td></tr>
+<tr><td>MUON</td><td>UO</td><td>MN</td></td></tr>
+<tr><td>NIHILIST</td><td>III</td><td>NHLST</td></td></tr>
+<tr><td>OCTANE</td><td>OAE</td><td>CTN</td></td></tr>
+<tr><td>OUTRUN</td><td>OUU</td><td>TRN</td></td></tr>
+<tr><td>REDUCTION</td><td>EUIO</td><td>RDCTN</td></td></tr>
+<tr><td>SPRIG</td><td>I</td><td>SPRG</td></td></tr>
+<tr><td>TENDENTIOUS</td><td>EEIOU</td><td>TNDNTS</td></td></tr>
+<tr><td>TUTOR</td><td>UO</td><td>TTR</td></td></tr>
+<tr><td>UNIT</td><td>UI</td><td>NT</td></td></tr>
+</table></pre>
+
+<p>
+Once the words are known, it becomes a logic puzzle to piece the grid back together to find the words. This can be done by starting with the longest words like TENDENTIOUS, NIHILIST, GIGOLO, and CAULKED which all have unique placements, and then filling in the smaller words as more of the grid is placed.
+Here's the completed grid (which is also unique):
+</p>
+
+<style>.i { background-color: yellow; } .w { background-color: lime; }</style>
+<table class="grid">
+    <tr><td><div>L</div></td><td class="w"><div>R</div></td><td class="w"><div>S</div></td><td><div>I</div></td><td class="w"><div>C</div></td><td class="w"><div>A</div></td><td class="w"><div>U</div></td><td class="i"><div>L</div></td><td class="i"><div>K</div></td><td class="w"><div>E</div></td><td class="w"><div>D</div></td><td><div>E</div></td><td><div>E</div></td></tr>
+    <tr><td><div>A</div></td><td class="w"><div>E</div></td><td><div>R</div></td><td class="w"><div>U</div></td><td><div>O</div></td><td><div>A</div></td><td><div>E</div></td><td class="w"><div>O</div></td><td><div>R</div></td><td class="w"><div>O</div></td><td><div>M</div></td><td><div>N</div></td><td><div>S</div></td></tr>
+    <tr><td><div>P</div></td><td class="w"><div>D</div></td><td><div>E</div></td><td><div>I</div></td><td class="w"><div>O</div></td><td><div>A</div></td><td><div>E</div></td><td class="w"><div>G</div></td><td><div>T</div></td><td><div>H</div></td><td class="w"><div>O</div></td><td><div>I</div></td><td><div>U</div></td></tr>
+    <tr><td><div>E</div></td><td class="w"><div>U</div></td><td><div>L</div></td><td><div>S</div></td><td><div>W</div></td><td class="w"><div>I</div></td><td><div>V</div></td><td class="w"><div>O</div></td><td><div>A</div></td><td><div>U</div></td><td><div>O</div></td><td class="w"><div>R</div></td><td><div>E</div></td></tr>
+    <tr><td class="w"><div>O</div></td><td class="i"><div>C</div></td><td class="w"><div>T</div></td><td class="w"><div>A</div></td><td class="w"><div>N</div></td><td class="w"><div>E</div></td><td class="w"><div>T</div></td><td class="w"><div>S</div></td><td class="w"><div>U</div></td><td class="i"><div>N</div></td><td class="w"><div>I</div></td><td class="w"><div>T</div></td><td class="w"><div>B</div></td></tr>
+    <tr><td><div>E</div></td><td class="w"><div>T</div></td><td><div>R</div></td><td><div>D</div></td><td><div>D</div></td><td><div>C</div></td><td class="w"><div>A</div></td><td class="w"><div>N</div></td><td class="w"><div>U</div></td><td><div>T</div></td><td class="w"><div>J</div></td><td><div>B</div></td><td><div>S</div></td></tr>
+    <tr><td><div>N</div></td><td class="w"><div>I</div></td><td><div>A</div></td><td><div>E</div></td><td><div>A</div></td><td><div>A</div></td><td><div>E</div></td><td class="i"><div>R</div></td><td class="w"><div>E</div></td><td><div>S</div></td><td class="w"><div>O</div></td><td><div>T</div></td><td><div>G</div></td></tr>
+    <tr><td><div>A</div></td><td class="w"><div>O</div></td><td><div>E</div></td><td><div>E</div></td><td><div>E</div></td><td class="w"><div>O</div></td><td class="w"><div>T</div></td><td><div>H</div></td><td class="w"><div>E</div></td><td class="w"><div>D</div></td><td class="w"><div>I</div></td><td><div>N</div></td><td><div>F</div></td></tr>
+    <tr><td class="w"><div>S</div></td><td class="w"><div>N</div></td><td><div>T</div></td><td><div>S</div></td><td class="w"><div>L</div></td><td class="w"><div>U</div></td><td><div>S</div></td><td><div>W</div></td><td><div>M</div></td><td class="w"><div>A</div></td><td class="i"><div>N</div></td><td><div>E</div></td><td class="w"><div>R</div></td></tr>
+    <tr><td class="w"><div>P</div></td><td><div>T</div></td><td><div>C</div></td><td class="w"><div>O</div></td><td class="w"><div>O</div></td><td><div>E</div></td><td><div>E</div></td><td><div>O</div></td><td><div>O</div></td><td><div>I</div></td><td class="w"><div>G</div></td><td class="w"><div>E</div></td><td class="w"><div>O</div></td></tr>
+    <tr><td class="i"><div>R</div></td><td class="w"><div>E</div></td><td class="i"><div>G</div></td><td class="w"><div>A</div></td><td class="w"><div>N</div></td><td class="w"><div>A</div></td><td class="i"><div>M</td><td class="w"><div>U</div></td><td class="w"><div>O</div></td><td class="i"><div>N</div></td><td><div>E</div></td><td><div>E</div></td><td class="i"><div>T</div></td></tr>
+    <tr><td class="w"><div>I</div></td><td class="w"><div>I</div></td><td><div>B</div></td><td><div>N</div></td><td><div>D</div></td><td><div>R</div></td><td><div>G</div></td><td><div>S</div></td><td class="w"><div>U</div></td><td><div>R</div></td><td><div>R</div></td><td><div>S</div></td><td class="w"><div>U</div></td></tr>
+    <tr><td class="i"><div>G</div></td><td><div>E</div></td><td><div>E</div></td><td><div>I</div></td><td><div>A</div></td><td class="w"><div>N</div></td><td class="w"><div>I</div></td><td class="i"><div>H</div></td><td class="w"><div>I</div></td><td class="w"><div>L</div></td><td class="w"><div>I</div></td><td class="w"><div>S</div></td><td class="i"><div>T</div></td></tr>
+</table>
+
+<p>
+The letters at intersections of two words are highlighted above. They're all consonants and they only lie in odd rows, and taken line by line those rows read &ldquo;LK / / CN / R / N / RGMNT / GHT&rdquo;.
+This is a final clue, and after returning vowels to it (with word breaks matching line breaks in the grid) we should parse it as &ldquo;LIKE A COIN OR AN ARGUMENT (EIGHT)&rdquo;.
+The solution to this clue is the answer to the puzzle, <b>TWO-SIDED</b>.
+</p>
+
+
+
+        
+
+        
+        <hr>
+        <h5 class="solution-puzzle-subheader">Author&rsquo;s Notes</h5>
+        <p style="word-wrap: break-word">
+DDYVRHRTHTRGDYFDRTHPLGSTHWSTHGHTNTTSNTSTRYTHJDWLDTLLYTSSTHLGNDDRTHPLGSWSDRKLRDFTHSTHSPWRFLNDSWSHCLDSTHFRCTNFLNCTHMDCHLRNSTCRTLFHHDSCHKNWLDGFTHDRKSDTHTHCLDVNKPTHNSHCRDBTFRMDYNGTHDRKSDFTHFRCSPTHWYTMNYBLTSSMCNSDRTBNNTRLHBCMSPWRFLTHNLYTHNGHWSFRDFWSLSNGHSPWRWHCHVNTLLYFCRSHDDNFRTNTLYHTGHTHSPPRNTCVRYTHNGHKNWTHNHSPPRNTCKLLDHMNHSSLPRNCHCLDSVTHRSFRMDTHBTNTHMSLF
+</p>
+        
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="../static/images/btnleft8-h.png%3F1517887534">
+            <img src="../static/images/btnmid8-h.png%3F1517887534">
+            <img src="../static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>

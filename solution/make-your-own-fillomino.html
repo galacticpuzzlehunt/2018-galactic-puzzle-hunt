@@ -1,0 +1,242 @@
+
+
+
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9HXglGF1lcVw==","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":31}</script>
+        
+<title>Solution: Make Your Own Fillomino</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="../static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="../static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='../index.html'>Home</a>
+                    <a href='../rules.html'>Rules</a>
+                    
+                        <a href='../story.html'>Story</a>
+                    
+                    
+                        <a href='../puzzles.html'>Puzzles</a>
+                    
+                    <a href='../teams.html'>Teams</a>
+                    <a href='../faq.html'>FAQ</a>
+                    
+                        <a href='../errata.html'>Updates</a>
+                    
+                    
+                        <a href='../wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='../archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+<a href="../puzzle/make-your-own-fillomino.html" class="btn btn--small">Back to the puzzle</a>
+
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="../login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+
+<style>
+.puzzle-body img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+.puzzle-body table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.puzzle-body tr:empty {
+  height: 1em;
+}
+.puzzle-body td {
+  padding: 5px;
+  border: 1px solid black;
+}
+.puzzle-body th {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+.puzzle-body hr {
+  border-color: initial;
+}
+.puzzle-body ol li {
+  list-style-type: inherit;
+}
+.puzzle-body td pre {
+  margin: 0;
+}
+</style>
+
+<div class="puzzle-page-body">
+    <h1 class="page-header puzzle-page__title">
+        
+        Solution: Make Your Own Fillomino
+        <div class="solved-title-marker">Answer: <span class="solved-title-answer">DECAMPED</span></div>
+        
+    </h1>
+    <div class="puzzle-body solution-body">
+        <h5 class="solution-puzzle-subheader">
+            
+            Written by
+            
+Anderson Wang and Josh Alman
+
+            
+        </h5>
+        
+
+<p>As stated, the first step of this puzzle involves constructing a Fillomino that satisfies the given constraints. Some useful starting observations include:</p>
+<ul>
+<li>In order to force a region of size 4, you need to make sure that it can’t be broken down into two regions of size 1 and 3 (or three regions of sizes 1, 1, 2), so you need to place the surrounding regions to avoid this.</li>
+<li>1 clues are fairly powerful for forcing larger regions, as they make all surrounding squares to be part of regions of size at least 2. If you then have a 2 clue next to that, the region must have size at least 3.</li>
+</ul>
+<p>When constructing the puzzle, there are many approaches one could take. Here are two potential approaches:</p>
+<ol>
+<li>Place numbers one at a time while making as many deductions as possible, and try to minimize the number of digits used while fitting in the tetrominos as you build up the puzzle (i.e. constructing “forwards”).</li>
+<li>Start with a potential solution, surround the tetrominos with 1s, 2s, and 3s to make them unique, and then fill in the rest of the grid with as few digits as possible (i.e. constructing “backwards”).</li>
+</ol>
+<p>Once a Fillomino is submitted that satisfies the requirements, the page returns the Fillomino that was just submitted along with a grid of letters. The letter grid is dynamically generated based on the puzzle, so this solution presents a specific example below:</p>
+
+<table>
+<tr><th>Puzzle:</th><th>Puzzle solution:</th><th>Letter grid:</th></tr>
+<tr><td><pre>
+- - - - 1 - 1 - - -
+3 3 3 1 - - - 2 2 -
+- 1 - - 3 3 1 - - 1
+- - - - - 3 - - 3 -
+- - - - 7 - 2 2 3 -
+- - - - - - - - 3 -
+- - - - 7 - - - 7 -
+- - - - 8 - - - - 8
+- - - - - - - - - -
+5 6 7 6 9 1 - - - 8
+</pre></td><td><pre>
+4 4 4 4 1 4 1 4 4 4
+3 3 3 1 4 4 4 2 2 4
+4 1 4 4 3 3 1 4 4 1
+4 4 7 4 4 3 4 4 3 4
+4 6 7 6 7 4 2 2 3 4
+5 6 7 6 7 4 4 4 3 4
+5 6 7 6 7 7 7 7 7 4
+5 6 7 6 8 8 8 8 8 8
+5 6 7 6 9 9 9 9 9 8
+5 6 7 6 9 1 9 9 9 8
+</pre></td><td><pre>
+C E I E R O E L C H
+P L A C R T A E A O
+E N S C A P P A S R
+T E O R E P O K R J
+E I A T E F L E T U
+T E R I N L U D E I
+A C H T E T R O M O
+I N O T O F I N D T
+H E A N S W E R T O
+T H I S P U Z Z L E
+</pre></td></tr>
+</table>
+
+<p>Looking at the letters not covered by the tetrominos in the solution gives a clue phrase REPLACE AN APPROPRIATE LETTER IN EACH TETROMINO TO FIND THE ANSWER TO THIS PUZZLE. We find that each of the tetrominos in the letter grid contains the letter corresponding to its shape (L, I, T, or S), and following the clue phrase, we can uniquely replace that letter with a different letter to make a 4-letter word in each tetromino:</p>
+
+<style> mark mark { background-color: lime; } </style>
+<table>
+<tr><td><pre>
+<mark>C E I E</mark> R <mark>O</mark> E <mark>L C H</mark>
+P L A C <mark>R T A</mark> E A <mark>O
+E</mark> N <mark>S C</mark> A P P <mark>A S</mark> R
+<mark>T E</mark> O <mark>R E</mark> P <mark>O K</mark> R <mark>J
+E</mark> I A T E <mark>F</mark> L E T <mark>U</mark>
+T E R I N <mark>L U D</mark> E <mark>I</mark>
+A C H T E T R O M <mark>O</mark>
+I N O T O F I N D T
+H E A N S W E R T O
+T H I S P U Z Z L E
+</pre></td><td><pre>
+<mark>C E <mark>D</mark> E</mark> R <mark>O</mark> E <mark><mark>E</mark> C H</mark>
+P L A C <mark>R <mark>C</mark> A</mark> E A <mark>O
+E</mark> N <mark><mark>A</mark> C</mark> A P P <mark>A <mark>M</mark></mark> R
+<mark><mark>P</mark> E</mark> O <mark>R E</mark> P <mark>O K</mark> R <mark>J
+E</mark> I A T E <mark>F</mark> L E T <mark>U</mark>
+T E R I N <mark><mark>E</mark> U D</mark> E <mark>D</mark>
+A C H T E T R O M <mark>O</mark>
+I N O T O F I N D T
+H E A N S W E R T O
+T H I S P U Z Z L E
+</pre></td></tr>
+</table>
+
+<p>The new letters, in standard reading order, spell out the answer <b>DECAMPED</b>. Note that the specific 4-letter words can be different depending on the submitted Fillomino, but they are chosen to extract uniquely to this answer.</p>
+
+
+
+        
+
+        
+        <hr>
+        <h5 class="solution-puzzle-subheader">Author&rsquo;s Notes</h5>
+        <p>We found out soon after the hunt started that the hint phrase being returned by our server was actually the slightly easier REPLACE AN APPROPRIATE LETTER IN EACH TETROMINO TO MAKE COMMON FOUR LETTER WORDS. This phrase was from an older version of the puzzle and got changed because we thought it was too straightforward, but it looks like it didn't get transferred to the final hunt. Luckily, this is a very minor change and doesn't affect the puzzle very much (if at all).</p><p>Most testers used the “backwards” construction strategy (including with the example puzzle above), though our current “record” for fewest clues at 29 actually was constructed forwards. Interestingly, it also doesn’t use any digits greater than 5:</p><table><tr><td><pre>
+- 1 - - 3 3 - 3 1 -
+- 2 - - - - - - - -
+- 3 - 2 - - - - 1 -
+- - - - - 3 2 - - 2
+- - 3 2 - 3 - - - -
+5 - - - 3 - 5 - 2 -
+3 - - - - - - 5 - -
+- - - - - - 3 - - -
+- - 2 - 2 - 5 - - -
+3 - - 1 - - - - 3 1
+</pre></td></tr></table><p>None of us have tried too hard to optimize clue count, though I suspect it can’t get much lower than 25. If you have a construction that uses fewer than 29 clues, please contact us at <a href="mailto:galacticpuzzlesetters@gmail.com">galacticpuzzlesetters@gmail.com</a>. We’d love to hear from you!</p><p>This puzzle actually evolved from a combination of two puzzles that didn’t make it into last year’s Galactic Puzzle Hunt. One was a Fillomino puzzle that Walker Anderson made which made heavy use of 4s interacting (Walker later posted it on his <a href="http://wa1729.blogspot.com/2017/06/puzzle-111-fillomino.html">blog</a>), and the other was a Sudoku construction challenge made by Josh which required you to create Sudokus with various properties. The Sudoku didn’t play out well in testsolving, but we thought that a puzzle type with more local logic, like Fillomino, could make for a more accessible challenge. Unfortunately, it was too close to the hunt to implement the tech (i.e. the Fillomino solver) needed for the puzzle, so X-ray Fish was made instead and we decided to save the idea for this year.</p><p>The goal of 36 was somewhat arbitrarily chosen as a number that you would have to do some, but not too much optimization to achieve if you were making the puzzle backwards from the solution.</p><p>We used the <a href="https://github.com/danyq/claspy">claspy</a> constraint solver to verify Fillomino solutions.</p>
+        
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="../static/images/btnleft8-h.png%3F1517887534">
+            <img src="../static/images/btnmid8-h.png%3F1517887534">
+            <img src="../static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>

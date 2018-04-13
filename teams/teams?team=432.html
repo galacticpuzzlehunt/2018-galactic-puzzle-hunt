@@ -1,0 +1,281 @@
+
+
+
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9AVAReEA==","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":724}</script>
+        
+<title>432</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='index.html'>Home</a>
+                    <a href='rules.html'>Rules</a>
+                    
+                        <a href='story.html'>Story</a>
+                    
+                    
+                        <a href='puzzles.html'>Puzzles</a>
+                    
+                    <a href='teams.html'>Teams</a>
+                    <a href='faq.html'>FAQ</a>
+                    
+                        <a href='errata.html'>Updates</a>
+                    
+                    
+                        <a href='wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+<style>
+svg {
+    width: 100%;
+    height: 82px;
+    background-color: rgba(180, 160, 140, 0.3);
+    transform: scaleY(-1);
+}
+
+.area {
+    fill: rgba(120, 220, 70, 0.5);
+}
+
+.bar {
+    stroke: rgba(248, 188, 78, 0.5);
+    stroke-width: 2000px;
+    fill: none;
+}
+
+.meta {
+    font-style: italic;
+}
+</style>
+
+<h1 class="page-header">432</h1>
+
+<div class="single-narrower-column-on-desktop">
+    <div class="team-info-panel">
+        <div class="row">
+            <div class="six columns">
+                <h4>Stats</h4>
+                <div class="stat-entry">Rank: <span class="stat-entry__value">241</span></div>
+                <div class="stat-entry">Cookies: <span class="stat-entry__value">80,008,348</span></div>
+                <div class="stat-entry">Puzzles solved: <span class="stat-entry__value">10</span></div>
+                
+            </div>
+            <div class="six columns">
+                <div class="team-info-panel__members">
+                    <h4>Team Members:</h4>
+                    <div class="team-member-list">
+                        
+                        Ishara, 
+                        
+                        Lucy, 
+                        
+                        Lisa, 
+                        
+                        Katie
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
+        <path d="M 820800.0 0
+        
+        L 0.0 1
+        L 2892.740165 1
+        
+        L 2892.740165 2
+        L 5640.25738 2
+        
+        L 5640.25738 3
+        L 46310.879631 3
+        
+        L 46310.879631 4
+        L 51234.596382 4
+        
+        L 51234.596382 5
+        L 66928.103276 5
+        
+        L 66928.103276 6
+        L 132349.62287 6
+        
+        L 132349.62287 7
+        L 406845.005316 7
+        
+        L 406845.005316 8
+        L 444319.747078 8
+        
+        L 444319.747078 9
+        L 705557.559173 9
+        
+        L 705557.559173 10
+        L 747451.617181 10
+        
+        L 747451.617181 11
+        L 820800.0 11
+        
+        " class="area"></path>
+        
+    </svg>
+    <table class="sortable gph-list-table" style="table-layout: fixed;">
+        <col style="width: 40ch">
+        <col style="width: 10ch">
+        <col style="width: 20ch">
+        <col style="width: 10ch">
+        <col style="width: 20ch">
+        <tr>
+            <th>Puzzle</th>
+            <th>Incorrect guesses</th>
+            <th>Unlock time (EDT)</th>
+            <th>Time to solve</th>
+            <th>Solve time (EDT)</th>
+        </tr>
+        
+        <tr>
+            <th sorttable_customkey="1" ><a href="puzzle/try-and-eat.html">Try and Eat</a></th>
+            <td>0</td>
+            <td sorttable_customkey="1521227640">Mar 16, 15:14</td>
+            <td sorttable_customkey="2892.740165">48m13s</td>
+            <td sorttable_customkey="1521230532">Mar 16, 16:02</td>
+        </tr>
+        
+        <tr>
+            <th sorttable_customkey="3" ><a href="puzzle/bakeoff.html">The Wepp Perflontus Bake Off</a></th>
+            <td>0</td>
+            <td sorttable_customkey="1521227640">Mar 16, 15:14</td>
+            <td sorttable_customkey="5640.25738">1h34m</td>
+            <td sorttable_customkey="1521233280">Mar 16, 16:48</td>
+        </tr>
+        
+        <tr>
+            <th sorttable_customkey="6" ><a href="puzzle/math-101.html">Math 101</a></th>
+            <td>3</td>
+            <td sorttable_customkey="1521233280">Mar 16, 16:48</td>
+            <td sorttable_customkey="40670.622251">11h17m</td>
+            <td sorttable_customkey="1521273950">Mar 17, 04:05</td>
+        </tr>
+        
+        <tr>
+            <th sorttable_customkey="2" ><a href="puzzle/emotion-pictures.html">Emotion Pictures</a></th>
+            <td>0</td>
+            <td sorttable_customkey="1521227640">Mar 16, 15:14</td>
+            <td sorttable_customkey="51234.596382">14h13m</td>
+            <td sorttable_customkey="1521278874">Mar 17, 05:27</td>
+        </tr>
+        
+        <tr>
+            <th sorttable_customkey="8" ><a href="puzzle/parlor.html">Parlor</a></th>
+            <td>0</td>
+            <td sorttable_customkey="1521278874">Mar 17, 05:27</td>
+            <td sorttable_customkey="15693.506894">4h21m</td>
+            <td sorttable_customkey="1521294568">Mar 17, 09:49</td>
+        </tr>
+        
+        <tr>
+            <th sorttable_customkey="7" ><a href="puzzle/everything-and-more.html">Everything and More</a></th>
+            <td>0</td>
+            <td sorttable_customkey="1521273950">Mar 17, 04:05</td>
+            <td sorttable_customkey="86038.743239">23h53m</td>
+            <td sorttable_customkey="1521359989">Mar 18, 03:59</td>
+        </tr>
+        
+        <tr>
+            <th sorttable_customkey="4" ><a href="puzzle/an-eccentric-crossword.html">An Eccentric Crossword</a></th>
+            <td>0</td>
+            <td sorttable_customkey="1521227640">Mar 16, 15:14</td>
+            <td sorttable_customkey="406845.005316">113h0m</td>
+            <td sorttable_customkey="1521634485">Mar 21, 08:14</td>
+        </tr>
+        
+        <tr>
+            <th sorttable_customkey="101" ><a href="puzzle/word-search.html">Word Search</a></th>
+            <td>0</td>
+            <td sorttable_customkey="1521659640">Mar 21, 15:14</td>
+            <td sorttable_customkey="12319.747078">3h25m</td>
+            <td sorttable_customkey="1521671959">Mar 21, 18:39</td>
+        </tr>
+        
+        <tr>
+            <th sorttable_customkey="308" ><a href="puzzle/split-the-reference.html">Split the Reference</a></th>
+            <td>0</td>
+            <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+            <td sorttable_customkey="100757.559173">27h59m</td>
+            <td sorttable_customkey="1521933197">Mar 24, 19:13</td>
+        </tr>
+        
+        <tr>
+            <th sorttable_customkey="204" ><a href="puzzle/visitors-guide.html">Visitor’s Guide</a></th>
+            <td>1</td>
+            <td sorttable_customkey="1521746040">Mar 22, 15:14</td>
+            <td sorttable_customkey="229051.617181">63h37m</td>
+            <td sorttable_customkey="1521975091">Mar 25, 06:51</td>
+        </tr>
+        
+    </table>
+    
+    
+</div>
+
+<script type="text/javascript" src="static/js/sorttable.js"></script>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="static/images/btnleft8-h.png%3F1517887534">
+            <img src="static/images/btnmid8-h.png%3F1517887534">
+            <img src="static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>

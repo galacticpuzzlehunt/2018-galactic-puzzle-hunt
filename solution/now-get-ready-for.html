@@ -1,0 +1,280 @@
+
+
+
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9HXglGF1lcVw==","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":23}</script>
+        
+<title>Solution: Now Get Ready For...</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="../static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="../static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='../index.html'>Home</a>
+                    <a href='../rules.html'>Rules</a>
+                    
+                        <a href='../story.html'>Story</a>
+                    
+                    
+                        <a href='../puzzles.html'>Puzzles</a>
+                    
+                    <a href='../teams.html'>Teams</a>
+                    <a href='../faq.html'>FAQ</a>
+                    
+                        <a href='../errata.html'>Updates</a>
+                    
+                    
+                        <a href='../wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='../archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+<a href="../puzzle/now-get-ready-for.html" class="btn btn--small">Back to the puzzle</a>
+
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="../login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+
+<style>
+.puzzle-body img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+.puzzle-body table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.puzzle-body tr:empty {
+  height: 1em;
+}
+.puzzle-body td {
+  padding: 5px;
+  border: 1px solid black;
+}
+.puzzle-body th {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+.puzzle-body hr {
+  border-color: initial;
+}
+.puzzle-body ol li {
+  list-style-type: inherit;
+}
+.puzzle-body td pre {
+  margin: 0;
+}
+</style>
+
+<div class="puzzle-page-body">
+    <h1 class="page-header puzzle-page__title">
+        
+        Solution: Now Get Ready For...
+        <div class="solved-title-marker">Answer: <span class="solved-title-answer">RAINBOW</span></div>
+        
+    </h1>
+    <div class="puzzle-body solution-body">
+        <h5 class="solution-puzzle-subheader">
+            
+            Written by
+            
+Patrick Xia<br>
+Pictures by Patrick Xia and Anderson Wang
+
+            
+        </h5>
+        
+
+<p>First, from Googling (or just knowing) the title, we can find that it’s a reference to the <a href="http://knowyourmeme.com/memes/youve-heard-of-the-elf-on-the-shelf">Elf on the Shelf</a> meme, and this is further confirmed by the “A on the B” phrases. Each image consists of a foreground object and a background object, but directly trying to rhyme them doesn’t work.</p>
+<p>The twist is that there is always a third item which rhymes (very tightly) with the foreground image and belongs to the same set of objects as the background image (some possible break-ins include TORN DRAKES on the CORN FLAKES, SWISS SWANSON on the WISCONSIN, and CRANIUM potentially rhyming with another element). The “A on the B” phrases suggest indexing A into the foreground and B into this third item. The items and sets are shown in the following table, with the indices bolded.</p>
+<table>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 13%">
+<col style="width: 17%">
+<col style="width: 20%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr>
+<th>Foreground</th>
+<th>Background</th>
+<th>Third item</th>
+<th>Set</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BUY CR<b>A</b>NIUM</td>
+<td>Copper</td>
+<td>TIT<b>A</b>NIUM</td>
+<td>Elements</td>
+<td>The game being purchased is Cranium.</td>
+</tr>
+<tr>
+<td>DENSER DO<b>U</b>GH</td>
+<td>PyTorch</td>
+<td>TE<b>N</b>SORFLOW</td>
+<td>Machine (Deep) Learning Frameworks</td>
+<td>Picture points to a dough that sinks more than the other one.</td>
+</tr>
+<tr>
+<td>HERALD <b>S</b>WORD</td>
+<td>Barack Obama</td>
+<td><b>G</b>ERALD FORD</td>
+<td>US Presidents</td>
+<td></td>
+</tr>
+<tr>
+<td><b>T</b>ORN DRAKES</td>
+<td>Cheerios</td>
+<td>CORNFLAK<b>E</b>S</td>
+<td>Brand named cereals</td>
+<td>Both drake (a dragon) and Drake (the musician) are torn.</td>
+</tr>
+<tr>
+<td>TALL TRE<b>E</b> BABY</td>
+<td>I Really Like You</td>
+<td>CAL<b>L</b> ME MAYBE</td>
+<td>Carly Rae Jepsen singles</td>
+<td></td>
+</tr>
+<tr>
+<td>PLU<b>N</b>DER MALL</td>
+<td>Skyfall</td>
+<td>THUNDER<b>B</b>ALL</td>
+<td>James Bond films</td>
+<td></td>
+</tr>
+<tr>
+<td>PALACE WOW TOY<b>S</b></td>
+<td>Philadelphia Eagles</td>
+<td>DALLAS COWBO<b>Y</b>S</td>
+<td>NFL (east) teams</td>
+<td>WoW is a common abbreviation for the game <em>World of Warcraft</em>.</td>
+</tr>
+<tr>
+<td>WET KNI<b>T</b> RHO</td>
+<td>Do You Want to Build a Snowman?</td>
+<td>LET I<b>T</b> GO</td>
+<td>Songs in <em>Frozen</em></td>
+<td></td>
+</tr>
+<tr>
+<td>FRUG<b>A</b>L GNOME</td>
+<td>Microsoft Edge</td>
+<td>GOOGLE C<b>H</b>ROME</td>
+<td>Web browsers</td>
+<td>Piggy banks are associated with frugality.</td>
+</tr>
+<tr>
+<td>ROU<b>G</b>E</td>
+<td>Nordic Combined</td>
+<td>LUG<b>E</b></td>
+<td>Winter Olympic Sports</td>
+<td>The background is one of the pictograms used at the 2018 Winter Olympics.</td>
+</tr>
+<tr>
+<td><b>S</b>TARK PILLOW</td>
+<td>Pangolier</td>
+<td>DARK <b>W</b>ILLOW</td>
+<td><em>Dota 2</em> heroes</td>
+<td>Sigil on pillow represents House Stark from <em>Game of Thrones</em>.</td>
+</tr>
+<tr>
+<td>BLUE <b>M</b>ARIO</td>
+<td>Mewtwo</td>
+<td>LUCAR<b>I</b>O</td>
+<td>Pokémon</td>
+<td></td>
+</tr>
+<tr>
+<td>SWISS SW<b>A</b>NSON</td>
+<td>Minnesota</td>
+<td>WISCO<b>N</b>SIN</td>
+<td>US States</td>
+<td>Ron Swanson is from <em>Parks and Recreation</em>.</td>
+</tr>
+<tr>
+<td>WA<b>T</b>ER MOUSE DIVE</td>
+<td>Cat’s Cradle</td>
+<td>SLAU<b>G</b>HTERHOUSE-FIVE</td>
+<td>Kurt Vonnegut works</td>
+<td>Water symbol from <em>Avatar</em>. Mouse pictured here is actually a Water Mouse.</td>
+</tr>
+<tr>
+<td>N<b>E</b>RO RACE</td>
+<td>X-ray Fish</td>
+<td>ZERO <b>S</b>PACE</td>
+<td>Galactic Puzzle Hunt 2017 puzzles</td>
+<td>Neros are: the Roman Emperor, Nero Wolfe, and Nero from <em>Devil May Cry 4</em></td>
+</tr>
+</tbody>
+</table>
+<p>Reading the bolded letters gives <b>AUSTEN STAGS MATE</b> for the foreground images and <b>ANGEL BY THE WINGS</b> for the background images. Reusing the same mechanic, we want to find something that rhymes with <b>JANE DOE</b> (the phrase clued by AUSTEN STAG’S MATE) and is in the same category as <b>ANGEL BY THE WINGS</b>. “Angel by the Wings” is a Sia single, and her only single that rhymes with <b>JANE DOE</b> is <b>RAINBOW</b>, the final answer.</p>
+
+
+
+        
+
+        
+        <hr>
+        <h5 class="solution-puzzle-subheader">Author&rsquo;s Notes</h5>
+        <p>PX: The puzzle was originally inspired by one of my friends who made and posted a meme involving the recursive definition of the Ackermann function on top of a picture of an on-campus building, presumably Hackerman Hall. However, he mistakenly used a picture of a different building, Mason Hall. People in the comments who understood the math part of the joke assumed it was Hackerman and liked it, while people who didn’t understand it asked for an explanation, expecting something rhyming with Mason. My goal for this puzzle was to initially invoke the same sense of confusion when solving this puzzle: “This look like Rouge on Luge. Wait, that’s not Luge!” and “How do we get this picture of an Amazon purchase to rhyme with Copper?”</p><p>This puzzle went through several iterations; one version used the set mechanic for both the foreground and background images (e.g. Roadhog on UPenn would clue Winston on Princeton because Roadhog and Winston are both <em>Overwatch</em> heroes and UPenn and Princeton are both Ivy League universities). However, finding reasonable pairs and creating a consistent and thematic final clue phrase were difficult. Furthermore, we thought it was less fun than the final version due to the massive amount of search that needed to be done.</p><p>Another aim of this puzzle was to be diverse in category choice by not picking the usual suspects, though ultimately, this was not as successful as I had hoped (US states, US president, mostly US culture). Some pairs that were removed were “Sour Squid/Power Grid”, “Footwalls/Sootballs” (replaced by “Let it Go”), “Blue Mango/Durango” (replaced by “Minnesota”).</p><p>AW: Patrick and I learned a lot about using GIMP while making this puzzle, and we had fun with things like making the PyTorch text refract behind the dough glasses.</p>
+        
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="../static/images/btnleft8-h.png%3F1517887534">
+            <img src="../static/images/btnmid8-h.png%3F1517887534">
+            <img src="../static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>

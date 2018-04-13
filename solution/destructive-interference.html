@@ -1,0 +1,1345 @@
+
+
+
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9HXglGF1lcVw==","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":54}</script>
+        
+<title>Solution: Destructive Interference</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="../static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="../static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='../index.html'>Home</a>
+                    <a href='../rules.html'>Rules</a>
+                    
+                        <a href='../story.html'>Story</a>
+                    
+                    
+                        <a href='../puzzles.html'>Puzzles</a>
+                    
+                    <a href='../teams.html'>Teams</a>
+                    <a href='../faq.html'>FAQ</a>
+                    
+                        <a href='../errata.html'>Updates</a>
+                    
+                    
+                        <a href='../wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='../archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+<a href="../puzzle/destructive-interference.html" class="btn btn--small">Back to the puzzle</a>
+
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="../login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+
+<style>
+.puzzle-body img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+.puzzle-body table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.puzzle-body tr:empty {
+  height: 1em;
+}
+.puzzle-body td {
+  padding: 5px;
+  border: 1px solid black;
+}
+.puzzle-body th {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+.puzzle-body hr {
+  border-color: initial;
+}
+.puzzle-body ol li {
+  list-style-type: inherit;
+}
+.puzzle-body td pre {
+  margin: 0;
+}
+</style>
+
+<div class="puzzle-page-body">
+    <h1 class="page-header puzzle-page__title">
+        
+        Solution: Destructive Interference
+        <div class="solved-title-marker">Answer: <span class="solved-title-answer">STADIUM ANTHEM</span></div>
+        
+    </h1>
+    <div class="puzzle-body solution-body">
+        <h5 class="solution-puzzle-subheader">
+            
+            Written by
+            
+Mitchell Lee<br>
+
+            
+        </h5>
+        
+
+<link rel="stylesheet" type="text/css" href="destructive-interference/solution.css" />
+
+<i><p>You can alternatively read this solution <a href="destructive-interference/solution.pdf">as a pdf</a>.</p></i>
+
+<p> Solvers are presented with an audio file containing a drum solo made out of samples. At 12 seconds, the sound of
+a doorbell joins the drums, followed by a voice that says &#8220;Welcome! Oh, yeah, the drumming? Those are the
+neighbors. They always seem to get in the way of what I&#8217;m trying to say at the most inconvenient times. Anyway,
+here&#8217;s the answer to this puzzle. The answer to this puzzle is:&#8221; as it fades out and reaches what appears to be silence
+at 27 seconds. At 35 seconds, the same voice says &#8220;And that&#8217;s the answer! Hope you caught everything I said.&#8221; as it
+fades back in.</p>
+<!--l. 56--><p class="indent" >   As indicated by the voice&#8217;s changes in volume and the sentence &#8220;People sometimes tell me I need to speak
+louder&#8221; of the flavor text, the voice actually does spell out the complete answer to the puzzle in seconds 27&#8211;35, but
+it&#8217;s spoken so quietly that it&#8217;s humanly impossible to hear with all the drums playing over it. The trick to the
+puzzle, as indicated by the sentence &#8220;Instead, I wish my neighbors would be silent&#8221; of the flavor text, is to
+remove the drums from the audio somehow. Then we can amplify the very quiet voice to hear the
+answer.
+</p><!--l. 57--><p class="indent" >   If we had access to an audio file containing just the drum track and not the voice, then we could use <a
+href="http://totalproaudio.stevebunting.com/30/basics/phase-or-polarity/" >polarity
+inversion</a> to &#8220;subtract&#8221; the drums from the provided audio file, leaving only the voice. This operation can be
+performed in any audio editing application or digital audio workstation. For example, in the free program <a
+href="https://www.audacityteam.org/" >Audacity</a>,
+it can be done using Effects <span
+class="tcrm-1000">&#x2192;  </span><a
+href="https://manual.audacityteam.org/man/invert.html" >Invert</a>. This technique is based on the physical phenomenon of <a
+href="https://en.wikipedia.org/wiki/Interference_(wave_propagation)" >destructive
+interference</a>, which is mentioned in the puzzle&#8217;s title. </p><div class="figure"
+>
+
+
+
+
+<!--l. 59--><p class="noindent" > <img src="destructive-interference/solution-figure0-small.png" alt="PIC">
+
+
+
+</p>
+   </div>
+<!--l. 70--><p class="indent" >   Of course, the issue is that the puzzle doesn&#8217;t provide an audio file containing just the drum track and not the
+voice. So we&#8217;re going to make one using <a
+href="https://en.wikipedia.org/wiki/Sampling_(music)" >sampling</a>.
+</p><!--l. 71--><p class="indent" >   There are some observations about the provided audio file that we need to make before we begin:
+</p>
+     <ul class="itemize1">
+     <li class="itemize">The drumming is made up of five different sound samples: a crash cymbal, a tom-tom, a snare drum,
+     a hi-hat, and a kick drum.
+     </li>
+     <li class="itemize">The tempo of the drums remains 120 beats per minute throughout the track and the start of each
+     drum sample occurs at an integer multiple of one-eighth of a second.
+     </li>
+     <li class="itemize">Each of the drum samples lasts for exactly one second. We might guess this from the fact that the
+     audio in the first second (0:00 - 0:01) of the file is precisely the same as the audio in the second second
+     (0:01 - 0:02). We can confirm it by looking at the end of the file: all five drum samples play at 38
+     seconds and there is abrupt silence starting at 39 seconds.</li></ul>
+<!--l. 77--><p class="noindent" >(Here are two technical remarks that mostly don&#8217;t affect the process of solving the puzzle but are worth pointing out.
+First, the audio file provided in the puzzle is in the .wav format. It&#8217;s important that we don&#8217;t convert it to .mp3 or
+any other format that uses <a
+href="https://en.wikipedia.org/wiki/Lossy_compression" >lossy compression</a>, because doing so would cause us to lose enough precision that we
+wouldn&#8217;t be able to solve the puzzle.
+</p><!--l. 79--><p class="indent" >   Also, because each drum sample starts at an integer multiple of one-eighth of a second but not all of them start
+at an integer multiple of one-fourth of a second, we need to work with a <a
+href="https://en.wikipedia.org/wiki/Sampling_(signal_processing)#Sampling_rate" >sample rate</a> that is an integer multiple of 8
+Hz. If we use Audacity to solve this puzzle, we don&#8217;t have to worry about this because Audacity automatically sets
+the working sample rate to 48000 Hz when it opens the provided audio file. But some other audio editing programs
+set the sample rate by default to the hardware sample rate, which can sometimes take values like 44100 Hz, so be
+careful.)
+</p><!--l. 80--><p class="indent" >   In order to recreate the drum track, we must first recreate the five drum samples. We should do so by
+manipulating the first 12 seconds of the provided file, because they contain only drums and no voice. (It will
+actually turn out that we only need to use the first 8 seconds.) Here is a transcription of the those first 12 seconds,
+which we&#8217;ll call &#8220;audio clip A&#8221;. Each drum sample is denoted by a slanted red line segment beginning at a small
+cross. You can click on this image to listen to audio clip A. </p><div class="figure"
+>
+
+
+<a
+ id="x1-2r1"></a>
+
+
+<!--l. 82--><p class="noindent" > <a href="destructive-interference/audio/A.wav"><img src="destructive-interference/solution-figure1-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip A</span>: the first 12 seconds of the provided audio file
+
+
+   </div>
+<!--l. 163--><p class="indent" >   We can isolate a sample of the kick drum by looking at just the first second of audio clip A. We&#8217;ll call this &#8220;audio
+clip B&#8221;. Here and in the rest of this solution, the name of each audio clip we&#8217;ll be using will be written under its
+transcription. </p><div class="figure"
+>
+
+
+<a
+ id="x1-3r2"></a>
+
+
+<!--l. 165--><p class="noindent" > <a href="destructive-interference/audio/B.wav"><img src="destructive-interference/solution-figure2-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip B</span>: the isolated kick drum
+
+
+   </div>
+<!--l. 214--><p class="indent" >   Using audio clip B and referring to the transcription of audio clip A, we can recreate the kick drum
+line. We must make sure to align everything precisely, or the next step won&#8217;t work. In Audacity, this
+can be done either by typing precise times into the selection toolbar at the bottom of the window or
+by using Analyze <span
+class="tcrm-1000">&#x2192;  </span><a
+href="http://manual.audacityteam.org/man/regular_interval_labels.html" >Regular Interval Labels</a> to create a &#8220;grid&#8221; that the drum beats can snap to.
+</p><div class="figure"
+>
+
+
+<a
+ id="x1-4r3"></a>
+
+
+<!--l. 216--><p class="noindent" > <a href="destructive-interference/audio/C.wav"><img src="destructive-interference/solution-figure3-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip C</span>: the kick drum line, recreated from audio clip B
+
+
+   </div>
+<!--l. 266--><p class="indent" >   Now, &#8220;subtract&#8221; audio clip C from audio clip A. That is, invert the polarity of audio clip C (using Audacity&#8217;s
+Invert effect, for example) and then mix the result with audio clip A. What we get is the first 12 seconds of the
+provided audio with the kick drum removed. Note that this starts with two seconds of silence which aren&#8217;t shown in
+the image below.
+</p>
+   <div class="figure"
+>
+
+
+<a
+ id="x1-5r4"></a>
+
+
+<!--l. 269--><p class="noindent" > <a href="destructive-interference/audio/D.wav"><img src="destructive-interference/solution-figure4-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip D</span>: the first 12 seconds of the provided audio with the kick drum removed
+
+
+   </div>
+<!--l. 341--><p class="indent" >   If we so desire, we can jump ahead a bit and perform the same kind of &#8220;subtraction&#8221; operation to
+remove <span
+class="cmti-10">all </span>instances of the kick drum from the provided audio. This is enough to uncover the spoken
+letter &#8220;S&#8221; at time 27 seconds, which confirms that we are on the right track. What we&#8217;ve done so far
+is a small but representative taste of the kind of audio magic that we&#8217;ll be using for the rest of the
+solution.
+</p><!--l. 342--><p class="indent" >   Let&#8217;s isolate the hi-hat sample next. We can get the first half-second of the hi-hat sample by taking seconds
+2.25&#8211;2.75 of audio clip D, but the hi-hat sample is one full second long, so that isn&#8217;t good enough. Instead, let&#8217;s
+examine seconds 2.25&#8211;3.25 of audio clip D. </p><div class="figure"
+>
+
+
+<a
+ id="x1-6r5"></a>
+
+
+<!--l. 344--><p class="noindent" > <a href="destructive-interference/audio/E.wav"><img src="destructive-interference/solution-figure5-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip E</span>: seconds 2.25&#8211;3.25 of audio clip D
+
+
+   </div>
+<!--l. 394--><p class="indent" >   Take seconds 0&#8211;0.5 of audio clip E and move them half a second later. </p><div class="figure"
+>
+
+
+<a
+ id="x1-7r6"></a>
+
+
+<!--l. 396--><p class="noindent" > <a href="destructive-interference/audio/F.wav"><img src="destructive-interference/solution-figure6-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip F</span>: seconds 0&#8211;0.5 of audio clip E shifted half a second later
+
+
+   </div>
+<!--l. 446--><p class="indent" >   Now, subtract audio clip F from audio clip E to get a sample of the hi-hat.
+</p>
+   <div class="figure"
+>
+
+
+<a
+ id="x1-8r7"></a>
+
+
+<!--l. 449--><p class="noindent" > <a href="destructive-interference/audio/G.wav"><img src="destructive-interference/solution-figure7-small.png" alt="PIC"  /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip G</span>: the isolated hi-hat
+
+
+   </div>
+<!--l. 498--><p class="indent" >   In the same way that we recreated the kick drum line from audio clip B, we can recreate the hi-hat line from
+audio clip G. </p><div class="figure"
+>
+
+
+<a
+ id="x1-9r8"></a>
+
+
+<!--l. 500--><p class="noindent" > <a href="destructive-interference/audio/H.wav"><img src="destructive-interference/solution-figure8-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip H</span>: the hi-hat line, recreated from audio clip G
+
+
+   </div>
+<!--l. 550--><p class="indent" >   Then, subtract audio clip H from audio clip D to get the first 12 seconds of the provided audio with both the
+kick drum and hi-hat removed. </p><div class="figure"
+>
+
+
+<a
+ id="x1-10r9"></a>
+
+
+<!--l. 552--><p class="noindent" > <a href="destructive-interference/audio/I.wav"><img src="destructive-interference/solution-figure9-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip I</span>: the first 12 seconds of the provided audio with both the kick drum and hi-hat removed
+
+
+   </div>
+<!--l. 618--><p class="indent" >   All that&#8217;s left is to isolate samples of the cymbal crash, tom-tom, and snare drum. To do this, let&#8217;s look at
+seconds 5&#8211;6 of audio clip I. Remember that each drum sample lasts one full second, so the tom that starts at the
+4.375 second mark in audio clip I can still be heard at time 5 seconds. The same is true of the snare that starts at
+the 4.5 second mark. We&#8217;ll represent these &#8220;residual sounds&#8221; in the diagram below using the ends of red line
+segments. </p><div class="figure"
+>
+
+
+<a
+ id="x1-11r10"></a>
+
+
+<!--l. 620--><p class="noindent" > <a href="destructive-interference/audio/J.wav"><img src="destructive-interference/solution-figure10-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip J</span>: seconds 5&#8211;6 of audio clip I
+
+
+   </div>
+<!--l. 676--><p class="indent" >   One interesting property of audio clip J is that it loops seamlessly. For example, here&#8217;s what it looks like when
+looped five times from 5 seconds to 10 seconds. </p><div class="figure"
+>
+
+
+<a
+ id="x1-12r11"></a>
+
+
+<!--l. 678--><p class="noindent" > <a href="destructive-interference/audio/K.wav"><img src="destructive-interference/solution-figure11-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip K</span>: audio clip J looped five times from 5 seconds to 10 seconds
+
+
+   </div>
+<!--l. 737--><p class="indent" >   Now, if we subtract audio clip K from audio clip I, we get a large amount of cancellation.
+</p>
+   <div class="figure"
+>
+
+
+<a
+ id="x1-13r12"></a>
+
+
+<!--l. 740--><p class="noindent" > <a href="destructive-interference/audio/L.wav"><img src="destructive-interference/solution-figure12-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip L</span>: audio clip I minus audio clip K
+
+
+   </div>
+<!--l. 810--><p class="indent" >   Seconds 8&#8211;9 of audio clip L are the crash cymbal sample.
+</p>
+   <div class="figure"
+>
+
+
+<a
+ id="x1-14r13"></a>
+
+
+<!--l. 813--><p class="noindent" > <a href="destructive-interference/audio/M.wav"><img src="destructive-interference/solution-figure13-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip M</span>: the isolated crash cymbal
+
+
+   </div>
+<!--l. 862--><p class="indent" >   We can use the same audio clip L to get the tom sample as well. Let&#8217;s restrict our attention to seconds 6&#8211;8.
+</p><div class="figure"
+>
+
+
+<a
+ id="x1-15r14"></a>
+
+
+<!--l. 864--><p class="noindent" > <a href="destructive-interference/audio/N.wav"><img src="destructive-interference/solution-figure14-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip N</span>: seconds 6&#8211;8 of audio clip L
+
+
+   </div>
+<!--l. 913--><p class="indent" >   Shift audio clip N half a second later to get &#8220;audio clip O&#8221;. Also, shift it 0.625 seconds (5/8 of a second) later to
+get &#8220;audio clip P&#8221;. </p><div class="figure"
+>
+
+
+<a
+ id="x1-16r15"></a>
+
+
+<!--l. 915--><p class="noindent" > <a href="destructive-interference/audio/O.wav"><img src="destructive-interference/solution-figure15-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip O</span>: audio clip N shifted half a second later
+
+
+   </div>
+   <div class="figure"
+>
+
+
+<a
+ id="x1-17r16"></a>
+
+
+<!--l. 965--><p class="noindent" > <a href="destructive-interference/audio/P.wav"><img src="destructive-interference/solution-figure16-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip P</span>: audio clip N shifted 0.625 seconds (5/8 of a second) later
+
+
+   </div>
+<!--l. 1014--><p class="indent" >   Now, subtract both audio clip O and audio clip P from audio clip N. That is, invert the polarity
+of both audio clip O and audio clip P, and mix the two results with audio clip N. The result is the
+following &#8220;audio clip Q&#8221;. Each thin blue line segment in the diagram below represents an inverted tom
+sample, and the thick blue line segment represents two inverted tom samples playing at the same time.
+</p><div class="figure"
+>
+
+
+<a
+ id="x1-18r17"></a>
+
+
+<!--l. 1016--><p class="noindent" > <a href="destructive-interference/audio/Q.wav"><img src="destructive-interference/solution-figure17-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip Q</span>: audio clip N minus audio clip O minus audio clip P
+
+
+   </div>
+<!--l. 1069--><p class="indent" >   As a remark, the &#8220;right-side-up&#8221; (red) tom samples in audio clip Q may sound exactly like the &#8220;inverted&#8221; (blue)
+samples, but they are actually inverses of each other. Seconds 0.25&#8211;1.25 of audio clip Q are the tom sample we&#8217;re
+looking for. </p><div class="figure"
+>
+
+
+<a
+ id="x1-19r18"></a>
+
+
+<!--l. 1071--><p class="noindent" > <a href="destructive-interference/audio/R.wav"><img src="destructive-interference/solution-figure18-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip R</span>: the isolated tom-tom
+
+
+   </div>
+<!--l. 1120--><p class="indent" >   Just like we did with the kick drum and hi-hat, we can recreate the crash cymbal and tom-tom lines. This time,
+let&#8217;s do both at the same time. </p><div class="figure"
+>
+
+
+<a
+ id="x1-20r19"></a>
+
+
+<!--l. 1122--><p class="noindent" > <a href="destructive-interference/audio/S.wav"><img src="destructive-interference/solution-figure19-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip S</span>: the crash cymbal and tom-tom lines, recreated from audio clip M and audio clip R
+
+
+   </div>
+<!--l. 1178--><p class="indent" >   We subtract audio clip S from audio clip I, which results in the snares alone. </p><div class="figure"
+>
+
+
+<a
+ id="x1-21r20"></a>
+
+
+<!--l. 1180--><p class="noindent" > <a href="destructive-interference/audio/T.wav"><img src="destructive-interference/solution-figure20-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip T</span>: the first 12 seconds of the provided audio with just the snare drums
+
+
+   </div>
+<!--l. 1233--><p class="indent" >   Finally, we sample the snare drum by taking seconds 4.5&#8211;5.5 of audio clip T. </p><div class="figure"
+>
+
+
+<a
+ id="x1-22r21"></a>
+
+
+<!--l. 1235--><p class="noindent" > <a href="destructive-interference/audio/U.wav"><img src="destructive-interference/solution-figure21-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip U: </span>the isolated snare drum
+
+
+   </div>
+<!--l. 1284--><p class="indent" >   We now have each of the five drum samples used in the puzzle: they are audio clips B, G, M, R, and U. (Of
+course, the logical path we took to find these samples is just one possible solution path.) Using this, we can recreate
+the drum track in 0:27&#8211;0:35 of the provided audio file. We don&#8217;t actually need to transcribe the drums because it is
+easier to remove each type of drum one by one. For the sake of completeness, though, the transcription can be seen
+below. </p><div class="figure"
+>
+
+
+<a
+ id="x1-23r22"></a>
+
+
+<!--l. 1287--><p class="noindent" > <a href="destructive-interference/audio/V.wav"><img src="destructive-interference/solution-figure22-small.png" alt="PIC" /></a>
+
+ </p>
+<span
+class="cmbx-10">Audio clip V</span>: the drums in 0:27&#8211;0:35 of the puzzle, recreated from audio clips B, G, M, R, and
+U
+
+
+   </div>
+<!--l. 1365--><p class="indent" >   Subtracting audio clip V from 0:27&#8211;0:35 of the provided audio file isolates just the voice in that time
+interval, which speaks a <a href="destructive-interference/audio/voice.wav">quiet message</a>. After <a href="destructive-interference/audio/voice&#32;amplified.wav">amplifying it</a>, we can hear the answer: <span
+class="cmbx-10">STADIUM</span>
+<span
+class="cmbx-10">ANTHEM</span>.
+</p>
+   <h3 class="likesectionHead"><a
+ id="x1-1000"></a>The shortcut</h3>
+<!--l. 1368--><p class="noindent" >It turns out that there is a difficult and completely optional &#8220;shortcut&#8221; in the solution to this puzzle. We expect it to
+be very rarely used and it is only included here as an interesting alternative method. This shortcut requires some
+programming and a little bit of linear algebra.
+</p><!--l. 1369--><p class="indent" >   Imagine chopping each of the audio clips A, &#x2026;, V used in the above solution into 1/8-second pieces. For example,
+audio clip A is 12 seconds long, so we can chop it up into 96 pieces <span
+class="cmmi-10">A</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,A</span><sub><span
+class="cmr-7">96</span></sub>, each of which is a 1/8-second audio
+clip. Audio clip V is 8 seconds long, so we instead chop it up into 64 pieces <span
+class="cmmi-10">V</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,V</span><sub><span
+class="cmr-7">64</span></sub>, each of which is a 1/8-second
+audio clip. If we use the sample rate 48000 Hz, which is the sample rate of the audio file provided by the
+puzzle, then any 1/8-second audio clip is stored on our computer using 6000 samples. Thus, we can
+think of the clips <span
+class="cmmi-10">A</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,A</span><sub><span
+class="cmr-7">96</span></sub><span
+class="cmmi-10">,V</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,V</span><sub><span
+class="cmr-7">64</span></sub> as 6000-tuples of numbers, or equivalently vectors in <span
+class="msbm-10">&#x211D;</span><sup><span
+class="cmr-7">6000</span></sup>.
+(If you prefer, you can think of them as elements of the &#8220;vector space of 1/8-second audio clips&#8221;,
+where the addition operation is mixing and the scalar multiplication operation is amplification/polarity
+inversion.)
+</p><!--l. 1371--><p class="indent" >   The key claim underlying this solution method is that each of the vectors <span
+class="cmmi-10">V</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,V</span><sub><span
+class="cmr-7">64</span></sub> is in the <a
+href="https://en.wikipedia.org/wiki/Linear_span" >span</a> of the vectors
+<span
+class="cmmi-10">A</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,A</span><sub><span
+class="cmr-7">96</span></sub>.
+</p><!--l. 1373--><p class="indent" >   In order to see why this is the case, we need to recall some details about the audio clips A, &#x2026;, V. In particular,
+recall that audio clip A was given to us by the puzzle. From it, we created each of the audio clips B, &#x2026;, V, in that
+order, using a sequence of audio operations. Each of the operations we used is of one of the following types:
+</p>
+     <ul class="itemize1">
+     <li class="itemize">Slicing a previously created audio clip at points which are integer multiples of 1/8 second. (For example,
+     audio clip E was created from audio clip D by slicing out seconds 2.25&#8211;3.25.)
+     </li>
+     <li class="itemize">Shifting a previously created audio clip back or forward in time by an integer multiple of 1/8 second.
+     (For example, audio clip P was created from audio clip O by moving it 0.375 seconds later.)
+     </li>
+     <li class="itemize">Adding  or  subtracting  previously  created  audio  clips.  (For  example,  audio  clip  L  was  created  by
+     subtracting audio clip K from audio clip I.)</li></ul>
+<!--l. 1379--><p class="noindent" >Now we claim that, because we only used those operations, <span
+class="cmti-10">any </span>of the 1/8-second slices of audio clips B, &#x2026;, V is in the
+span of <span
+class="cmmi-10">A</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,A</span><sub><span
+class="cmr-7">96</span></sub>.
+</p><!--l. 1380--><p class="indent" >   For example, suppose we slice the 1-second audio clip B into eight 1/8-second slices <span
+class="cmmi-10">B</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,B</span><sub><span
+class="cmr-7">8</span></sub>. Then recall that
+audio clip B is just the first second of audio clip A, so actually <span
+class="cmmi-10">B</span><sub><span
+class="cmmi-7">i</span></sub> = <span
+class="cmmi-10">A</span><sub><span
+class="cmmi-7">i</span></sub> for <span
+class="cmmi-10">i </span>= 1<span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,</span>8. In particular <span
+class="cmmi-10">B</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,B</span><sub><span
+class="cmr-7">8</span></sub> are all
+in the span of <span
+class="cmmi-10">A</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,A</span><sub><span
+class="cmr-7">96</span></sub>.
+</p><!--l. 1381--><p class="indent" >   Now, let&#8217;s look at the 12-second audio clip C, which was created by mixing 16 copies of audio clip B that had
+been shifted to various points in time. It can be broken up into 96 pieces <span
+class="cmmi-10">C</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,C</span><sub><span
+class="cmr-7">96</span></sub> of 1/8 second each, and each of
+those pieces is the span of <span
+class="cmmi-10">B</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,B</span><sub><span
+class="cmr-7">8</span></sub>. For example, the piece <span
+class="cmmi-10">C</span><sub><span
+class="cmr-7">24</span></sub>, which is seconds 2.875&#8211;3 of audio clip C, is equal
+to <span
+class="cmmi-10">B</span><sub><span
+class="cmr-7">3</span></sub> + <span
+class="cmmi-10">B</span><sub><span
+class="cmr-7">7</span></sub>. That is, it&#8217;s just seconds 0.375&#8211;0.5 of audio clip B mixed with seconds 0.875&#8211;1 of audio
+clip B. And each of the pieces <span
+class="cmmi-10">B</span><sub><span
+class="cmmi-7">i</span></sub> is in the span of <span
+class="cmmi-10">A</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,A</span><sub><span
+class="cmr-7">96</span></sub>, so each of the pieces <span
+class="cmmi-10">C</span><sub><span
+class="cmmi-7">i</span></sub> must be as
+well.
+</p><!--l. 1382--><p class="indent" >   Moving on to audio clip D, it was formed by subtracting audio clip C from audio clip A. So its 1/8-second pieces
+<span
+class="cmmi-10">D</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,D</span><sub><span
+class="cmr-7">96</span></sub> are given by <span
+class="cmmi-10">D</span><sub><span
+class="cmmi-7">i</span></sub> = <span
+class="cmmi-10">A</span><sub><span
+class="cmmi-7">i</span></sub> <span
+class="cmsy-10">- </span><span
+class="cmmi-10">C</span><sub><span
+class="cmmi-7">i</span></sub> for <span
+class="cmmi-10">i </span>= 1<span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,</span>96. Recall that each <span
+class="cmmi-10">C</span><sub><span
+class="cmmi-7">i</span></sub> is in the span of <span
+class="cmmi-10">A</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,A</span><sub><span
+class="cmr-7">96</span></sub>, so each <span
+class="cmmi-10">D</span><sub><span
+class="cmmi-7">i</span></sub>
+must be in that span as well.
+
+
+</p><!--l. 1383--><p class="indent" >   Continuing along these lines and using the fact that each of the audio clips B, &#x2026;, V was created using only the
+three operations listed above, we ultimately come to the conclusion that the vectors <span
+class="cmmi-10">V</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,V</span><sub><span
+class="cmr-7">64</span></sub> are
+all in the span of <span
+class="cmmi-10">A</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,A</span><sub><span
+class="cmr-7">96</span></sub>. In fact, if we were to carefully examine the above argument, we could
+even write each of <span
+class="cmmi-10">V</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,V</span><sub><span
+class="cmr-7">64</span></sub> explicitly as a linear combination of <span
+class="cmmi-10">A</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,A</span><sub><span
+class="cmr-7">96</span></sub>. However, it turns out
+that we don&#8217;t need to do that. Instead, we can simply use the provided audio file to approximate
+the vectors <span
+class="cmmi-10">V</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,V</span><sub><span
+class="cmr-7">64</span></sub>, and hence audio clip V, well enough to complete the solution. Here&#8217;s how this
+works.
+</p><!--l. 1384--><p class="indent" >   Let&#8217;s call seconds 27&#8211;35 of the audio file provided by the puzzle &#8220;audio clip V<span
+class="cmsy-7">&#x2032;</span>&#8221;, and chop it into its 1/8-second
+fragments <span
+class="cmmi-10">V</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmsy-10">&#x2032;</span><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,V</span><sub><span
+class="cmr-7">64</span></sub><span
+class="cmsy-10">&#x2032;</span>. Remember that audio clip V<span
+class="cmsy-7">&#x2032;</span> is made up of two parts: a drum solo (which is
+just audio clip V) and a quiet spoken message (which is audio clip V<span
+class="cmsy-7">&#x2032;</span> minus audio clip V). We are
+interested in separating these two parts from each other without computing audio clip V directly.
+We can do this an eighth of a second at a time: for <span
+class="cmmi-10">i </span>= 1<span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,</span>96, we want to separate <span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032; </span>into <span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub> and
+<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;- </span><span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub>.
+</p><!--l. 1385--><p class="indent" >   Recall that the vector <span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;-</span><span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub> is a fragment of a speech recording. Two sounds generated by independent means
+tend to <a
+href="https://jackschaedler.github.io/circles-sines-signals/dotproduct2.html" >correlate</a> weakly with each other, so <span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;- </span><span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub> should correlate weakly with each of <span
+class="cmmi-10">A</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,A</span><sub><span
+class="cmr-7">96</span></sub>. In other
+words, the dot product (<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;- </span><span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub>) <span
+class="cmsy-10">&#x22C5; </span><span
+class="cmmi-10">A</span><sub><span
+class="cmmi-7">j</span></sub> should be small in magnitude for <span
+class="cmmi-10">j </span>= 1<span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,</span>96. Thus, in the decomposition
+<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032; </span>= <span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub> + (<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;-</span><span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub>), the vector <span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub> is in the span of <span
+class="cmmi-10">A</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,A</span><sub><span
+class="cmr-7">96</span></sub> whereas the vector <span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;-</span><span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub> is nearly orthogonal to
+that span.
+</p><!--l. 1386--><p class="indent" >   On the other hand, there&#8217;s a unique way to write <span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032; </span>as a sum (<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;</span>)<sub><span
+class="cmsy-7">&#x2225;</span></sub> + (<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;</span>)<sub><span
+class="cmsy-7">&#x22A5;</span></sub> where (<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;</span>)<sub><span
+class="cmsy-7">&#x2225;</span></sub> is in the
+span of <span
+class="cmmi-10">A</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,A</span><sub><span
+class="cmr-7">96</span></sub> and (<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;</span>)<sub><span
+class="cmsy-7">&#x22A5;</span></sub> is <span
+class="cmti-10">exactly </span>orthogonal to that span. It turns out, as expected, that <span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub> is
+approximately (<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;</span>)<sub><span
+class="cmsy-7">&#x2225;</span></sub> and <span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;- </span><span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub> is approximately (<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;</span>)<sub><span
+class="cmsy-7">&#x22A5;</span></sub>. (Roughly speaking, this is because the vector
+<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub> <span
+class="cmsy-10">- </span>(<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;</span>)<sub><span
+class="cmsy-7">&#x2225;</span></sub> = (<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;</span>)<sub><span
+class="cmsy-7">&#x22A5;</span></sub><span
+class="cmsy-10">- </span>(<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;-</span><span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub>) is both in the span of <span
+class="cmmi-10">A</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,A</span><sub><span
+class="cmr-7">96</span></sub> and nearly orthogonal to that span, so it must be
+small.) So if we want to approximately separate <span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032; </span>into <span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub> and <span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;- </span><span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub>, it&#8217;s enough to compute (<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;</span>)<sub><span
+class="cmsy-7">&#x2225;</span></sub> and
+(<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;</span>)<sub><span
+class="cmsy-7">&#x22A5;</span></sub>.
+</p><!--l. 1387--><p class="indent" >   The problem of finding (<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;</span>)<sub><span
+class="cmsy-7">&#x2225;</span></sub> and (<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;</span>)<sub><span
+class="cmsy-7">&#x22A5;</span></sub> is an example of a <a
+href="http://math.mit.edu/~gs/linearalgebra/ila0403.pdf" >least squares problem</a>. In more detail,
+let
+</p>
+   <center class="math-display" >
+<img src="destructive-interference/solution0x.png" alt="    (            )
+    (  |       | )
+A =   A1  &#x22C5;&#x22C5;&#x22C5; A96
+       |       |
+" class="math-display" /></center>
+<!--l. 1391--><p class="nopar" > be the matrix whose columns are the vectors <span
+class="cmmi-10">A</span><sub><span
+class="cmr-7">1</span></sub><span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,A</span><sub><span
+class="cmr-7">96</span></sub>. This is a 6000 <span
+class="cmsy-10">&#x00D7; </span>96 matrix with real entries. Then (<span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;</span>)<sub><span
+class="cmsy-7">&#x2225;</span></sub> is
+exactly equal to <span
+class="cmmi-10">Ax</span>, where <span
+class="cmmi-10">x </span>is a vector minimizing the Euclidean norm <span
+class="cmsy-10">&#x2225;</span><span
+class="cmmi-10">Ax </span><span
+class="cmsy-10">- </span><span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub><span
+class="cmsy-10">&#x2032;&#x2225;</span><sub><span
+class="cmr-7">2</span></sub>.
+</p><!--l. 1393--><p class="indent" >   Performing this minimization for <span
+class="cmmi-10">i </span>= 1<span
+class="cmmi-10">,</span><span
+class="cmmi-10">&#x2026;</span><span
+class="cmmi-10">,</span>64 allows us to stitch together a very good
+approximation of audio clip V, and thus a good approximation of the quiet spoken message in
+seconds 27&#8211;35 of the provided audio. Here is a <a
+href="https://www.python.org/" >Python 3</a> program that does this using the
+<a
+href="https://www.scipy.org/" >
+<span
+class="cmtt-10">scipy</span></a> and <a
+href="http://www.numpy.org/" ><span
+class="cmtt-10">numpy</span></a> libraries. The comments in this program refer to the vectors <span
+class="cmmi-10">A</span><sub><span
+class="cmmi-7">i</span></sub> and <span
+class="cmmi-10">V</span><sub><span
+class="cmmi-7">i</span></sub> and <span
+class="cmmi-10">V </span><span
+class="cmsy-10">&#x2032;</span><sub><span
+class="cmmi-7">i</span></sub> in zero-indexed notation.
+Because the matrix <span
+class="cmmi-10">A </span>is very <a
+href="https://en.wikipedia.org/wiki/Condition_number" >ill-conditioned</a> (in fact, it does not even have full rank), we use
+<a
+href="https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.linalg.lsmr.html" ><span
+class="cmtt-10">scipy</span><span id="textcolor1"><span
+class="cmtt-10">.</span></span><span
+class="cmtt-10">sparse</span><span id="textcolor2"><span
+class="cmtt-10">.</span></span><span
+class="cmtt-10">linalg</span><span id="textcolor3"><span
+class="cmtt-10">.</span></span><span
+class="cmtt-10">lsmr</span></a> with a maximum iteration count of 10<sup><span
+class="cmr-7">6</span></sup>. </p>
+   <div class="fancyvrb" id="fancyvrb1"><a
+ id="x1-1024r1"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor4"><span
+class="cmtt-10">from</span></span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor5"><span
+class="cmtt-10">scipy.io.wavfile</span></span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor6"><span
+class="cmtt-10">import</span></span><span
+class="cmtt-10">&#x00A0;read</span><br class="fancyvrb" /><a
+ id="x1-1026r2"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor7"><span
+class="cmtt-10">from</span></span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor8"><span
+class="cmtt-10">scipy.io.wavfile</span></span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor9"><span
+class="cmtt-10">import</span></span><span
+class="cmtt-10">&#x00A0;write</span>
+<br class="fancyvrb" /><a
+ id="x1-1028r3"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor10"><span
+class="cmtt-10">from</span></span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor11"><span
+class="cmtt-10">scipy.sparse.linalg</span></span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor12"><span
+class="cmtt-10">import</span></span><span
+class="cmtt-10">&#x00A0;lsmr</span><br class="fancyvrb" /><a
+ id="x1-1030r4"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor13"><span
+class="cmtt-10">import</span></span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor14"><span
+class="cmtt-10">numpy</span></span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor15"><span
+class="cmtt-10">as</span></span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor16"><span
+class="cmtt-10">np</span></span><br class="fancyvrb" /><a
+ id="x1-1032r5"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;</span><br class="fancyvrb" /><a
+ id="x1-1034r6"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;data</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor17"><span
+class="cmtt-10">=</span></span><span
+class="cmtt-10">&#x00A0;read(</span><span id="textcolor18"><span
+class="cmtt-10">"destructive-interference.wav"</span></span><span
+class="cmtt-10">)</span>
+<br class="fancyvrb" /><a
+ id="x1-1036r7"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;samples</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor19"><span
+class="cmtt-10">=</span></span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor20"><span
+class="cmtt-10">list</span></span><span
+class="cmtt-10">(data[</span><span id="textcolor21"><span
+class="cmtt-10">1</span></span><span
+class="cmtt-10">])</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor22"><span
+class="cmitt-10">#</span><span
+class="cmitt-10">&#x00A0;A</span><span
+class="cmitt-10">&#x00A0;list</span><span
+class="cmitt-10">&#x00A0;of</span><span
+class="cmitt-10">&#x00A0;the</span><span
+class="cmitt-10">&#x00A0;samples</span><span
+class="cmitt-10">&#x00A0;in</span><span
+class="cmitt-10">&#x00A0;destructive-interference.wav</span></span>
+<br class="fancyvrb" /><a
+ id="x1-1038r8"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;</span><br class="fancyvrb" /><a
+ id="x1-1040r9"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;At</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor23"><span
+class="cmtt-10">=</span></span><span
+class="cmtt-10">&#x00A0;np</span><span id="textcolor24"><span
+class="cmtt-10">.</span></span><span
+class="cmtt-10">array([samples[i</span><span id="textcolor25"><span
+class="cmtt-10">*</span></span><span id="textcolor26"><span
+class="cmtt-10">6000</span></span><span
+class="cmtt-10">:(i</span><span id="textcolor27"><span
+class="cmtt-10">+</span></span><span id="textcolor28"><span
+class="cmtt-10">1</span></span><span
+class="cmtt-10">)</span><span id="textcolor29"><span
+class="cmtt-10">*</span></span><span id="textcolor30"><span
+class="cmtt-10">6000</span></span><span
+class="cmtt-10">]</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor31"><span
+class="cmtt-10">for</span></span><span
+class="cmtt-10">&#x00A0;i</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor32"><span
+class="cmtt-10">in</span></span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor33"><span
+class="cmtt-10">range</span></span><span
+class="cmtt-10">(</span><span id="textcolor34"><span
+class="cmtt-10">96</span></span><span
+class="cmtt-10">)])</span>
+<br class="fancyvrb" /><a
+ id="x1-1042r10"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;A</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor35"><span
+class="cmtt-10">=</span></span><span
+class="cmtt-10">&#x00A0;At</span><span id="textcolor36"><span
+class="cmtt-10">.</span></span><span
+class="cmtt-10">transpose()</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor37"><span
+class="cmitt-10">#</span><span
+class="cmitt-10">&#x00A0;The</span><span
+class="cmitt-10">&#x00A0;matrix</span><span
+class="cmitt-10">&#x00A0;A</span><span
+class="cmitt-10">&#x00A0;(whose</span><span
+class="cmitt-10">&#x00A0;columns</span><span
+class="cmitt-10">&#x00A0;are</span><span
+class="cmitt-10">&#x00A0;A_0,</span><span
+class="cmitt-10">&#x00A0;...,</span><span
+class="cmitt-10">&#x00A0;A_95)</span></span><br class="fancyvrb" /><a
+ id="x1-1044r11"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;</span>
+
+
+<br class="fancyvrb" /><a
+ id="x1-1046r12"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;answer</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor38"><span
+class="cmtt-10">=</span></span><span
+class="cmtt-10">&#x00A0;[]</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor39"><span
+class="cmitt-10">#</span><span
+class="cmitt-10">&#x00A0;A</span><span
+class="cmitt-10">&#x00A0;list</span><span
+class="cmitt-10">&#x00A0;of</span><span
+class="cmitt-10">&#x00A0;the</span><span
+class="cmitt-10">&#x00A0;samples</span><span
+class="cmitt-10">&#x00A0;of</span><span
+class="cmitt-10">&#x00A0;the</span><span
+class="cmitt-10">&#x00A0;spoken</span><span
+class="cmitt-10">&#x00A0;message</span></span><br class="fancyvrb" /><a
+ id="x1-1048r13"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor40"><span
+class="cmtt-10">for</span></span><span
+class="cmtt-10">&#x00A0;i</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor41"><span
+class="cmtt-10">in</span></span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor42"><span
+class="cmtt-10">range</span></span><span
+class="cmtt-10">(</span><span id="textcolor43"><span
+class="cmtt-10">64</span></span><span
+class="cmtt-10">):</span>
+
+
+<br class="fancyvrb" /><a
+ id="x1-1050r14"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;&nbsp;&nbsp;&nbsp;&nbsp;vprime</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor44"><span
+class="cmtt-10">=</span></span><span
+class="cmtt-10">&#x00A0;np</span><span id="textcolor45"><span
+class="cmtt-10">.</span></span><span
+class="cmtt-10">array(samples[</span><span id="textcolor46"><span
+class="cmtt-10">27</span></span><span id="textcolor47"><span
+class="cmtt-10">*</span></span><span id="textcolor48"><span
+class="cmtt-10">48000</span></span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor49"><span
+class="cmtt-10">+</span></span><span
+class="cmtt-10">&#x00A0;i</span><span id="textcolor50"><span
+class="cmtt-10">*</span></span><span id="textcolor51"><span
+class="cmtt-10">6000</span></span><span
+class="cmtt-10">&#x00A0;:</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor52"><span
+class="cmtt-10">27</span></span><span id="textcolor53"><span
+class="cmtt-10">*</span></span><span id="textcolor54"><span
+class="cmtt-10">48000</span></span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor55"><span
+class="cmtt-10">+</span></span><span
+class="cmtt-10">&#x00A0;(i</span><span id="textcolor56"><span
+class="cmtt-10">+</span></span><span id="textcolor57"><span
+class="cmtt-10">1</span></span><span
+class="cmtt-10">)</span><span id="textcolor58"><span
+class="cmtt-10">*</span></span><span id="textcolor59"><span
+class="cmtt-10">6000</span></span><span
+class="cmtt-10">])</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor60"><span
+class="cmitt-10">#</span><span
+class="cmitt-10">&#x00A0;V&#8217;_i</span></span>
+<br class="fancyvrb" /><a
+ id="x1-1052r15"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;&nbsp;&nbsp;&nbsp;&nbsp;x</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor61"><span
+class="cmtt-10">=</span></span><span
+class="cmtt-10">&#x00A0;(lsmr(A,</span><span
+class="cmtt-10">&#x00A0;vprime,</span><span
+class="cmtt-10">&#x00A0;maxiter</span><span id="textcolor62"><span
+class="cmtt-10">=</span></span><span id="textcolor63"><span
+class="cmtt-10">1e+6</span></span><span
+class="cmtt-10">))[</span><span id="textcolor64"><span
+class="cmtt-10">0</span></span><span
+class="cmtt-10">]</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor65"><span
+class="cmitt-10">#</span><span
+class="cmitt-10">&#x00A0;vector</span><span
+class="cmitt-10">&#x00A0;x</span><span
+class="cmitt-10">&#x00A0;that</span><span
+class="cmitt-10">&#x00A0;minimizes</span><span
+class="cmitt-10">&#x00A0;|Ax</span><span
+class="cmitt-10">&#x00A0;-</span><span
+class="cmitt-10">&#x00A0;V&#8217;_i|_2</span></span>
+<br class="fancyvrb" /><a
+ id="x1-1054r16"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;&nbsp;&nbsp;&nbsp;&nbsp;vapprox</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor66"><span
+class="cmtt-10">=</span></span><span
+class="cmtt-10">&#x00A0;A</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor67"><span
+class="cmtt-10">@</span></span><span
+class="cmtt-10">&#x00A0;x</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor68"><span
+class="cmitt-10">#</span><span
+class="cmitt-10">&#x00A0;approximation</span><span
+class="cmitt-10">&#x00A0;Ax</span><span
+class="cmitt-10">&#x00A0;for</span><span
+class="cmitt-10">&#x00A0;V_i</span></span><br class="fancyvrb" /><a
+ id="x1-1056r17"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;&nbsp;&nbsp;&nbsp;&nbsp;answer</span><span id="textcolor69"><span
+class="cmtt-10">.</span></span><span
+class="cmtt-10">extend(</span><span id="textcolor70"><span
+class="cmtt-10">list</span></span><span
+class="cmtt-10">(vprime</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor71"><span
+class="cmtt-10">-</span></span><span
+class="cmtt-10">&#x00A0;vapprox))</span>
+
+<br class="fancyvrb" /><a
+ id="x1-1058r18"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;</span><br class="fancyvrb" /><a
+ id="x1-1060r19"></a><span
+class="cmtt-10">&#x00A0;</span><span
+class="cmtt-10">&#x00A0;write(</span><span id="textcolor72"><span
+class="cmtt-10">"answer.wav"</span></span><span
+class="cmtt-10">,</span><span
+class="cmtt-10">&#x00A0;</span><span id="textcolor73"><span
+class="cmtt-10">48000</span></span><span
+class="cmtt-10">,</span><span
+class="cmtt-10">&#x00A0;np</span><span id="textcolor74"><span
+class="cmtt-10">.</span></span><span
+class="cmtt-10">array(answer,dtype</span><span id="textcolor75"><span
+class="cmtt-10">=</span></span><span
+class="cmtt-10">np</span><span id="textcolor76"><span
+class="cmtt-10">.</span></span><span
+class="cmtt-10">int16))</span></div>
+<br>
+<!--l. 1415--><p class="noindent" >After <a href="destructive-interference/audio/answer&#32;amplified.wav">amplifying</a> the <a href="destructive-interference/audio/answer.wav">output of this program</a>, we can hear the answer: <span
+class="cmbx-10">STADIUM ANTHEM</span>.  </p>
+
+
+
+        
+
+        
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="../static/images/btnleft8-h.png%3F1517887534">
+            <img src="../static/images/btnmid8-h.png%3F1517887534">
+            <img src="../static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>

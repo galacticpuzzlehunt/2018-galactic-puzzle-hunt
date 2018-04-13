@@ -1,0 +1,251 @@
+
+
+
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9HXglGF1lcVw==","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":22}</script>
+        
+<title>Solution: Everything and More</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="../static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="../static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='../index.html'>Home</a>
+                    <a href='../rules.html'>Rules</a>
+                    
+                        <a href='../story.html'>Story</a>
+                    
+                    
+                        <a href='../puzzles.html'>Puzzles</a>
+                    
+                    <a href='../teams.html'>Teams</a>
+                    <a href='../faq.html'>FAQ</a>
+                    
+                        <a href='../errata.html'>Updates</a>
+                    
+                    
+                        <a href='../wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='../archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+<a href="../puzzle/everything-and-more.html" class="btn btn--small">Back to the puzzle</a>
+
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="../login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+
+<style>
+.puzzle-body img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+.puzzle-body table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.puzzle-body tr:empty {
+  height: 1em;
+}
+.puzzle-body td {
+  padding: 5px;
+  border: 1px solid black;
+}
+.puzzle-body th {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+.puzzle-body hr {
+  border-color: initial;
+}
+.puzzle-body ol li {
+  list-style-type: inherit;
+}
+.puzzle-body td pre {
+  margin: 0;
+}
+</style>
+
+<div class="puzzle-page-body">
+    <h1 class="page-header puzzle-page__title">
+        
+        Solution: Everything and More
+        <div class="solved-title-marker">Answer: <span class="solved-title-answer">MUESLI</span></div>
+        
+    </h1>
+    <div class="puzzle-body solution-body">
+        <h5 class="solution-puzzle-subheader">
+            
+            Written by
+            
+Brian Chen
+
+            
+        </h5>
+        
+
+<p>The puzzle consists of a list of eight sequences of clues, and eight enumerations at the end. Once you start solving the clues, you should notice that a lot of rare letters appear frequently.</p>
+
+<p>As suggested by the title, each of the eight items solves to a sequence of words or abbreviations that contains all the letters of the alphabet (a <a href="https://en.wikipedia.org/wiki/Pangram">pangram</a>). The fact that all the clues are run together without any punctuation in-between is meant to evoke the way pangrams are usually full sentences rather than just a collection of words. Furthermore, no letter appears three or more times in each item. These constraints should help disambiguate any remaining uncertain answers, and some of the more obscure words can also be found by consulting a <a href="http://clagnut.com/blog/2380/">list of pangrams</a>. The answers are given below. If you look at the letters that appear twice in each item, you find that all the first occurrences of each letter occur before all the second occurrences of each letter, and they appear in the same order, which spells out a word (twice):</p>
+
+<ol>
+	<li><STRONG>S</STRONG>OCK Z<STRONG>I</STRONG><STRONG>M</STRONG>B J<STRONG>U</STRONG><STRONG>L</STRONG>Y Q<STRONG>A</STRONG><STRONG>T</STRONG> H<STRONG>E</STRONG>X VF<STRONG>D</STRONG> <STRONG>S</STRONG>W<STRONG>I</STRONG><STRONG>M</STRONG> R<STRONG>U</STRONG>NG P<STRONG>L</STRONG><STRONG>A</STRONG><STRONG>T</STRONG><STRONG>E</STRONG><STRONG>D</STRONG> &rarr; <strong>SIMULATED</strong></li>
+	<li>Z<STRONG>U</STRONG><STRONG>M</STRONG>BA <STRONG>P</STRONG>YX <STRONG>I</STRONG>Q G<STRONG>R</STRONG>OW V<STRONG>E</STRONG>LDT J<STRONG>U</STRONG><STRONG>M</STRONG><STRONG>P</STRONG> N<STRONG>I</STRONG>CK F<STRONG>R</STRONG><STRONG>E</STRONG>SH &rarr; <strong>UMPIRE</strong></li>
+<li><STRONG>F</STRONG>ORD V<STRONG>A</STRONG>T <STRONG>C</STRONG>H<STRONG>I</STRONG> JY<STRONG>N</STRONG>X <STRONG>G</STRONG>EM S<STRONG>F</STRONG>W BL<STRONG>A</STRONG><STRONG>C</STRONG>K QU<STRONG>I</STRONG>Z P<STRONG>N</STRONG><STRONG>G</STRONG> &rarr; <strong>FACING</strong></li>
+<li>Z<STRONG>A</STRONG><STRONG>R</STRONG>QUON B<STRONG>M</STRONG>W J<STRONG>A</STRONG>CKS VEXT G<STRONG>R</STRONG>I<STRONG>M</STRONG> PHD FLY &rarr; <strong>ARM</strong></li>
+<li><STRONG>M</STRONG>OP W<STRONG>I</STRONG><STRONG>N</STRONG>D QB<STRONG>E</STRONG><STRONG>R</STRONG>T Z<STRONG>A</STRONG>GS <STRONG>L</STRONG>UCY <STRONG>M</STRONG>XV <STRONG>I</STRONG><STRONG>N</STRONG> J<STRONG>E</STRONG><STRONG>R</STRONG>K H<STRONG>A</STRONG><STRONG>L</STRONG>F &rarr; <strong>MINERAL</strong></li>
+<li>VI<STRONG>M</STRONG> C<STRONG>O</STRONG><STRONG>D</STRONG> H<STRONG>E</STRONG><STRONG>R</STRONG>TZ PLA<STRONG>N</STRONG> <STRONG>M</STRONG>Y F<STRONG>O</STRONG>X <STRONG>D</STRONG>W B<STRONG>E</STRONG>GS Q<STRONG>R</STRONG> JU<STRONG>N</STRONG>K &rarr; <strong>MODERN</strong></li>
+<li><STRONG>F</STRONG><STRONG>A</STRONG>X QU<STRONG>I</STRONG>CK D<STRONG>R</STRONG><STRONG>Y</STRONG> SEL<STRONG>F</STRONG> MON J<STRONG>A</STRONG>B Z<STRONG>I</STRONG>P W<STRONG>R</STRONG><STRONG>Y</STRONG> HGTV &rarr; <strong>FAIRY</strong></li>
+<li>W<STRONG>A</STRONG>XY <STRONG>M</STRONG>J V<STRONG>E</STRONG>RB PO<STRONG>N</STRONG><STRONG>D</STRONG> QU<STRONG>A</STRONG>CKS GLHF <STRONG>M</STRONG><STRONG>E</STRONG><STRONG>N</STRONG> <STRONG>D</STRONG>ITZ &rarr; <strong>AMEND</strong></li>
+</ol>
+
+<p>These words don&rsquo;t fit in the bottom enumerations, but they can be treated as single-word clues for words that do. These clues are fairly ambiguous, but they can be solved by relying on the fact that their answers should satisfy the same pangrammatic property (notably, QUARTZ for its Q and Z):</p>
+<blockquote><strong>M</strong>OCK J<strong>U</strong>DG<strong>E</strong> V<strong>S</strong> <strong>LIM</strong>B Q<strong>U</strong>ARTZ N<strong>E</strong>W <strong>S</strong>Y<strong>L</strong>PH F<strong>I</strong>X</blockquote>
+<p>By the same mechanic, the duplicate letters in these answers spell out the final answer, <strong>MUESLI</strong>.</p>
+
+<p>The full list of clues and answers is given below.</p>
+
+<ol>
+	<li>Woven foot covering (4) &rarr; SOCK <br/>
+Ethiopian horsefly (4) &rarr; ZIMB <br/>
+month named after Caesar (4) &rarr; JULY <br/>
+Arabian/African evergreen shrub (3) &rarr; QAT <br/>
+bewitch (3) &rarr; HEX <br/>
+secret society from <cite>A Series of Unfortunate Events</cite> (3, abbr.) &rarr; VFD <br/>
+move through water (4) &rarr; SWIM <br/>
+step of a ladder (4) &rarr; RUNG <br/>
+coated with gold or silver, perhaps (6) &rarr; PLATED
+</li>
+<li>Fitness program from Colombia (5) &rarr; ZUMBA <br/>
+container for the Eucharist (3) &rarr; PYX <br/>
+standardized measure of cognitive prowess (2, abbr.) &rarr; IQ <br/>
+raise, as a plant (4) &rarr; GROW <br/>
+uncultivated rural African landscape (5, var.) &rarr; VELDT <br/>
+propel oneself into the air (4) &rarr; JUMP <br/>
+small notch (4) &rarr; NICK <br/>
+not stale, as produce (5) &rarr; FRESH
+</li>
+<li>Automaker headquartered in Dearborn, Michigan (4) &rarr; FORD <br/>
+large tub (3) &rarr; VAT <br/>
+Greek letter used to denote the chromatic number (3) &rarr; CHI <br/>
+Generation I Ice/Psychic Pokémon (4) &rarr; JYNX <br/>
+precious stone (3) &rarr; GEM <br/>
+appropriate in the place of employment (3, abbr.) &rarr; SFW <br/>
+darkest color (5) &rarr; BLACK <br/>
+short academic assessment (4) &rarr; QUIZ <br/>
+common lossless image format (3, abbr.) &rarr; PNG
+</li>
+<li>Ancient prophet from <cite>The Hitchhiker&rsquo;s Guide to the Galaxy</cite> universe (7) &rarr; ZARQUON <br/>
+German automaker (3, abbr.) &rarr; BMW <br/>
+male donkeys (5) &rarr; JACKS <br/>
+brought trouble or distress to (4, var.) &rarr; VEXT <br/>
+depressing, as a situation (4) &rarr; GRIM <br/>
+common highest academic degree (3, abbr.) &rarr; PHD <br/>
+travel through the air (3) &rarr; FLY
+</li>
+<li>Tool for washing floors (3) &rarr; MOP <br/>
+moving air (4) &rarr; WIND <br/>
+arcade game character known for nonsensical &ldquo;swearing&rdquo; (1*4) &rarr; Q*BERT <br/>
+moves in the second direction in a path of sharp turns (4) &rarr; ZAGS <br/>
+famous fossil named after a Beatles song (4) &rarr; LUCY <br/>
+1015 according to a Roman (3) &rarr; MXV <br/>
+enclosed by (2) &rarr; IN <br/>
+the third derivative of displacement (4) &rarr; JERK <br/>
+fifty percent (4) &rarr; HALF
+</li>
+<li>Bram Moolenaar&rsquo;s modal text editor (3) &rarr; VIM <br/>
+fish commonly paired with chips (3) &rarr; COD <br/>
+once per second (5) &rarr; HERTZ <br/>
+plot or scheme (4) &rarr; PLAN <br/>
+belonging to me (2) &rarr; MY <br/>
+vulpine animal (3) &rarr; FOX <br/>
+German international broadcaster (2, abbr.) &rarr; DW <br/>
+earnestly requests (4) &rarr; BEGS <br/>
+matrix barcode (2, abbr.) &rarr; QR <br/>
+trash (4) &rarr; JUNK
+</li>
+<li>Electronically transmit copy (3) &rarr; FAX <br/>
+rapid (5) &rarr; QUICK <br/>
+not wet (3) &rarr; DRY <br/>
+the object of introspection (4) &rarr; SELF <br/>
+first day of the workweek, for short (3, abbr.) &rarr; MON <br/>
+poke, as with a needle (3) &rarr; JAB <br/>
+common compressed file format (3) &rarr; ZIP <br/>
+ironic or twisted (3) &rarr; WRY <br/>
+American cable channel with emphasis on home improvement (4, abbr.) &rarr; HGTV
+</li>
+<li>Like some plant secretions (4) &rarr; WAXY <br/>
+basketball legend (2, abbr.) &rarr; MJ <br/>
+part of speech expressing action (4) &rarr; VERB <br/>
+small body of water (4) &rarr; POND <br/>
+makes duck-like sound (6) &rarr; QUACKS <br/>
+encouragement before the start of an online game (4, abbr.) &rarr; GLHF <br/>
+adult males (3) &rarr; MEN <br/>
+scatterbrained person (4) &rarr; DITZ <br/>
+</li>
+</ol>
+
+
+
+        
+
+        
+        <hr>
+        <h5 class="solution-puzzle-subheader">Author&rsquo;s Notes</h5>
+        <p>This was one of the first puzzle ideas I submitted, but one of the last to be assigned an answer (which had previously been assigned to one of my other puzzle ideas, which then became The Answer to This Puzzle Is....) Originally I envisioned cluing an entire sentence and then enumerating the word lengths in the entire sentence, but it quickly became clear that, under the restrictions of where the fixed letters had to be, it was prohibitively hard to make reasonable sentences, especially sentences that could be reasonably clued to leave no ambiguity as to the order of equal-length words. There were too many nouns and not enough other parts of speech; getting verb agreement to work was also very difficult. Still, you may be able to see some vestiges of my attempting to do this in the arrangement of words.</p><p>The ambiguity of the final step was also higher than I expected. During testsolving, our testsolvers tried FAKE, GYPSUM, and NYMPH, among other words, but eventually managed to error-correct enough to find the answer, so I thought it was fine. However, during the hunt we further discovered that a site suggested <a href="https://www.wordplays.com/crossword-solver/facing-abbr.">OP</a> for the clue &ldquo;Facing (abbr.)&rdquo;. In addition, I realized that the mistake of having NYMPH instead of SYLPH was particularly hard to error-correct, since these words shared three letters, and the two letters in SYLPH but not NYMPH were letters that appeared elsewhere and were meant to be extracted. As a result, if solvers did not realize that letters only appeared once or twice or that the repeated letters intended for extraction appeared in the same order both times, then they might not detect this as an error. A fair number of teams guessed IMMUNE, which could be obtained by anagramming the letters that appeared more than once, if you had NYMPH instead of SYLPH. It certainly didn&rsquo;t help that NYMPH was a considerably more common word. To teams who got stuck here, apologies for not catching this during testsolving. (Fun fact: this is not the first time &ldquo;NYMPH&rdquo; has gotten me into trouble; in an early draft of one of my first &ldquo;published&rdquo; puzzlehunt puzzles, A Puzzle Consisting Entirely of Random Anagrams from the 2015 MIT Mystery Hunt, I wrote a clue I thought fairly specifically clued NAIAD that all the testsolvers solved as NYMPH. But unlike here, that clue was scrapped.)</p><p>There was some debate about what enumeration to give Q*BERT. I left the asterisk in because this was an intro round puzzle and the testsolvers found it amusing.</p>
+        
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="../static/images/btnleft8-h.png%3F1517887534">
+            <img src="../static/images/btnmid8-h.png%3F1517887534">
+            <img src="../static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>

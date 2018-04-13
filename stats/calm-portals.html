@@ -1,0 +1,953 @@
+
+
+
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9HRQRHEA==","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":252}</script>
+        
+<title>Stats: Calm Portals</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="../static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="../static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='../index.html'>Home</a>
+                    <a href='../rules.html'>Rules</a>
+                    
+                        <a href='../story.html'>Story</a>
+                    
+                    
+                        <a href='../puzzles.html'>Puzzles</a>
+                    
+                    <a href='../teams.html'>Teams</a>
+                    <a href='../faq.html'>FAQ</a>
+                    
+                        <a href='../errata.html'>Updates</a>
+                    
+                    
+                        <a href='../wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='../archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+<a href="../puzzle/calm-portals.html" class="btn btn--small">Back to the puzzle</a>
+
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="../login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+
+<h1 class="page-header">Stats: Calm Portals</h1>
+
+<div class="single-narrower-column-on-desktop">
+    <div class="row puzzle-stats-panel">
+        <div class="six columns">
+            <div class="stat-entry">Total solves: <span class="stat-entry__value">104</span></div>
+        </div>
+        <div class="six columns">
+            <div class="stat-entry">Total guesses: <span class="stat-entry__value">275</span></div>
+        </div>
+    </div>
+
+    <table class="sortable gph-list-table" style="table-layout: fixed;">
+        <col style="width: 40ch">
+        <col style="width: 10ch">
+        <col style="width: 20ch">
+        <col style="width: 10ch">
+        <col style="width: 20ch">
+        <tbody>
+            <tr>
+                <th>Team</th>
+                <th>Incorrect guesses</th>
+                <th>Unlock time (EDT)</th>
+                <th>Time to solve</th>
+                <th>Solve time (EDT)</th>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Just%2520for%2520the%2520Halibut.html">Just for the Halibut</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521351783">Mar 18, 01:43</td>
+                <td sorttable_customkey="4481.362136">1h14m</td>
+                <td sorttable_customkey="1521356264">Mar 18, 02:57</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Killer%2520Chicken%2520Bones.html">Killer Chicken Bones</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521328544">Mar 17, 19:15</td>
+                <td sorttable_customkey="31113.370133">8h38m</td>
+                <td sorttable_customkey="1521359657">Mar 18, 03:54</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=have%2520you%2520tried%2520random%2520anagramming.html">have you tried random anagramming</a></td>
+                <td>1</td>
+                <td sorttable_customkey="1521357014">Mar 18, 03:10</td>
+                <td sorttable_customkey="8287.869603">2h18m</td>
+                <td sorttable_customkey="1521365302">Mar 18, 05:28</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=%25F0%259F%258E%258F%25F0%259F%258E%258F%25F0%259F%258E%258F%2520Chocolate%2520Herrings%2520%25F0%259F%258E%258F%25F0%259F%258E%258F%25F0%259F%258E%258F.html">🎏🎏🎏 Chocolate Herrings 🎏🎏🎏</a></td>
+                <td>9</td>
+                <td sorttable_customkey="1521357299">Mar 18, 03:14</td>
+                <td sorttable_customkey="42764.570941">11h52m</td>
+                <td sorttable_customkey="1521400063">Mar 18, 15:07</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=ducksoup.html">ducksoup</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521397639">Mar 18, 14:27</td>
+                <td sorttable_customkey="4435.897485">1h13m</td>
+                <td sorttable_customkey="1521402075">Mar 18, 15:41</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=The%2520Elite.html">The Elite</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521364963">Mar 18, 05:22</td>
+                <td sorttable_customkey="37918.173522">10h31m</td>
+                <td sorttable_customkey="1521402881">Mar 18, 15:54</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Tasty%2520Samoas%252C%2520Please%2520Ingest.html">Tasty Samoas, Please Ingest</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521349585">Mar 18, 01:06</td>
+                <td sorttable_customkey="54052.133734">15h0m</td>
+                <td sorttable_customkey="1521403637">Mar 18, 16:07</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Plugholate%2520chip%2520cookies.html">Plugholate chip cookies</a></td>
+                <td>2</td>
+                <td sorttable_customkey="1521386332">Mar 18, 11:18</td>
+                <td sorttable_customkey="18696.213654">5h11m</td>
+                <td sorttable_customkey="1521405028">Mar 18, 16:30</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=%25F0%259F%258D%25AA%25F0%259F%258D%25AA%25F0%259F%258D%25AA%2520Pluru%2520%25F0%259F%258D%25AA%25F0%259F%258D%25AA%25F0%259F%258D%25AA.html">🍪🍪🍪 Pluru 🍪🍪🍪</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521373827">Mar 18, 07:50</td>
+                <td sorttable_customkey="31891.91575">8h51m</td>
+                <td sorttable_customkey="1521405719">Mar 18, 16:41</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Time%2520Zones%2520Are%2520Hard.html">Time Zones Are Hard</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521401332">Mar 18, 15:28</td>
+                <td sorttable_customkey="4446.324455">1h14m</td>
+                <td sorttable_customkey="1521405778">Mar 18, 16:42</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Cardinality.html">Cardinality</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521376378">Mar 18, 08:32</td>
+                <td sorttable_customkey="43975.456171">12h12m</td>
+                <td sorttable_customkey="1521420354">Mar 18, 20:45</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=k-CLICK.html">k-CLICK</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521436143">Mar 19, 01:09</td>
+                <td sorttable_customkey="2403.152607">40m3s</td>
+                <td sorttable_customkey="1521438546">Mar 19, 01:49</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Just-Us%2520League.html">Just-Us League</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521439387">Mar 19, 02:03</td>
+                <td sorttable_customkey="4478.646096">1h14m</td>
+                <td sorttable_customkey="1521443866">Mar 19, 03:17</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=%255BRedacted%255D.html">[Redacted]</a></td>
+                <td>7</td>
+                <td sorttable_customkey="1521443040">Mar 19, 03:04</td>
+                <td sorttable_customkey="26147.926967">7h15m</td>
+                <td sorttable_customkey="1521469188">Mar 19, 10:19</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=%25F0%259F%2590%259D%2520Aviation%2520Laws%2520%25F0%259F%2590%259D.html">🐝 Aviation Laws 🐝</a></td>
+                <td>10</td>
+                <td sorttable_customkey="1521385684">Mar 18, 11:08</td>
+                <td sorttable_customkey="99127.798551">27h32m</td>
+                <td sorttable_customkey="1521484812">Mar 19, 14:40</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=The%2520Last%2520Puzzlebenders.html">The Last Puzzlebenders</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521483863">Mar 19, 14:24</td>
+                <td sorttable_customkey="8025.981765">2h13m</td>
+                <td sorttable_customkey="1521491889">Mar 19, 16:38</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Tantalizing%2520Snickerdoodles%2520Produced%2520Incrementally.html">Tantalizing Snickerdoodles Produced Incrementally</a></td>
+                <td>4</td>
+                <td sorttable_customkey="1521484326">Mar 19, 14:32</td>
+                <td sorttable_customkey="10690.663167">2h58m</td>
+                <td sorttable_customkey="1521495016">Mar 19, 17:30</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Ducky%2520Charms.html">Ducky Charms</a></td>
+                <td>1</td>
+                <td sorttable_customkey="1521487981">Mar 19, 15:33</td>
+                <td sorttable_customkey="29046.949431">8h4m</td>
+                <td sorttable_customkey="1521517028">Mar 19, 23:37</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=ET%2520Phone%2520in%2520Answer.html">ET Phone in Answer</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521521313">Mar 20, 00:48</td>
+                <td sorttable_customkey="3825.662554">1h3m</td>
+                <td sorttable_customkey="1521525139">Mar 20, 01:52</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Pusheen%2520Appreciation%2520Society.html">Pusheen Appreciation Society</a></td>
+                <td>4</td>
+                <td sorttable_customkey="1521512825">Mar 19, 22:27</td>
+                <td sorttable_customkey="17754.362121">4h55m</td>
+                <td sorttable_customkey="1521530580">Mar 20, 03:23</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Flower%2520Power.html">Flower Power</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521537030">Mar 20, 05:10</td>
+                <td sorttable_customkey="10529.896363">2h55m</td>
+                <td sorttable_customkey="1521547559">Mar 20, 08:05</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=The%2520Lamp%2520is%2520a%2520Dog.html">The Lamp is a Dog</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521564690">Mar 20, 12:51</td>
+                <td sorttable_customkey="13515.766535">3h45m</td>
+                <td sorttable_customkey="1521578206">Mar 20, 16:36</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Misremembered%2520Apple.html">Misremembered Apple</a></td>
+                <td>2</td>
+                <td sorttable_customkey="1521569832">Mar 20, 14:17</td>
+                <td sorttable_customkey="19198.006256">5h19m</td>
+                <td sorttable_customkey="1521589030">Mar 20, 19:37</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Words%2520and%2520Numbers.html">Words and Numbers</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521599267">Mar 20, 22:27</td>
+                <td sorttable_customkey="6547.934274">1h49m</td>
+                <td sorttable_customkey="1521605815">Mar 21, 00:16</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Snickerdoodles.html">Snickerdoodles</a></td>
+                <td>8</td>
+                <td sorttable_customkey="1521495018">Mar 19, 17:30</td>
+                <td sorttable_customkey="112882.540233">31h21m</td>
+                <td sorttable_customkey="1521607901">Mar 21, 00:51</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=oATMEal%2520raisin.html">oATMEal raisin</a></td>
+                <td>2</td>
+                <td sorttable_customkey="1521606658">Mar 21, 00:30</td>
+                <td sorttable_customkey="3073.355566">51m13s</td>
+                <td sorttable_customkey="1521609731">Mar 21, 01:22</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=howthecookiecrumbles.html">howthecookiecrumbles</a></td>
+                <td>1</td>
+                <td sorttable_customkey="1521606625">Mar 21, 00:30</td>
+                <td sorttable_customkey="5063.836118">1h24m</td>
+                <td sorttable_customkey="1521611689">Mar 21, 01:54</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Team%2520Runpeng.html">Team Runpeng</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521586212">Mar 20, 18:50</td>
+                <td sorttable_customkey="29839.83663">8h17m</td>
+                <td sorttable_customkey="1521616052">Mar 21, 03:07</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=The%2520Magpie.html">The Magpie</a></td>
+                <td>1</td>
+                <td sorttable_customkey="1521641854">Mar 21, 10:17</td>
+                <td sorttable_customkey="9311.275236">2h35m</td>
+                <td sorttable_customkey="1521651165">Mar 21, 12:52</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Portugal.%2520The%2520man.%2520The%2520plan.%2520The%2520canal..html">Portugal. The man. The plan. The canal.</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521594835">Mar 20, 21:13</td>
+                <td sorttable_customkey="73127.424316">20h18m</td>
+                <td sorttable_customkey="1521667963">Mar 21, 17:32</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Synod.html">Synod</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521678602">Mar 21, 20:30</td>
+                <td sorttable_customkey="10376.978471">2h52m</td>
+                <td sorttable_customkey="1521688979">Mar 21, 23:22</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Frumious%2520Bandersnatch.html">Frumious Bandersnatch</a></td>
+                <td>5</td>
+                <td sorttable_customkey="1521606625">Mar 21, 00:30</td>
+                <td sorttable_customkey="92328.452597">25h38m</td>
+                <td sorttable_customkey="1521698953">Mar 22, 02:09</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Bake%252FStay%2520Night.html">Bake/Stay Night</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521704336">Mar 22, 03:38</td>
+                <td sorttable_customkey="6652.398831">1h50m</td>
+                <td sorttable_customkey="1521710989">Mar 22, 05:29</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Click%252C%2520Lose%2520or%2520Banana.html">Click, Lose or Banana</a></td>
+                <td>6</td>
+                <td sorttable_customkey="1521698782">Mar 22, 02:06</td>
+                <td sorttable_customkey="37310.65485">10h21m</td>
+                <td sorttable_customkey="1521736092">Mar 22, 12:28</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=The%2520Judean%2520GNUs.html">The Judean GNUs</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521533731">Mar 20, 04:15</td>
+                <td sorttable_customkey="205775.740099">57h9m</td>
+                <td sorttable_customkey="1521739507">Mar 22, 13:25</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Phlogiston.html">Phlogiston</a></td>
+                <td>10</td>
+                <td sorttable_customkey="1521689285">Mar 21, 23:28</td>
+                <td sorttable_customkey="55190.045663">15h19m</td>
+                <td sorttable_customkey="1521744475">Mar 22, 14:47</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Hailfire%2520Spotters.html">Hailfire Spotters</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521598693">Mar 20, 22:18</td>
+                <td sorttable_customkey="159819.68871">44h23m</td>
+                <td sorttable_customkey="1521758513">Mar 22, 18:41</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Bed%2520Umber.html">Bed Umber</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521758875">Mar 22, 18:47</td>
+                <td sorttable_customkey="8946.495251">2h29m</td>
+                <td sorttable_customkey="1521767822">Mar 22, 21:17</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=One%2520Fish%252C%2520Two%2520Fish%252C%2520Superfish%252C%2520Blowfish.html">One Fish, Two Fish, Superfish, Blowfish</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521755905">Mar 22, 17:58</td>
+                <td sorttable_customkey="17443.941521">4h50m</td>
+                <td sorttable_customkey="1521773349">Mar 22, 22:49</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=barbara%2520kingsolver.html">barbara kingsolver</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521694970">Mar 22, 01:02</td>
+                <td sorttable_customkey="84452.129183">23h27m</td>
+                <td sorttable_customkey="1521779422">Mar 23, 00:30</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Hobnoblins.html">Hobnoblins</a></td>
+                <td>1</td>
+                <td sorttable_customkey="1521673016">Mar 21, 18:56</td>
+                <td sorttable_customkey="123281.570933">34h14m</td>
+                <td sorttable_customkey="1521796297">Mar 23, 05:11</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=%25F0%259F%2590%2595%2520w%2520%25F0%259F%2590%2595%2520o%2520%25F0%259F%2590%2595%2520o%2520%25F0%259F%2590%2595%2520f%2520%25F0%259F%2590%2595.html">🐕 w 🐕 o 🐕 o 🐕 f 🐕</a></td>
+                <td>1</td>
+                <td sorttable_customkey="1521790193">Mar 23, 03:29</td>
+                <td sorttable_customkey="6641.302897">1h50m</td>
+                <td sorttable_customkey="1521796834">Mar 23, 05:20</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Omnomnomnom.html">Omnomnomnom</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521685691">Mar 21, 22:28</td>
+                <td sorttable_customkey="138119.635016">38h21m</td>
+                <td sorttable_customkey="1521823810">Mar 23, 12:50</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=The%2520Eggplant%2520Parms.html">The Eggplant Parms</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521823949">Mar 23, 12:52</td>
+                <td sorttable_customkey="5064.97853">1h24m</td>
+                <td sorttable_customkey="1521829014">Mar 23, 14:16</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Chicken%2520%2526%2520ROFLs.html">Chicken &amp; ROFLs</a></td>
+                <td>11</td>
+                <td sorttable_customkey="1521665906">Mar 21, 16:58</td>
+                <td sorttable_customkey="171078.782824">47h31m</td>
+                <td sorttable_customkey="1521836985">Mar 23, 16:29</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Stealth%2520Vehicle.html">Stealth Vehicle</a></td>
+                <td>2</td>
+                <td sorttable_customkey="1521794837">Mar 23, 04:47</td>
+                <td sorttable_customkey="43069.195072">11h57m</td>
+                <td sorttable_customkey="1521837906">Mar 23, 16:45</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=%25F0%259F%258C%2590%2520really%2520the%2520greatest%2520boat%2520of%2520all%2520is%2520this%2520planet%2520we%2520travel%2520on%2520through%2520space%2520called%2520earth..html">🌐 really the greatest boat of all is this planet we travel on through space called earth.</a></td>
+                <td>3</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="17016.351346">4h43m</td>
+                <td sorttable_customkey="1521849456">Mar 23, 19:57</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Crazed%2520Adventuring%2520Team%2520of%2520Squirrels.html">Crazed Adventuring Team of Squirrels</a></td>
+                <td>6</td>
+                <td sorttable_customkey="1521779196">Mar 23, 00:26</td>
+                <td sorttable_customkey="78006.019848">21h40m</td>
+                <td sorttable_customkey="1521857202">Mar 23, 22:06</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Ladder%2520Dogs.html">Ladder Dogs</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="28846.619543">8h0m</td>
+                <td sorttable_customkey="1521861286">Mar 23, 23:14</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=mezzacotta%2520Puzzlers.html">mezzacotta Puzzlers</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="30926.176694">8h35m</td>
+                <td sorttable_customkey="1521863366">Mar 23, 23:49</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=%25F0%259F%2591%25A8%25E2%2580%258D%25F0%259F%258D%25B3masterchef.html">👨‍🍳masterchef</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="31291.941835">8h41m</td>
+                <td sorttable_customkey="1521863731">Mar 23, 23:55</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=TeamName.html">TeamName</a></td>
+                <td>1</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="47042.726403">13h4m</td>
+                <td sorttable_customkey="1521879482">Mar 24, 04:18</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Fortune%2520and%2520Glory.html">Fortune and Glory</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="47075.098938">13h4m</td>
+                <td sorttable_customkey="1521879515">Mar 24, 04:18</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=The%2520Nines.html">The Nines</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="47460.862038">13h11m</td>
+                <td sorttable_customkey="1521879900">Mar 24, 04:25</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=%2523thetwist.html">#thetwist</a></td>
+                <td>6</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="57246.311711">15h54m</td>
+                <td sorttable_customkey="1521889686">Mar 24, 07:08</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Unencrypted.html">Unencrypted</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="62501.368822">17h21m</td>
+                <td sorttable_customkey="1521894941">Mar 24, 08:35</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Hakuna%2520Banana.html">Hakuna Banana</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="75899.817886">21h4m</td>
+                <td sorttable_customkey="1521908339">Mar 24, 12:18</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Yuki.html">Yuki</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="75923.91469">21h5m</td>
+                <td sorttable_customkey="1521908363">Mar 24, 12:19</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Hootligans.html">Hootligans</a></td>
+                <td>2</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="88643.072687">24h37m</td>
+                <td sorttable_customkey="1521921083">Mar 24, 15:51</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=River.html">River</a></td>
+                <td>4</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="91023.452163">25h17m</td>
+                <td sorttable_customkey="1521923463">Mar 24, 16:31</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Team%2520Eagle%2520Time.html">Team Eagle Time</a></td>
+                <td>7</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="91800.172778">25h30m</td>
+                <td sorttable_customkey="1521924240">Mar 24, 16:44</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Druid%2520Hills%2520HS%2520Alumni.html">Druid Hills HS Alumni</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="93127.868229">25h52m</td>
+                <td sorttable_customkey="1521925567">Mar 24, 17:06</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=%25F0%259F%258C%25AE%2520%25F0%259F%258C%25AE%2520tacquito.html">🌮 🌮 tacquito</a></td>
+                <td>7</td>
+                <td sorttable_customkey="1521780493">Mar 23, 00:48</td>
+                <td sorttable_customkey="149715.006919">41h35m</td>
+                <td sorttable_customkey="1521930208">Mar 24, 18:23</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Haus.html">Haus</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="105853.329471">29h24m</td>
+                <td sorttable_customkey="1521938293">Mar 24, 20:38</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Rage%2520for%2520the%2520Galaxy.html">Rage for the Galaxy</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521684797">Mar 21, 22:13</td>
+                <td sorttable_customkey="254187.071727">70h36m</td>
+                <td sorttable_customkey="1521938984">Mar 24, 20:49</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=WIT.html">WIT</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="107382.450866">29h49m</td>
+                <td sorttable_customkey="1521939822">Mar 24, 21:03</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=%25F0%259F%2590%25A2-transthoracic%2520echocardiogram.html">🐢-transthoracic echocardiogram</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="110668.020373">30h44m</td>
+                <td sorttable_customkey="1521943108">Mar 24, 21:58</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Too%2520Many%2520Cookies.html">Too Many Cookies</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="111208.051368">30h53m</td>
+                <td sorttable_customkey="1521943648">Mar 24, 22:07</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=The%2520Mystery%2520Machine.html">The Mystery Machine</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="112837.584017">31h20m</td>
+                <td sorttable_customkey="1521945277">Mar 24, 22:34</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Smart%2520Cookies.html">Smart Cookies</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="113336.744747">31h28m</td>
+                <td sorttable_customkey="1521945776">Mar 24, 22:42</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Plane%2520Tickets%2520to%2520Space%2520Are%2520Expensive%2520%2528We%2520Do%2520Have%2520Cookies%2520Though%2529.html">Plane Tickets to Space Are Expensive (We Do Have Cookies Though)</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="114321.421866">31h45m</td>
+                <td sorttable_customkey="1521946761">Mar 24, 22:59</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Plughkerdoodles.html">Plughkerdoodles</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="115065.730864">31h57m</td>
+                <td sorttable_customkey="1521947505">Mar 24, 23:11</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=bandcamp.html">bandcamp</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="117382.716006">32h36m</td>
+                <td sorttable_customkey="1521949822">Mar 24, 23:50</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Puzzlin%2527%2520Wugs.html">Puzzlin&#39; Wugs</a></td>
+                <td>5</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="118513.346509">32h55m</td>
+                <td sorttable_customkey="1521950953">Mar 25, 00:09</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Dinosheep.html">Dinosheep</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="119168.086715">33h6m</td>
+                <td sorttable_customkey="1521951608">Mar 25, 00:20</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=RussellMania.html">RussellMania</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="120644.663079">33h30m</td>
+                <td sorttable_customkey="1521953084">Mar 25, 00:44</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=The%2520Lexingtons.html">The Lexingtons</a></td>
+                <td>6</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="120938.964132">33h35m</td>
+                <td sorttable_customkey="1521953378">Mar 25, 00:49</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Team%2520Blutarsky.html">Team Blutarsky</a></td>
+                <td>2</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="122914.894351">34h8m</td>
+                <td sorttable_customkey="1521955354">Mar 25, 01:22</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Chewy%2520Wangs.html">Chewy Wangs</a></td>
+                <td>5</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="124087.430849">34h28m</td>
+                <td sorttable_customkey="1521956527">Mar 25, 01:42</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=More%2520About%2520Vikings.html">More About Vikings</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="133289.569686">37h1m</td>
+                <td sorttable_customkey="1521965729">Mar 25, 04:15</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Win%2520Mints.html">Win Mints</a></td>
+                <td>6</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="141201.089957">39h13m</td>
+                <td sorttable_customkey="1521973641">Mar 25, 06:27</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Tweleve%2520Pack.html">Tweleve Pack</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="155212.768252">43h6m</td>
+                <td sorttable_customkey="1521987652">Mar 25, 10:20</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Gingko%2520Balboa.html">Gingko Balboa</a></td>
+                <td>4</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="159339.065246">44h15m</td>
+                <td sorttable_customkey="1521991779">Mar 25, 11:29</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=It%2527s%2520Numberwang.html">It&#39;s Numberwang</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="161193.780331">44h46m</td>
+                <td sorttable_customkey="1521993633">Mar 25, 12:00</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Stir%2520Fry.html">Stir Fry</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="161757.175057">44h55m</td>
+                <td sorttable_customkey="1521994197">Mar 25, 12:09</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Jabberwocky.html">Jabberwocky</a></td>
+                <td>2</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="162659.107136">45h10m</td>
+                <td sorttable_customkey="1521995099">Mar 25, 12:24</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=The%2520Sporadicals.html">The Sporadicals</a></td>
+                <td>1</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="162830.476061">45h13m</td>
+                <td sorttable_customkey="1521995270">Mar 25, 12:27</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Totoros.html">Totoros</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="167827.152387">46h37m</td>
+                <td sorttable_customkey="1522000267">Mar 25, 13:51</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Puzzlers.html">Puzzlers</a></td>
+                <td>6</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="173673.004883">48h14m</td>
+                <td sorttable_customkey="1522006113">Mar 25, 15:28</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=athenahealth.html">athenahealth</a></td>
+                <td>2</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="176731.663833">49h5m</td>
+                <td sorttable_customkey="1522009171">Mar 25, 16:19</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=ogopogo.html">ogopogo</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="182557.377589">50h42m</td>
+                <td sorttable_customkey="1522014997">Mar 25, 17:56</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=PictureGame.html">PictureGame</a></td>
+                <td>4</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="183200.944569">50h53m</td>
+                <td sorttable_customkey="1522015640">Mar 25, 18:07</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Lobster%2520Recipe.html">Lobster Recipe</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="189312.772491">52h35m</td>
+                <td sorttable_customkey="1522021752">Mar 25, 19:49</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=The%2520Dark%2520Side.html">The Dark Side</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="192199.00918">53h23m</td>
+                <td sorttable_customkey="1522024639">Mar 25, 20:37</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Dank%2520Poets%2520Society.html">Dank Poets Society</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="193063.66914">53h37m</td>
+                <td sorttable_customkey="1522025503">Mar 25, 20:51</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Click%2520Point%2520Teapot.html">Click Point Teapot</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="194196.717163">53h56m</td>
+                <td sorttable_customkey="1522026636">Mar 25, 21:10</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Midevelyncaela.html">Midevelyncaela</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="195202.93713">54h13m</td>
+                <td sorttable_customkey="1522027642">Mar 25, 21:27</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Conduction%2520Band.html">Conduction Band</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="196901.911513">54h41m</td>
+                <td sorttable_customkey="1522029341">Mar 25, 21:55</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Consumer%2520Recreation%2520Services.html">Consumer Recreation Services</a></td>
+                <td>1</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="197784.855288">54h56m</td>
+                <td sorttable_customkey="1522030224">Mar 25, 22:10</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Pinniped%2520Party.html">Pinniped Party</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="209222.558778">58h7m</td>
+                <td sorttable_customkey="1522041662">Mar 26, 01:21</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=up%2520to%2520you.html">up to you</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="209688.266596">58h14m</td>
+                <td sorttable_customkey="1522042128">Mar 26, 01:28</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Chudooders.html">Chudooders</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="213579.064899">59h19m</td>
+                <td sorttable_customkey="1522046019">Mar 26, 02:33</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Briny%2520Shark.html">Briny Shark</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="213977.195325">59h26m</td>
+                <td sorttable_customkey="1522046417">Mar 26, 02:40</td>
+            </tr>
+            
+            <tr >
+                <td><a href="../teams%3Fteam=Figmites.html">Figmites</a></td>
+                <td>0</td>
+                <td sorttable_customkey="1521832440">Mar 23, 15:14</td>
+                <td sorttable_customkey="215912.778446">59h58m</td>
+                <td sorttable_customkey="1522048352">Mar 26, 03:12</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript" src="../static/js/sorttable.js"></script>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="../static/images/btnleft8-h.png%3F1517887534">
+            <img src="../static/images/btnmid8-h.png%3F1517887534">
+            <img src="../static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>

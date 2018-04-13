@@ -1,0 +1,984 @@
+body {
+  font-family: 'Merriweather', serif;
+  color: #edece8;
+  background-color: #0c0906;
+  background-image: url('../images/landingpagebg.png');
+  background-size: 512px;
+  background-repeat: repeat-x;
+}
+
+@media(min-width: 550px) {
+  body {
+    background-size: 768px;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+  color: #f8bc4e;
+  letter-spacing: 0.01em;
+}
+
+p {
+    margin-bottom: 2rem;
+}
+
+p, li, label {
+    font-size: 1.66rem;
+}
+
+a {
+    color: #f8bc4e;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #eedab2;
+}
+
+li {
+    list-style-type: disc;
+    list-style-position: inside;
+    text-indent: -2em;
+    padding-left: 3em;
+}
+
+@media (min-width: 550px) {
+    h4 {
+        font-size: 2.4rem;
+    }
+}
+
+@media(max-width: 550px) {
+    th, td {
+        /* Make the teams table look a little less silly on mobile. */
+        padding: 10px 4px;
+    }
+}
+
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    color: #0c0906;
+}
+
+@media(min-width: 550px) {
+    label {
+        text-align: right;
+        position: relative;
+        top: 7px;
+    }
+
+    .align-right-desktop {
+        text-align: right;
+    }
+}
+
+.grayed-out {
+    color: #999;
+}
+
+.solved-text {
+    color: #4a2;
+}
+
+.solved-text a {
+    color: #4a2;
+}
+
+.errorlist {
+    padding: 10px;
+    border: 3px solid #b21;
+    list-style-type: none;
+    color: #b21;
+    background-color: #edece8;
+}
+
+.errorlist li {
+    margin-bottom: 0;
+    list-style-type: none;
+    text-indent: 0;
+    padding-left: 0;
+}
+
+.dont-force-caps {
+    text-transform: none !important;
+}
+
+.btn {
+    display: inline-block;
+    position: relative;
+    padding: 0 14px;
+
+    color: #0c0906;
+    background-image: url('../images/btnmid8.png');
+    background-size: 4.8px 48px;
+    background-repeat: repeat-x;
+    height: 48px;
+    line-height: 48px; /* vertically centers the text */
+
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.btn:hover {
+    color: #0c0906;
+    background-image: url('../images/btnmid8-h.png');
+}
+
+.btn--small {
+    height: 30px;
+    line-height: 30px;
+    background-size: 3px 30px;
+    font-size: 1.5rem;
+}
+
+.btn:before {
+    content: "";
+    background-image: url('../images/btnleft8.png');
+    position: absolute;
+    height: 48px;
+    width: 4.8px;
+    background-size: 4.8px 48px;
+    top: 0;
+    left: -4.8px;
+}
+
+.btn--small:before {
+    height: 30px;
+    width: 3px;
+    background-size: 3px 30px;
+    left: -3px;
+}
+
+.btn:hover:before {
+    color: #0c0906;
+    background-image: url('../images/btnleft8-h.png');
+}
+
+.btn:after {
+    content: "";
+    background-image: url('../images/btnright8.png');
+    position: absolute;
+    height: 48px;
+    width: 4.8px;
+    background-size: 4.8px 48px;
+    top: 0;
+    right: -4.8px;
+}
+
+.btn--small:after {
+    height: 30px;
+    width: 3px;
+    background-size: 3px 30px;
+    right: -3px;
+}
+
+.btn:hover:after {
+    color: #0c0906;
+    background-image: url('../images/btnright8-h.png');
+}
+
+.btn + .btn {
+    margin-left: 8px;
+}
+
+.hunt-brand-header, .page-header {
+    text-align: center;
+}
+
+.page-header {
+    margin-top: 20px;
+}
+
+@media (min-width: 1200px) {
+    .hunt-brand-header {
+        font-size: 6.0rem;
+    }
+}
+
+.content {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 1200px) {
+    .content {
+        max-width: 1200px;
+    }
+}
+
+.massive-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+@media (min-width: 550px) {
+  .massive-logo {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .massive-logo {
+    width: 705px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}
+
+.homepage-panel__header {
+    color: white;
+    text-align: center;
+}
+
+.banner {
+  margin: auto;
+  margin-top: 7%;
+  width: 80%;
+}
+
+nav a {
+  text-decoration: none;
+  padding-right: 16px;
+  padding-left: 16px;
+  color: #fff;
+}
+
+nav a:hover {
+  color: #eedab2;
+}
+
+.top-bar-container {
+    width: 100%;
+}
+
+.homepage-feedback {
+    text-align: center;
+    margin: 0 0 30px;
+}
+
+.nav-inner-container {
+    padding: 4px 0;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+    .nav-bar-triangle {
+        display: none;
+    }
+}
+
+.top-left-actions-container {
+    float: left;
+}
+
+.login-controls-container {
+    text-align: right;
+    font-size: 1.5rem;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 1200px) {
+    .login-controls-container {
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+}
+
+.login-controls-container__team-name {
+    display: inline;
+    margin: 0 12px;
+}
+
+.login-controls-container__logout {
+    margin-left: 12px;
+}
+
+.login__cookie-count {
+    display: inline-block;
+    margin: 0 6px;
+}
+
+.login__cookie-count-number {
+    margin-right: 2px;
+}
+
+.login__cookie-count-graphic, .puzzle-round__reward-cookie, .inline-thin-hint, .bigboard-cookie {
+    vertical-align: middle;
+    height: 16px;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
+.cta__container {
+    display: table; /* fucking css, how does it work */
+    margin: 0 auto;
+}
+
+.center {
+  margin: auto;
+  width: 80%;
+}
+
+.form-section {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+input[type="submit"].submit-button {
+    height: 48px;
+    padding: 0 20px;
+
+    color: #0c0906;
+    border: none;
+    font-weight: bold;
+    font-size: 2rem;
+    background-color: #f8bc4e;
+    text-transform: none;
+    letter-spacing: 0;
+}
+input[type="submit"].submit-button:hover {
+    background-color: #eedab2;
+}
+
+.inline-form input[type="submit"] {
+    float: right;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.inline-form input[type="text"]:only-child {
+    float: right;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.inline-form textarea:only-child {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.inline-form .row {
+    margin: 1em 0;
+}
+
+.inline-form .errorlist {
+    margin-bottom: 0;
+}
+
+.p-puzzle {
+  margin-bottom: 1.3rem;
+}
+
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer {
+    min-height: 40px;
+}
+
+.team-members-formset a:last-child {
+    float: right;
+}
+
+.formset-add-link {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.puzzles-list-table {
+    width: 100%;
+}
+
+.gph-list-table td, .gph-list-table th {
+    padding: 4px 8px;
+}
+
+.gph-list-table th ~ th {
+    text-shadow: 0 0 5px black;
+    position: sticky;
+    top: 0;
+}
+
+.td-medal {
+    text-align: center;
+}
+
+.medal__img {
+    width: 20px;
+}
+
+.medal-medium__img {
+    width: 36px;
+}
+
+.medal--table-row-spacing {
+    position: relative;
+    top: 3px;
+}
+
+td[title],
+th[title] {
+    position: relative;
+}
+
+td[title]:not([title=""]):hover::after,
+th[title]:not([title=""]):hover::after {
+    background: #fffdea;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: calc(100% - 8px);
+    content: attr(title);
+    padding: 4px 15px;
+    z-index: 1;
+    width: 18ch;
+}
+
+@media (min-width: 1200px) {
+    .maybe-multi-column {
+        column-count: 2;
+        column-gap: 2em;
+    }
+}
+
+.no-break {
+    -webkit-column-break-inside: avoid; /* Chrome, Safari */
+    page-break-inside: avoid;           /* Theoretically FF 20+ */
+    break-inside: avoid-column;         /* IE 11 */
+    display:table;                      /* Actually FF 20+ */
+}
+
+.faq-page .no-break {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.single-narrower-column-on-desktop {
+    background-color: rgba(12,10,6,0.5);
+    padding: 0 20px 20px;
+    width: 100%;
+}
+
+
+@media (min-width: 1200px) {
+    .single-narrower-column-on-desktop {
+        max-width: 1200px;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(12,10,6,0.5);
+    }
+}
+
+.team-info-panel, .call-in-answer-panel, .solved-panel, .puzzle-stats-panel {
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+.team-info-panel {
+    margin-top: 0px;
+    padding-bottom: 8px;
+}
+
+.solved-panel {
+    border-color: #4a2;
+}
+
+.solved-panel h3, .solved-panel p {
+    color: #4a2;
+}
+
+.solved-panel p {
+    margin-bottom: 0;
+}
+
+.solved-panel--incorrect {
+    border-color: #c32;
+}
+
+.solved-panel--incorrect h3, .solved-panel--incorrect p {
+    color: #c32;
+    margin-bottom: 0
+}
+
+.solved-title-marker {
+    font-size: 50%;
+    color: #edece8;
+}
+.solved-title-answer {
+    color: #4a2;
+}
+
+.team-info-panel__members {
+    margin-top: 24px;
+}
+
+.medal-counts {
+    margin-bottom: 8px;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.medal-count-individual {
+    display: inline-block;
+    min-width: 60px;
+    text-align: center;
+    line-height: 1;
+}
+
+@media (min-width: 550px) {
+    .team-info-panel__members {
+        margin-top: 0;
+    }
+}
+
+.stat-entry {
+    font-size: 2rem;
+}
+
+.stat-entry__value {
+    font-weight: bold;
+}
+
+.team-member-list {
+    font-size: 2rem;
+}
+
+.team-info-panel h4 {
+    margin-bottom: 0;
+}
+
+.team-info-panel__button {
+    display: block;
+    margin-left: 2px;
+    margin-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+
+    color: #111;
+    background-color: #f94;
+
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.team-info-panel__button:hover {
+    color: #111;
+    background-color: #fb7;
+}
+
+.team-info-panel__button-text {
+    text-align: center;
+}
+
+.story-chunk {
+    font-style: italic;
+}
+
+.puzzle-page-body {
+    margin-top: 60px;
+    position: relative;
+}
+
+.puzzle-body {
+    margin: 40px 0 40px;
+    padding: 36px 40px;
+    background-color: #edece8;
+    border: 5px solid #e09100;
+    color: #0c0906;
+    box-shadow: 0 0 40px #0c0906;
+    position: relative;
+}
+
+.puzzle-page-round-logo {
+    position: absolute;
+    z-index: -1;
+    width: 120px;
+    left: 5px;
+    top: -100px;
+    opacity: 0.8;
+}
+
+.puzzle-page__title {
+    text-shadow: 0 0 40px #0c0906, 0 0 15px #0c0906;
+}
+
+.puzzle-body h1, .puzzle-body h2, .puzzle-body h3, .puzzle-body h4, .puzzle-body a {
+    color: #e09100;
+}
+
+.puzzle-body a:hover {
+    color: #f8bc4e;
+}
+
+.compact td, .compact th {
+	padding: .25rem .75rem;
+}
+
+.current-team {
+    font-weight: bold;
+}
+table.bigboard td, table.bigboard th {
+    padding: 0 0.3em;
+    line-height: 1.25;
+}
+table.bigboard td.solved {
+    background-color: #060;
+    color: #fff;
+}
+table.bigboard td.unlocked {
+    background-color: #808080;
+    color: #fff;
+}
+table.bigboard td.auto-unlocked {
+    background-color: rgba(128,128,128,0.5);
+    color: #fff;
+}
+table.bigboard td.solved-late {
+    background-color: #dfd;
+    color: #000;
+}
+table.bigboard td.gold {
+    background-color: #FBDB7E;
+}
+table.bigboard td.silver {
+    background-color: #E0E0E0;
+}
+table.bigboard td.bronze {
+    background-color: #DDA169;
+}
+table.bigboard td.wrong-answers {
+    background-color: #fdd;
+    color: #000;
+}
+table.bigboard .round-start {
+    border-left: 1px solid #e1e1e1;
+}
+
+
+/* New puzzles page! Many cookie */
+.puzzle-round__header {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.puzzle-round__cookie-count img {
+    height: 32px;
+}
+
+.puzzle-round__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: auto;
+    grid-auto-rows: 1fr;
+    grid-gap: 20px;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.puzzle-round__item-link {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(180, 160, 140, 0.3);
+    padding: 12px 24px 8px;
+    text-decoration: none;
+    text-shadow: 0px 0px 6px #000,0px 1px 1px #000;
+}
+
+.puzzle-round__item-link:hover {
+    background-color: rgba(180, 160, 140, 0.5);
+}
+
+.puzzle-round__item-link h4 {
+    font-size: 2.75rem;
+}
+
+.puzzle-round__item-link p {
+    color: #edece8;
+}
+
+.puzzle-round__item-link > * {
+    margin-bottom: 8px;
+}
+
+.puzzle-round__item--is-meta {
+    grid-column: -2;
+    background-color: rgba(248, 188, 78, 0.3);
+}
+
+.puzzle-round__item--is-meta:hover {
+    background-color: rgba(248, 188, 78, 0.5);
+}
+
+.puzzle-round__item-solved {
+    background-color: rgba(120, 220, 70, 0.3);
+}
+
+.puzzle-round__item-solved:hover {
+    background-color: rgba(120, 220, 70, 0.5);
+}
+
+.puzzle-round__item-title {
+    color: #edece8;
+    font-size: 1.1em;
+}
+
+.puzzle-round__reward-cookie {
+    margin-right: 7px;
+}
+
+.puzzle-round__answer-correct {
+    color: #7e5;
+}
+
+.puzzle-round__item-link a {
+    text-decoration: none;
+}
+
+.puzzle-round__stats-label {
+    opacity: 0.75;
+}
+
+.puzzle-round__item--disabled:hover {
+    background-color: rgba(180, 160, 140, 0.3);
+}
+
+.puzzle-round__cookie-line {
+    grid-column: 1/-1;
+    color: #edece8;
+    font-weight: normal;
+    margin: 0;
+}
+
+.puzzle-round__cookie-reward {
+    font-size: 1.66rem;
+    vertical-align: middle;
+}
+
+.puzzle-round__cookie-count {
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.puzzle-round__has-meta .puzzle-round__container {
+    grid-template-rows: auto auto;
+}
+
+.puzzle-round__has-meta .puzzle-round__cookie-count {
+    position: static;
+    float: right;
+}
+
+@media(min-width: 806px) {
+    @supports(display: grid) {
+        .puzzle-round__has-meta .puzzle-round__name {
+            position: absolute;
+        }
+    }
+}
+
+.puzzle-erratum {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.tools__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
+    grid-gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+@media(max-width:1000px) {
+    .tools__container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.tools__item {
+    width: auto;
+    align-items: flex-start;
+    background-color: rgba(180, 160, 140, 0.3);
+    padding: 16px;
+    text-decoration: none;
+    text-shadow: 0px 0px 6px #000,0px 1px 1px #000;
+    cursor: pointer;
+}
+
+.tools__item:hover {
+    background-color: rgba(180, 160, 140, 0.5);
+}
+
+.tools__item--inactive {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.tools__item--inactive:hover {
+    background-color: rgba(180, 160, 140, 0.3);
+}
+
+.tools__item--selected {
+  border: solid #f8bc4e;
+}
+
+.tools__item-graphic {
+    width: 70px;
+    margin: 0 1rem 0 0;
+}
+
+@media(min-width: 1200px) {
+    .tools__item-graphic {
+        width: 100px;
+        margin: 0 2rem 0 0;
+    }
+}
+
+.tools__item h4 {
+    font-weight: 500;
+    margin: 0 0 0.5rem 0;
+    color: #edece8;
+}
+
+.tools__item p {
+    margin-bottom: 0;
+}
+
+
+#cookies {
+  display: flex;
+  margin-bottom: 50px;
+  position: relative;
+}
+#cookies .cookie {
+  flex: 1;
+  position: relative;
+}
+#cookies .particle {
+  position: absolute;
+  margin-left: 50%;
+  margin-top: -1em;
+  transform: translateX(-50%);
+  font-weight: bold;
+  pointer-events: none;
+  transition: 1s linear all;
+  font-size: 32px;
+}
+#cookies .particle img {
+  display: inline;
+  height: 1em;
+  width: 1em;
+  vertical-align: middle;
+}
+#cookies .particle.float {
+  opacity: 0;
+  transform: translate(-50%, -50px);
+}
+#cookies img {
+  width: 70%;
+  image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges; /* Firefox                        */
+  image-rendering: -o-crisp-edges; /* Opera                          */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+  image-rendering: pixelated; /* Chrome */
+  image-rendering: optimize-contrast; /* CSS3 Proposed                  */
+  -ms-interpolation-mode: nearest-neighbor; /* IE8+                           */
+  max-width: 256px;
+  display: block;
+  margin: 30px auto;
+  transition: filter 0.1s, transform 0.3s cubic-bezier(.5,3,.5,.5)
+}
+#cookies img:hover {
+  filter: brightness(1.2);
+  transform: scale(1.04);
+  cursor: pointer;
+}
+#cookies img:active {
+  transform: scale(1);
+}
+#cookies .cookie-count {
+  text-align: center;
+  font-size: 24px;
+}
+.cookies-msg {
+  padding: 10px;
+  background-color: #f8bc4e;
+  border-bottom: 3px solid #a05004;
+  border-radius: 4px;
+}
+.cookies-msg p {
+  color: #0c0906;
+  text-align: center;
+  margin: 0;
+}
+
+code {
+    background: none;
+}
+
+#cookie-warning {
+    background-color: #f94;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #0c0906;
+    padding: 16px 64px;
+    transition: .5s opacity;
+}
+
+#cookie-warning img {
+    height: 64px;
+    margin-right: 16px;
+}
+
+#cookie-warning .btn {
+    cursor: pointer;
+    margin-left: 16px;
+}
+
+.solution-puzzle-subheader {
+    font-size: 22px;
+    font-weight: normal;
+    font-style: italic;
+    margin-bottom: 24px;
+}
+
+.solution-body hr {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    opacity: 0.4;
+}

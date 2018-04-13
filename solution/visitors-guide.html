@@ -1,0 +1,190 @@
+
+
+
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9HXglGF1lcVw==","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":30}</script>
+        
+<title>Solution: Visitor’s Guide</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="../static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="../static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='../index.html'>Home</a>
+                    <a href='../rules.html'>Rules</a>
+                    
+                        <a href='../story.html'>Story</a>
+                    
+                    
+                        <a href='../puzzles.html'>Puzzles</a>
+                    
+                    <a href='../teams.html'>Teams</a>
+                    <a href='../faq.html'>FAQ</a>
+                    
+                        <a href='../errata.html'>Updates</a>
+                    
+                    
+                        <a href='../wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='../archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+<a href="../puzzle/visitors-guide.html" class="btn btn--small">Back to the puzzle</a>
+
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="../login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+
+<style>
+.puzzle-body img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+.puzzle-body table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.puzzle-body tr:empty {
+  height: 1em;
+}
+.puzzle-body td {
+  padding: 5px;
+  border: 1px solid black;
+}
+.puzzle-body th {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+.puzzle-body hr {
+  border-color: initial;
+}
+.puzzle-body ol li {
+  list-style-type: inherit;
+}
+.puzzle-body td pre {
+  margin: 0;
+}
+</style>
+
+<div class="puzzle-page-body">
+    <h1 class="page-header puzzle-page__title">
+        
+        Solution: Visitor’s Guide
+        <div class="solved-title-marker">Answer: <span class="solved-title-answer">PSYCHOPATHY</span></div>
+        
+    </h1>
+    <div class="puzzle-body solution-body">
+        <h5 class="solution-puzzle-subheader">
+            
+            Written by
+            
+Josh Alman
+
+            
+        </h5>
+        
+
+<p>Each of the eleven paragraphs is cluing two things: it is addressed to a specific person or character, and it gives instructions to get a word or phrase by following strange instructions. After identifying a few characters, we notice that they are all Disney characters, which helps us to identify the rest (quite possibly with the help of the <a href="http://disney.wikia.com">Disney Wiki</a>):</p>
+
+<table>
+<tr><th style="width: 50%">Clue</th><th>Character</th><th>Disney Movie</th><th style="width: 50%">Clue Notes</th></tr>
+<tr><td>The princess finally agreed to explore outside the wall with you, her court lady! On your way to the golden flower, make sure to take in all the beautiful scenery. No matter how hard you look, you won&rsquo;t find a model of this World Heritage Site, since the project to build it along the river was never funded.</td><td>Cassandra</td><td>Tangled: Before Ever After (and the follow-up series)</td><td><a href="http://disney.wikia.com/wiki/Cassandra_(Tangled)">Cassandra</a> is the court lady of <a href="http://disney.wikia.com/wiki/Rapunzel">Princess Rapunzel</a>. She<a href="https://www.youtube.com/watch?v=YhObTdLdNj4"> brings the princess to the golden flower</a> in Tangled: Before Ever After, causing the princess to regain her golden hair.</td></tr>
+<tr><td>You&rsquo;re sick of being force-fed crackers. To eat something else, bring your friend to the local restaurant, and the two of you can share this starter with chicken and beef.</td><td>Iago</td><td>Aladdin</td><td>The Sultan feeds Iago <a href="https://www.youtube.com/watch?v=pbO-Rh7lEXY">quite a number of crackers</a>.</td></tr>
+<tr><td>After your breakdown at school, and the fight with your old friend over video chat, it&rsquo;s time to run away from home. Across from the biggest building in town is a theater. If you go there this April Fool&rsquo;s Day, a band whose name ends in this word will be playing.</td><td>Riley</td><td>Inside Out</td><td>Riley<a href="https://www.youtube.com/watch?v=PwFjj_Fkokw"> cries on her first day at her new school</a>, and <a href="https://www.youtube.com/watch?v=YpW-6FCrlU0">has a big fight with her friend Meg over video chat</a>. This ultimately prompts her to run away from home to go back to Minnesota.</td></tr>
+<tr><td>After almost being consumed by the matchmaker, you could really use a drink! Hop over to the innermost eatery in the country. They have three brand-name alcoholic beverages on their menu; this one is by the oldest of the three brewing companies.</td><td>Cri-Kee</td><td>Mulan</td><td>Cri-Kee <a href="https://www.youtube.com/watch?v=bPa0TiCuvR4">winds up in the tea cup</a> which the matchmaker is about to drink, and Mulan causes quite a scene trying to fix the situation.</td></tr>
+<tr><td>You&rsquo;re going to need some musicians to help you out if you want to keep singing about your phony ruler. You can find some across from the fun stop, but they&rsquo;re guarded by one of this type of two-word obstacle. You&rsquo;re tall enough that it shouldn&rsquo;t pose you much of a challenge.</td><td>Little John</td><td>Robin Hood</td><td>Little John raises everyone&rsquo;s spirits by playing his song <a href="https://youtu.be/8v1NSsFVfEA">The Phony King of England</a> in Sherwood Forest.</td></tr>
+<tr><td>Now that everyone knows what powers you have, you&rsquo;ll need to flee the kingdom. On your way out, pass the cafe up ahead, then the next building on your right will be a replica of one of these structures (in English).</td><td>Elsa</td><td>Frozen</td><td>Elsa accidentally reveals her magical control over coldness to the kingdom and visitors of Arendelle. This causes her to flee the kingdom, covering it in snow, and sing <a href="https://youtu.be/moSFlvxnbgk">Let It Go</a>.</td></tr>
+<tr><td>It&rsquo;s too bad you had that run-in with the bell. Before that, you would have easily gotten a table at the most popular restaurant in town, or even performed there! Look around for some gentlemen who can take you through the main dining room anyway, but take note: only this one of them is a local.</td><td>Ernesto de la Cruz</td><td>Coco</td><td>Ernesto is one of the most famous musicians until he is <a href="http://disney.wikia.com/wiki/Ernesto_de_la_Cruz#Background">crushed by a bell</a> during a performance of &ldquo;Remember Me.&rdquo; He is later crushed by another bell in the land of the dead.</td></tr>
+<tr><td>Your friend just turned into a donkey! Run away, or you&rsquo;ll be next! If you&rsquo;re quick enough, and go in the next couple of months, you&rsquo;ll be able to see two characters in topiary form as you exit the whole area. They are originally based on this short story from a magazine.</td><td>Pinocchio</td><td>Pinocchio</td><td>Pinocchio&rsquo;s friend Lampwick <a href="https://youtu.be/tgmfV5VLHvs?t=59">turns into a donkey</a>, and Pinocchio is about to turn into one as well until he escapes the island with Jiminy Cricket.</td></tr>
+<tr><td>As the punctual majordomo of a large castle, you might not have had the chance to explore the whole country. Since there&rsquo;s a lot to see, you might want to take the tour. Near the beginning, you&rsquo;ll glide through a swampy area while a song from this five-word musical suite is playing.</td><td>Cogsworth</td><td>Beauty and the Beast</td><td>Cogsworth is the Beast&rsquo;s <a href="http://disney.wikia.com/wiki/Cogsworth">majordomo</a>.</td></tr>
+<tr><td>You&rsquo;re famous! You&rsquo;re now known all over the world as the dancer in red from the World Grand Prix welcome party! Head from the gate to the local store to buy something for yourself to celebrate, but as you do, admire this type of building on your left.</td><td>Okuni</td><td>Cars 2</td><td>The three dancers are <a href="http://pixar.wikia.com/wiki/Tamiko">Tamiko</a>, <a href="http://pixar.wikia.com/wiki/Okuni">Okuni</a>, and <a href="http://pixar.wikia.com/wiki/Shigeko">Shigeko</a>. Okuni is the one who wears red.</td></tr>
+<tr><td>Your name sounds like a local type of hat, and you suggested playing I Spy with your brother when the only thing in sight was a tree. Instead of playing games, try watching the nearby film instead. It&rsquo;s now narrated by a comedian, but it used to be narrated by the voice actor of this sorcerer in a number of games.</td><td>Tuke </td><td>Brother Bear</td><td><a href="https://www.youtube.com/watch?v=qGaQ7Kfg9Us">Here&rsquo;s</a> the I Spy clip. His name is pronounced like <a href="https://en.wikipedia.org/wiki/Toque">toque</a>.</td></tr>
+</table>
+
+<p>Reading the first letters of the characters in the given order tells us to CIRCLE EPCOT. <a href="https://en.wikipedia.org/wiki/Epcot">Epcot</a> is a theme park at Disney World consisting of two areas: Future World, and the World Showcase. The World Showcase consists of eleven pavilions corresponding to eleven countries of the world, in a circle around a lagoon. Each of the eleven characters we identified above is associated with one of the eleven countries. We can follow their instructions in their corresponding pavilions of Epcot as follows:</p>
+
+<img src="visitors-guide/image5.png">
+
+<table>
+<tr><th style="width: 50%">Clue</th><th>Character</th><th>Country</th><th>Clue Answer</th><th style="width: 50%">Clue Notes (the screenshots of Epcot maps come from the <a href="https://disneyworld.disney.go.com/en_CA/epcot/maps/">official Epcot map</a>)</th></tr>
+<tr><td>The princess finally agreed to explore outside the wall with you, her court lady! On your way to the golden flower, make sure to take in all the beautiful scenery. No matter how hard you look, you won&rsquo;t find a model of this World Heritage Site, since the project to build it along the river was never funded.</td><td>Cassandra</td><td>Germany</td><td>Cologne Cathedral</td><td>Cassandra and Tangled are based on the German fairy tale &ldquo;Rapunzel.&rdquo;<br><br>There was originally going to be a <a href="https://books.google.com/books?id=IFyUx8XEE78C&pg=PA224&lpg=PA224&dq=cologne+cathedral+epcot&source=bl&ots=GOSEBiIkbs&sig=PVFF5B5Qr-GLwMyGHz8Zg6Uzpoc&hl=en&sa=X&ved=0ahUKEwj8y5K64dPZAhUF0YMKHXZHAWwQ6AEISzAK#v=onepage&q=cologne%20cathedral%20epcot&f=false">Rhine River Cruise attraction</a> in the German pavilion, which would include a model of the Cologne Cathedral.</td></tr>
+<tr><td>You&rsquo;re sick of being force-fed crackers. To eat something else, bring your friend to the local restaurant, and the two of you can share this starter with chicken and beef.</td><td>Iago</td><td>Morocco</td><td>Appetizer Combination for Two</td><td>Although Aladdin takes place in the fictional city of Agrabah, characters from Aladdin <a href="https://disneyworld.disney.go.com/en_CA/entertainment/epcot/character-meet-jasmine/">can be met</a> in the <a href="https://en.wikipedia.org/wiki/Morocco_Pavilion_at_Epcot#Meet_Disney_Characters_from_the_films">Morocco pavilion</a> in Epcot.<br><br>The main restaurant in the <a href="https://en.wikipedia.org/wiki/Morocco_Pavilion_at_Epcot#Dining">Morocco pavilion</a> is the Restaurant Marrakesh, whose <a href="https://disneyworld.disney.go.com/en_CA/dining/epcot/restaurant-marrakesh/menus/">menu</a> has the appetizer combination.</td></tr>
+<tr><td>After your breakdown at school, and the fight with your old friend over video chat, it&rsquo;s time to run away from home. Across from the biggest building in town is a theater. If you go there this April Fool&rsquo;s Day, a band whose name ends in this word will be playing.</td><td>Riley</td><td>USA (The American Adventure)</td><td>Orchestra</td><td><a href="https://en.wikipedia.org/wiki/Inside_Out_(2015_film)">Inside Out</a> takes place in the US, as Riley moves from Minnesota to San Francisco.<br><br>Across from the main building in The American Adventure pavilion is the America Gardens Theatre.<img src="visitors-guide/image8.png">Over the next couple of months is the <a href="https://disneyworld.disney.go.com/en_CA/events-tours/epcot/epcot-international-flower-and-garden-festival/">Epcot International Flower and Garden Festival</a>, one part of which is the Garden Rocks concert series at the America Gardens Theatre (this can be found, for instance, by clicking on the theatre in the <a href="https://disneyworld.disney.go.com/en_CA/epcot/maps/">official Epcot map</a>). The <a href="https://disneyworld.disney.go.com/en_CA/entertainment/epcot/flower-garden-rocks-concert-series/">schedule</a> shows that The Orchestra (starring former members of the Electric Light Orchestra) will be playing on April 1st.</td></tr>
+<tr><td>After almost being consumed by the matchmaker, you could really use a drink! Hop over to the innermost eatery in the country. They have three brand-name alcoholic beverages on their menu; this one is by the oldest of the three brewing companies.</td><td>Cri-Kee</td><td>China</td><td>Yuengling Draft</td><td>Mulan takes place in China.<br><br>The innermost eatery in the China pavilion is the Lotus Blossom Cafe (the three eateries have blue markers below).<img src="visitors-guide/image7.png">Their <a href="https://disneyworld.disney.go.com/en_CA/dining/epcot/lotus-blossom-cafe/menus/">menu</a> has four alcoholic beverages: Tsing Tao, Budweiser Draft, Yuengling Draft, and Plum Wine. Since Plum Wine is not a brand name, Tsing Tao was founded in 1903, Budweiser in 1876, and Yuengling in 1829, the answer is Yuengling Draft.</td></tr>
+<tr><td>You&rsquo;re going to need some musicians to help you out if you want to keep singing about your phony ruler. You can find some across from the fun stop, but they&rsquo;re guarded by one of this type of two-word obstacle. You&rsquo;re tall enough that it shouldn&rsquo;t pose you much of a challenge.</td><td>Little John</td><td>United Kingdom</td><td>Hedge Maze</td><td>Robin Hood is based on English folklore, and it takes place in Nottingham and Sherwood Forest.<br><br>Across from the fun stop at the back of the United Kingdom pavilion is a bandstand where <a href="https://disneyworld.disney.go.com/en_CA/entertainment/epcot/british-revolution/">British Revolution</a> plays.<img src="visitors-guide/image1.png">Surrounding the bandstand is a hedge maze.</td></tr>
+<tr><td>Now that everyone knows what powers you have, you&rsquo;ll need to flee the kingdom. On your way out, pass the cafe up ahead, then the next building on your right will be a replica of one of these structures (in English).</td><td>Elsa</td><td>Norway</td><td>Stave Church</td><td>Frozen takes place in the fictional kingdom of Arendelle, which was <a href="https://en.wikipedia.org/wiki/Frozen_(2013_film)#Animation">heavily based off of Norway</a>. Many Frozen attractions and characters also appear in the Norway pavilion.<br><br><a href="https://disneyworld.disney.go.com/en_CA/attractions/epcot/frozen-ever-after/">Frozen Ever After</a> is a ride through the kingdom of Arendelle from Frozen. If you leave it and head out of the Norway pavilion, you&rsquo;ll first pass the <a href="https://disneyworld.disney.go.com/en_CA/dining/epcot/kringla-bakeri-og-kafe/">Kringla Makeri Og Kafe</a> on your right (circled in green below) then the next building on your right will be the <a href="https://disneyworld.disney.go.com/en_CA/attractions/epcot/stave-church-gallery/">Stave Church Gallery</a> (circled in blue below).<img src="visitors-guide/image6.png">It is, indeed, a replica of a Stave Church.</td></tr>
+<tr><td>It&rsquo;s too bad you had that run-in with the bell. Before that, you would have easily gotten a table at the most popular restaurant in town, or even performed there! Look around for some gentlemen who can take you through the main dining room anyway, but take note: only this one of them is a local.</td><td>Ernesto de la Cruz</td><td>Mexico</td><td>Panchito Pistoles</td><td>Coco takes place in Mexico.<br><br>The main attraction in the Mexico Pavilion is the <a href="https://disneyworld.disney.go.com/en_CA/attractions/epcot/gran-fiesta-tour-starring-three-caballeros/">Gran Fiesta Tour Starring the Three Caballeros</a> (Note: Caballeros means Gentlemen). The ride <a href="https://en.wikipedia.org/wiki/Gran_Fiesta_Tour_Starring_The_Three_Caballeros#Synopsis">starts off</a> going through the main room of the big Mayan Pyramid, which is also where the dining room of the <a href="https://en.wikipedia.org/wiki/Mexico_Pavilion_at_Epcot#Dining">main restaurant</a>, the San Angel Inn Restaurante, is.<br><br>Of the <a href="http://disney.wikia.com/wiki/The_Three_Caballeros">Three Caballeros</a>, only <a href="http://disney.wikia.com/wiki/Panchito_Pistoles">Panchito</a> is from Mexico; <a href="http://disney.wikia.com/wiki/Donald_Duck">Donald</a> is from the US, and <a href="http://disney.wikia.com/wiki/Jos%C3%A9_Carioca">Jos&eacute;</a> is from Brazil.</td></tr>
+<tr><td>Your friend just turned into a donkey! Run away, or you&rsquo;ll be next! If you&rsquo;re quick enough, and go in the next couple of months, you&rsquo;ll be able to see two characters in topiary form as you exit the whole area. They are originally based on this short story from a magazine.</td><td>Pinocchio</td><td>Italy</td><td>Happy Dan, The Whistling Dog</td><td>Pinocchio is <a href="https://en.wikipedia.org/wiki/Pinocchio_(1940_film)">based on</a> the Italian children&rsquo;s novel The Adventures of Pinocchio, and several characters in the movie have Italian names and accents.<br><br>Over the next couple of months is the <a href="https://disneyworld.disney.go.com/en_CA/events-tours/epcot/epcot-international-flower-and-garden-festival/">Epcot International Flower and Garden Festival</a>, which includes many topiaries. Right at the entrance to the Italy pavilion are topiaries of Lady and the Tramp. See the full list of topiaries <a href="https://disneyworld.disney.go.com/en_CA/attractions/epcot/flower-garden-topiaries/">here</a> (click &ldquo;Read More&rdquo; under the heading &ldquo;Topiary Magic Awaits&rdquo;).<img src="visitors-guide/image4.png">Lady and the Tramp was <a href="https://en.wikipedia.org/wiki/Lady_and_the_Tramp">based on</a> Happy Dan, The Whistling Dog by Ward Greene, which <a href="https://en.wikipedia.org/wiki/Lady_and_the_Tramp#Story_development">Walt Disney read in Cosmopolitan Magazine</a>.</td></tr>
+<tr><td>As the punctual majordomo of a large castle, you might not have had the chance to explore the whole country. Since there&rsquo;s a lot to see, you might want to take the tour. Near the beginning, you&rsquo;ll glide through a swampy area while a song from this five-word musical suite is playing.</td><td>Cogsworth</td><td>France</td><td>The Carnival of the Animals</td><td>Beauty and the Beast takes place in France.<br><br>The main attraction of the France pavilion is <a href="https://disneyworld.disney.go.com/en_CA/attractions/epcot/impressions-de-france/">Impressions de France</a>, an 18-minute film which tours much of the country. Looking at the <a href="https://en.wikipedia.org/wiki/Impressions_de_France#Scene_list">list of scenes</a> for the film, we see that the scene being referenced is scene 2, where you glide through the Marais Poitevin, a swamp area. The film&rsquo;s <a href="https://en.wikipedia.org/wiki/Impressions_de_France#Soundtrack">soundtrack</a> shows that the music playing during scene 2 is &ldquo;Aquarium&rdquo; from The Carnival of the Animals. </td></tr>
+<tr><td>You&rsquo;re famous! You&rsquo;re now known all over the world as the dancer in red from the World Grand Prix welcome party! Head from the gate to the local store to buy something for yourself to celebrate, but as you do, admire this type of building on your left.</td><td>Okuni</td><td>Japan</td><td>Pagoda</td><td>Okuni is a <a href="http://pixar.wikia.com/wiki/Okuni">Kabuki dancer</a> when the World Grand Prix visits Japan in Cars 2.<br><br>The instructions tell us to go from the main traditional gate at the front of the Japan pavilion to the Mitsukoshi Department Store (circled in green below).<img src="visitors-guide/image2.png">As we walk, on the left (circled in blue above) is the <a href="https://en.wikipedia.org/wiki/Japan_Pavilion_at_Epcot#Layout">pagoda</a> at the Japanese pavilion.</td></tr>
+<tr><td>Your name sounds like a local type of hat, and you suggested playing I Spy with your brother when the only thing in sight was a tree. Instead of playing games, try watching the nearby film instead. It&rsquo;s now narrated by a comedian, but it used to be narrated by the voice actor of this sorcerer in a number of games.</td><td>Tuke </td><td>Canada</td><td>Yen Sid</td><td>Tuke and his brother Rutt are <a href="http://disney.wikia.com/wiki/Rutt_and_Tuke">Canadian Moose</a>.<br><br>The main attraction at the Canada pavilion is <a href="https://disneyworld.disney.go.com/en_CA/attractions/epcot/o-canada/">O Canada!</a>, a Circle-Vision 360&deg; film showcasing Canada. It is <a href="https://en.wikipedia.org/wiki/O_Canada!_(film)#2007_update">now narrated</a> by Martin Short, but it used to be narrated by Corey Burton. Burton has voiced <a href="https://en.wikipedia.org/wiki/Corey_Burton#Video_games">a number of characters</a> in video games, but the only sorcerer is Yen Sid (the <a href="http://disney.wikia.com/wiki/Yen_Sid">teacher</a> of Mickey Mouse in The Sorcerer&rsquo;s Apprentice).</td></tr>
+</table>
+
+<p>Reading the first letters of the clue answers in clockwise order around the World Showcase Lagoon (as clued by &ldquo;CIRCLE&rdquo; from before) gives us the final answer: PSYCHOPATHY.</p>
+
+<img src="visitors-guide/image3.png">
+
+
+
+        
+
+        
+        <hr>
+        <h5 class="solution-puzzle-subheader">Author&rsquo;s Notes</h5>
+        <p>One of my favorite types of puzzles in on-site puzzle hunts is &ldquo;runarounds&rdquo;, where you are typically given instructions to run through a place of interest, like a public building or park, and gather information as you go. Such a puzzle is hard to make for an online hunt, since teams aren&rsquo;t all in the same physical location, but this puzzle is intended to be a runaround you can do entirely online. In fact, an earlier version of the puzzle only had instructions for going around the countries of Epcot, without the Disney character clues, and had the solver match up instructions to countries just by seeing which instructions could reasonably be followed in each country. I think the Disney character identification adds a fun first step and makes the second step a bit easier. I suspect many teams will make the connection to Epcot and solve the puzzle without noticing the &ldquo;CIRCLE EPCOT&rdquo; clue, though.</p><p>I would have liked to use characters who are less obscure than, for instance, Cassandra and Okuni, but there aren&rsquo;t very many Disney characters to choose from who come from some of the countries.</p><p>If you enjoyed this puzzle, and ever find yourself in Epcot, make sure to try out <a href="https://disneyworld.disney.go.com/en_CA/attractions/epcot/agent-p-world-showcase-adventure/">Agent P&rsquo;s World Showcase Adventure</a>, a real Epcot runaround-style puzzle which this puzzle was inspired by.</p>
+        
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="../static/images/btnleft8-h.png%3F1517887534">
+            <img src="../static/images/btnmid8-h.png%3F1517887534">
+            <img src="../static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>

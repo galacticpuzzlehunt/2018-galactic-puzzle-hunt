@@ -1,0 +1,67 @@
+
+var REQUEST_URL = "/puzzle/adventure/submit";
+
+function main() {
+    var state = "";
+    var won = false;
+    var waiting = false;
+        
+    function isNotEmpty(val) {
+        if (val.match(/^\s+$/) || val == ""){
+            return false;
+        } else {
+            return true;
+        }
+    }
+        
+    function sendChat() {
+        if(won) return;
+        if(waiting) return;
+
+        updateChat("<p style=\"font-family:courier; font-size: 15px;\">&gt; " + $("#chattext").val() + "</p>");
+        var command = $("#chattext").val();
+
+        if (isNotEmpty($("#chattext").val())) {
+            waiting = true;
+            $.post(REQUEST_URL, JSON.stringify(
+                    {"command": command,
+                     "state": state}),
+                    function(data) { onChatReturned(data); })
+             .fail(function(xhr, textStatus, errorThrown) {
+                waiting = false;
+                updateChat("Error contacting server (you may be submitting commands too quickly; please submit no more than one command per second)<br/>");
+            });
+
+            $("#chattext").val("");
+        }
+    }
+
+    function updateChat(data) {
+        $('#chats').append(data);
+    }
+            
+    function onChatReturned(response) {
+        var data = $.parseJSON(response);
+        state = data.state;
+        won = data.won;
+        waiting = false;
+
+        for (var i=0; i<data.reply.length; ++i) {
+            updateChat(data.reply[i] + "<br>");
+        }
+
+        scrollToBottom();
+        $("#chattext").focus();
+    }
+
+    function scrollToBottom() {
+        CHATS_DIV = document.getElementById("chats");
+        CHATS_DIV.scrollTop = CHATS_DIV.scrollHeight;
+    }
+
+    $.post(REQUEST_URL, JSON.stringify({"setup": true}),
+        function(data) { onChatReturned(data); });
+    $('#send-chat-form').on('submit', sendChat);
+}
+
+$(document).ready(main);

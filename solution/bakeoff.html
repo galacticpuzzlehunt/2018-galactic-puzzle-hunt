@@ -1,0 +1,572 @@
+
+
+
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9HXglGF1lcVw==","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":31}</script>
+        
+<title>Solution: The Wepp Perflontus Bake Off</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="../static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="../static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='../index.html'>Home</a>
+                    <a href='../rules.html'>Rules</a>
+                    
+                        <a href='../story.html'>Story</a>
+                    
+                    
+                        <a href='../puzzles.html'>Puzzles</a>
+                    
+                    <a href='../teams.html'>Teams</a>
+                    <a href='../faq.html'>FAQ</a>
+                    
+                        <a href='../errata.html'>Updates</a>
+                    
+                    
+                        <a href='../wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='../archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+<a href="../puzzle/bakeoff.html" class="btn btn--small">Back to the puzzle</a>
+
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="../login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+
+<style>
+.puzzle-body img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+.puzzle-body table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.puzzle-body tr:empty {
+  height: 1em;
+}
+.puzzle-body td {
+  padding: 5px;
+  border: 1px solid black;
+}
+.puzzle-body th {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+.puzzle-body hr {
+  border-color: initial;
+}
+.puzzle-body ol li {
+  list-style-type: inherit;
+}
+.puzzle-body td pre {
+  margin: 0;
+}
+</style>
+
+<div class="puzzle-page-body">
+    <h1 class="page-header puzzle-page__title">
+        
+        Solution: The Wepp Perflontus Bake Off
+        <div class="solved-title-marker">Answer: <span class="solved-title-answer">GREAT PUMPKIN</span></div>
+        
+    </h1>
+    <div class="puzzle-body solution-body">
+        <h5 class="solution-puzzle-subheader">
+            
+            Written by
+            
+Nathan Pinsker and Lucy Zhang
+
+            
+        </h5>
+        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+var menuPosition = 0;
+var displayEnglish = false;
+
+var menu = [
+        {
+            "header": "Rolfobben",
+            "name": "Trackle",
+            "description": "Fresher and more delicious than store-bought.",
+            "steps": [
+                "Add 2-3 weebles to 3 cups okk, and knead together.",
+                "Roll out mixture with a rolling pin into a flat sheet and cut into thin strips."
+            ]
+        },
+        {
+            "name": "Balorbb",
+            "description": "A basic, versatile balorbb.",
+            "steps": [
+                "Add 4g zam and 1g laxxloffer to 1 cup okk. Add 3/4 cup zzorp to the mixture and knead together.",
+                "Let rest overnight to rise."
+            ]
+        },
+        {
+            "name": "Twipp Balorbb",
+            "description": "Use this to make a perfect crenn!",
+            "steps": [
+                "Add 3g zam and 3g twipp to 1 cup okk.",
+                "Add 1/2 cup cold diced hompliss and roughly work it in, leaving small chunks.",
+                "Add 30g cold zzorp and mix."
+            ]
+        },
+        {
+            "name": "Worbly",
+            "description": "Have more gom than you can eat? Here&rsquo;s what to do with it.",
+            "steps": [
+                "Add 4 cups of the juice of the desired summer gom (aluupagom, sizzagom, etc.) and 3 cups twipp to a saucepan.",
+                "Boil until thickened and syrupy. Put into jars."
+            ]
+        },
+        {
+            "header": "Nibben",
+            "name": "Ozz-Moffkay",
+            "description": "A great healthy way to start the day.",
+            "steps": [
+                "Combine 1/2 cup moffkay, 1 cup pliss, 15 g twipp, zam, and atharr in a small pot.",
+                "Bring the mixture to a boil, stirring occasionally, and then take the pot off the heat. The ozz-moffkay will thicken as it cools."
+            ]
+        },
+        {
+            "name": "Weebles on Glarb",
+            "description": "Don&rsquo;t overcook the weebles; you want them to be light and fluffy.",
+            "steps": [
+                "Obtain some glarb (see recipe), and lightly toast 2 slices.",
+                "Melt 1 tablespoon hompliss in a small saute pan. Beat together 3 weebles, 2 tablespoons pliss, and zam, and add the mixture to the pan. Cook over low heat, stirring frequently.",
+                "When the weeble mixture is almost set, divide it and pile it on top of the slices of glarb."
+            ]
+        },
+        {
+            "header": "Kozzobben",
+            "name": "Trackle and Zampliss",
+            "description": "Comfort food at its best.",
+            "steps": [
+                "Obtain 1 lb of trackle (see recipe), cook it, and put it in a baking pan.",
+                "Melt 8 tablespoons hompliss in a saucepan and whisk in 1/2 cup okk.",
+                "Whisk in 6 cups pliss and 2 lb zampliss.",
+                "Pour the mixture over the baking pan, and bake until zampliss mixture is bubbly and golden."
+            ]
+        },
+        {
+            "name": "Piital",
+            "description": "Feel free to experiment with shapes and toppings.",
+            "steps": [
+                "Obtain some balorbb (see recipe) and roll it out with a rolling pin.",
+                "Top with a layer of zammgom.",
+                "Top with another layer of zampliss.",
+                "Bake until balorbb is cooked."
+            ]
+        },
+        {
+            "name": "Tok-Hompliss and Worbly",
+            "description": "Only for grown-ups with the most discerning of palates.",
+            "steps": [
+                "Obtain some glarb (see recipe) and slice it.",
+                "Apply worbly (see recipe) to one slice. Add tok-hompliss to the other. Combine slices."
+            ]
+        },
+        {
+            "header": "Spibben",
+            "name": "Glarb",
+            "description": "Perfectly soft and fluffy, this loaf will be gone before you know it.",
+            "steps": [
+                "Make the recipe for balorbb, but additionally add 1/4 cup hompliss and 1/8 cup twipp.",
+                "Form into a loaf and put into a baking pan. Bake until done."
+            ]
+        },
+        {
+            "name": "Mashed Rannuu",
+            "description": "Don&rsquo;t worry about leftovers; if you have any, you can make rannuu sammaglam.",
+            "steps": [
+                "Peel 2 lb rannuu and cut into chunks.",
+                "Boil in zzorp, then drain and mash.",
+                "Add 2 tablespoons hompliss, 1 cup pliss, and zam."
+            ]
+        },
+        {
+            "name": "Fried Rannuu",
+            "description": "Make sure to cut the strips evenly so they cook evenly.",
+            "steps": [
+                "Peel 2 lb rannuu and cut into strips.",
+                "Fry until golden and crispy. Add zam."
+            ]
+        },
+        {
+            "name": "Rannuu Sammaglam",
+            "description": "A great way to use up leftover mashed rannuu.",
+            "steps": [
+                "Obtain 2 cups mashed rannuu (see recipe).",
+                "Add additional 1 tablespoon pliss, 1 weeble, and zam.",
+                "Divide mixture into small mounds.",
+                "Dip mounds in weeble, then roll them in okk. Fry until the the outer coating is golden and crispy."
+            ]
+        },
+        {
+            "header": "Twippibben",
+            "name": "Atharr Rolls",
+            "description": "The atharr makes all the difference.",
+            "steps": [
+                "Obtain some balorbb (see recipe).",
+                "Roll out into a thick sheet and top with melted hompliss.",
+                "Combine 10g atharr with 1/3 cup twipp. Top balorbb with mixture. Roll mixture into log, slice into rounds, and put in baking dish.",
+                "Combine 1 cup twipp, 15g hompliss, and 8g pliss. Pour mixture over dish. Bake until finished."
+            ]
+        },
+        {
+            "name": "Jarpagom Crenn",
+            "description": "Feel free to make this at any time of the year.",
+            "steps": [
+                "Obtain some twipp balorbb (see recipe). Roll out with a rolling pin into a circle, and put in a baking dish.",
+                "Combine 5g zam, 10g atharr, 5g hemmarr, and 1g euusarr (to form jarpagom crenn spice). Combine that with 1 cup twipp and 8g okk.",
+                "Add 3 weebles, 500g jarpagom, and 250g pampliss and mix together.",
+                "Pour the mixture into the dish. Bake until the filling is cooked."
+            ]
+        },
+        {
+            "name": "Ozz-Moffkay Tok-Hompliss Rortwipp Toreils",
+            "description": "You won&rsquo;t find a more delicious toreil anywhere in the galaxy.",
+            "steps": [
+                "Combine 2 cups twipp, 3/4 cup tok-hompliss, 1 cup hompliss, 4g zam, and 8g laxxloffer.",
+                "Add 2 weebles.",
+                "Add 2 cups okk, 1 1/2 cups moffkay, and 340g rortwipp chips.",
+                "Divide mixture into small mounds. Bake until set and lightly golden."
+            ]
+        }
+    ];
+
+var languageMapping = {
+    "components": "rolfobben",
+    "breakfast": "nibben",
+    "entrees": "kozzobben",
+    "sides": "spibben",
+    "desserts": "twippibben",
+
+    "pie": "crenn",
+    "cookie": "toreil",
+    "cake": "parmak",
+
+    "pasta": "trackle",
+    "dough": "balorbb",
+
+    "tomatoes": "zammgom",
+    "potato croquettes": "rannuu sammaglam",
+    "peanut butter": "tok-hompliss",
+    "water": "zzorp",
+    "egg": "weeble",
+    "flour": "okk",
+    "cream": "pampliss",
+    "butter": "hompliss",
+    "cheese": "zampliss",
+    "milk": "pliss",
+    "salt": "zam",
+    "potatoes": "rannuu",
+    "chocolate": "rortwipp",
+    "sugar": "twipp",
+    "leavening agent": "laxxloffer",
+    "cinnamon": "atharr",
+    "nutmeg": "hemmarr",
+    "cloves": "euusarr",
+
+    "great": "wepp",
+    "nut": "tok",
+    "jelly": "worbly",
+    "strawberry": "aluupagom",
+    "raspberry": "sizzagom",
+
+    "bread": "glarb",
+    "oatmeal": "ozz-moffkay",
+    "pizza": "piital",
+    "croquettes": "sammaglam",
+
+    "oats": "moffkay",
+    "pumpkin": "jarpagom",
+    "fruit": "gom"
+};
+
+$(document).ready(function() {
+
+$("#prev-button").click(function() {
+    if (menuPosition > 0) {
+        --menuPosition;
+        refreshMenuDisplay();
+    }
+});
+
+$("#next-button").click(function() {
+    if (menuPosition < menu.length - 1) {
+        ++menuPosition;
+        refreshMenuDisplay();
+    }
+});
+
+$("#toggle-button").click(function() {
+    displayEnglish = !displayEnglish;
+    refreshMenuDisplay();
+});
+
+function refreshMenuDisplay() {
+    var pageToRender = menu[menuPosition];
+    if ("header" in pageToRender) {
+        $(".menu-header").html(pageToRender["header"]);
+    } else {
+        $(".menu-header").html("<span style=\"display: inline-block;\"></span>");
+    }
+    var recipeName = "<h4>" + pageToRender["name"] + "</h4>";
+    var recipeDescription = "";
+    if ("description" in pageToRender) {
+        recipeDescription = "<p><i>" + pageToRender["description"] + "</i></p>";
+    }
+    var recipeSteps = "<ul>" + pageToRender["steps"].map(s => "<li>" + s + "</li>").join("") + "</ul>";
+
+    $(".instructions").html(recipeName + recipeDescription + recipeSteps);
+}
+function sanitizeLanguage(str) {
+    if (displayEnglish) {
+        for (var key in languageMapping) {
+            var value = languageMapping[key];
+            var capsKey = key.charAt(0).toUpperCase() + key.slice(1);
+            var capsValue = value.charAt(0).toUpperCase() + value.slice(1);
+            str = str.replace(new RegExp("Tok-Hompliss", 'g'), "<b>Peanut Butter</b>");
+            str = str.replace(new RegExp("Rannuu Sammaglam", 'g'), "<b>Potato Croquettes</b>");
+            str = str.replace(new RegExp("Moffkay", 'g'), "moffkay");
+            str = str.replace(new RegExp("Hompliss", 'g'), "hompliss");
+            str = str.replace(new RegExp(value, 'g'), "<b>" + key + "</b>");
+            str = str.replace(new RegExp(capsValue, 'g'), "<b>" + capsKey + "</b>");
+        }
+    }
+    return str;
+}
+
+function refreshMenuDisplay() {
+    var pageToRender = menu[menuPosition];
+    if ("header" in pageToRender) {
+        $(".menu-header").html(sanitizeLanguage(pageToRender["header"]));
+    } else {
+        $(".menu-header").html("<span style=\"display: inline-block;\"></span>");
+    }
+    var recipeName = "<h4>" + sanitizeLanguage(pageToRender["name"]) + "</h4>";
+    var recipeDescription = "";
+    if ("description" in pageToRender) {
+        recipeDescription = "<p><i>" + sanitizeLanguage(pageToRender["description"]) + "</i></p>";
+    }
+    var recipeSteps = "<ul>" + pageToRender["steps"].map(s => "<li>" + sanitizeLanguage(s) + "</li>").join("") + "</ul>";
+    console.log(recipeSteps);
+
+    $(".instructions").html(recipeName + recipeDescription + recipeSteps);
+}
+refreshMenuDisplay();
+
+});
+</script>
+<style>
+.single-narrower-column-on-desktop {
+  width: 80% !important;
+}
+.menu {
+  border-style: solid; text-align: center;
+  background-color: #E6E2D3;
+  margin: auto;
+  padding-top: 30px;
+  margin-top: 50px;
+  width: 75%;
+  min-height: 400px;
+}
+button.basic {
+    background-color: #111;
+    color: #EEE;
+}
+.modal-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(31, 31, 31, 0.8);
+}
+.instructions {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.instructions b, .menu-header b {
+  color: red;
+}
+.navigate-btn {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.recipe {
+    margin: auto;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 100px;
+}
+.recipe p {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+#recipe-in-progress {
+    text-align: left;
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    min-width: 100px;
+    min-height: 200px;
+    border-style: solid;
+    padding-bottom: 65px;
+}
+#recipe-left {
+    display: inline-block;
+    width: 60%;
+    margin-right: 30px;
+}
+#recipe-feedback {
+    text-align: left;
+    vertical-align: top;
+    position: relative;
+    display: inline-block;
+    width: 30%;
+    min-width: 100px;
+    min-height: 300px;
+    border: rgba(255, 255, 255, 0.3) 1px;
+    border-style: solid;
+    background-color: rgba(127, 127, 127, 0.05);
+    padding: 20px;
+}
+#recipe-feedback > p {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+#recipe-cook {
+    position: absolute;
+    bottom: 0px;
+    width: 30%;
+    margin: auto 35% 2% 35%;
+    border: 1px solid rgba(252, 150, 100, 0.6);
+    background-color: rgba(248, 188, 78, 0.4);
+    font-size: 1.66rem;
+    font-weight: normal;
+    text-transform: none;
+}
+#ingredient-add, #ingredient-examine {
+    margin-left: 10px;
+}
+ul > li {
+    margin-bottom: 0px;
+}
+</style>
+<p>The main challenge of this puzzle is in identifying the English recipes and the ingredients being employed. You can obtain this information in a variety of different ways: just one of them will likely not be enough to solve the puzzle. Some of these include:</p>
+<ul>
+  <li>The method of preparation of each recipe; what tools it calls for</li>
+  <li>The amount of each ingredient being used (baked goods use lots of flour and water, and not much salt)</li>
+  <li>Linguistic commonalities of the words (fruits always end in &ldquo;-gom&rdquo;)</li>
+  <li>The structure of a cookbook (dishes are separated into &ldquo;Components&rdquo;, &ldquo;Breakfast&rdquo;, &ldquo;Entrees&rdquo;, &ldquo;Sides&rdquo;, and &ldquo;Desserts&rdquo;)</li>
+  <li>Examining some of the ingredients (spices are in shakers labeled with their alien names)</li>
+  <li>Trial and error with the cooking interface</li>
+</ul>
+<p>Below is an interactive version of the menu with a button to toggle between English and the alien language at will.</p>
+
+<div class="menu">
+  <h2 class="menu-header"></h2>
+  <div class="instructions"></div>
+</div>
+<div class="navigate-btn">
+  <button id="prev-button" class="basic">Previous</button>
+  <button id="next-button" class="basic">Next</button>
+  <button id="toggle-button" class="basic">Toggle Language</button>
+</div>
+<br><br>
+
+<p>The only recipe that you're required to cook is the final one (<i>Ozz-Moffkay Tok-Hompliss Rortwipp Toreils</i>, or &ldquo;Oatmeal Peanut Butter Chocolate Chip Cookies&rdquo;). You can cook that recipe by adding the following ingredients:</p>
+
+<ul>
+  <li>sugar</li>
+  <li>peanut butter</li>
+  <li>butter</li>
+  <li>salt</li>
+  <li>baking soda (will be changed to &ldquo;leavening agent&rdquo;)</li>
+  <li>eggs</li>
+  <li>flour</li>
+  <li>oats</li>
+  <li>chocolate</li>
+</ul>
+
+<p>When you successfully bake a batch of cookies, the waiter will pass you a note that reads &ldquo;wepp jarpagom&rdquo; and will heavily imply that that's the answer. However, submitting &ldquo;wepp jarpagom&rdquo; won't work -- as you must translate the note to English as well.</p>
+
+<p>If you've untangled the second-to-last recipe (pumpkin pie), you'll know that <i>jarpagom</i> means &ldquo;pumpkin&rdquo;. However, the word <i>wepp</i> doesn't appear in the cookbook at all &mdash; but it does appear in the puzzle's title! The flavor text implies that <i>perflontus</i> means &ldquo;Galactic&rdquo;, meaning that &ldquo;The <i>Wepp Perflontus</i> Bake Off&rdquo; must translate to &ldquo;The Great Galactic Bake Off&rdquo;. Thus, the English translation of <i>wepp jarpagom</i> is <b>GREAT PUMPKIN</b>, which is the answer.
+
+
+
+        
+
+        
+        <hr>
+        <h5 class="solution-puzzle-subheader">Author&rsquo;s Notes</h5>
+        <p>This puzzle came from the idea of writing a cooking puzzle that actually tests your understanding of cooking. It was especially attractive to us since we both enjoy cooking (Nathan had also been watching <i>Shokugeki no Soma</i>, an anime about cooking), and we aren&rsquo;t aware of any puzzle that&rsquo;s tried to do this before. We&rsquo;re very happy with the end result and the warm feedback it&rsquo;s received, and we hope it serves as the first step into a larger world of cooking puzzles.</p><p>The puzzle started its life as a text adventure (it was inspired partially by <a href="http://ifdb.tads.org/viewgame?id=w5s3sv43s3p98v45">The Gostak</a>, another puzzle about figuring out alien words). We soon realized it didn&rsquo;t really take advantage of the text adventure format (in fact, repeatedly typing &ldquo;add X&rdquo; was very repetitive) and rebuilt it into the current format. Looking back, we still see some ways the repetition could have been reduced even further, such as letting solvers add multiple ingredients at once, but we hope these omissions weren&rsquo;t conspicuous enough to greatly irritate anybody.</p><p>A few people asked us where the words in this puzzle came from. The answer is that Nathan just made them up, choosing words that &ldquo;sounded right&rdquo;.</p>
+        
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="../static/images/btnleft8-h.png%3F1517887534">
+            <img src="../static/images/btnmid8-h.png%3F1517887534">
+            <img src="../static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>

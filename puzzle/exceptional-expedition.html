@@ -1,0 +1,180 @@
+
+
+
+<!DOCTYPE html>
+
+<html 
+class="puzzle-page"
+>
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9ERB9JD1U=","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":24}</script>
+        
+<title>Exceptional Expedition</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="../static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="../static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='../index.html'>Home</a>
+                    <a href='../rules.html'>Rules</a>
+                    
+                        <a href='../story.html'>Story</a>
+                    
+                    
+                        <a href='../puzzles.html'>Puzzles</a>
+                    
+                    <a href='../teams.html'>Teams</a>
+                    <a href='../faq.html'>FAQ</a>
+                    
+                        <a href='../errata.html'>Updates</a>
+                    
+                    
+                        <a href='../wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='../archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+
+
+
+
+<a href="../post_hunt_solve/exceptional-expedition.html" class="btn btn--small">Check your answer spoiler-free</a>
+
+<a href="../solution/exceptional-expedition.html" class="btn btn--small">View solution</a>
+<a href="../stats/exceptional-expedition.html" class="btn btn--small">Stats</a>
+
+
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="../login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+
+<div class="puzzle-page-body">
+    <h1 class="page-header puzzle-page__title">
+        
+        Exceptional Expedition
+        
+        
+    </h1>
+    <div class="puzzle-body">
+        
+        <img src="../static/images/chessmen32.png%3F1521187167" class="puzzle-page-round-logo">
+        
+        
+
+<link href="https://fonts.googleapis.com/css?family=Kalam:400" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Pacifico:400" rel="stylesheet">
+<style>
+  .blanks p {
+    text-align: center;
+    white-space:pre;
+  }
+  h3 {
+    font-family: "Pacifico", "Merriweather", serif;
+    font-weight: normal;
+  }
+  .notes {
+    font: 2.25rem/3rem "Kalam", cursive;
+  }
+  .boxed {
+    border: 1px solid;
+    padding: 10px;
+  }
+</style>
+
+<h3>January</h3>
+<p class="notes">Setting out for my year of field work, I was highly optimistic! I had packed all of the essentials - my lucky khaki cargo pants, my favorite broad-brimmed hat, and as many reference books as I could carry! I set up camp on the coast of a shallow inland sea, but as I tried to sleep, I heard a peculiar harmonic whistling sound; it reminded me of one of my favorite latin rock bands, and then I couldn&rsquo;t get the smooth tune out of my head for the rest of the month! I investigated the source of the music in the morning - it was just the wind whipping through a formation of soapstone. Anyways, I recorded some pretty wild creatures during my stay here! There was a vast assortment of flying reptiles with bright ornamental head crests, as well as predators that looked halfway between dogs and crocodiles, and a variety of other big reptiles, turtles, insects, and fishes. The most absurd of all was this critter I saw by the lagoon on the sixth. It had glittering compound eyes on stalks, two appendages at its front that were curled up like shrimp tails, and a long segmented body that it undulated to swim. It was kind of cute how it acted like it was the largest creature in town - it was definitely not from around here!</p>
+
+<h3>February</h3>
+<p class="notes">The next location I hit looked a bit like the Amazon river, and it was just teeming with life. The water was crystal clear, the sand a brilliant alabaster, and I could see so many creatures! Amid lush horsetails and clubmosses darted an array of fish, shrimp, crabs, and perhaps a few too many centipedes for my taste. On just my first day there, I saw something truly amazing! Originally, I thought it was some sort of lizard - I saw a long flexible tail, sharp teeth, and claws... poking out of the leading edge of its feathered wings?! It darted off, and I lament that I was unable to further document the first bird I encountered on my expedition, no matter how out of place it seemed.</p>
+
+<h3>March</h3>
+<p class="notes">Eventually I arrived at my next location in China! While setting up my field station, I found a ram&rsquo;s horn balanced on a branch. How strange! The inhabitants of this place were likewise perplexing. Flying amid conifers, ginkgos, and seed fern trees were small birds with beaks! Running through the ferns, horsetails, and flowering plants below were a wide variety of feathered reptiles. Some were large tyrannical carnivores covered in filamentous feathers, while others were small raptors that seemed almost to have four wings! I also saw downy herbivores with long foreclaws, and tiny ostrich-like creatures with wicked-looking retractable sickle claws. There were all sorts of other creatures as well, regrettably far too many for me to document during my short stay. Oddly enough, the largest surprise of all was this big rodent that popped out of a burrow as I was cooking dinner on the seventh. It had sizeable horns growing out of its face, just above the nose! I can&rsquo;t imagine what it used them for, or honestly why it was in this location at all.</p>
+
+<h3>April</h3>
+<p class="notes">Near my next site I was pleased to find a natural source of potable water, and happily drank my fill despite its rather unpleasant taste. After scouting the area, I made camp in a gorgeous marble cave. I must admit I was disappointed to see few identifiable creatures at this site. Carefully looking into the shallow waters, I was able to see several tiny blue-green circular blobs, as well as something that looked like green algae, but it was difficult to tell if it truly was. As I was exploring on the fourth, I saw a rather anachronistic beast - it was reptilian at first glance, but seemed more and more mammalian as I looked closer. Regardless of its affiliation, the most distinguishing feature of this critter was definitely the broad spinal sail growing down the length of its back! I also managed to record four legs, a long tail, and two different types of sharp teeth set in a tall skull before it escaped me.</p>
+
+<h3>May</h3>
+<p class="notes">On the way to my next site I was delayed by some angry millennials, but I eventually eluded them by detouring through some beautiful windswept limestone formations. During my stay, I recorded gliding reptiles, sharks (with eggs!), and far too many insects. I was particularly not a fan of the predatory foot-long grasshoppers! On the other hand, I truly enjoyed seeing this long reptile with lengthy spine-like hockey-stick-shaped scales projecting from the middle of its back! Anyways, I had quite a terrifying encounter while bathing on the eighth. A big triangular fin cut through the water in my direction, so I raced to the shore, and luckily managed to escape in time! Looking into the depths from a healthy distance, I was baffled to see a shark-like creature with a ridiculous spiral of teeth on its bottom jaw, almost as though someone had installed a circular saw there! I saw nothing similar to it for the rest of my stay, and must conclude that its presence here was an anomaly.</p>
+
+<h3>June</h3>
+<p class="notes">At last I made it to this famous location! A local with municipal authority dressed all in blue, John, took me out to see the local fauna. The creatures here were both numerous and peculiar! My favorite specimen was probably this worm with a bunch of tentacle-like legs and spines running down its back. I also recorded things that looked like blobs covered in spikes, a kite-shaped creature with two long tentacles, a five-eyed critter with a single claw-like proboscis at its front, and a plethora of other eldritch segmented creatures! As we tacked back to shore on the thirteenth, I was greeted with a scary sight! It looked somewhat like a massive scorpion, and swam across the estuary using broad wing-like appendages. It was definitely the biggest arthropod I’ve ever seen! When it passed by our dinghy, I could make out its compound eyes and anterior claws. I hope it was able to find its way home - I doubt something so large and carnivorous could survive on the tiny inhabitants here!</p>
+
+<h3>July</h3>
+<p class="notes">Needing a break from giant sea monsters, I moved on to a more shallow environment, passing some nomadic warriors that were tightly-packed on my way. I set up camp at the first shelter I could find, which turned out to be an outcrop of odd asparagus-shaped stones. Once settled in, I carefully documented a profusion of starfish, sponges, corals, and clawed spidery creatures. I was amazed at the number of stalked sea lilies I found here! There was also quite an assortment of fishes, including some with spines or bony plate armour, and even one with a mouth on the top of its head! As I left my tent on the morning of the fifth, I noticed a great beast slowly lumbering across the shoreline. It was maybe the size of an elephant, furry, and had four legs, each of which was tipped in three long claws. It walked peculiarly on the sides of its hands, so the curved claws wouldn&rsquo;t bear its (probably immense) weight. I wonder if it used them for climbing trees, or maybe digging? While I was surprised to see it here, I wasn&rsquo;t too scared - the poor fella looked like it was desperately searching for some vegetation to eat with its long mouth and prehensile lips.</p>
+
+<h3>August</h3>
+<p class="notes">Delighted with the progress I was making and eager to continue, I reached my next location quickly. I thought to find a dog, here, or perhaps a star, but was content enough with the sparking citrine I collected near my campsite. As for the critters here, they were mostly small and difficult (but not impossible) to identify. There was something that looked like a slug wearing chain mail, as well as worms, sponges, and mats made of tiny creatures. On the evening of the sixth I was logging notes in my tent when I was interrupted by quite a ruckus coming from just outside. When I went to investigate, I found a creature as tall as a giraffe! I must have startled it, for it reared up as I approached and turned its crested, sharp-beaked head to examine me with interest. Only then did I notice that its forelimbs were actually immense leathery wings! I will not lie to you, I ran away as quickly as I could! One does not mess with a god of earth and sky!</p>
+
+<h3>September</h3>
+<p class="notes">Making good time, I navigated upstream to this verdant creek. I made camp after investigating a glimmering deposit of amethyst, and quickly got to task identifying the life surrounding me. The animals here were happily recognizable - I saw birds, bats, snakes, mammals, insects, frogs, crocodiles, and numerous types of fish. So, so many fish. I was carefully describing a sort of catfish down by the lake on the first when I saw something odd! It was deep bodied, as long as a bus, and had truly remarkable claws on its forelimbs. They had to have been a meter long each, and looked to me like deadly scythes... given the immense size of the claws, I was quite surprised when the reptilian beast ignored me to chow down on some local vegetation.</p>
+
+<h3>October</h3>
+<p class="notes">On the way to my next site, I double-checked all of my gear, hoping the redundancy would help me avoid falling into any sticky situations. Looking for an ideal campsite, I was thrilled to find a large quantity of rock crystal! I pitched my tent right next to it, and I think it helped keep me in good spirits. During my stay, I recorded some big fluffy elephants and a bunch of crazy carnivores. There were huge wolves, bears with weirdly short faces, and these odd cats with sword-like canines! As has become a trend in my travels, I again saw one critter that definitely did not belong. I was out looking for fruits on the third when I nearly stumbled over the tail of the biggest snake I have ever seen! At its thickest, it must have been a meter in diameter! Probably twice as long as a python! I hightailed it out of there to avoid becoming lunch.</p>
+
+<h3>November</h3>
+<p class="notes">Having completed another long trip, I was exhausted by the time I reached this German site. I was fortunate to find an imperial variant of this month&rsquo;s birthstone near one of the lagoons, and I do believe it brought good luck to me for the rest of my stay, as I was able to document an outstanding variety of creatures. There were starfish and sea-jellies, swimming, running, and flying reptiles of all body forms and sizes, fish, dragonflies, and I think I even spotted the same type of bird that I caught a glimpse of back in February! As has become a trend in my travels, I again saw one critter that definitely did not belong here. I saw it just at dusk on the fifth - it was probably eight meters long and walked on four solid legs, with a tail swaying behind. As it turned towards me, I saw that it had a beak, three magnificent facial horns, and a broad flattened frill at the back of its head. I sketched as quickly as I could, but it disappeared into the night before I could get more than a general outline down.</p>
+
+<h3>December</h3>
+<p class="notes">Sadly, this misunderstood place was the last stop of my year-long expedition. The deep waters of this site glittered like clear carbon gems in the sun as I prepared to enter their depths. I recorded a bewildering array of forms, some frond-shaped, others that branched fractally, and still more that looked like bushes or long thin spindles. It was difficult to tell if they were animals or plants or something entirely unique. As I surfaced on the eighth, a small monster met me near the surface of the water. It had a single claw - or maybe it was a mouth - at the end of a lengthy anterior appendage, two eyes on either end of a long bar that extended perpendicular to the rest of the body, and a single squid-like posterior fin. It was soft-bodied - perhaps a type of swimming slug? A segmented worm? Maybe even a vertebrate? While it clearly did not fit in with the other forms living here, I was likewise unable to determine what exactly it was! Consulting my guide books, I think I will need to head to Illinois to look for similar monsters for comparison.</p>
+
+<br>
+
+<p class="notes">I found the perfect way to describe my work this year! What is it?</p>
+<br>
+<div class="blanks">
+  <p><span class="boxed">_ _ _   _ _ _ _ _</span>   _ _   _ _</p>
+</div>
+<br><br>
+
+
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="../static/images/btnleft8-h.png%3F1517887534">
+            <img src="../static/images/btnmid8-h.png%3F1517887534">
+            <img src="../static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>

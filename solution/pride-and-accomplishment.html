@@ -1,0 +1,210 @@
+
+
+
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9HXglGF1lcVw==","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":31}</script>
+        
+<title>Solution: Pride and Accomplishment</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="../static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="../static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='../index.html'>Home</a>
+                    <a href='../rules.html'>Rules</a>
+                    
+                        <a href='../story.html'>Story</a>
+                    
+                    
+                        <a href='../puzzles.html'>Puzzles</a>
+                    
+                    <a href='../teams.html'>Teams</a>
+                    <a href='../faq.html'>FAQ</a>
+                    
+                        <a href='../errata.html'>Updates</a>
+                    
+                    
+                        <a href='../wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='../archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+<a href="../puzzle/pride-and-accomplishment.html" class="btn btn--small">Back to the puzzle</a>
+
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="../login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+
+<style>
+.puzzle-body img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+.puzzle-body table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.puzzle-body tr:empty {
+  height: 1em;
+}
+.puzzle-body td {
+  padding: 5px;
+  border: 1px solid black;
+}
+.puzzle-body th {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+.puzzle-body hr {
+  border-color: initial;
+}
+.puzzle-body ol li {
+  list-style-type: inherit;
+}
+.puzzle-body td pre {
+  margin: 0;
+}
+</style>
+
+<div class="puzzle-page-body">
+    <h1 class="page-header puzzle-page__title">
+        
+        Solution: Pride and Accomplishment
+        <div class="solved-title-marker">Answer: <span class="solved-title-answer">GRACELESS</span></div>
+        
+    </h1>
+    <div class="puzzle-body solution-body">
+        <h5 class="solution-puzzle-subheader">
+            
+            Written by
+            
+Lewis Chen
+
+            
+        </h5>
+        
+
+<p>Upon opening this puzzle, you see five premium lootboxes to open. (They are sorted by alphabetical order of unlock code, and also have enumerations on the box.) Also, there is a box to input &ldquo;unlock codes&rdquo;, whatever they are. This seems to suggest that we want to somehow find five codes to unlock the five boxes. I guess it&rsquo;s time to open up the normal lootboxes...</p>
+<p>Upon opening hundreds or even thousands of lootboxes, it should be evident that there is a structured template that all loot follows:</p>
+<p>[modifier1] [modifier2] [modifier3] [base item] of the [animal] (level [level])</p>
+<p>The following facts won&rsquo;t be evident to the solver, but they are true and make solving much easier:</p>
+<ol>
+<li>The five different subpuzzle parts are independent of each other and can each be solved separately.</li>
+<li>For the sake of easiness of generation, items are also history-independent and generation is stateless, at least up to the order of how the PRNG generates things.</li>
+</ol>
+<p>At any rate, let&rsquo;s dive right into the subpuzzles:</p>
+<h4>Subpuzzle 1</h4>
+<p>Several modifier1&rsquo;s have the same first and last letter, R and S; several have the same second and second last letter A and W, and so on. Combining these you get <b>RAINBOWS</b>, which can also look like a rainbow (if you squint a bit):</p>
+<pre>
+???N*B???
+??I   O??
+?A     W?
+R       S
+</pre>
+<p>It is possible to derive the answer via other means as well. For instance, as a consequence of the actual mechanic, the letters R, A, I, and N occur disproportionately often in the first, second, third, and fourth position respectively; likewise, the letters B, O, W, and S occur disproportionately often in the fourth to last, third to last, second to last, and last position respectively. (Unfortunately B and W, being rarer letters, don&rsquo;t end up being the most common letter in their position.)</p>
+<h4>Subpuzzle 2</h4>
+<p>Each of the modifier2&rsquo;s have at least one of four trigrams: LIG, IGA, GAN, AND. Therefore, the answer is <b>LIGAND</b>. The mechanism sort of involves joining things up, like a ligand.</p>
+<h4>Subpuzzle 3</h4>
+<p>This puzzle relies on noting that there is a perfect correlation between the modifier3&rsquo;s and the animals. Furthermore, the modifier3&rsquo;s associated with each animal are all approximately synonymous to the same thing, and it turns out that they can also modify the animal to produce a certain exact species:</p>
+<table>
+<tr><td>crimson, ruby, carmine, rouge, bloody, vermilion, sanguine, scarlet</td><td>Red wolf<br><i>Canis rufus</i></td></tr>
+<tr><td>island, Hawaiian, Tahitian, Samoan, tropical</td><td>Polynesian rat<br><i>Ratus exulans</i></td></tr>
+<tr><td>uninterested, detached, apathetic, distant, aloof, nonchalant, unresponsive</td><td>Indifferent eel<br><i>Ethadophis akkistikos</i></td></tr>
+<tr><td>normal, average, mundane, mediocre, standard, ordinary</td><td>Common myna<br><i>Acridotheres tristis</i></td></tr>
+<tr><td>maple, yew, balsa, oak, willow, pine, birch</td><td>Wood grouse<br><i>Tetrao uragallus</i></td></tr>
+<tr><td>dappled, speckled, dotted, patchy, sprinkled</td><td>Spotted hake<br><i>Urophycis regia</i></td></tr>
+<tr><td>sovereign, noble, monarch, ruler&rsquo;s, emperor&rsquo;s, patriarch</td><td>King rail<br><i>Rallus elegans</i></td></tr>
+</table>
+<p>The binomial names of the animals have initials CR, RE, EA, AT, TU, UR, and RE again. The only word that contains all 7 bigrams exactly once (or twice in RE&rsquo;s case) is <b>CREATURE</b>.</p>
+<h4>Subpuzzle 4</h4>
+<p>There is one base item for each letter of the alphabet. They can be easily divided into weapons and armors. The initials of the armors anagram to <b>INOCULATE</b>. (Yes, the anagramming is a little unfortunate but pretty much needed.) The word &ldquo;inoculate&rdquo; can mean to &ldquo;protect&rdquo;, something that the armors / defensive items do more directly than the weapons.</p>
+<p>Armors: A C E I L N O T U </p>
+<p>Armet, Cuirass, Eyeshield, Iron-mail, Linothorax, Neckguard, Overcoat, Tunic, Uniform</p>
+<p>Weapons: B D F G H J K M P Q R V W X Y Z</p>
+<p>Bow, Dagger, Falchion, Glaive, Halberd, Javelin, Katana, Mace, Pike, Quarterstaff, Rifle, Scimitar, Voulge, Whip, Xiphos, Yataghan, Zweihander</p>
+<h4>Subpuzzle 5</h4>
+<p>This one uses the level of the items. Unlike the other subpuzzles, the levels do not follow a uniform distribution (granted, modifier3 was also non-uniform, but they are uniform within each animal), which suggests that we may want to look at the distribution more closely. </p>
+<p>Given enough data (at least on the order of ~10000 data samples) we can generate an approximation of the actual probability distribution:</p>
+<img src="pride-and-accomplishment/image3.png">
+<p>These are meant to roughly trace out the &ldquo;rightmost&rdquo; point of the letters B, A, T, T, L, and E, so <b>BATTLE</b> is the answer to this subpuzzle.</p>
+<h4>Metapuzzle</h4>
+<p>When you solve a subpuzzle, you can confirm your answer with the premium lootbox checker. Doing so gets you one of five lootpieces, complete with pixel art! They are as follows:</p>
+<style>.b img { display: inline; margin: 0; }</style>
+<center class="b"><img src="pride-and-accomplishment/image2.png"><img src="pride-and-accomplishment/image4.png"><img src="pride-and-accomplishment/image6.png"><img src="pride-and-accomplishment/image7.png"><img src="pride-and-accomplishment/image5.png"></center>
+<p>(BATTLE, CREATURE, INOCULATE, LIGAND, and RAINBOWS respectively)</p>
+<p>Given the fact that they seem to be composed of larger 16x16 blocks (divided into 4x4 blocks for added detail), we might try to assemble the pieces (potentially with rotation). Additionally, the pieces are partially outlined in gold. One fairly compelling assembly that makes all of the golden borders on the exterior is as follows:</p>
+<img src="pride-and-accomplishment/image1.png">
+<p>This is the periodic table (minus the lanthanides and actinides). This, along with &ldquo;metal&rdquo; from the flavortext suggests that we want to somehow associate some elements to the answers. It turns out that taking the first two letters and interpreting them as element symbols (subtly clued at by &ldquo;open&rdquo; in the flavortext) results in a metal, and as a further confirmation, each metal is within the region of the periodic table marked by the item.</p>
+<table>
+<tr><td>LIGAND</td><td>Li (3)</td><td>G</td></tr>
+<tr><td>CREATURE</td><td>Cr (24)</td><td>RA</td></tr>
+<tr><td>INOCULATE</td><td>In (49)</td><td>CE</td></tr>
+<tr><td>BATTLE</td><td>Ba (56)</td><td>LE</td></tr>
+<tr><td>RAINBOWS</td><td>Ra (88)</td><td>SS</td></tr>
+</table>
+<p>Finally, sort by element number and then index each digit in the the element number into the answer to get what this author thinks the practice of selling lootboxes is in the gaming industry (and in a somewhat self-deprecating sense, this puzzle, which was put together with little rhyme and reason): <b>GRACELESS</b>.</p>
+
+
+
+        
+
+        
+        <hr>
+        <h5 class="solution-puzzle-subheader">Author&rsquo;s Notes</h5>
+        <p>I mainly wanted to capitalize on the fairly recent EA lootbox fiasco (and the meme that followed - hence the title of this puzzle). Also it&rsquo;s a little reminiscent of the MIT Mystery Hunt puzzle <a href="http://www.mit.edu/~puzzle/2013/coinheist.com/indiana/50_50/index.html">50/50</a>. Unfortunately, it&rsquo;s hard to run that puzzle now. (<a href="https://www.youtube.com/watch?v=gCHktd1VrGY">The spinoff with a difference, and that difference is words.</a> But actually, this puzzle solves quite differently, with five parallel puzzles rather than three steps in series, as well as being designed to be as stateless as possible.) </p><p>Due to the lack of state, it was tough to come up with mechanisms that could naturally induce an order, and indeed I had to use an unclued anagram in one subpuzzle.</p><p>Some other specific puzzle comments:</p><ul><li>Subpuzzle 1 (RAINBOWS): As noted in the solution, both testsolving groups found the answer in another way (funnily enough, different ways). The NB and AW pairs were tough to find good examples, whereas there were a lot more RS and IO pairs.</li><li>Subpuzzle 2 (LIGAND): This was the first subpuzzle that both testsolving groups solved.</li><li>Subpuzzle 3 (CREATURE): Initially this puzzle was much more inconsistent, with two rats, two kings, and a donkey that had no modifier. That turned out to not be a great idea, so I had to look for some better examples. I ultimately used <a href="https://www.itis.gov/servlet/SingleRpt/SingleRpt">this website</a>, armed with a regex search. It turns out that well-named animals with specific genus-species initials are quite scarce actually - while I had wanted to change out one of the two RE&rsquo;s it turns out that those were the best two out of a very small pool of animals.</li><li>Subpuzzle 4 (INOCULATE): Sorry for the unclued anagram - hopefully it was at least somewhat indicated by the fact that there was exactly one lootpiece of each letter, which might suggest looking at letter sets. Additionally, it was rather tough to find armors and defensive pieces that began with certain letters, leading to weird things like linothorax, eyeshield, and iron mail which is two words. (Initially I tried to skirt by with making ironmail compound, but the first testsolving group objected.) I guess I learned that there are a lot more words for weapons than words for armors. </li><li>Subpuzzle 5 (BATTLE): Initially the letters were wider (11 wide to be precise), but it was feared that that would require even more data collection. The new letters do have the nice property that with 7-wide with 3 spacing, each letter ultimately takes up 10 levels of space. It&rsquo;s also a little unfortunate that some of the letters aren&rsquo;t as clear as I would&rsquo;ve hoped (the A and the T in particular), but perhaps the slanting gradient of the A may be a hint to the solution as well.</li></ul><p>The final meta was designed and can actually be solved as a fairly pure meta (with a little bit of flavortext assistance). This was actually successfully testsolved in that state, but it was decided to add an extra jigsaw puzzle just to clue the periodic table better, plus to add some additional fun flavor. I did have fun making the pixel art assets, also imposing the aesthetic constraint that each piece had to be vaguely related to the answer (ligand as a binding spool of string, creature as a vaguely druidic staff, inoculate as yet another piece of armor, battle being a shield (a little generic), and rainbows being a rifle that presumably shoots rainbows). Incidentally, the &ldquo;index with each digit&rdquo; mechanic was what I initially thought was the extraction mechanism for the Fortune Cookies meta when I was testsolving that meta before finding the actual mechanism. So it got ported here.</p>
+        
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="../static/images/btnleft8-h.png%3F1517887534">
+            <img src="../static/images/btnmid8-h.png%3F1517887534">
+            <img src="../static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>

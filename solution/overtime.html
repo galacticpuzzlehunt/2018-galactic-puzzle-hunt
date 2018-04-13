@@ -1,0 +1,406 @@
+
+
+
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9HXglGF1lcVw==","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":61}</script>
+        
+<title>Solution: Overtime</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
+        <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
+        
+<link rel="icon" sizes="16x16 32x32 48x48 64x64" href="../static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" href="../static/css/base.css%3F1522332830.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="top-bar-container">
+             <div class="nav-inner-container">
+                <nav class="main-nav">
+                    <a href='../index.html'>Home</a>
+                    <a href='../rules.html'>Rules</a>
+                    
+                        <a href='../story.html'>Story</a>
+                    
+                    
+                        <a href='../puzzles.html'>Puzzles</a>
+                    
+                    <a href='../teams.html'>Teams</a>
+                    <a href='../faq.html'>FAQ</a>
+                    
+                        <a href='../errata.html'>Updates</a>
+                    
+                    
+                        <a href='../wrapup.html'>Wrap-Up</a>
+                    
+                    <a href='../archive.html'>Archive</a>
+                </nav>
+             </div>
+        </div>
+        <div class="center">
+            <div class="row">
+                <div class="top-left-actions-container">
+                
+<a href="../puzzle/overtime.html" class="btn btn--small">Back to the puzzle</a>
+
+                </div>
+                <div class="login-controls-container">
+                
+                    <a href="../login.html" class="btn btn--small">Login</a>
+                    
+                
+            </div>
+            <div class="content">
+                
+
+<style>
+.puzzle-body img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+.puzzle-body table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.puzzle-body tr:empty {
+  height: 1em;
+}
+.puzzle-body td {
+  padding: 5px;
+  border: 1px solid black;
+}
+.puzzle-body th {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+.puzzle-body hr {
+  border-color: initial;
+}
+.puzzle-body ol li {
+  list-style-type: inherit;
+}
+.puzzle-body td pre {
+  margin: 0;
+}
+</style>
+
+<div class="puzzle-page-body">
+    <h1 class="page-header puzzle-page__title">
+        
+        Solution: Overtime
+        <div class="solved-title-marker">Answer: <span class="solved-title-answer">SYNTONIC COMMA</span></div>
+        
+    </h1>
+    <div class="puzzle-body solution-body">
+        <h5 class="solution-puzzle-subheader">
+            
+            Written by
+            
+Josh Alman and Nathan Pinsker
+
+            
+        </h5>
+        
+
+<p>The visual formatting of this page and the flavor text&rsquo;s mention of a &ldquo;Puzzleball tournament&rdquo; steers us towards the 2017 Galactic Puzzle Hunt. We quickly notice that each section of the puzzle looks a lot like one of the puzzles from the 2017 hunt, and in fact, each borrows the flavor and mechanics from one of the old puzzles. For each, if we follow the solution to the old puzzle on these new instances of the puzzles, we extract a single letter, as follows.</p>
+<hr>
+<p>
+<p>#1: <a href="https://2017.galacticpuzzlehunt.com/solution/1/1.html">Puzzle of the Day</a></p>
+
+The word clued by the phrase is CAPITAL. The original puzzle assigned each word a digit in pi, and there is a &ldquo;.&rdquo; immediately preceding this clue, which suggests that this clue would be assigned the digit 1. Thus, we take the first letter of CAPITAL, which is <b>C</b>.
+</p><hr>
+<p>
+<p>#2: <a href="https://2017.galacticpuzzlehunt.com/solution/1/2.html">Angry Portals</a></p>
+The solution to the level looks like this:</p>
+<img src="overtime/sol.png" alt="Angry Portals Level Solution">
+<p>The path of the birds for this level forms an <b>A</b>.
+</p><hr>
+<p>
+<p>#3: <a href="https://2017.galacticpuzzlehunt.com/solution/1/3.html">Learn to Play</a></p>
+The word &ldquo;salve&rdquo; uses the 2018 Galactic hunt visual style, suggesting that it references either the FAQ or the Rules page from 2018. It matches the position of the word &ldquo;solve&rdquo; on the 2018 FAQ page, which gives us the letter <b>O</b>.
+</p><hr>
+<p>
+<p>#4: <a href="https://2017.galacticpuzzlehunt.com/solution/1/4.html">Identities</a></p>
+The number on the timeline is approximately 2100; some Google searching will yield that it corresponds to the album 2112, the producer of which was Terry Brown. This gives us the letter <b>T</b>.
+</p><hr>
+<p>
+<p>#5: <a href="https://2017.galacticpuzzlehunt.com/solution/1/5.html">Zero Space</a></p>
+The answer to the cryptic clue is ALGORITHM, &ldquo;a problem's solution&rdquo;. &ldquo;Goal's lost&rdquo; clues an anagram of GOAL, which is ALGO; &ldquo;heard a pulse&rdquo; is a homophone of RHYTHM, or RITHM. The wordplay half is composed of the first 5 words in the clue, and the definition half is the last 3 words, so the &ldquo;space&rdquo; corresponds to the letter <b>I</b>.
+</p><hr>
+<p>
+<p>#6: <a href="https://2017.galacticpuzzlehunt.com/solution/2/1.html">What Do You Do?</a></p>
+The character in the clue is Ace, from Doctor Who, and the company is Acer, an electronics manufacturer. Thus the letter given is <b>A</b>.
+</p><hr>
+<p>
+<p>#7: <a href="https://2017.galacticpuzzlehunt.com/solution/2/3.html">Very Fun Logic Puzzle</a></p>
+The participants in this logic puzzle are living on a cube. This is the only possible arrangement (except for rotations), where a colored name represents the color of the house that the person lives in:</p>
+
+<img src="overtime/logic_soln.png">
+
+<table>
+  <tbody>
+    <tr>
+      <th>Person</th>
+      <th>Color</th>
+      <th>Fruit</th>
+      <th>Number</th>
+    </tr>
+    <tr>
+      <td>Charles</td>
+      <td>Yellow</td>
+      <td>Tomatoes</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Tristan</td>
+      <td>Red</td>
+      <td>Apples</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Rachel</td>
+      <td>Blue</td>
+      <td>Strawberries</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Michelle</td>
+      <td>Purple</td>
+      <td>Pumpkins</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Freya</td>
+      <td>Green</td>
+      <td>Oranges</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Stephanie</td>
+      <td>Orange</td>
+      <td>Kiwis</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>There are 10 roses, ordered from left-to-right as red, yellow, green, purple, green, red, red, green, blue, purple. As in the original puzzle, each rose corresponds to a letter: we take the number of fruit that the person in that color house has, and use that to index in the person's name. This yields the phrase &ldquo;THE LETTER L&rdquo;, or <b>L</b>.</p>
+<hr>
+<p>
+<p>#8: <a href="https://2017.galacticpuzzlehunt.com/solution/2/5.html">A Glistening Occasion</a></p>
+At <a href="https://youtu.be/yfPBQyQkUKI?t=116">1:56 into the 2017 One Shining Moment video</a>, we can see Josh Perkins of Gonzaga run across the court for a dunk as someone sweeping the court has to quickly get out of the way. The music note tells us to take the 11th letter of his name, which is <b>S</b>.
+</p><hr>
+<p>
+<p>#9: <a href="https://2017.galacticpuzzlehunt.com/solution/3/2.html">Television</a></p>
+The Eurovision song that corresponds to the picture is Ilinca&rsquo;s &ldquo;Yodel It!&rdquo;, Romania&rsquo;s entry in the 2017 contest. The accented note is the sixth note of seven in the chorus of the song, so the clued letter is the sixth letter of ROMANIA, which is <b>I</b>.
+</p><hr>
+<p>
+<p>#10: <a href="https://2017.galacticpuzzlehunt.com/solution/3/4.html">X-ray Fish</a></p>
+The music playing in the background of the puzzle is our favorite Rock Lobster bassline! The singer is also singing &ldquo;Bakin&rsquo; in the sun&rdquo;, the lyrics which are used to describe the sound of &ldquo;Bakin&rsquo; potatoes&rdquo; in the song. Since there are two bakin&rsquo; potatoes in the original X-ray Fish video (this is also mentioned in the X-ray fish solution), we take the second letter of BAKIN&rsquo; POTATOES, which is <b>A</b>. (To help us out here, the solution to the original X-ray Fish puzzle actually confirms that they are called BAKIN&rsquo; POTATOES, and that there are two of them, in the &ldquo;Other Visitors&rdquo; section).
+</p><hr>
+<p>
+<p>#11: <a href="https://2017.galacticpuzzlehunt.com/solution/3/5.html">Scramble for the Stars</a></p>
+There are twelve given clues, which correspond to the twelve constellations of the Zodiac. Their answers are as follows:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Clue</th>
+      <th>Answer</th>
+      <th>Constellation</th>
+    </tr>
+    <tr>
+      <td>Role-player on stage or in a movie (5)</td>
+      <td>ACTOR</td>
+      <td>Capricornus</td>
+    </tr>
+    <tr>
+      <td>Singer Christina of &ldquo;Genie in a Bottle&rdquo; (8)</td>
+      <td>AGUILERA</td>
+      <td>Virgo</td>
+    </tr>
+    <tr>
+      <td>&ldquo;That&rsquo;s what real love _______ to&mdash;letting a person be what he really is.&rdquo; (7)</td>
+      <td>AMOUNTS</td>
+      <td>Scorpius</td>
+    </tr>
+    <tr>
+      <td>Perform in a role for the first time, or the performance itself (5)</td>
+      <td>DEBUT</td>
+      <td>Cancer</td>
+    </tr>
+    <tr>
+      <td>Maiden name of Leopold II&rsquo;s best-known mistress (9)</td>
+      <td>DELACROIX</td>
+      <td>Aquarius</td>
+    </tr>
+    <tr>
+      <td>Period of time when water is receding, or a 1953 song (3 4)</td>
+      <td>EBB TIDE</td>
+      <td>Gemini</td>
+    </tr>
+    <tr>
+      <td>Eight hours before noon (4 2)</td>
+      <td>FOUR AM</td>
+      <td>Libra</td>
+    </tr>
+    <tr>
+      <td>When repeated, a song popularized by The Kingsmen (5)</td>
+      <td>LOUIE</td>
+      <td>Aries</td>
+    </tr>
+    <tr>
+      <td>An archaic way to refer to an upper-class citizen, or a song by Edith Piaf (6)</td>
+      <td>MILORD</td>
+      <td>Pisces</td>
+    </tr>
+    <tr>
+      <td>Body of water on one end of the Kerch Strait (3 2 4)</td>
+      <td>SEA OF AZOV</td>
+      <td>Sagittarius</td>
+    </tr>
+    <tr>
+      <td>A small, decorative carpet that can be easily moved (5 3)</td>
+      <td>THROW RUG</td>
+      <td>Leo</td>
+    </tr>
+    <tr>
+      <td>To make effective use of, in Britain (7)</td>
+      <td>UTILISE</td>
+      <td>Taurus</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As in the original puzzle, letters must be assigned to constellations such that the neighbors of each Zodiac symbol spell out one of the twelve words above. However, only the answers corresponding to the Zodiac constellations are given! Given only these constraints, there are two possible assignments of letters to the Zodiac constellations. The hint given at the bottom disambiguates the two. A complete map of the solution is given below:</p>
+
+<img src="overtime/scramble_soln.png">
+
+<p>Reading across the star map gives the phrase &ldquo;LETTER AFTER L&rdquo;, which is <b>M</b>.</p>
+<hr>
+<p>
+<p>#12: <a href="https://2017.galacticpuzzlehunt.com/solution/4/1.html">Famous by Association</a></p>
+The answer to the clue is from the original puzzle: Target ($17,000,000). Dunnhumby is a data analytics company that helps other firms &ldquo;target&rdquo; customers or other areas of the market, and dart-throwers aim at targets. The clued letter is therefore <b>D</b>.
+</p><hr>
+<p>
+<p>#13: <a href="https://2017.galacticpuzzlehunt.com/solution/4/2.html">Watchers and Fliers</a></p>
+The symbols have a Caesar shift of 6. Connecting all words to form valid compound words yields the following shape:
+
+<img src="overtime/watchers_soln.png">
+
+This is the DRY FLAT laundry symbol. We take the 6th letter of DRY FLAT, which is <b>A</b>.
+</p><hr>
+<p>
+<p>#14: <a href="https://2017.galacticpuzzlehunt.com/solution/4/3.html">The Treasure of Apollo</a></p>
+The phrase &ldquo;fill the stage with penthouse pets&rdquo; is spoken by Sir Robin, in &ldquo;You Won&rsquo;t Succeed on Broadway&rdquo;. The word &ldquo;bravery&rdquo; points towards the Bravery skill of the Fighter class in Pathfinder. The clued letter is the seventh letter of &ldquo;SIR ROBIN&rdquo;, which is <b>I</b>.
+</p><hr>
+<p>
+<p>#15: <a href="https://2017.galacticpuzzlehunt.com/solution/4/4.html">A Basic Puzzle</a></p>
+The given number, which is given in base 10, equals 200520180104050309130102 in base 14. This is an encoding of TETRADECIMAB, where the encoding scheme is to break the number into pairs of digits from 0-9, which give numbers from 01 to 26 and hence correspond to letters from A to Z. If we increment the number by 14, then we get 200520180104050309130112 in base 14. This encodes TETRADECIMAL, which is the name of base 14 (the real puzzle had a cycle of numbers referring to each other&rsquo;s bases, but since we have only one number, it refers to its own base). Since we incremented by 14, the clued letter is the 14th letter of the alphabet, <b>N</b>.
+</p><hr>
+<p>
+<p>#16: <a href="https://2017.galacticpuzzlehunt.com/solution/4/5.html">Stephen&rsquo;s Speed Run</a></p>
+The shortest solution to the puzzle is 44 moves, achievable as follows:</p>
+
+<ul><li>
+  <b>RRDDD LLULR RUUUU RRDRL UDRDD DRLDL LURRR UUUUR LLUD</b>
+</li></ul>
+
+<p>The source code for the puzzle gives us an offset of +35. Adding 44 to 35 gives 79, which is the ASCII code for the letter <b>O</b>.
+</p><hr>
+<p>
+<p>#17: <a href="https://2017.galacticpuzzlehunt.com/solution/5/2.html">YOLO Queue</a></p>
+Since our cycle of champions only has one champion in it, we know that the Q ability being referenced must be the Q ability of Zilean, which is called &ldquo;Time Bomb.&rdquo; Meanwhile, the chat message refers to a &ldquo;Mime Bomb.&rdquo; Since the T in the original ability name becomes an M, the clued letter is <b>M</b>.
+</p><hr>
+<p>
+<p>#18: <a href="https://2017.galacticpuzzlehunt.com/solution/5/5.html">Thunk!</a></p>
+The given box has a &ldquo;torrential&rdquo; pattern on it, meaning that mirrors reverse their orientation immediately after being hit by a ball. The original orientation of the mirrors in the box is as follows:</p>
+<pre>
+Box 1:
+
+/\.
+\/\
+\.\
+</pre>
+
+<p>We can examine the box to find the following message:
+
+&ldquo;Let&rsquo;s sing the alphabet: A, B, C, D, E...&rdquo;
+
+The 7th &ldquo;word&rdquo; of this 9-word message is <b>C</b>.
+</p><hr>
+
+<table class="sortable">
+<tr><th sorttable_customkey="1">Puzzle</th><th>Letter</th><th>Seed</th></tr>
+<tr><td sorttable_customkey="2">Puzzle of the Day</td><td>C</td><td>11</td></tr>
+<tr><td sorttable_customkey="3">Angry Portals</td><td>A</td><td>21</td></tr>
+<tr><td sorttable_customkey="4">Learn to Play</td><td>O</td><td>6</td></tr>
+<tr><td sorttable_customkey="5">Identities</td><td>T</td><td>4</td></tr>
+<tr><td sorttable_customkey="6">Zero Space</td><td>I</td><td>20</td></tr>
+<tr><td sorttable_customkey="7">What Do You Do?</td><td>A</td><td>18</td></tr>
+<tr><td sorttable_customkey="8">Very Fun Logic Puzzle</td><td>L</td><td>19</td></tr>
+<tr><td sorttable_customkey="9">A Glistening Occasion</td><td>S</td><td>22</td></tr>
+<tr><td sorttable_customkey="10">Television</td><td>I</td><td>8</td></tr>
+<tr><td sorttable_customkey="11">X-ray Fish</td><td>A</td><td>3</td></tr>
+<tr><td sorttable_customkey="12">Scramble for the Stars</td><td>M</td><td>15</td></tr>
+<tr><td sorttable_customkey="13">Famous by Association</td><td>D</td><td>1</td></tr>
+<tr><td sorttable_customkey="14">Watchers and Fliers</td><td>A</td><td>17</td></tr>
+<tr><td sorttable_customkey="15">The Treasure of Apollo</td><td>I</td><td>2</td></tr>
+<tr><td sorttable_customkey="16">A Basic Puzzle</td><td>N</td><td>7</td></tr>
+<tr><td sorttable_customkey="17">Stephen's Speed Run</td><td>O</td><td>13</td></tr>
+<tr><td sorttable_customkey="18">YOLO Queue</td><td>M</td><td>14</td></tr>
+<tr><td sorttable_customkey="19">Thunk!</td><td>C</td><td>9</td></tr>
+</table>
+
+<p>
+The puzzles above are given in the order that the respective puzzles were released in the 2017 hunt. However, the flavor text points us towards ordering &ldquo;from best to worst&rdquo;. We can order the letters by their respective puzzles' seeds in <a href="https://2017.galacticpuzzlehunt.com/solution/6/5.html">The Final Bracket</a> instead, to give us the cluephrase &ldquo;DIATONIC COMMA ALIAS&rdquo;. This clues the answer <b>SYNTONIC COMMA</b>.
+</p>
+
+<script type="text/javascript" src="../static/js/sorttable.js"></script>
+
+
+
+        
+
+        
+        <hr>
+        <h5 class="solution-puzzle-subheader">Author&rsquo;s Notes</h5>
+        <p>Our first idea for this puzzle was &ldquo;Let&rsquo;s reuse the Rock Lobster video!&rdquo; Coming up with the cluephrase was actually a bit challenging: in addition to accommodating puzzles like X-Ray Fish and Famous by Association (with few choices for valid letters), we wanted to opt for a longer cluephrase (so we could include as many puzzles as possible from the previous year), and we also didn&rsquo;t want solvers to use OneLook to bypass too many of the subpuzzles.</p><p>&ldquo;Scramble for the Stars&rdquo; was the hardest puzzle of last year&rsquo;s hunt, and we felt it was an appropriate tribute to make the &ldquo;Scramble&rdquo;-themed minipuzzle drastically harder than any of the others.</p><p>This puzzle had an enormous variety of tasks involved in its construction, and we'd like to give a big thank you to all our testsolvers and fact-checkers. Special thanks to DD Liu, who helped construct the Angry Portals subpuzzle; Lewis Chen, for testsolving, fixing an ambiguity, and writing a complete description of his solve path for the Scramble for the Stars subpuzzle; and Ben Yang for quickly coming up with a new word square for the Watchers and Fliers subpuzzle, when one team found three different errors in our original version while the hunt was live.</p>
+        
+    </div>
+</div>
+
+
+            </div>
+        </div>
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92192633-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+        
+        <div style="display: none">
+            <img src="../static/images/btnleft8-h.png%3F1517887534">
+            <img src="../static/images/btnmid8-h.png%3F1517887534">
+            <img src="../static/images/btnright8-h.png%3F1517887534">
+        </div>
+    </body>
+</html>
