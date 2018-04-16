@@ -6,14 +6,14 @@
 <html >
     <head>
         <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"0be415eea6","agent":"","transactionName":"ZgBRN0JSV0VZBxEMW19KdRZeUE1fVwpKFUFLH18GQx1PX10TFl9SWAtaEFhWS0U=","applicationID":"51841001","errorBeacon":"bam.nr-data.net","applicationTime":3720}</script>
-        
+
         <title>Galactic Puzzle Hunt</title>
-        
+
         <meta name="viewport" content="width=device-width, initial-scale=0.5">
         <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900" rel="stylesheet">
         <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/normalize.css%3F1517035269.css">
         <link rel="stylesheet" href="../static/Skeleton-2.0.4/css/skeleton.css%3F1517035269.css">
-        
+
 <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="../static/images/favicon.ico%3F1517887534" type="image/vnd.microsoft.icon">
 <link rel="stylesheet" href="../static/css/base.css%3F1522332830.css">
 
@@ -29,20 +29,20 @@
                 <nav class="main-nav">
                     <a href='../index.html'>Home</a>
                     <a href='../rules.html'>Rules</a>
-                    
+
                         <a href='../story.html'>Story</a>
-                    
-                    
+
+
                         <a href='../puzzles.html'>Puzzles</a>
-                    
+
                     <a href='../teams.html'>Teams</a>
                     <a href='../faq.html'>FAQ</a>
-                    
+
                         <a href='../errata.html'>Updates</a>
-                    
-                    
+
+
                         <a href='../wrapup.html'>Wrap-Up</a>
-                    
+
                     <a href='../archive.html'>Archive</a>
                 </nav>
              </div>
@@ -50,18 +50,18 @@
         <div class="center">
             <div class="row">
                 <div class="top-left-actions-container">
-                
+
 <a href="../wrapup.html" class="btn btn--small">Back to wrap-up</a>
 
                 </div>
                 <div class="login-controls-container">
-                
+
                     <a href="../login.html" class="btn btn--small">Login</a>
-                    
-                
+
+
             </div>
             <div class="content">
-                
+
 
 <style>
 table, svg {
@@ -99,9 +99,9 @@ svg {
     <th>Time to solve</th>
     <th>Metameta solve (EDT)</th>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=have%2520you%2520tried%2520random%2520anagramming.html">have you tried random anagramming</a></td>
+    <td><a href="../teams/teams%3Fteam=have%2520you%2520tried%2520random%2520anagramming.html">have you tried random anagramming</a></td>
     <td>Mar 18, 15:25</td>
     <td>2h54m</td>
     <td>Mar 18, 18:20</td>
@@ -110,151 +110,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1140.128403 1
-        
+
         L 1140.128403 2
         L 3694.168542 2
-        
+
         L 3694.168542 3
         L 4208.208507 3
-        
+
         L 4208.208507 4
         L 10075.424796 4
-        
+
         L 10075.424796 5
         L 11055.326501 5
-        
+
         L 11055.326501 6
         L 12618.862987 6
-        
+
         L 12618.862987 7
         L 13010.203149 7
-        
+
         L 13010.203149 8
         L 16790.687748 8
-        
+
         L 16790.687748 9
         L 18684.018261 9
-        
+
         L 18684.018261 10
         L 22096.700287 10
-        
+
         L 22096.700287 11
         L 24329.935001 11
-        
+
         L 24329.935001 12
         L 24431.264711 12
-        
+
         L 24431.264711 13
         L 24483.613452 13
-        
+
         L 24483.613452 14
         L 28229.741232 14
-        
+
         L 28229.741232 15
         L 30020.849529 15
-        
+
         L 30020.849529 16
         L 33783.608155 16
-        
+
         L 33783.608155 17
         L 35711.965896 17
-        
+
         L 35711.965896 18
         L 39643.126413 18
-        
+
         L 39643.126413 19
         L 42885.49772 19
-        
+
         L 42885.49772 20
         L 47830.661298 20
-        
+
         L 47830.661298 21
         L 85922.278856 21
-        
+
         L 85922.278856 22
         L 87467.63062 22
-        
+
         L 87467.63062 23
         L 95254.291746 23
-        
+
         L 95254.291746 24
         L 101660.772773 24
-        
+
         L 101660.772773 25
         L 112265.982855 25
-        
+
         L 112265.982855 26
         L 116923.749289 26
-        
+
         L 116923.749289 27
         L 117302.371125 27
-        
+
         L 117302.371125 28
         L 120521.241792 28
-        
+
         L 120521.241792 29
         L 129374.454476 29
-        
+
         L 129374.454476 30
         L 133337.726342 30
-        
+
         L 133337.726342 31
         L 134860.954096 31
-        
+
         L 134860.954096 32
         L 136055.789912 32
-        
+
         L 136055.789912 33
         L 137662.324079 33
-        
+
         L 137662.324079 34
         L 147554.592357 34
-        
+
         L 147554.592357 35
         L 169065.556493 35
-        
+
         L 169065.556493 36
         L 170857.850534 36
-        
+
         L 170857.850534 37
         L 172767.757557 37
-        
+
         L 172767.757557 38
         L 172781.626414 38
-        
+
         L 172781.626414 39
         L 173490.598974 39
-        
+
         L 173490.598974 40
         L 173587.162543 40
-        
+
         L 173587.162543 41
         L 183984.269107 41
-        
+
         L 183984.269107 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 24329.935001 0 L 24329.935001 41" class="bar"></path>
-        
+
         <path d="M 169065.556493 0 L 169065.556493 41" class="bar"></path>
-        
+
         <path d="M 172767.757557 0 L 172767.757557 41" class="bar"></path>
-        
+
         <path d="M 173490.598974 0 L 173490.598974 41" class="bar"></path>
-        
+
         <path d="M 183984.269107 0 L 183984.269107 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Tasty%2520Samoas%252C%2520Please%2520Ingest.html">Tasty Samoas, Please Ingest</a></td>
+    <td><a href="../teams/teams%3Fteam=Tasty%2520Samoas%252C%2520Please%2520Ingest.html">Tasty Samoas, Please Ingest</a></td>
     <td>Mar 18, 17:29</td>
     <td>3h2m</td>
     <td>Mar 18, 20:32</td>
@@ -263,151 +263,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 854.045601 1
-        
+
         L 854.045601 2
         L 1448.444652 2
-        
+
         L 1448.444652 3
         L 1818.646187 3
-        
+
         L 1818.646187 4
         L 6402.96244 4
-        
+
         L 6402.96244 5
         L 7219.810525 5
-        
+
         L 7219.810525 6
         L 7641.535453 6
-        
+
         L 7641.535453 7
         L 8686.57693 7
-        
+
         L 8686.57693 8
         L 9998.926513 8
-        
+
         L 9998.926513 9
         L 10821.725825 9
-        
+
         L 10821.725825 10
         L 10911.839827 10
-        
+
         L 10911.839827 11
         L 11999.052257 11
-        
+
         L 11999.052257 12
         L 14136.30258 12
-        
+
         L 14136.30258 13
         L 14408.673945 13
-        
+
         L 14408.673945 14
         L 14865.263249 14
-        
+
         L 14865.263249 15
         L 16241.77126 15
-        
+
         L 16241.77126 16
         L 23798.319429 16
-        
+
         L 23798.319429 17
         L 25821.644247 17
-        
+
         L 25821.644247 18
         L 28734.618718 18
-        
+
         L 28734.618718 19
         L 31048.481937 19
-        
+
         L 31048.481937 20
         L 58678.898593 20
-        
+
         L 58678.898593 21
         L 70537.940975 21
-        
+
         L 70537.940975 22
         L 98069.465719 22
-        
+
         L 98069.465719 23
         L 102181.432616 23
-        
+
         L 102181.432616 24
         L 104811.062619 24
-        
+
         L 104811.062619 25
         L 106650.602355 25
-        
+
         L 106650.602355 26
         L 110510.913537 26
-        
+
         L 110510.913537 27
         L 114221.280725 27
-        
+
         L 114221.280725 28
         L 121945.221373 28
-        
+
         L 121945.221373 29
         L 126096.399907 29
-        
+
         L 126096.399907 30
         L 127383.92577 30
-        
+
         L 127383.92577 31
         L 157781.71212 31
-        
+
         L 157781.71212 32
         L 169485.43218 32
-        
+
         L 169485.43218 33
         L 170478.447261 33
-        
+
         L 170478.447261 34
         L 170534.96567 34
-        
+
         L 170534.96567 35
         L 171495.317621 35
-        
+
         L 171495.317621 36
         L 171661.446696 36
-        
+
         L 171661.446696 37
         L 175997.355107 37
-        
+
         L 175997.355107 38
         L 180942.881641 38
-        
+
         L 180942.881641 39
         L 191915.845942 39
-        
+
         L 191915.845942 40
         L 192290.618628 40
-        
+
         L 192290.618628 41
         L 192364.777343 41
-        
+
         L 192364.777343 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 11999.052257 0 L 11999.052257 41" class="bar"></path>
-        
+
         <path d="M 170478.447261 0 L 170478.447261 41" class="bar"></path>
-        
+
         <path d="M 171495.317621 0 L 171495.317621 41" class="bar"></path>
-        
+
         <path d="M 180942.881641 0 L 180942.881641 41" class="bar"></path>
-        
+
         <path d="M 191915.845942 0 L 191915.845942 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Killer%2520Chicken%2520Bones.html">Killer Chicken Bones</a></td>
+    <td><a href="../teams/teams%3Fteam=Killer%2520Chicken%2520Bones.html">Killer Chicken Bones</a></td>
     <td>Mar 18, 15:56</td>
     <td>7h34m</td>
     <td>Mar 18, 23:31</td>
@@ -416,151 +416,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 481.427241 1
-        
+
         L 481.427241 2
         L 1286.667888 2
-        
+
         L 1286.667888 3
         L 3137.831227 3
-        
+
         L 3137.831227 4
         L 4012.393081 4
-        
+
         L 4012.393081 5
         L 5914.659667 5
-        
+
         L 5914.659667 6
         L 6358.913999 6
-        
+
         L 6358.913999 7
         L 7086.985031 7
-        
+
         L 7086.985031 8
         L 8687.14471 8
-        
+
         L 8687.14471 9
         L 8893.966316 9
-        
+
         L 8893.966316 10
         L 11562.663353 10
-        
+
         L 11562.663353 11
         L 13526.821294 11
-        
+
         L 13526.821294 12
         L 14236.254592 12
-        
+
         L 14236.254592 13
         L 20027.757529 13
-        
+
         L 20027.757529 14
         L 27380.654128 14
-        
+
         L 27380.654128 15
         L 37610.710019 15
-        
+
         L 37610.710019 16
         L 39789.737591 16
-        
+
         L 39789.737591 17
         L 45033.84507 17
-        
+
         L 45033.84507 18
         L 48199.25209 18
-        
+
         L 48199.25209 19
         L 50984.627797 19
-        
+
         L 50984.627797 20
         L 52257.976295 20
-        
+
         L 52257.976295 21
         L 56996.320969 21
-        
+
         L 56996.320969 22
         L 69494.206438 22
-        
+
         L 69494.206438 23
         L 75282.839006 23
-        
+
         L 75282.839006 24
         L 92615.197098 24
-        
+
         L 92615.197098 25
         L 94470.159304 25
-        
+
         L 94470.159304 26
         L 100904.324173 26
-        
+
         L 100904.324173 27
         L 106846.172635 27
-        
+
         L 106846.172635 28
         L 119633.850538 28
-        
+
         L 119633.850538 29
         L 132017.694306 29
-        
+
         L 132017.694306 30
         L 135284.562091 30
-        
+
         L 135284.562091 31
         L 135767.979482 31
-        
+
         L 135767.979482 32
         L 136999.425721 32
-        
+
         L 136999.425721 33
         L 165959.319366 33
-        
+
         L 165959.319366 34
         L 174170.923522 34
-        
+
         L 174170.923522 35
         L 174844.002319 35
-        
+
         L 174844.002319 36
         L 175359.313277 36
-        
+
         L 175359.313277 37
         L 177011.386863 37
-        
+
         L 177011.386863 38
         L 177237.653433 38
-        
+
         L 177237.653433 39
         L 180693.293705 39
-        
+
         L 180693.293705 40
         L 202637.751394 40
-        
+
         L 202637.751394 41
         L 204675.397352 41
-        
+
         L 204675.397352 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 14236.254592 0 L 14236.254592 41" class="bar"></path>
-        
+
         <path d="M 136999.425721 0 L 136999.425721 41" class="bar"></path>
-        
+
         <path d="M 174844.002319 0 L 174844.002319 41" class="bar"></path>
-        
+
         <path d="M 175359.313277 0 L 175359.313277 41" class="bar"></path>
-        
+
         <path d="M 202637.751394 0 L 202637.751394 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Plugholate%2520chip%2520cookies.html">Plugholate chip cookies</a></td>
+    <td><a href="../teams/teams%3Fteam=Plugholate%2520chip%2520cookies.html">Plugholate chip cookies</a></td>
     <td>Mar 18, 20:50</td>
     <td>2h48m</td>
     <td>Mar 18, 23:39</td>
@@ -569,151 +569,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 515.205232 1
-        
+
         L 515.205232 2
         L 2157.162018 2
-        
+
         L 2157.162018 3
         L 2394.295346 3
-        
+
         L 2394.295346 4
         L 3289.240044 4
-        
+
         L 3289.240044 5
         L 3768.328617 5
-        
+
         L 3768.328617 6
         L 4242.790912 6
-        
+
         L 4242.790912 7
         L 5434.545673 7
-        
+
         L 5434.545673 8
         L 7625.880673 8
-        
+
         L 7625.880673 9
         L 8510.505517 9
-        
+
         L 8510.505517 10
         L 8842.915391 10
-        
+
         L 8842.915391 11
         L 10518.210591 11
-        
+
         L 10518.210591 12
         L 12761.094885 12
-        
+
         L 12761.094885 13
         L 15970.347944 13
-        
+
         L 15970.347944 14
         L 18469.187189 14
-        
+
         L 18469.187189 15
         L 19593.166721 15
-        
+
         L 19593.166721 16
         L 36175.126158 16
-        
+
         L 36175.126158 17
         L 66160.296302 17
-        
+
         L 66160.296302 18
         L 68496.293152 18
-        
+
         L 68496.293152 19
         L 70967.165131 19
-        
+
         L 70967.165131 20
         L 73193.480203 20
-        
+
         L 73193.480203 21
         L 80039.453186 21
-        
+
         L 80039.453186 22
         L 84375.517001 22
-        
+
         L 84375.517001 23
         L 91188.167186 23
-        
+
         L 91188.167186 24
         L 112055.515722 24
-        
+
         L 112055.515722 25
         L 119156.525989 25
-        
+
         L 119156.525989 26
         L 134400.484994 26
-        
+
         L 134400.484994 27
         L 142091.132949 27
-        
+
         L 142091.132949 28
         L 144836.851614 28
-        
+
         L 144836.851614 29
         L 158692.595552 29
-        
+
         L 158692.595552 30
         L 160918.878966 30
-        
+
         L 160918.878966 31
         L 177388.809206 31
-        
+
         L 177388.809206 32
         L 177953.353112 32
-        
+
         L 177953.353112 33
         L 188095.25134 33
-        
+
         L 188095.25134 34
         L 188411.927504 34
-        
+
         L 188411.927504 35
         L 188719.102732 35
-        
+
         L 188719.102732 36
         L 190350.311298 36
-        
+
         L 190350.311298 37
         L 190412.45878 37
-        
+
         L 190412.45878 38
         L 192967.457938 38
-        
+
         L 192967.457938 39
         L 193163.950801 39
-        
+
         L 193163.950801 40
         L 193328.473247 40
-        
+
         L 193328.473247 41
         L 203105.821335 41
-        
+
         L 203105.821335 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 12761.094885 0 L 12761.094885 41" class="bar"></path>
-        
+
         <path d="M 188719.102732 0 L 188719.102732 41" class="bar"></path>
-        
+
         <path d="M 190350.311298 0 L 190350.311298 41" class="bar"></path>
-        
+
         <path d="M 192967.457938 0 L 192967.457938 41" class="bar"></path>
-        
+
         <path d="M 203105.821335 0 L 203105.821335 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Just%2520for%2520the%2520Halibut.html">Just for the Halibut</a></td>
+    <td><a href="../teams/teams%3Fteam=Just%2520for%2520the%2520Halibut.html">Just for the Halibut</a></td>
     <td>Mar 18, 23:58</td>
     <td>2h47m</td>
     <td>Mar 19, 02:45</td>
@@ -722,151 +722,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 691.46674 1
-        
+
         L 691.46674 2
         L 2267.758241 2
-        
+
         L 2267.758241 3
         L 3652.072571 3
-        
+
         L 3652.072571 4
         L 4727.069711 4
-        
+
         L 4727.069711 5
         L 5930.377702 5
-        
+
         L 5930.377702 6
         L 7230.507777 6
-        
+
         L 7230.507777 7
         L 10767.771635 7
-        
+
         L 10767.771635 8
         L 11017.147329 8
-        
+
         L 11017.147329 9
         L 11800.772703 9
-        
+
         L 11800.772703 10
         L 12264.197752 10
-        
+
         L 12264.197752 11
         L 13672.181625 11
-        
+
         L 13672.181625 12
         L 13797.001348 12
-        
+
         L 13797.001348 13
         L 17106.252133 13
-        
+
         L 17106.252133 14
         L 19901.735716 14
-        
+
         L 19901.735716 15
         L 26898.850733 15
-        
+
         L 26898.850733 16
         L 27308.394345 16
-        
+
         L 27308.394345 17
         L 35340.865324 17
-        
+
         L 35340.865324 18
         L 40070.612181 18
-        
+
         L 40070.612181 19
         L 40511.364191 19
-        
+
         L 40511.364191 20
         L 73607.486551 20
-        
+
         L 73607.486551 21
         L 79553.201471 21
-        
+
         L 79553.201471 22
         L 80155.024841 22
-        
+
         L 80155.024841 23
         L 92281.429671 23
-        
+
         L 92281.429671 24
         L 111684.648544 24
-        
+
         L 111684.648544 25
         L 116927.588163 25
-        
+
         L 116927.588163 26
         L 124143.197781 26
-        
+
         L 124143.197781 27
         L 128624.559917 27
-        
+
         L 128624.559917 28
         L 168878.654435 28
-        
+
         L 168878.654435 29
         L 170776.265772 29
-        
+
         L 170776.265772 30
         L 172852.520457 30
-        
+
         L 172852.520457 31
         L 173436.076439 31
-        
+
         L 173436.076439 32
         L 174194.228628 32
-        
+
         L 174194.228628 33
         L 198800.93114 33
-        
+
         L 198800.93114 34
         L 199451.050171 34
-        
+
         L 199451.050171 35
         L 199908.510339 35
-        
+
         L 199908.510339 36
         L 203779.966801 36
-        
+
         L 203779.966801 37
         L 204274.226405 37
-        
+
         L 204274.226405 38
         L 204622.852272 38
-        
+
         L 204622.852272 39
         L 214317.723791 39
-        
+
         L 214317.723791 40
         L 215275.571897 40
-        
+
         L 215275.571897 41
         L 219454.825957 41
-        
+
         L 219454.825957 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 13672.181625 0 L 13672.181625 41" class="bar"></path>
-        
+
         <path d="M 174194.228628 0 L 174194.228628 41" class="bar"></path>
-        
+
         <path d="M 199451.050171 0 L 199451.050171 41" class="bar"></path>
-        
+
         <path d="M 204274.226405 0 L 204274.226405 41" class="bar"></path>
-        
+
         <path d="M 214317.723791 0 L 214317.723791 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=The%2520Elite.html">The Elite</a></td>
+    <td><a href="../teams/teams%3Fteam=The%2520Elite.html">The Elite</a></td>
     <td>Mar 18, 23:23</td>
     <td>20h58m</td>
     <td>Mar 19, 20:21</td>
@@ -875,151 +875,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 2110.291555 1
-        
+
         L 2110.291555 2
         L 5410.07737 2
-        
+
         L 5410.07737 3
         L 6098.990752 3
-        
+
         L 6098.990752 4
         L 8838.635097 4
-        
+
         L 8838.635097 5
         L 11427.637218 5
-        
+
         L 11427.637218 6
         L 14130.744125 6
-        
+
         L 14130.744125 7
         L 14524.253707 7
-        
+
         L 14524.253707 8
         L 22031.200877 8
-        
+
         L 22031.200877 9
         L 23164.972478 9
-        
+
         L 23164.972478 10
         L 24468.58637 10
-        
+
         L 24468.58637 11
         L 26832.741661 11
-        
+
         L 26832.741661 12
         L 28690.908995 12
-        
+
         L 28690.908995 13
         L 47824.042216 13
-        
+
         L 47824.042216 14
         L 51439.099034 14
-        
+
         L 51439.099034 15
         L 86223.850038 15
-        
+
         L 86223.850038 16
         L 90443.628523 16
-        
+
         L 90443.628523 17
         L 91686.533573 17
-        
+
         L 91686.533573 18
         L 99510.474211 18
-        
+
         L 99510.474211 19
         L 104767.976764 19
-        
+
         L 104767.976764 20
         L 115291.426054 20
-        
+
         L 115291.426054 21
         L 116340.593136 21
-        
+
         L 116340.593136 22
         L 119488.45728 22
-        
+
         L 119488.45728 23
         L 121233.247368 23
-        
+
         L 121233.247368 24
         L 125069.542891 24
-        
+
         L 125069.542891 25
         L 133958.745108 25
-        
+
         L 133958.745108 26
         L 137323.057606 26
-        
+
         L 137323.057606 27
         L 170864.092079 27
-        
+
         L 170864.092079 28
         L 175241.231128 28
-        
+
         L 175241.231128 29
         L 191227.398334 29
-        
+
         L 191227.398334 30
         L 191781.532599 30
-        
+
         L 191781.532599 31
         L 192395.631286 31
-        
+
         L 192395.631286 32
         L 195261.458451 32
-        
+
         L 195261.458451 33
         L 196935.168107 33
-        
+
         L 196935.168107 34
         L 198138.554488 34
-        
+
         L 198138.554488 35
         L 200939.385639 35
-        
+
         L 200939.385639 36
         L 201978.56734 36
-        
+
         L 201978.56734 37
         L 202122.454475 37
-        
+
         L 202122.454475 38
         L 202175.739539 38
-        
+
         L 202175.739539 39
         L 207730.342057 39
-        
+
         L 207730.342057 40
         L 277673.884054 40
-        
+
         L 277673.884054 41
         L 361314.705089 41
-        
+
         L 361314.705089 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 26832.741661 0 L 26832.741661 41" class="bar"></path>
-        
+
         <path d="M 192395.631286 0 L 192395.631286 41" class="bar"></path>
-        
+
         <path d="M 198138.554488 0 L 198138.554488 41" class="bar"></path>
-        
+
         <path d="M 202175.739539 0 L 202175.739539 41" class="bar"></path>
-        
+
         <path d="M 277673.884054 0 L 277673.884054 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=k-CLICK.html">k-CLICK</a></td>
+    <td><a href="../teams/teams%3Fteam=k-CLICK.html">k-CLICK</a></td>
     <td>Mar 19, 21:15</td>
     <td>2h25m</td>
     <td>Mar 19, 23:41</td>
@@ -1028,145 +1028,145 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1317.72701 1
-        
+
         L 1317.72701 2
         L 2024.876498 2
-        
+
         L 2024.876498 3
         L 2849.822891 3
-        
+
         L 2849.822891 4
         L 4634.592941 4
-        
+
         L 4634.592941 5
         L 5571.364245 5
-        
+
         L 5571.364245 6
         L 6461.578523 6
-        
+
         L 6461.578523 7
         L 8147.120366 7
-        
+
         L 8147.120366 8
         L 9129.042768 8
-        
+
         L 9129.042768 9
         L 16031.516461 9
-        
+
         L 16031.516461 10
         L 23150.927099 10
-        
+
         L 23150.927099 11
         L 24921.237321 11
-        
+
         L 24921.237321 12
         L 26338.705576 12
-        
+
         L 26338.705576 13
         L 50498.680738 13
-        
+
         L 50498.680738 14
         L 87673.974249 14
-        
+
         L 87673.974249 15
         L 92692.866992 15
-        
+
         L 92692.866992 16
         L 95573.751665 16
-        
+
         L 95573.751665 17
         L 117813.070548 17
-        
+
         L 117813.070548 18
         L 123874.566093 18
-        
+
         L 123874.566093 19
         L 128691.20417 19
-        
+
         L 128691.20417 20
         L 159997.341155 20
-        
+
         L 159997.341155 21
         L 167292.6308 21
-        
+
         L 167292.6308 22
         L 171739.776274 22
-        
+
         L 171739.776274 23
         L 187679.184856 23
-        
+
         L 187679.184856 24
         L 193546.518085 24
-        
+
         L 193546.518085 25
         L 200984.784249 25
-        
+
         L 200984.784249 26
         L 206037.853192 26
-        
+
         L 206037.853192 27
         L 207414.668715 27
-        
+
         L 207414.668715 28
         L 208503.387591 28
-        
+
         L 208503.387591 29
         L 210906.540198 29
-        
+
         L 210906.540198 30
         L 211548.557345 30
-        
+
         L 211548.557345 31
         L 213669.787984 31
-        
+
         L 213669.787984 32
         L 243202.354495 32
-        
+
         L 243202.354495 33
         L 247007.066096 33
-        
+
         L 247007.066096 34
         L 249636.738039 34
-        
+
         L 249636.738039 35
         L 270708.002898 35
-        
+
         L 270708.002898 36
         L 280876.944608 36
-        
+
         L 280876.944608 37
         L 281101.177495 37
-        
+
         L 281101.177495 38
         L 283725.370179 38
-        
+
         L 283725.370179 39
         L 289627.480607 39
-        
+
         L 289627.480607 40
         L 820800.0 40
-        
+
         " class="area"></path>
-        
+
         <path d="M 24921.237321 0 L 24921.237321 41" class="bar"></path>
-        
+
         <path d="M 213669.787984 0 L 213669.787984 41" class="bar"></path>
-        
+
         <path d="M 249636.738039 0 L 249636.738039 41" class="bar"></path>
-        
+
         <path d="M 280876.944608 0 L 280876.944608 41" class="bar"></path>
-        
+
         <path d="M 289627.480607 0 L 289627.480607 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Time%2520Zones%2520Are%2520Hard.html">Time Zones Are Hard</a></td>
+    <td><a href="../teams/teams%3Fteam=Time%2520Zones%2520Are%2520Hard.html">Time Zones Are Hard</a></td>
     <td>Mar 19, 20:18</td>
     <td>3h24m</td>
     <td>Mar 19, 23:43</td>
@@ -1175,151 +1175,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1404.107497 1
-        
+
         L 1404.107497 2
         L 2145.009085 2
-        
+
         L 2145.009085 3
         L 6807.122432 3
-        
+
         L 6807.122432 4
         L 10145.051396 4
-        
+
         L 10145.051396 5
         L 10606.012244 5
-        
+
         L 10606.012244 6
         L 11522.627949 6
-        
+
         L 11522.627949 7
         L 15343.410814 7
-        
+
         L 15343.410814 8
         L 16990.871884 8
-        
+
         L 16990.871884 9
         L 33525.120742 9
-        
+
         L 33525.120742 10
         L 35887.834117 10
-        
+
         L 35887.834117 11
         L 36315.981162 11
-        
+
         L 36315.981162 12
         L 37643.127869 12
-        
+
         L 37643.127869 13
         L 41855.53647 13
-        
+
         L 41855.53647 14
         L 43940.20356 14
-        
+
         L 43940.20356 15
         L 47011.769229 15
-        
+
         L 47011.769229 16
         L 83499.338909 16
-        
+
         L 83499.338909 17
         L 90556.457904 17
-        
+
         L 90556.457904 18
         L 91045.899161 18
-        
+
         L 91045.899161 19
         L 93514.98109 19
-        
+
         L 93514.98109 20
         L 100559.912567 20
-        
+
         L 100559.912567 21
         L 103763.236157 21
-        
+
         L 103763.236157 22
         L 104075.979317 22
-        
+
         L 104075.979317 23
         L 118418.487665 23
-        
+
         L 118418.487665 24
         L 119518.824085 24
-        
+
         L 119518.824085 25
         L 126543.748783 25
-        
+
         L 126543.748783 26
         L 127273.950482 26
-        
+
         L 127273.950482 27
         L 167953.773657 27
-        
+
         L 167953.773657 28
         L 173692.626529 28
-        
+
         L 173692.626529 29
         L 175348.71445 29
-        
+
         L 175348.71445 30
         L 178138.950984 30
-        
+
         L 178138.950984 31
         L 179619.69792 31
-        
+
         L 179619.69792 32
         L 180258.376156 32
-        
+
         L 180258.376156 33
         L 181077.633576 33
-        
+
         L 181077.633576 34
         L 194073.804233 34
-        
+
         L 194073.804233 35
         L 260245.349888 35
-        
+
         L 260245.349888 36
         L 262398.485543 36
-        
+
         L 262398.485543 37
         L 277494.749956 37
-        
+
         L 277494.749956 38
         L 277633.040342 38
-        
+
         L 277633.040342 39
         L 289792.525986 39
-        
+
         L 289792.525986 40
         L 294718.304342 40
-        
+
         L 294718.304342 41
         L 295050.087279 41
-        
+
         L 295050.087279 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 37643.127869 0 L 37643.127869 41" class="bar"></path>
-        
+
         <path d="M 181077.633576 0 L 181077.633576 41" class="bar"></path>
-        
+
         <path d="M 262398.485543 0 L 262398.485543 41" class="bar"></path>
-        
+
         <path d="M 277494.749956 0 L 277494.749956 41" class="bar"></path>
-        
+
         <path d="M 289792.525986 0 L 289792.525986 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=ducksoup.html">ducksoup</a></td>
+    <td><a href="../teams/teams%3Fteam=ducksoup.html">ducksoup</a></td>
     <td>Mar 19, 11:12</td>
     <td>12h36m</td>
     <td>Mar 19, 23:49</td>
@@ -1328,151 +1328,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 886.398695 1
-        
+
         L 886.398695 2
         L 2616.865905 2
-        
+
         L 2616.865905 3
         L 3901.022775 3
-        
+
         L 3901.022775 4
         L 4028.767828 4
-        
+
         L 4028.767828 5
         L 4960.892614 5
-        
+
         L 4960.892614 6
         L 6168.651148 6
-        
+
         L 6168.651148 7
         L 8841.845546 7
-        
+
         L 8841.845546 8
         L 10784.320023 8
-        
+
         L 10784.320023 9
         L 15144.484499 9
-        
+
         L 15144.484499 10
         L 16839.644809 10
-        
+
         L 16839.644809 11
         L 20353.670472 11
-        
+
         L 20353.670472 12
         L 21169.990583 12
-        
+
         L 21169.990583 13
         L 28514.762495 13
-        
+
         L 28514.762495 14
         L 29676.586785 14
-        
+
         L 29676.586785 15
         L 32660.159746 15
-        
+
         L 32660.159746 16
         L 39246.734059 16
-        
+
         L 39246.734059 17
         L 41764.860257 17
-        
+
         L 41764.860257 18
         L 44272.814056 18
-        
+
         L 44272.814056 19
         L 45193.208785 19
-        
+
         L 45193.208785 20
         L 47939.56332 20
-        
+
         L 47939.56332 21
         L 102336.691061 21
-        
+
         L 102336.691061 22
         L 103883.149965 22
-        
+
         L 103883.149965 23
         L 129130.871404 23
-        
+
         L 129130.871404 24
         L 140949.626358 24
-        
+
         L 140949.626358 25
         L 154616.956426 25
-        
+
         L 154616.956426 26
         L 157164.309825 26
-        
+
         L 157164.309825 27
         L 160433.308086 27
-        
+
         L 160433.308086 28
         L 169999.75809 28
-        
+
         L 169999.75809 29
         L 174435.655575 29
-        
+
         L 174435.655575 30
         L 185007.393622 30
-        
+
         L 185007.393622 31
         L 186449.372732 31
-        
+
         L 186449.372732 32
         L 186975.895794 32
-        
+
         L 186975.895794 33
         L 187954.998206 33
-        
+
         L 187954.998206 34
         L 202751.947057 34
-        
+
         L 202751.947057 35
         L 223016.450378 35
-        
+
         L 223016.450378 36
         L 227562.20264 36
-        
+
         L 227562.20264 37
         L 231797.637477 37
-        
+
         L 231797.637477 38
         L 241725.923078 38
-        
+
         L 241725.923078 39
         L 244720.759557 39
-        
+
         L 244720.759557 40
         L 244986.426344 40
-        
+
         L 244986.426344 41
         L 290105.968302 41
-        
+
         L 290105.968302 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 20353.670472 0 L 20353.670472 41" class="bar"></path>
-        
+
         <path d="M 187954.998206 0 L 187954.998206 41" class="bar"></path>
-        
+
         <path d="M 227562.20264 0 L 227562.20264 41" class="bar"></path>
-        
+
         <path d="M 244720.759557 0 L 244720.759557 41" class="bar"></path>
-        
+
         <path d="M 290105.968302 0 L 290105.968302 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=%255BRedacted%255D.html">[Redacted]</a></td>
+    <td><a href="../teams/teams%3Fteam=%255BRedacted%255D.html">[Redacted]</a></td>
     <td>Mar 19, 21:23</td>
     <td>3h10m</td>
     <td>Mar 20, 00:33</td>
@@ -1481,151 +1481,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1589.808016 1
-        
+
         L 1589.808016 2
         L 1657.714905 2
-        
+
         L 1657.714905 3
         L 3017.294423 3
-        
+
         L 3017.294423 4
         L 5206.608595 4
-        
+
         L 5206.608595 5
         L 7894.972433 5
-        
+
         L 7894.972433 6
         L 8852.171611 6
-        
+
         L 8852.171611 7
         L 13065.302746 7
-        
+
         L 13065.302746 8
         L 16457.903772 8
-        
+
         L 16457.903772 9
         L 22330.326128 9
-        
+
         L 22330.326128 10
         L 28567.88717 10
-        
+
         L 28567.88717 11
         L 30824.250538 11
-        
+
         L 30824.250538 12
         L 33579.633028 12
-        
+
         L 33579.633028 13
         L 34909.603269 13
-        
+
         L 34909.603269 14
         L 85347.438859 14
-        
+
         L 85347.438859 15
         L 86975.323724 15
-        
+
         L 86975.323724 16
         L 88620.061519 16
-        
+
         L 88620.061519 17
         L 96525.962622 17
-        
+
         L 96525.962622 18
         L 96843.6813 18
-        
+
         L 96843.6813 19
         L 99433.330661 19
-        
+
         L 99433.330661 20
         L 105056.813906 20
-        
+
         L 105056.813906 21
         L 106591.793211 21
-        
+
         L 106591.793211 22
         L 108200.015782 22
-        
+
         L 108200.015782 23
         L 109287.830529 23
-        
+
         L 109287.830529 24
         L 112211.34102 24
-        
+
         L 112211.34102 25
         L 120224.342806 25
-        
+
         L 120224.342806 26
         L 172022.0942 26
-        
+
         L 172022.0942 27
         L 186304.302569 27
-        
+
         L 186304.302569 28
         L 193077.223881 28
-        
+
         L 193077.223881 29
         L 215400.311562 29
-        
+
         L 215400.311562 30
         L 241548.238529 30
-        
+
         L 241548.238529 31
         L 253335.998244 31
-        
+
         L 253335.998244 32
         L 254504.27877 32
-        
+
         L 254504.27877 33
         L 259327.900344 33
-        
+
         L 259327.900344 34
         L 266212.411043 34
-        
+
         L 266212.411043 35
         L 270892.272446 35
-        
+
         L 270892.272446 36
         L 274440.361057 36
-        
+
         L 274440.361057 37
         L 281345.805284 37
-        
+
         L 281345.805284 38
         L 292761.899618 38
-        
+
         L 292761.899618 39
         L 341276.149163 39
-        
+
         L 341276.149163 40
         L 341590.607824 40
-        
+
         L 341590.607824 41
         L 342845.591275 41
-        
+
         L 342845.591275 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 30824.250538 0 L 30824.250538 41" class="bar"></path>
-        
+
         <path d="M 270892.272446 0 L 270892.272446 41" class="bar"></path>
-        
+
         <path d="M 274440.361057 0 L 274440.361057 41" class="bar"></path>
-        
+
         <path d="M 281345.805284 0 L 281345.805284 41" class="bar"></path>
-        
+
         <path d="M 292761.899618 0 L 292761.899618 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=%25F0%259F%258E%258F%25F0%259F%258E%258F%25F0%259F%258E%258F%2520Chocolate%2520Herrings%2520%25F0%259F%258E%258F%25F0%259F%258E%258F%25F0%259F%258E%258F.html">🎏🎏🎏 Chocolate Herrings 🎏🎏🎏</a></td>
+    <td><a href="../teams/teams%3Fteam=%25F0%259F%258E%258F%25F0%259F%258E%258F%25F0%259F%258E%258F%2520Chocolate%2520Herrings%2520%25F0%259F%258E%258F%25F0%259F%258E%258F%25F0%259F%258E%258F.html">🎏🎏🎏 Chocolate Herrings 🎏🎏🎏</a></td>
     <td>Mar 19, 19:38</td>
     <td>5h43m</td>
     <td>Mar 20, 01:21</td>
@@ -1634,151 +1634,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 4965.794151 1
-        
+
         L 4965.794151 2
         L 5986.504535 2
-        
+
         L 5986.504535 3
         L 8106.432285 3
-        
+
         L 8106.432285 4
         L 12190.938147 4
-        
+
         L 12190.938147 5
         L 12821.370672 5
-        
+
         L 12821.370672 6
         L 13518.370599 6
-        
+
         L 13518.370599 7
         L 15239.604274 7
-        
+
         L 15239.604274 8
         L 16073.428453 8
-        
+
         L 16073.428453 9
         L 17712.622121 9
-        
+
         L 17712.622121 10
         L 18254.314688 10
-        
+
         L 18254.314688 11
         L 20624.705124 11
-        
+
         L 20624.705124 12
         L 22838.325562 12
-        
+
         L 22838.325562 13
         L 24859.931969 13
-        
+
         L 24859.931969 14
         L 37798.457101 14
-        
+
         L 37798.457101 15
         L 39563.87712 15
-        
+
         L 39563.87712 16
         L 52012.165468 16
-        
+
         L 52012.165468 17
         L 70083.784625 17
-        
+
         L 70083.784625 18
         L 84046.703206 18
-        
+
         L 84046.703206 19
         L 90168.394813 19
-        
+
         L 90168.394813 20
         L 108610.136442 20
-        
+
         L 108610.136442 21
         L 111711.637849 21
-        
+
         L 111711.637849 22
         L 118336.552073 22
-        
+
         L 118336.552073 23
         L 121700.244845 23
-        
+
         L 121700.244845 24
         L 126244.306244 24
-        
+
         L 126244.306244 25
         L 129205.908862 25
-        
+
         L 129205.908862 26
         L 129659.007423 26
-        
+
         L 129659.007423 27
         L 172423.578364 27
-        
+
         L 172423.578364 28
         L 173775.540295 28
-        
+
         L 173775.540295 29
         L 175584.335102 29
-        
+
         L 175584.335102 30
         L 176096.089356 30
-        
+
         L 176096.089356 31
         L 176863.685532 31
-        
+
         L 176863.685532 32
         L 193188.003822 32
-        
+
         L 193188.003822 33
         L 201567.006801 33
-        
+
         L 201567.006801 34
         L 269378.090709 34
-        
+
         L 269378.090709 35
         L 272776.311014 35
-        
+
         L 272776.311014 36
         L 272994.868186 36
-        
+
         L 272994.868186 37
         L 275079.453797 37
-        
+
         L 275079.453797 38
         L 295670.83344 38
-        
+
         L 295670.83344 39
         L 342046.447642 39
-        
+
         L 342046.447642 40
         L 467971.394901 40
-        
+
         L 467971.394901 41
         L 496256.586958 41
-        
+
         L 496256.586958 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 20624.705124 0 L 20624.705124 41" class="bar"></path>
-        
+
         <path d="M 176863.685532 0 L 176863.685532 41" class="bar"></path>
-        
+
         <path d="M 272776.311014 0 L 272776.311014 41" class="bar"></path>
-        
+
         <path d="M 275079.453797 0 L 275079.453797 41" class="bar"></path>
-        
+
         <path d="M 295670.83344 0 L 295670.83344 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=%25F0%259F%258D%25AA%25F0%259F%258D%25AA%25F0%259F%258D%25AA%2520Pluru%2520%25F0%259F%258D%25AA%25F0%259F%258D%25AA%25F0%259F%258D%25AA.html">🍪🍪🍪 Pluru 🍪🍪🍪</a></td>
+    <td><a href="../teams/teams%3Fteam=%25F0%259F%258D%25AA%25F0%259F%258D%25AA%25F0%259F%258D%25AA%2520Pluru%2520%25F0%259F%258D%25AA%25F0%259F%258D%25AA%25F0%259F%258D%25AA.html">🍪🍪🍪 Pluru 🍪🍪🍪</a></td>
     <td>Mar 19, 20:48</td>
     <td>5h23m</td>
     <td>Mar 20, 02:11</td>
@@ -1787,151 +1787,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1136.427528 1
-        
+
         L 1136.427528 2
         L 1770.707261 2
-        
+
         L 1770.707261 3
         L 3053.924659 3
-        
+
         L 3053.924659 4
         L 5647.220276 4
-        
+
         L 5647.220276 5
         L 6089.997413 5
-        
+
         L 6089.997413 6
         L 7290.496359 6
-        
+
         L 7290.496359 7
         L 7630.819492 7
-        
+
         L 7630.819492 8
         L 13228.934632 8
-        
+
         L 13228.934632 9
         L 14049.681671 9
-        
+
         L 14049.681671 10
         L 14083.942047 10
-        
+
         L 14083.942047 11
         L 15608.632751 11
-        
+
         L 15608.632751 12
         L 22485.275908 12
-        
+
         L 22485.275908 13
         L 25025.278749 13
-        
+
         L 25025.278749 14
         L 25774.227846 14
-        
+
         L 25774.227846 15
         L 36115.022979 15
-        
+
         L 36115.022979 16
         L 37979.62451 16
-        
+
         L 37979.62451 17
         L 43502.11491 17
-        
+
         L 43502.11491 18
         L 48079.07139 18
-        
+
         L 48079.07139 19
         L 71890.668649 19
-        
+
         L 71890.668649 20
         L 85191.20514 20
-        
+
         L 85191.20514 21
         L 120471.631652 21
-        
+
         L 120471.631652 22
         L 122598.352551 22
-        
+
         L 122598.352551 23
         L 123418.23699 23
-        
+
         L 123418.23699 24
         L 126597.927727 24
-        
+
         L 126597.927727 25
         L 127113.352589 25
-        
+
         L 127113.352589 26
         L 132972.883057 26
-        
+
         L 132972.883057 27
         L 141665.405139 27
-        
+
         L 141665.405139 28
         L 146187.42595 28
-        
+
         L 146187.42595 29
         L 178079.3417 29
-        
+
         L 178079.3417 30
         L 189221.082036 30
-        
+
         L 189221.082036 31
         L 190885.830203 31
-        
+
         L 190885.830203 32
         L 191456.511966 32
-        
+
         L 191456.511966 33
         L 260779.385519 33
-        
+
         L 260779.385519 34
         L 271219.985535 34
-        
+
         L 271219.985535 35
         L 272840.828454 35
-        
+
         L 272840.828454 36
         L 273516.641162 36
-        
+
         L 273516.641162 37
         L 273677.856584 37
-        
+
         L 273677.856584 38
         L 274676.063109 38
-        
+
         L 274676.063109 39
         L 274763.415273 39
-        
+
         L 274763.415273 40
         L 279273.961039 40
-        
+
         L 279273.961039 41
         L 298670.72911 41
-        
+
         L 298670.72911 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 15608.632751 0 L 15608.632751 41" class="bar"></path>
-        
+
         <path d="M 272840.828454 0 L 272840.828454 41" class="bar"></path>
-        
+
         <path d="M 274676.063109 0 L 274676.063109 41" class="bar"></path>
-        
+
         <path d="M 279273.961039 0 L 279273.961039 41" class="bar"></path>
-        
+
         <path d="M 298670.72911 0 L 298670.72911 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Cardinality.html">Cardinality</a></td>
+    <td><a href="../teams/teams%3Fteam=Cardinality.html">Cardinality</a></td>
     <td>Mar 19, 19:30</td>
     <td>7h1m</td>
     <td>Mar 20, 02:31</td>
@@ -1940,151 +1940,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1345.801394 1
-        
+
         L 1345.801394 2
         L 3941.112189 2
-        
+
         L 3941.112189 3
         L 5256.454737 3
-        
+
         L 5256.454737 4
         L 5707.549832 4
-        
+
         L 5707.549832 5
         L 9773.385163 5
-        
+
         L 9773.385163 6
         L 10686.619966 6
-        
+
         L 10686.619966 7
         L 11715.370982 7
-        
+
         L 11715.370982 8
         L 14703.731229 8
-        
+
         L 14703.731229 9
         L 19894.287658 9
-        
+
         L 19894.287658 10
         L 22340.357384 10
-        
+
         L 22340.357384 11
         L 24578.85852 11
-        
+
         L 24578.85852 12
         L 26014.522412 12
-        
+
         L 26014.522412 13
         L 29064.03046 13
-        
+
         L 29064.03046 14
         L 48103.21066 14
-        
+
         L 48103.21066 15
         L 51114.439652 15
-        
+
         L 51114.439652 16
         L 51566.596916 16
-        
+
         L 51566.596916 17
         L 52358.033328 17
-        
+
         L 52358.033328 18
         L 53872.76898 18
-        
+
         L 53872.76898 19
         L 75275.739633 19
-        
+
         L 75275.739633 20
         L 89953.687479 20
-        
+
         L 89953.687479 21
         L 101834.28151 21
-        
+
         L 101834.28151 22
         L 111183.817641 22
-        
+
         L 111183.817641 23
         L 115591.511212 23
-        
+
         L 115591.511212 24
         L 127083.037993 24
-        
+
         L 127083.037993 25
         L 131956.635522 25
-        
+
         L 131956.635522 26
         L 137160.31046 26
-        
+
         L 137160.31046 27
         L 140778.552212 27
-        
+
         L 140778.552212 28
         L 148738.756551 28
-        
+
         L 148738.756551 29
         L 187654.793517 29
-        
+
         L 187654.793517 30
         L 192714.212722 30
-        
+
         L 192714.212722 31
         L 195442.707856 31
-        
+
         L 195442.707856 32
         L 196366.470608 32
-        
+
         L 196366.470608 33
         L 196970.437937 33
-        
+
         L 196970.437937 34
         L 204020.251159 34
-        
+
         L 204020.251159 35
         L 205778.643145 35
-        
+
         L 205778.643145 36
         L 206173.84309 36
-        
+
         L 206173.84309 37
         L 270484.426114 37
-        
+
         L 270484.426114 38
         L 274519.515796 38
-        
+
         L 274519.515796 39
         L 274575.450589 39
-        
+
         L 274575.450589 40
         L 274641.171575 40
-        
+
         L 274641.171575 41
         L 299844.018219 41
-        
+
         L 299844.018219 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 24578.85852 0 L 24578.85852 41" class="bar"></path>
-        
+
         <path d="M 204020.251159 0 L 204020.251159 41" class="bar"></path>
-        
+
         <path d="M 205778.643145 0 L 205778.643145 41" class="bar"></path>
-        
+
         <path d="M 274575.450589 0 L 274575.450589 41" class="bar"></path>
-        
+
         <path d="M 299844.018219 0 L 299844.018219 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Ducky%2520Charms.html">Ducky Charms</a></td>
+    <td><a href="../teams/teams%3Fteam=Ducky%2520Charms.html">Ducky Charms</a></td>
     <td>Mar 20, 00:22</td>
     <td>2h24m</td>
     <td>Mar 20, 02:47</td>
@@ -2093,151 +2093,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 6898.563187 1
-        
+
         L 6898.563187 2
         L 6934.342435 2
-        
+
         L 6934.342435 3
         L 6955.195417 3
-        
+
         L 6955.195417 4
         L 33351.747308 4
-        
+
         L 33351.747308 5
         L 34271.005882 5
-        
+
         L 34271.005882 6
         L 35021.112128 6
-        
+
         L 35021.112128 7
         L 46379.033042 7
-        
+
         L 46379.033042 8
         L 75556.998279 8
-        
+
         L 75556.998279 9
         L 81015.129474 9
-        
+
         L 81015.129474 10
         L 82349.496143 10
-        
+
         L 82349.496143 11
         L 83410.651819 11
-        
+
         L 83410.651819 12
         L 83758.535204 12
-        
+
         L 83758.535204 13
         L 89505.846003 13
-        
+
         L 89505.846003 14
         L 91116.043821 14
-        
+
         L 91116.043821 15
         L 104158.002777 15
-        
+
         L 104158.002777 16
         L 107838.353358 16
-        
+
         L 107838.353358 17
         L 112515.30247 17
-        
+
         L 112515.30247 18
         L 115819.14469 18
-        
+
         L 115819.14469 19
         L 116555.069835 19
-        
+
         L 116555.069835 20
         L 123982.560541 20
-        
+
         L 123982.560541 21
         L 166534.152245 21
-        
+
         L 166534.152245 22
         L 189001.576101 22
-        
+
         L 189001.576101 23
         L 192016.318118 23
-        
+
         L 192016.318118 24
         L 192754.735501 24
-        
+
         L 192754.735501 25
         L 199588.163947 25
-        
+
         L 199588.163947 26
         L 205958.155128 26
-        
+
         L 205958.155128 27
         L 210530.731198 27
-        
+
         L 210530.731198 28
         L 251055.803048 28
-        
+
         L 251055.803048 29
         L 260341.514287 29
-        
+
         L 260341.514287 30
         L 269457.822888 30
-        
+
         L 269457.822888 31
         L 278549.845789 31
-        
+
         L 278549.845789 32
         L 288513.787034 32
-        
+
         L 288513.787034 33
         L 289388.463718 33
-        
+
         L 289388.463718 34
         L 289638.328432 34
-        
+
         L 289638.328432 35
         L 289765.2906 35
-        
+
         L 289765.2906 36
         L 291196.120796 36
-        
+
         L 291196.120796 37
         L 291263.1439 37
-        
+
         L 291263.1439 38
         L 292105.599694 38
-        
+
         L 292105.599694 39
         L 300788.47891 39
-        
+
         L 300788.47891 40
         L 326902.459722 40
-        
+
         L 326902.459722 41
         L 634219.785455 41
-        
+
         L 634219.785455 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 83758.535204 0 L 83758.535204 41" class="bar"></path>
-        
+
         <path d="M 289638.328432 0 L 289638.328432 41" class="bar"></path>
-        
+
         <path d="M 291196.120796 0 L 291196.120796 41" class="bar"></path>
-        
+
         <path d="M 292105.599694 0 L 292105.599694 41" class="bar"></path>
-        
+
         <path d="M 300788.47891 0 L 300788.47891 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=The%2520Last%2520Puzzlebenders.html">The Last Puzzlebenders</a></td>
+    <td><a href="../teams/teams%3Fteam=The%2520Last%2520Puzzlebenders.html">The Last Puzzlebenders</a></td>
     <td>Mar 20, 01:10</td>
     <td>2h1m</td>
     <td>Mar 20, 03:12</td>
@@ -2246,151 +2246,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1793.473481 1
-        
+
         L 1793.473481 2
         L 9403.612093 2
-        
+
         L 9403.612093 3
         L 10660.347505 3
-        
+
         L 10660.347505 4
         L 17807.071707 4
-        
+
         L 17807.071707 5
         L 18627.524718 5
-        
+
         L 18627.524718 6
         L 19216.739622 6
-        
+
         L 19216.739622 7
         L 19886.802518 7
-        
+
         L 19886.802518 8
         L 22921.792607 8
-        
+
         L 22921.792607 9
         L 23892.220212 9
-        
+
         L 23892.220212 10
         L 24674.123108 10
-        
+
         L 24674.123108 11
         L 26122.1885 11
-        
+
         L 26122.1885 12
         L 26246.685427 12
-        
+
         L 26246.685427 13
         L 29253.023917 13
-        
+
         L 29253.023917 14
         L 31911.403013 14
-        
+
         L 31911.403013 15
         L 42838.967022 15
-        
+
         L 42838.967022 16
         L 70452.671404 16
-        
+
         L 70452.671404 17
         L 81428.806364 17
-        
+
         L 81428.806364 18
         L 83640.227065 18
-        
+
         L 83640.227065 19
         L 104532.224781 19
-        
+
         L 104532.224781 20
         L 106526.091727 20
-        
+
         L 106526.091727 21
         L 115393.265921 21
-        
+
         L 115393.265921 22
         L 120926.992959 22
-        
+
         L 120926.992959 23
         L 127683.137317 23
-        
+
         L 127683.137317 24
         L 136911.3393 24
-        
+
         L 136911.3393 25
         L 143242.859045 25
-        
+
         L 143242.859045 26
         L 159351.450252 26
-        
+
         L 159351.450252 27
         L 230872.74819 27
-        
+
         L 230872.74819 28
         L 233932.906234 28
-        
+
         L 233932.906234 29
         L 256223.820136 29
-        
+
         L 256223.820136 30
         L 264249.801901 30
-        
+
         L 264249.801901 31
         L 270180.010513 31
-        
+
         L 270180.010513 32
         L 270776.538674 32
-        
+
         L 270776.538674 33
         L 280202.33164 33
-        
+
         L 280202.33164 34
         L 282304.366949 34
-        
+
         L 282304.366949 35
         L 287045.638582 35
-        
+
         L 287045.638582 36
         L 291287.624571 36
-        
+
         L 291287.624571 37
         L 295011.168631 37
-        
+
         L 295011.168631 38
         L 295282.138256 38
-        
+
         L 295282.138256 39
         L 302281.045266 39
-        
+
         L 302281.045266 40
         L 334684.789977 40
-        
+
         L 334684.789977 41
         L 459268.533092 41
-        
+
         L 459268.533092 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 26246.685427 0 L 26246.685427 41" class="bar"></path>
-        
+
         <path d="M 280202.33164 0 L 280202.33164 41" class="bar"></path>
-        
+
         <path d="M 282304.366949 0 L 282304.366949 41" class="bar"></path>
-        
+
         <path d="M 295011.168631 0 L 295011.168631 41" class="bar"></path>
-        
+
         <path d="M 302281.045266 0 L 302281.045266 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Tantalizing%2520Snickerdoodles%2520Produced%2520Incrementally.html">Tantalizing Snickerdoodles Produced Incrementally</a></td>
+    <td><a href="../teams/teams%3Fteam=Tantalizing%2520Snickerdoodles%2520Produced%2520Incrementally.html">Tantalizing Snickerdoodles Produced Incrementally</a></td>
     <td>Mar 20, 04:39</td>
     <td>6h31m</td>
     <td>Mar 20, 11:10</td>
@@ -2399,151 +2399,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 994.794941 1
-        
+
         L 994.794941 2
         L 2235.125563 2
-        
+
         L 2235.125563 3
         L 4082.724336 3
-        
+
         L 4082.724336 4
         L 6158.416862 4
-        
+
         L 6158.416862 5
         L 7726.127602 5
-        
+
         L 7726.127602 6
         L 8743.534848 6
-        
+
         L 8743.534848 7
         L 13608.913463 7
-        
+
         L 13608.913463 8
         L 18318.996004 8
-        
+
         L 18318.996004 9
         L 19428.962621 9
-        
+
         L 19428.962621 10
         L 22447.640104 10
-        
+
         L 22447.640104 11
         L 25659.014748 11
-        
+
         L 25659.014748 12
         L 27032.193659 12
-        
+
         L 27032.193659 13
         L 28766.999692 13
-        
+
         L 28766.999692 14
         L 44326.373695 14
-        
+
         L 44326.373695 15
         L 66436.477855 15
-        
+
         L 66436.477855 16
         L 72089.407526 16
-        
+
         L 72089.407526 17
         L 80306.306387 17
-        
+
         L 80306.306387 18
         L 119017.309861 18
-        
+
         L 119017.309861 19
         L 124639.013125 19
-        
+
         L 124639.013125 20
         L 135822.470315 20
-        
+
         L 135822.470315 21
         L 148352.065174 21
-        
+
         L 148352.065174 22
         L 159960.512427 22
-        
+
         L 159960.512427 23
         L 179161.074131 23
-        
+
         L 179161.074131 24
         L 183999.795974 24
-        
+
         L 183999.795974 25
         L 217143.372356 25
-        
+
         L 217143.372356 26
         L 232356.284312 26
-        
+
         L 232356.284312 27
         L 238024.504417 27
-        
+
         L 238024.504417 28
         L 242429.629629 28
-        
+
         L 242429.629629 29
         L 256686.120946 29
-        
+
         L 256686.120946 30
         L 258889.041207 30
-        
+
         L 258889.041207 31
         L 267376.784113 31
-        
+
         L 267376.784113 32
         L 288154.783669 32
-        
+
         L 288154.783669 33
         L 293739.941803 33
-        
+
         L 293739.941803 34
         L 294837.664401 34
-        
+
         L 294837.664401 35
         L 303004.336185 35
-        
+
         L 303004.336185 36
         L 303323.35106 36
-        
+
         L 303323.35106 37
         L 303394.827907 37
-        
+
         L 303394.827907 38
         L 307221.466866 38
-        
+
         L 307221.466866 39
         L 307505.702363 39
-        
+
         L 307505.702363 40
         L 331013.170371 40
-        
+
         L 331013.170371 41
         L 331147.39803 41
-        
+
         L 331147.39803 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 27032.193659 0 L 27032.193659 41" class="bar"></path>
-        
+
         <path d="M 294837.664401 0 L 294837.664401 41" class="bar"></path>
-        
+
         <path d="M 303394.827907 0 L 303394.827907 41" class="bar"></path>
-        
+
         <path d="M 307505.702363 0 L 307505.702363 41" class="bar"></path>
-        
+
         <path d="M 331013.170371 0 L 331013.170371 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=%25F0%259F%2590%259D%2520Aviation%2520Laws%2520%25F0%259F%2590%259D.html">🐝 Aviation Laws 🐝</a></td>
+    <td><a href="../teams/teams%3Fteam=%25F0%259F%2590%259D%2520Aviation%2520Laws%2520%25F0%259F%2590%259D.html">🐝 Aviation Laws 🐝</a></td>
     <td>Mar 19, 19:47</td>
     <td>16h16m</td>
     <td>Mar 20, 12:03</td>
@@ -2552,151 +2552,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 976.169087 1
-        
+
         L 976.169087 2
         L 1422.558943 2
-        
+
         L 1422.558943 3
         L 3613.795497 3
-        
+
         L 3613.795497 4
         L 4691.126952 4
-        
+
         L 4691.126952 5
         L 6197.721128 5
-        
+
         L 6197.721128 6
         L 6997.294953 6
-        
+
         L 6997.294953 7
         L 9453.019366 7
-        
+
         L 9453.019366 8
         L 11579.959607 8
-        
+
         L 11579.959607 9
         L 16577.042592 9
-        
+
         L 16577.042592 10
         L 19404.398082 10
-        
+
         L 19404.398082 11
         L 20179.951633 11
-        
+
         L 20179.951633 12
         L 23637.350529 12
-        
+
         L 23637.350529 13
         L 26371.976493 13
-        
+
         L 26371.976493 14
         L 63286.197028 14
-        
+
         L 63286.197028 15
         L 65414.092936 15
-        
+
         L 65414.092936 16
         L 73921.430652 16
-        
+
         L 73921.430652 17
         L 76938.837532 17
-        
+
         L 76938.837532 18
         L 78482.351518 18
-        
+
         L 78482.351518 19
         L 79787.49272 19
-        
+
         L 79787.49272 20
         L 81211.056206 20
-        
+
         L 81211.056206 21
         L 107335.47125 21
-        
+
         L 107335.47125 22
         L 109480.811871 22
-        
+
         L 109480.811871 23
         L 115279.584851 23
-        
+
         L 115279.584851 24
         L 125442.413599 24
-        
+
         L 125442.413599 25
         L 127431.607457 25
-        
+
         L 127431.607457 26
         L 152638.480408 26
-        
+
         L 152638.480408 27
         L 158044.239024 27
-        
+
         L 158044.239024 28
         L 161669.359932 28
-        
+
         L 161669.359932 29
         L 165219.127245 29
-        
+
         L 165219.127245 30
         L 165757.951778 30
-        
+
         L 165757.951778 31
         L 211352.895361 31
-        
+
         L 211352.895361 32
         L 221583.890672 32
-        
+
         L 221583.890672 33
         L 223165.914363 33
-        
+
         L 223165.914363 34
         L 229453.825695 34
-        
+
         L 229453.825695 35
         L 257172.037575 35
-        
+
         L 257172.037575 36
         L 269830.958651 36
-        
+
         L 269830.958651 37
         L 275614.873454 37
-        
+
         L 275614.873454 38
         L 275728.790544 38
-        
+
         L 275728.790544 39
         L 275978.486608 39
-        
+
         L 275978.486608 40
         L 334191.46988 40
-        
+
         L 334191.46988 41
         L 366760.83997 41
-        
+
         L 366760.83997 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 20179.951633 0 L 20179.951633 41" class="bar"></path>
-        
+
         <path d="M 223165.914363 0 L 223165.914363 41" class="bar"></path>
-        
+
         <path d="M 229453.825695 0 L 229453.825695 41" class="bar"></path>
-        
+
         <path d="M 275614.873454 0 L 275614.873454 41" class="bar"></path>
-        
+
         <path d="M 334191.46988 0 L 334191.46988 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Just-Us%2520League.html">Just-Us League</a></td>
+    <td><a href="../teams/teams%3Fteam=Just-Us%2520League.html">Just-Us League</a></td>
     <td>Mar 20, 11:19</td>
     <td>9h9m</td>
     <td>Mar 20, 20:28</td>
@@ -2705,148 +2705,148 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 574.691243 1
-        
+
         L 574.691243 2
         L 3305.49392 2
-        
+
         L 3305.49392 3
         L 5150.271337 3
-        
+
         L 5150.271337 4
         L 6822.84682 4
-        
+
         L 6822.84682 5
         L 7340.543909 5
-        
+
         L 7340.543909 6
         L 8182.935503 6
-        
+
         L 8182.935503 7
         L 8790.909599 7
-        
+
         L 8790.909599 8
         L 10624.593479 8
-        
+
         L 10624.593479 9
         L 12872.987526 9
-        
+
         L 12872.987526 10
         L 13028.056171 10
-        
+
         L 13028.056171 11
         L 14547.900324 11
-        
+
         L 14547.900324 12
         L 17943.819387 12
-        
+
         L 17943.819387 13
         L 29185.735827 13
-        
+
         L 29185.735827 14
         L 45659.231321 14
-        
+
         L 45659.231321 15
         L 82022.386558 15
-        
+
         L 82022.386558 16
         L 104424.058135 16
-        
+
         L 104424.058135 17
         L 111864.756894 17
-        
+
         L 111864.756894 18
         L 117321.171927 18
-        
+
         L 117321.171927 19
         L 126889.413262 19
-        
+
         L 126889.413262 20
         L 187165.172791 20
-        
+
         L 187165.172791 21
         L 187615.725788 21
-        
+
         L 187615.725788 22
         L 188719.060892 22
-        
+
         L 188719.060892 23
         L 192399.938316 23
-        
+
         L 192399.938316 24
         L 206663.34141 24
-        
+
         L 206663.34141 25
         L 211747.491601 25
-        
+
         L 211747.491601 26
         L 216226.137697 26
-        
+
         L 216226.137697 27
         L 256071.155385 27
-        
+
         L 256071.155385 28
         L 259319.063024 28
-        
+
         L 259319.063024 29
         L 262483.759685 29
-        
+
         L 262483.759685 30
         L 263233.825239 30
-        
+
         L 263233.825239 31
         L 264204.422756 31
-        
+
         L 264204.422756 32
         L 271924.916227 32
-        
+
         L 271924.916227 33
         L 292370.315189 33
-        
+
         L 292370.315189 34
         L 324072.148181 34
-        
+
         L 324072.148181 35
         L 331519.280147 35
-        
+
         L 331519.280147 36
         L 331888.649141 36
-        
+
         L 331888.649141 37
         L 343942.006164 37
-        
+
         L 343942.006164 38
         L 364461.081119 38
-        
+
         L 364461.081119 39
         L 386521.742057 39
-        
+
         L 386521.742057 40
         L 480380.343867 40
-        
+
         L 480380.343867 41
         L 820800.0 41
-        
+
         " class="area"></path>
-        
+
         <path d="M 14547.900324 0 L 14547.900324 41" class="bar"></path>
-        
+
         <path d="M 264204.422756 0 L 264204.422756 41" class="bar"></path>
-        
+
         <path d="M 324072.148181 0 L 324072.148181 41" class="bar"></path>
-        
+
         <path d="M 331519.280147 0 L 331519.280147 41" class="bar"></path>
-        
+
         <path d="M 364461.081119 0 L 364461.081119 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Pusheen%2520Appreciation%2520Society.html">Pusheen Appreciation Society</a></td>
+    <td><a href="../teams/teams%3Fteam=Pusheen%2520Appreciation%2520Society.html">Pusheen Appreciation Society</a></td>
     <td>Mar 21, 05:29</td>
     <td>1h29m</td>
     <td>Mar 21, 06:59</td>
@@ -2855,151 +2855,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1623.338099 1
-        
+
         L 1623.338099 2
         L 1976.442178 2
-        
+
         L 1976.442178 3
         L 3395.51871 3
-        
+
         L 3395.51871 4
         L 3759.863408 4
-        
+
         L 3759.863408 5
         L 4596.203959 5
-        
+
         L 4596.203959 6
         L 5576.682993 6
-        
+
         L 5576.682993 7
         L 6085.220446 7
-        
+
         L 6085.220446 8
         L 9118.039388 8
-        
+
         L 9118.039388 9
         L 9408.546099 9
-        
+
         L 9408.546099 10
         L 11934.981444 10
-        
+
         L 11934.981444 11
         L 12573.757367 11
-        
+
         L 12573.757367 12
         L 13798.908233 12
-        
+
         L 13798.908233 13
         L 17795.923442 13
-        
+
         L 17795.923442 14
         L 19665.341527 14
-        
+
         L 19665.341527 15
         L 24605.814161 15
-        
+
         L 24605.814161 16
         L 31067.369216 16
-        
+
         L 31067.369216 17
         L 36020.370757 17
-        
+
         L 36020.370757 18
         L 37113.802656 18
-        
+
         L 37113.802656 19
         L 46626.236322 19
-        
+
         L 46626.236322 20
         L 51227.780331 20
-        
+
         L 51227.780331 21
         L 94935.349653 21
-        
+
         L 94935.349653 22
         L 105364.489266 22
-        
+
         L 105364.489266 23
         L 140116.854274 23
-        
+
         L 140116.854274 24
         L 144459.44525 24
-        
+
         L 144459.44525 25
         L 188495.497235 25
-        
+
         L 188495.497235 26
         L 264263.288508 26
-        
+
         L 264263.288508 27
         L 267631.246166 27
-        
+
         L 267631.246166 28
         L 278658.743581 28
-        
+
         L 278658.743581 29
         L 285185.825514 29
-        
+
         L 285185.825514 30
         L 296215.845456 30
-        
+
         L 296215.845456 31
         L 298442.242676 31
-        
+
         L 298442.242676 32
         L 299528.273244 32
-        
+
         L 299528.273244 33
         L 302940.187635 33
-        
+
         L 302940.187635 34
         L 303812.397776 34
-        
+
         L 303812.397776 35
         L 304958.638599 35
-        
+
         L 304958.638599 36
         L 305003.136359 36
-        
+
         L 305003.136359 37
         L 395590.088547 37
-        
+
         L 395590.088547 38
         L 396920.07153 38
-        
+
         L 396920.07153 39
         L 397056.804677 39
-        
+
         L 397056.804677 40
         L 397095.619946 40
-        
+
         L 397095.619946 41
         L 402301.973643 41
-        
+
         L 402301.973643 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 13798.908233 0 L 13798.908233 41" class="bar"></path>
-        
+
         <path d="M 303812.397776 0 L 303812.397776 41" class="bar"></path>
-        
+
         <path d="M 304958.638599 0 L 304958.638599 41" class="bar"></path>
-        
+
         <path d="M 396920.07153 0 L 396920.07153 41" class="bar"></path>
-        
+
         <path d="M 402301.973643 0 L 402301.973643 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Flower%2520Power.html">Flower Power</a></td>
+    <td><a href="../teams/teams%3Fteam=Flower%2520Power.html">Flower Power</a></td>
     <td>Mar 21, 06:26</td>
     <td>3h59m</td>
     <td>Mar 21, 10:26</td>
@@ -3008,148 +3008,148 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1773.048797 1
-        
+
         L 1773.048797 2
         L 4304.47963 2
-        
+
         L 4304.47963 3
         L 6347.703128 3
-        
+
         L 6347.703128 4
         L 10988.014735 4
-        
+
         L 10988.014735 5
         L 12252.135503 5
-        
+
         L 12252.135503 6
         L 19546.501514 6
-        
+
         L 19546.501514 7
         L 24148.588399 7
-        
+
         L 24148.588399 8
         L 26899.036672 8
-        
+
         L 26899.036672 9
         L 28990.545345 9
-        
+
         L 28990.545345 10
         L 30113.965451 10
-        
+
         L 30113.965451 11
         L 32561.175109 11
-        
+
         L 32561.175109 12
         L 35505.95757 12
-        
+
         L 35505.95757 13
         L 61945.185477 13
-        
+
         L 61945.185477 14
         L 75770.854196 14
-        
+
         L 75770.854196 15
         L 134818.561436 15
-        
+
         L 134818.561436 16
         L 138633.192775 16
-        
+
         L 138633.192775 17
         L 144873.587028 17
-        
+
         L 144873.587028 18
         L 149727.680508 18
-        
+
         L 149727.680508 19
         L 169475.075459 19
-        
+
         L 169475.075459 20
         L 212705.347049 20
-        
+
         L 212705.347049 21
         L 245050.80756 21
-        
+
         L 245050.80756 22
         L 253028.940422 22
-        
+
         L 253028.940422 23
         L 257101.773338 23
-        
+
         L 257101.773338 24
         L 260205.683751 24
-        
+
         L 260205.683751 25
         L 261664.22612 25
-        
+
         L 261664.22612 26
         L 309390.032689 26
-        
+
         L 309390.032689 27
         L 319919.929052 27
-        
+
         L 319919.929052 28
         L 342106.342187 28
-        
+
         L 342106.342187 29
         L 343086.265572 29
-        
+
         L 343086.265572 30
         L 345254.041204 30
-        
+
         L 345254.041204 31
         L 362995.968087 31
-        
+
         L 362995.968087 32
         L 372023.714036 32
-        
+
         L 372023.714036 33
         L 373682.638627 33
-        
+
         L 373682.638627 34
         L 373846.14326 34
-        
+
         L 373846.14326 35
         L 397769.709987 35
-        
+
         L 397769.709987 36
         L 400376.723106 36
-        
+
         L 400376.723106 37
         L 414724.943476 37
-        
+
         L 414724.943476 38
         L 419888.060723 38
-        
+
         L 419888.060723 39
         L 458010.323716 39
-        
+
         L 458010.323716 40
         L 500322.539045 40
-        
+
         L 500322.539045 41
         L 820800.0 41
-        
+
         " class="area"></path>
-        
+
         <path d="M 32561.175109 0 L 32561.175109 41" class="bar"></path>
-        
+
         <path d="M 362995.968087 0 L 362995.968087 41" class="bar"></path>
-        
+
         <path d="M 373682.638627 0 L 373682.638627 41" class="bar"></path>
-        
+
         <path d="M 400376.723106 0 L 400376.723106 41" class="bar"></path>
-        
+
         <path d="M 414724.943476 0 L 414724.943476 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Words%2520and%2520Numbers.html">Words and Numbers</a></td>
+    <td><a href="../teams/teams%3Fteam=Words%2520and%2520Numbers.html">Words and Numbers</a></td>
     <td>Mar 21, 18:40</td>
     <td>7h24m</td>
     <td>Mar 22, 02:04</td>
@@ -3158,148 +3158,148 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 740.957917 1
-        
+
         L 740.957917 2
         L 1728.824625 2
-        
+
         L 1728.824625 3
         L 3414.090896 3
-        
+
         L 3414.090896 4
         L 4538.014551 4
-        
+
         L 4538.014551 5
         L 6487.788591 5
-        
+
         L 6487.788591 6
         L 7478.807777 6
-        
+
         L 7478.807777 7
         L 9855.599767 7
-        
+
         L 9855.599767 8
         L 11994.660365 8
-        
+
         L 11994.660365 9
         L 14896.399192 9
-        
+
         L 14896.399192 10
         L 22524.621838 10
-        
+
         L 22524.621838 11
         L 25955.050939 11
-        
+
         L 25955.050939 12
         L 30147.021859 12
-        
+
         L 30147.021859 13
         L 33646.590746 13
-        
+
         L 33646.590746 14
         L 42504.884534 14
-        
+
         L 42504.884534 15
         L 44525.97192 15
-        
+
         L 44525.97192 16
         L 48574.069934 16
-        
+
         L 48574.069934 17
         L 77681.213325 17
-        
+
         L 77681.213325 18
         L 100387.260222 18
-        
+
         L 100387.260222 19
         L 104437.978322 19
-        
+
         L 104437.978322 20
         L 115004.833939 20
-        
+
         L 115004.833939 21
         L 207482.001752 21
-        
+
         L 207482.001752 22
         L 263007.448106 22
-        
+
         L 263007.448106 23
         L 270796.460781 23
-        
+
         L 270796.460781 24
         L 278304.629876 24
-        
+
         L 278304.629876 25
         L 283335.605339 25
-        
+
         L 283335.605339 26
         L 294385.588881 26
-        
+
         L 294385.588881 27
         L 308121.282248 27
-        
+
         L 308121.282248 28
         L 368038.136465 28
-        
+
         L 368038.136465 29
         L 370730.432504 29
-        
+
         L 370730.432504 30
         L 371627.275641 30
-        
+
         L 371627.275641 31
         L 378175.209915 31
-        
+
         L 378175.209915 32
         L 389292.095359 32
-        
+
         L 389292.095359 33
         L 392987.75809 33
-        
+
         L 392987.75809 34
         L 425107.397385 34
-        
+
         L 425107.397385 35
         L 440188.634765 35
-        
+
         L 440188.634765 36
         L 440438.44231 36
-        
+
         L 440438.44231 37
         L 443247.559589 37
-        
+
         L 443247.559589 38
         L 444362.005386 38
-        
+
         L 444362.005386 39
         L 471022.324028 39
-        
+
         L 471022.324028 40
         L 551825.440075 40
-        
+
         L 551825.440075 41
         L 820800.0 41
-        
+
         " class="area"></path>
-        
+
         <path d="M 25955.050939 0 L 25955.050939 41" class="bar"></path>
-        
+
         <path d="M 392987.75809 0 L 392987.75809 41" class="bar"></path>
-        
+
         <path d="M 440188.634765 0 L 440188.634765 41" class="bar"></path>
-        
+
         <path d="M 444362.005386 0 L 444362.005386 41" class="bar"></path>
-        
+
         <path d="M 471022.324028 0 L 471022.324028 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Team%2520Runpeng.html">Team Runpeng</a></td>
+    <td><a href="../teams/teams%3Fteam=Team%2520Runpeng.html">Team Runpeng</a></td>
     <td>Mar 22, 00:52</td>
     <td>6h53m</td>
     <td>Mar 22, 07:45</td>
@@ -3308,151 +3308,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 2341.40321 1
-        
+
         L 2341.40321 2
         L 2997.750723 2
-        
+
         L 2997.750723 3
         L 4386.120732 3
-        
+
         L 4386.120732 4
         L 6840.409902 4
-        
+
         L 6840.409902 5
         L 8096.645817 5
-        
+
         L 8096.645817 6
         L 10270.539668 6
-        
+
         L 10270.539668 7
         L 15072.290029 7
-        
+
         L 15072.290029 8
         L 17160.164589 8
-        
+
         L 17160.164589 9
         L 31959.443 9
-        
+
         L 31959.443 10
         L 35660.796505 10
-        
+
         L 35660.796505 11
         L 38388.551508 11
-        
+
         L 38388.551508 12
         L 45275.903153 12
-        
+
         L 45275.903153 13
         L 75081.365599 13
-        
+
         L 75081.365599 14
         L 106220.260329 14
-        
+
         L 106220.260329 15
         L 110155.698032 15
-        
+
         L 110155.698032 16
         L 127161.442652 16
-        
+
         L 127161.442652 17
         L 131211.401968 17
-        
+
         L 131211.401968 18
         L 180320.928232 18
-        
+
         L 180320.928232 19
         L 191430.631285 19
-        
+
         L 191430.631285 20
         L 195022.23308 20
-        
+
         L 195022.23308 21
         L 203263.319369 21
-        
+
         L 203263.319369 22
         L 203935.028732 22
-        
+
         L 203935.028732 23
         L 206606.754887 23
-        
+
         L 206606.754887 24
         L 216242.881858 24
-        
+
         L 216242.881858 25
         L 224809.172555 25
-        
+
         L 224809.172555 26
         L 289416.46641 26
-        
+
         L 289416.46641 27
         L 358572.285576 27
-        
+
         L 358572.285576 28
         L 381663.839619 28
-        
+
         L 381663.839619 29
         L 388412.122206 29
-        
+
         L 388412.122206 30
         L 437538.706718 30
-        
+
         L 437538.706718 31
         L 440531.103576 31
-        
+
         L 440531.103576 32
         L 441855.734182 32
-        
+
         L 441855.734182 33
         L 444952.853716 33
-        
+
         L 444952.853716 34
         L 449598.185015 34
-        
+
         L 449598.185015 35
         L 453616.339813 35
-        
+
         L 453616.339813 36
         L 466509.32062 36
-        
+
         L 466509.32062 37
         L 466691.065049 37
-        
+
         L 466691.065049 38
         L 466711.579716 38
-        
+
         L 466711.579716 39
         L 491495.527514 39
-        
+
         L 491495.527514 40
         L 563261.348087 40
-        
+
         L 563261.348087 41
         L 643999.138518 41
-        
+
         L 643999.138518 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 38388.551508 0 L 38388.551508 41" class="bar"></path>
-        
+
         <path d="M 441855.734182 0 L 441855.734182 41" class="bar"></path>
-        
+
         <path d="M 453616.339813 0 L 453616.339813 41" class="bar"></path>
-        
+
         <path d="M 466691.065049 0 L 466691.065049 41" class="bar"></path>
-        
+
         <path d="M 491495.527514 0 L 491495.527514 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Snickerdoodles.html">Snickerdoodles</a></td>
+    <td><a href="../teams/teams%3Fteam=Snickerdoodles.html">Snickerdoodles</a></td>
     <td>Mar 20, 14:00</td>
     <td>49h32m</td>
     <td>Mar 22, 15:32</td>
@@ -3461,151 +3461,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 950.845757 1
-        
+
         L 950.845757 2
         L 1563.97882 2
-        
+
         L 1563.97882 3
         L 3453.466853 3
-        
+
         L 3453.466853 4
         L 5100.941119 4
-        
+
         L 5100.941119 5
         L 6666.304231 5
-        
+
         L 6666.304231 6
         L 8747.115547 6
-        
+
         L 8747.115547 7
         L 9895.15512 7
-        
+
         L 9895.15512 8
         L 16062.155529 8
-        
+
         L 16062.155529 9
         L 19749.43354 9
-        
+
         L 19749.43354 10
         L 21797.563672 10
-        
+
         L 21797.563672 11
         L 27564.559514 11
-        
+
         L 27564.559514 12
         L 27919.819226 12
-        
+
         L 27919.819226 13
         L 28002.918617 13
-        
+
         L 28002.918617 14
         L 34484.761607 14
-        
+
         L 34484.761607 15
         L 40440.614508 15
-        
+
         L 40440.614508 16
         L 71282.055371 16
-        
+
         L 71282.055371 17
         L 84485.154162 17
-        
+
         L 84485.154162 18
         L 91603.360114 18
-        
+
         L 91603.360114 19
         L 101657.456427 19
-        
+
         L 101657.456427 20
         L 115188.571625 20
-        
+
         L 115188.571625 21
         L 115622.922818 21
-        
+
         L 115622.922818 22
         L 160075.778767 22
-        
+
         L 160075.778767 23
         L 181419.545884 23
-        
+
         L 181419.545884 24
         L 191889.613474 24
-        
+
         L 191889.613474 25
         L 192093.420496 25
-        
+
         L 192093.420496 26
         L 196622.008978 26
-        
+
         L 196622.008978 27
         L 250213.602337 27
-        
+
         L 250213.602337 28
         L 259888.709974 28
-        
+
         L 259888.709974 29
         L 266099.004783 29
-        
+
         L 266099.004783 30
         L 267378.633087 30
-        
+
         L 267378.633087 31
         L 272895.152735 31
-        
+
         L 272895.152735 32
         L 329186.575381 32
-        
+
         L 329186.575381 33
         L 329492.880441 33
-        
+
         L 329492.880441 34
         L 336616.228449 34
-        
+
         L 336616.228449 35
         L 338287.287243 35
-        
+
         L 338287.287243 36
         L 338789.190553 36
-        
+
         L 338789.190553 37
         L 339069.784455 37
-        
+
         L 339069.784455 38
         L 341183.596591 38
-        
+
         L 341183.596591 39
         L 380261.17332 39
-        
+
         L 380261.17332 40
         L 380975.840292 40
-        
+
         L 380975.840292 41
         L 519518.865507 41
-        
+
         L 519518.865507 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 27564.559514 0 L 27564.559514 41" class="bar"></path>
-        
+
         <path d="M 329492.880441 0 L 329492.880441 41" class="bar"></path>
-        
+
         <path d="M 338789.190553 0 L 338789.190553 41" class="bar"></path>
-        
+
         <path d="M 341183.596591 0 L 341183.596591 41" class="bar"></path>
-        
+
         <path d="M 519518.865507 0 L 519518.865507 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Portugal.%2520The%2520man.%2520The%2520plan.%2520The%2520canal..html">Portugal. The man. The plan. The canal.</a></td>
+    <td><a href="../teams/teams%3Fteam=Portugal.%2520The%2520man.%2520The%2520plan.%2520The%2520canal..html">Portugal. The man. The plan. The canal.</a></td>
     <td>Mar 22, 21:44</td>
     <td>2h55m</td>
     <td>Mar 23, 00:40</td>
@@ -3614,148 +3614,148 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 2520.284365 1
-        
+
         L 2520.284365 2
         L 9471.364954 2
-        
+
         L 9471.364954 3
         L 10787.509731 3
-        
+
         L 10787.509731 4
         L 16341.185445 4
-        
+
         L 16341.185445 5
         L 18968.831086 5
-        
+
         L 18968.831086 6
         L 19001.28849 6
-        
+
         L 19001.28849 7
         L 20440.805501 7
-        
+
         L 20440.805501 8
         L 27228.632139 8
-        
+
         L 27228.632139 9
         L 28633.039262 9
-        
+
         L 28633.039262 10
         L 28794.220021 10
-        
+
         L 28794.220021 11
         L 32947.534043 11
-        
+
         L 32947.534043 12
         L 71498.206057 12
-        
+
         L 71498.206057 13
         L 83234.372647 13
-        
+
         L 83234.372647 14
         L 91536.448768 14
-        
+
         L 91536.448768 15
         L 102858.738917 15
-        
+
         L 102858.738917 16
         L 111253.789602 16
-        
+
         L 111253.789602 17
         L 125436.496038 17
-        
+
         L 125436.496038 18
         L 150732.747016 18
-        
+
         L 150732.747016 19
         L 164829.330232 19
-        
+
         L 164829.330232 20
         L 186896.541468 20
-        
+
         L 186896.541468 21
         L 249727.484549 21
-        
+
         L 249727.484549 22
         L 269431.35622 22
-        
+
         L 269431.35622 23
         L 270512.251187 23
-        
+
         L 270512.251187 24
         L 277198.933687 24
-        
+
         L 277198.933687 25
         L 289243.761663 25
-        
+
         L 289243.761663 26
         L 291822.600427 26
-        
+
         L 291822.600427 27
         L 336398.642658 27
-        
+
         L 336398.642658 28
         L 367195.928507 28
-        
+
         L 367195.928507 29
         L 386754.366305 29
-        
+
         L 386754.366305 30
         L 421160.105854 30
-        
+
         L 421160.105854 31
         L 427030.130948 31
-        
+
         L 427030.130948 32
         L 429728.923534 32
-        
+
         L 429728.923534 33
         L 440323.352823 33
-        
+
         L 440323.352823 34
         L 516586.293303 34
-        
+
         L 516586.293303 35
         L 532133.122068 35
-        
+
         L 532133.122068 36
         L 538670.60153 36
-        
+
         L 538670.60153 37
         L 538972.828721 37
-        
+
         L 538972.828721 38
         L 538992.224067 38
-        
+
         L 538992.224067 39
         L 541848.229822 39
-        
+
         L 541848.229822 40
         L 552390.070506 40
-        
+
         L 552390.070506 41
         L 820800.0 41
-        
+
         " class="area"></path>
-        
+
         <path d="M 83234.372647 0 L 83234.372647 41" class="bar"></path>
-        
+
         <path d="M 532133.122068 0 L 532133.122068 41" class="bar"></path>
-        
+
         <path d="M 538670.60153 0 L 538670.60153 41" class="bar"></path>
-        
+
         <path d="M 541848.229822 0 L 541848.229822 41" class="bar"></path>
-        
+
         <path d="M 552390.070506 0 L 552390.070506 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Phlogiston.html">Phlogiston</a></td>
+    <td><a href="../teams/teams%3Fteam=Phlogiston.html">Phlogiston</a></td>
     <td>Mar 22, 17:10</td>
     <td>21h51m</td>
     <td>Mar 23, 15:02</td>
@@ -3764,148 +3764,148 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 6018.423122 1
-        
+
         L 6018.423122 2
         L 8084.782656 2
-        
+
         L 8084.782656 3
         L 10283.486832 3
-        
+
         L 10283.486832 4
         L 10490.08752 4
-        
+
         L 10490.08752 5
         L 21922.378221 5
-        
+
         L 21922.378221 6
         L 25732.491462 6
-        
+
         L 25732.491462 7
         L 26516.483591 7
-        
+
         L 26516.483591 8
         L 26713.179916 8
-        
+
         L 26713.179916 9
         L 30157.423486 9
-        
+
         L 30157.423486 10
         L 70680.275653 10
-        
+
         L 70680.275653 11
         L 73252.008221 11
-        
+
         L 73252.008221 12
         L 75128.643697 12
-        
+
         L 75128.643697 13
         L 75653.308275 13
-        
+
         L 75653.308275 14
         L 80318.929808 14
-        
+
         L 80318.929808 15
         L 80724.003853 15
-        
+
         L 80724.003853 16
         L 83588.81177 16
-        
+
         L 83588.81177 17
         L 85201.743411 17
-        
+
         L 85201.743411 18
         L 89282.133025 18
-        
+
         L 89282.133025 19
         L 91624.846306 19
-        
+
         L 91624.846306 20
         L 94264.288572 20
-        
+
         L 94264.288572 21
         L 104912.937688 21
-        
+
         L 104912.937688 22
         L 112411.286063 22
-        
+
         L 112411.286063 23
         L 151395.167944 23
-        
+
         L 151395.167944 24
         L 162035.311661 24
-        
+
         L 162035.311661 25
         L 171471.786852 25
-        
+
         L 171471.786852 26
         L 350641.29812 26
-        
+
         L 350641.29812 27
         L 373988.4588 27
-        
+
         L 373988.4588 28
         L 458892.852839 28
-        
+
         L 458892.852839 29
         L 461645.156116 29
-        
+
         L 461645.156116 30
         L 462785.332202 30
-        
+
         L 462785.332202 31
         L 508011.410094 31
-        
+
         L 508011.410094 32
         L 509037.20145 32
-        
+
         L 509037.20145 33
         L 509544.971083 33
-        
+
         L 509544.971083 34
         L 510083.490923 34
-        
+
         L 510083.490923 35
         L 516835.201779 35
-        
+
         L 516835.201779 36
         L 518718.67388 36
-        
+
         L 518718.67388 37
         L 525380.161642 37
-        
+
         L 525380.161642 38
         L 526143.635521 38
-        
+
         L 526143.635521 39
         L 604084.527903 39
-        
+
         L 604084.527903 40
         L 691443.841786 40
-        
+
         L 691443.841786 41
         L 820800.0 41
-        
+
         " class="area"></path>
-        
+
         <path d="M 75128.643697 0 L 75128.643697 41" class="bar"></path>
-        
+
         <path d="M 509544.971083 0 L 509544.971083 41" class="bar"></path>
-        
+
         <path d="M 518718.67388 0 L 518718.67388 41" class="bar"></path>
-        
+
         <path d="M 525380.161642 0 L 525380.161642 41" class="bar"></path>
-        
+
         <path d="M 604084.527903 0 L 604084.527903 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Click%252C%2520Lose%2520or%2520Banana.html">Click, Lose or Banana</a></td>
+    <td><a href="../teams/teams%3Fteam=Click%252C%2520Lose%2520or%2520Banana.html">Click, Lose or Banana</a></td>
     <td>Mar 23, 00:58</td>
     <td>15h37m</td>
     <td>Mar 23, 16:36</td>
@@ -3914,139 +3914,139 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1102.031349 1
-        
+
         L 1102.031349 2
         L 2706.120959 2
-        
+
         L 2706.120959 3
         L 4995.641333 3
-        
+
         L 4995.641333 4
         L 7578.301682 4
-        
+
         L 7578.301682 5
         L 10831.895616 5
-        
+
         L 10831.895616 6
         L 14858.003169 6
-        
+
         L 14858.003169 7
         L 18445.506213 7
-        
+
         L 18445.506213 8
         L 23176.446714 8
-        
+
         L 23176.446714 9
         L 25888.109953 9
-        
+
         L 25888.109953 10
         L 29836.885036 10
-        
+
         L 29836.885036 11
         L 31629.571641 11
-        
+
         L 31629.571641 12
         L 41574.300607 12
-        
+
         L 41574.300607 13
         L 43385.152139 13
-        
+
         L 43385.152139 14
         L 82867.355433 14
-        
+
         L 82867.355433 15
         L 105785.744219 15
-        
+
         L 105785.744219 16
         L 124120.158813 16
-        
+
         L 124120.158813 17
         L 143380.429777 17
-        
+
         L 143380.429777 18
         L 189637.821617 18
-        
+
         L 189637.821617 19
         L 256413.590516 19
-        
+
         L 256413.590516 20
         L 270693.268608 20
-        
+
         L 270693.268608 21
         L 279028.730638 21
-        
+
         L 279028.730638 22
         L 285333.883134 22
-        
+
         L 285333.883134 23
         L 334133.962006 23
-        
+
         L 334133.962006 24
         L 347811.263587 24
-        
+
         L 347811.263587 25
         L 351623.416219 25
-        
+
         L 351623.416219 26
         L 356528.312295 26
-        
+
         L 356528.312295 27
         L 471142.32422 27
-        
+
         L 471142.32422 28
         L 508452.97907 28
-        
+
         L 508452.97907 29
         L 520548.444276 29
-        
+
         L 520548.444276 30
         L 521666.010459 30
-        
+
         L 521666.010459 31
         L 523477.967508 31
-        
+
         L 523477.967508 32
         L 545318.608066 32
-        
+
         L 545318.608066 33
         L 548188.299375 33
-        
+
         L 548188.299375 34
         L 548370.714336 34
-        
+
         L 548370.714336 35
         L 551583.716163 35
-        
+
         L 551583.716163 36
         L 553465.642149 36
-        
+
         L 553465.642149 37
         L 609723.32011 37
-        
+
         L 609723.32011 38
         L 820800.0 38
-        
+
         " class="area"></path>
-        
+
         <path d="M 31629.571641 0 L 31629.571641 41" class="bar"></path>
-        
+
         <path d="M 523477.967508 0 L 523477.967508 41" class="bar"></path>
-        
+
         <path d="M 548188.299375 0 L 548188.299375 41" class="bar"></path>
-        
+
         <path d="M 553465.642149 0 L 553465.642149 41" class="bar"></path>
-        
+
         <path d="M 609723.32011 0 L 609723.32011 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Hailfire%2520Spotters.html">Hailfire Spotters</a></td>
+    <td><a href="../teams/teams%3Fteam=Hailfire%2520Spotters.html">Hailfire Spotters</a></td>
     <td>Mar 22, 22:31</td>
     <td>21h30m</td>
     <td>Mar 23, 20:01</td>
@@ -4055,151 +4055,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 697.680413 1
-        
+
         L 697.680413 2
         L 1783.467695 2
-        
+
         L 1783.467695 3
         L 3531.280292 3
-        
+
         L 3531.280292 4
         L 4710.48995 4
-        
+
         L 4710.48995 5
         L 5976.320964 5
-        
+
         L 5976.320964 6
         L 8111.180791 6
-        
+
         L 8111.180791 7
         L 9179.886069 7
-        
+
         L 9179.886069 8
         L 12709.595437 8
-        
+
         L 12709.595437 9
         L 18194.719254 9
-        
+
         L 18194.719254 10
         L 34390.375162 10
-        
+
         L 34390.375162 11
         L 36101.333126 11
-        
+
         L 36101.333126 12
         L 37048.180052 12
-        
+
         L 37048.180052 13
         L 41282.120074 13
-        
+
         L 41282.120074 14
         L 109409.562403 14
-        
+
         L 109409.562403 15
         L 119022.334048 15
-        
+
         L 119022.334048 16
         L 122572.973572 16
-        
+
         L 122572.973572 17
         L 126454.908481 17
-        
+
         L 126454.908481 18
         L 177935.78725 18
-        
+
         L 177935.78725 19
         L 181216.410939 19
-        
+
         L 181216.410939 20
         L 185331.971219 20
-        
+
         L 185331.971219 21
         L 191292.972602 21
-        
+
         L 191292.972602 22
         L 199682.097479 22
-        
+
         L 199682.097479 23
         L 200903.391621 23
-        
+
         L 200903.391621 24
         L 205887.32366 24
-        
+
         L 205887.32366 25
         L 244182.50136 25
-        
+
         L 244182.50136 26
         L 284334.406672 26
-        
+
         L 284334.406672 27
         L 287868.184539 27
-        
+
         L 287868.184539 28
         L 362474.459071 28
-        
+
         L 362474.459071 29
         L 371053.651965 29
-        
+
         L 371053.651965 30
         L 377513.280293 30
-        
+
         L 377513.280293 31
         L 455966.029669 31
-        
+
         L 455966.029669 32
         L 457469.021008 32
-        
+
         L 457469.021008 33
         L 518662.536599 33
-        
+
         L 518662.536599 34
         L 520376.702946 34
-        
+
         L 520376.702946 35
         L 530873.340675 35
-        
+
         L 530873.340675 36
         L 533165.939895 36
-        
+
         L 533165.939895 37
         L 543678.667166 37
-        
+
         L 543678.667166 38
         L 544627.852908 38
-        
+
         L 544627.852908 39
         L 614799.514495 39
-        
+
         L 614799.514495 40
         L 622061.008597 40
-        
+
         L 622061.008597 41
         L 623161.77338 41
-        
+
         L 623161.77338 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 36101.333126 0 L 36101.333126 41" class="bar"></path>
-        
+
         <path d="M 520376.702946 0 L 520376.702946 41" class="bar"></path>
-        
+
         <path d="M 533165.939895 0 L 533165.939895 41" class="bar"></path>
-        
+
         <path d="M 544627.852908 0 L 544627.852908 41" class="bar"></path>
-        
+
         <path d="M 622061.008597 0 L 622061.008597 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Misremembered%2520Apple.html">Misremembered Apple</a></td>
+    <td><a href="../teams/teams%3Fteam=Misremembered%2520Apple.html">Misremembered Apple</a></td>
     <td>Mar 23, 15:34</td>
     <td>5h59m</td>
     <td>Mar 23, 21:34</td>
@@ -4208,148 +4208,148 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1094.315753 1
-        
+
         L 1094.315753 2
         L 1578.503528 2
-        
+
         L 1578.503528 3
         L 1683.148754 3
-        
+
         L 1683.148754 4
         L 3110.472373 4
-        
+
         L 3110.472373 5
         L 4148.158274 5
-        
+
         L 4148.158274 6
         L 5808.057404 6
-        
+
         L 5808.057404 7
         L 6120.533373 7
-        
+
         L 6120.533373 8
         L 7658.601852 8
-        
+
         L 7658.601852 9
         L 8833.610862 9
-        
+
         L 8833.610862 10
         L 12992.615604 10
-        
+
         L 12992.615604 11
         L 15509.403794 11
-        
+
         L 15509.403794 12
         L 19972.070861 12
-        
+
         L 19972.070861 13
         L 29738.180193 13
-        
+
         L 29738.180193 14
         L 66479.955318 14
-        
+
         L 66479.955318 15
         L 90946.317974 15
-        
+
         L 90946.317974 16
         L 92228.603677 16
-        
+
         L 92228.603677 17
         L 96779.905147 17
-        
+
         L 96779.905147 18
         L 98641.101645 18
-        
+
         L 98641.101645 19
         L 103189.30213 19
-        
+
         L 103189.30213 20
         L 132996.953814 20
-        
+
         L 132996.953814 21
         L 137870.044315 21
-        
+
         L 137870.044315 22
         L 161302.086457 22
-        
+
         L 161302.086457 23
         L 167332.066078 23
-        
+
         L 167332.066078 24
         L 176849.763032 24
-        
+
         L 176849.763032 25
         L 182868.097933 25
-        
+
         L 182868.097933 26
         L 186161.914327 26
-        
+
         L 186161.914327 27
         L 188255.7924 27
-        
+
         L 188255.7924 28
         L 342192.447728 28
-        
+
         L 342192.447728 29
         L 360431.826501 29
-        
+
         L 360431.826501 30
         L 361390.453984 30
-        
+
         L 361390.453984 31
         L 362168.800424 31
-        
+
         L 362168.800424 32
         L 364831.328881 32
-        
+
         L 364831.328881 33
         L 367270.301097 33
-        
+
         L 367270.301097 34
         L 441653.487206 34
-        
+
         L 441653.487206 35
         L 517791.980865 35
-        
+
         L 517791.980865 36
         L 535253.275747 36
-        
+
         L 535253.275747 37
         L 536391.39186 37
-        
+
         L 536391.39186 38
         L 606057.259252 38
-        
+
         L 606057.259252 39
         L 606117.713792 39
-        
+
         L 606117.713792 40
         L 627610.436136 40
-        
+
         L 627610.436136 41
         L 820800.0 41
-        
+
         " class="area"></path>
-        
+
         <path d="M 15509.403794 0 L 15509.403794 41" class="bar"></path>
-        
+
         <path d="M 367270.301097 0 L 367270.301097 41" class="bar"></path>
-        
+
         <path d="M 536391.39186 0 L 536391.39186 41" class="bar"></path>
-        
+
         <path d="M 606057.259252 0 L 606057.259252 41" class="bar"></path>
-        
+
         <path d="M 627610.436136 0 L 627610.436136 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Synod.html">Synod</a></td>
+    <td><a href="../teams/teams%3Fteam=Synod.html">Synod</a></td>
     <td>Mar 23, 00:52</td>
     <td>24h24m</td>
     <td>Mar 24, 01:16</td>
@@ -4358,148 +4358,148 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1764.533893 1
-        
+
         L 1764.533893 2
         L 2375.71127 2
-        
+
         L 2375.71127 3
         L 2783.93573 3
-        
+
         L 2783.93573 4
         L 4940.057861 4
-        
+
         L 4940.057861 5
         L 5406.569432 5
-        
+
         L 5406.569432 6
         L 6308.88621 6
-        
+
         L 6308.88621 7
         L 7999.58371 7
-        
+
         L 7999.58371 8
         L 8655.736714 8
-        
+
         L 8655.736714 9
         L 10237.209435 9
-        
+
         L 10237.209435 10
         L 12452.47206 10
-        
+
         L 12452.47206 11
         L 14234.831799 11
-        
+
         L 14234.831799 12
         L 26798.012269 12
-        
+
         L 26798.012269 13
         L 46409.797093 13
-        
+
         L 46409.797093 14
         L 48440.889082 14
-        
+
         L 48440.889082 15
         L 79571.896271 15
-        
+
         L 79571.896271 16
         L 84359.263722 16
-        
+
         L 84359.263722 17
         L 86405.549774 17
-        
+
         L 86405.549774 18
         L 131302.703261 18
-        
+
         L 131302.703261 19
         L 211875.436658 19
-        
+
         L 211875.436658 20
         L 222107.536293 20
-        
+
         L 222107.536293 21
         L 307216.577072 21
-        
+
         L 307216.577072 22
         L 307325.847774 22
-        
+
         L 307325.847774 23
         L 345679.989705 23
-        
+
         L 345679.989705 24
         L 362067.529042 24
-        
+
         L 362067.529042 25
         L 367040.771969 25
-        
+
         L 367040.771969 26
         L 383504.73154 26
-        
+
         L 383504.73154 27
         L 388765.783543 27
-        
+
         L 388765.783543 28
         L 434001.580222 28
-        
+
         L 434001.580222 29
         L 450962.938324 29
-        
+
         L 450962.938324 30
         L 451814.938916 30
-        
+
         L 451814.938916 31
         L 461339.916795 31
-        
+
         L 461339.916795 32
         L 463628.335315 32
-        
+
         L 463628.335315 33
         L 464889.53965 33
-        
+
         L 464889.53965 34
         L 516559.347925 34
-        
+
         L 516559.347925 35
         L 527817.140201 35
-        
+
         L 527817.140201 36
         L 530492.987469 36
-        
+
         L 530492.987469 37
         L 530594.430169 37
-        
+
         L 530594.430169 38
         L 530950.154122 38
-        
+
         L 530950.154122 39
         L 553090.812567 39
-        
+
         L 553090.812567 40
         L 640939.609593 40
-        
+
         L 640939.609593 41
         L 820800.0 41
-        
+
         " class="area"></path>
-        
+
         <path d="M 14234.831799 0 L 14234.831799 41" class="bar"></path>
-        
+
         <path d="M 464889.53965 0 L 464889.53965 41" class="bar"></path>
-        
+
         <path d="M 530492.987469 0 L 530492.987469 41" class="bar"></path>
-        
+
         <path d="M 553090.812567 0 L 553090.812567 41" class="bar"></path>
-        
+
         <path d="M 640939.609593 0 L 640939.609593 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Frumious%2520Bandersnatch.html">Frumious Bandersnatch</a></td>
+    <td><a href="../teams/teams%3Fteam=Frumious%2520Bandersnatch.html">Frumious Bandersnatch</a></td>
     <td>Mar 23, 11:53</td>
     <td>13h32m</td>
     <td>Mar 24, 01:26</td>
@@ -4508,151 +4508,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1443.251012 1
-        
+
         L 1443.251012 2
         L 5579.855151 2
-        
+
         L 5579.855151 3
         L 10178.240887 3
-        
+
         L 10178.240887 4
         L 12378.156316 4
-        
+
         L 12378.156316 5
         L 13357.001142 5
-        
+
         L 13357.001142 6
         L 18960.348384 6
-        
+
         L 18960.348384 7
         L 20040.833174 7
-        
+
         L 20040.833174 8
         L 23166.93456 8
-        
+
         L 23166.93456 9
         L 29172.484966 9
-        
+
         L 29172.484966 10
         L 30002.810544 10
-        
+
         L 30002.810544 11
         L 32190.349532 11
-        
+
         L 32190.349532 12
         L 57611.181404 12
-        
+
         L 57611.181404 13
         L 70100.597378 13
-        
+
         L 70100.597378 14
         L 79403.160726 14
-        
+
         L 79403.160726 15
         L 87083.720897 15
-        
+
         L 87083.720897 16
         L 87526.558609 16
-        
+
         L 87526.558609 17
         L 91213.869496 17
-        
+
         L 91213.869496 18
         L 124990.670116 18
-        
+
         L 124990.670116 19
         L 146281.686776 19
-        
+
         L 146281.686776 20
         L 184057.120937 20
-        
+
         L 184057.120937 21
         L 189507.521118 21
-        
+
         L 189507.521118 22
         L 205169.933217 22
-        
+
         L 205169.933217 23
         L 239509.446104 23
-        
+
         L 239509.446104 24
         L 242461.918945 24
-        
+
         L 242461.918945 25
         L 270392.750743 25
-        
+
         L 270392.750743 26
         L 282392.078435 26
-        
+
         L 282392.078435 27
         L 316153.768024 27
-        
+
         L 316153.768024 28
         L 353860.58131 28
-        
+
         L 353860.58131 29
         L 378985.139261 29
-        
+
         L 378985.139261 30
         L 454480.128636 30
-        
+
         L 454480.128636 31
         L 456125.550852 31
-        
+
         L 456125.550852 32
         L 458134.732636 32
-        
+
         L 458134.732636 33
         L 458887.004335 33
-        
+
         L 458887.004335 34
         L 458935.697559 34
-        
+
         L 458935.697559 35
         L 461263.555168 35
-        
+
         L 461263.555168 36
         L 461467.359809 36
-        
+
         L 461467.359809 37
         L 471313.591858 37
-        
+
         L 471313.591858 38
         L 471701.083305 38
-        
+
         L 471701.083305 39
         L 592769.82946 39
-        
+
         L 592769.82946 40
         L 593553.987193 40
-        
+
         L 593553.987193 41
         L 641540.739698 41
-        
+
         L 641540.739698 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 32190.349532 0 L 32190.349532 41" class="bar"></path>
-        
+
         <path d="M 461263.555168 0 L 461263.555168 41" class="bar"></path>
-        
+
         <path d="M 471701.083305 0 L 471701.083305 41" class="bar"></path>
-        
+
         <path d="M 592769.82946 0 L 592769.82946 41" class="bar"></path>
-        
+
         <path d="M 641540.739698 0 L 641540.739698 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=howthecookiecrumbles.html">howthecookiecrumbles</a></td>
+    <td><a href="../teams/teams%3Fteam=howthecookiecrumbles.html">howthecookiecrumbles</a></td>
     <td>Mar 24, 00:32</td>
     <td>3h10m</td>
     <td>Mar 24, 03:43</td>
@@ -4661,151 +4661,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 976.228044 1
-        
+
         L 976.228044 2
         L 6265.105573 2
-        
+
         L 6265.105573 3
         L 9227.084895 3
-        
+
         L 9227.084895 4
         L 14274.077461 4
-        
+
         L 14274.077461 5
         L 15818.190385 5
-        
+
         L 15818.190385 6
         L 20482.406532 6
-        
+
         L 20482.406532 7
         L 23145.788469 7
-        
+
         L 23145.788469 8
         L 29032.461108 8
-        
+
         L 29032.461108 9
         L 33950.301053 9
-        
+
         L 33950.301053 10
         L 36291.715 10
-        
+
         L 36291.715 11
         L 38986.737153 11
-        
+
         L 38986.737153 12
         L 42337.242677 12
-        
+
         L 42337.242677 13
         L 74280.407817 13
-        
+
         L 74280.407817 14
         L 110430.228183 14
-        
+
         L 110430.228183 15
         L 120137.995356 15
-        
+
         L 120137.995356 16
         L 232131.305096 16
-        
+
         L 232131.305096 17
         L 255990.147991 17
-        
+
         L 255990.147991 18
         L 265021.539245 18
-        
+
         L 265021.539245 19
         L 269127.080354 19
-        
+
         L 269127.080354 20
         L 272801.787101 20
-        
+
         L 272801.787101 21
         L 279801.836494 21
-        
+
         L 279801.836494 22
         L 286215.382082 22
-        
+
         L 286215.382082 23
         L 297436.289484 23
-        
+
         L 297436.289484 24
         L 300955.08593 24
-        
+
         L 300955.08593 25
         L 312726.503804 25
-        
+
         L 312726.503804 26
         L 358333.636547 26
-        
+
         L 358333.636547 27
         L 378985.947766 27
-        
+
         L 378985.947766 28
         L 384049.783884 28
-        
+
         L 384049.783884 29
         L 396225.140689 29
-        
+
         L 396225.140689 30
         L 444429.17627 30
-        
+
         L 444429.17627 31
         L 449172.585194 31
-        
+
         L 449172.585194 32
         L 469270.3384 32
-        
+
         L 469270.3384 33
         L 471034.841564 33
-        
+
         L 471034.841564 34
         L 549707.698974 34
-        
+
         L 549707.698974 35
         L 602877.593819 35
-        
+
         L 602877.593819 36
         L 604814.062207 36
-        
+
         L 604814.062207 37
         L 605098.099666 37
-        
+
         L 605098.099666 38
         L 605213.182337 38
-        
+
         L 605213.182337 39
         L 638318.660816 39
-        
+
         L 638318.660816 40
         L 638583.43275 40
-        
+
         L 638583.43275 41
         L 649756.621351 41
-        
+
         L 649756.621351 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 38986.737153 0 L 38986.737153 41" class="bar"></path>
-        
+
         <path d="M 471034.841564 0 L 471034.841564 41" class="bar"></path>
-        
+
         <path d="M 604814.062207 0 L 604814.062207 41" class="bar"></path>
-        
+
         <path d="M 638318.660816 0 L 638318.660816 41" class="bar"></path>
-        
+
         <path d="M 649756.621351 0 L 649756.621351 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=ET%2520Phone%2520in%2520Answer.html">ET Phone in Answer</a></td>
+    <td><a href="../teams/teams%3Fteam=ET%2520Phone%2520in%2520Answer.html">ET Phone in Answer</a></td>
     <td>Mar 22, 23:49</td>
     <td>28h25m</td>
     <td>Mar 24, 04:14</td>
@@ -4814,151 +4814,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 2055.080099 1
-        
+
         L 2055.080099 2
         L 3379.804539 2
-        
+
         L 3379.804539 3
         L 4353.237806 3
-        
+
         L 4353.237806 4
         L 7606.357028 4
-        
+
         L 7606.357028 5
         L 8145.271957 5
-        
+
         L 8145.271957 6
         L 9317.05604 6
-        
+
         L 9317.05604 7
         L 12105.787737 7
-        
+
         L 12105.787737 8
         L 12905.716239 8
-        
+
         L 12905.716239 9
         L 15084.866796 9
-        
+
         L 15084.866796 10
         L 16018.353238 10
-        
+
         L 16018.353238 11
         L 17443.083647 11
-        
+
         L 17443.083647 12
         L 18157.129066 12
-        
+
         L 18157.129066 13
         L 19540.970965 13
-        
+
         L 19540.970965 14
         L 19631.569165 14
-        
+
         L 19631.569165 15
         L 100911.143742 15
-        
+
         L 100911.143742 16
         L 113414.635425 16
-        
+
         L 113414.635425 17
         L 126314.20748 17
-        
+
         L 126314.20748 18
         L 133240.882438 18
-        
+
         L 133240.882438 19
         L 172289.14631 19
-        
+
         L 172289.14631 20
         L 178653.656534 20
-        
+
         L 178653.656534 21
         L 188159.688553 21
-        
+
         L 188159.688553 22
         L 209833.397767 22
-        
+
         L 209833.397767 23
         L 253644.074822 23
-        
+
         L 253644.074822 24
         L 261037.047086 24
-        
+
         L 261037.047086 25
         L 266934.141045 25
-        
+
         L 266934.141045 26
         L 267703.508224 26
-        
+
         L 267703.508224 27
         L 273183.860181 27
-        
+
         L 273183.860181 28
         L 275973.276941 28
-        
+
         L 275973.276941 29
         L 290070.208454 29
-        
+
         L 290070.208454 30
         L 293673.697106 30
-        
+
         L 293673.697106 31
         L 297499.35966 31
-        
+
         L 297499.35966 32
         L 298848.507786 32
-        
+
         L 298848.507786 33
         L 303180.417119 33
-        
+
         L 303180.417119 34
         L 378975.252937 34
-        
+
         L 378975.252937 35
         L 380515.678751 35
-        
+
         L 380515.678751 36
         L 429431.199827 36
-        
+
         L 429431.199827 37
         L 429606.351729 37
-        
+
         L 429606.351729 38
         L 467324.351149 38
-        
+
         L 467324.351149 39
         L 534960.155225 39
-        
+
         L 534960.155225 40
         L 549323.646876 40
-        
+
         L 549323.646876 41
         L 651647.346488 41
-        
+
         L 651647.346488 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 17443.083647 0 L 17443.083647 41" class="bar"></path>
-        
+
         <path d="M 303180.417119 0 L 303180.417119 41" class="bar"></path>
-        
+
         <path d="M 429606.351729 0 L 429606.351729 41" class="bar"></path>
-        
+
         <path d="M 549323.646876 0 L 549323.646876 41" class="bar"></path>
-        
+
         <path d="M 651647.346488 0 L 651647.346488 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=The%2520Judean%2520GNUs.html">The Judean GNUs</a></td>
+    <td><a href="../teams/teams%3Fteam=The%2520Judean%2520GNUs.html">The Judean GNUs</a></td>
     <td>Mar 22, 18:58</td>
     <td>48h23m</td>
     <td>Mar 24, 19:21</td>
@@ -4967,142 +4967,142 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1138.87664 1
-        
+
         L 1138.87664 2
         L 2386.968508 2
-        
+
         L 2386.968508 3
         L 2636.566329 3
-        
+
         L 2636.566329 4
         L 5662.245709 4
-        
+
         L 5662.245709 5
         L 7366.483639 5
-        
+
         L 7366.483639 6
         L 8075.372917 6
-        
+
         L 8075.372917 7
         L 9911.552397 7
-        
+
         L 9911.552397 8
         L 18095.676055 8
-        
+
         L 18095.676055 9
         L 19421.439547 9
-        
+
         L 19421.439547 10
         L 20863.019095 10
-        
+
         L 20863.019095 11
         L 24342.861223 11
-        
+
         L 24342.861223 12
         L 29587.060014 12
-        
+
         L 29587.060014 13
         L 33386.581557 13
-        
+
         L 33386.581557 14
         L 57263.014935 14
-        
+
         L 57263.014935 15
         L 95929.871299 15
-        
+
         L 95929.871299 16
         L 103071.771359 16
-        
+
         L 103071.771359 17
         L 112271.373612 17
-        
+
         L 112271.373612 18
         L 122762.470802 18
-        
+
         L 122762.470802 19
         L 144803.249989 19
-        
+
         L 144803.249989 20
         L 148101.680663 20
-        
+
         L 148101.680663 21
         L 183778.900491 21
-        
+
         L 183778.900491 22
         L 185177.528681 22
-        
+
         L 185177.528681 23
         L 211143.727954 23
-        
+
         L 211143.727954 24
         L 217148.587265 24
-        
+
         L 217148.587265 25
         L 222458.038366 25
-        
+
         L 222458.038366 26
         L 269158.10393 26
-        
+
         L 269158.10393 27
         L 275405.635419 27
-        
+
         L 275405.635419 28
         L 290577.632343 28
-        
+
         L 290577.632343 29
         L 304536.854476 29
-        
+
         L 304536.854476 30
         L 306091.321303 30
-        
+
         L 306091.321303 31
         L 342622.246921 31
-        
+
         L 342622.246921 32
         L 353317.167425 32
-        
+
         L 353317.167425 33
         L 444453.873277 33
-        
+
         L 444453.873277 34
         L 448095.936107 34
-        
+
         L 448095.936107 35
         L 511867.061402 35
-        
+
         L 511867.061402 36
         L 518031.256471 36
-        
+
         L 518031.256471 37
         L 531854.162285 37
-        
+
         L 531854.162285 38
         L 706055.959378 38
-        
+
         L 706055.959378 39
         L 820800.0 39
-        
+
         " class="area"></path>
-        
+
         <path d="M 24342.861223 0 L 24342.861223 41" class="bar"></path>
-        
+
         <path d="M 448095.936107 0 L 448095.936107 41" class="bar"></path>
-        
+
         <path d="M 518031.256471 0 L 518031.256471 41" class="bar"></path>
-        
+
         <path d="M 531854.162285 0 L 531854.162285 41" class="bar"></path>
-        
+
         <path d="M 706055.959378 0 L 706055.959378 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=%25F0%259F%2590%2595%2520w%2520%25F0%259F%2590%2595%2520o%2520%25F0%259F%2590%2595%2520o%2520%25F0%259F%2590%2595%2520f%2520%25F0%259F%2590%2595.html">🐕 w 🐕 o 🐕 o 🐕 f 🐕</a></td>
+    <td><a href="../teams/teams%3Fteam=%25F0%259F%2590%2595%2520w%2520%25F0%259F%2590%2595%2520o%2520%25F0%259F%2590%2595%2520o%2520%25F0%259F%2590%2595%2520f%2520%25F0%259F%2590%2595.html">🐕 w 🐕 o 🐕 o 🐕 f 🐕</a></td>
     <td>Mar 24, 21:39</td>
     <td>6h1m</td>
     <td>Mar 25, 03:41</td>
@@ -5111,151 +5111,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 666.660149 1
-        
+
         L 666.660149 2
         L 3168.471964 2
-        
+
         L 3168.471964 3
         L 3325.530758 3
-        
+
         L 3325.530758 4
         L 3333.239802 4
-        
+
         L 3333.239802 5
         L 7347.031986 5
-        
+
         L 7347.031986 6
         L 12743.142665 6
-        
+
         L 12743.142665 7
         L 16474.642916 7
-        
+
         L 16474.642916 8
         L 18327.254795 8
-        
+
         L 18327.254795 9
         L 19621.934186 9
-        
+
         L 19621.934186 10
         L 21405.622115 10
-        
+
         L 21405.622115 11
         L 28947.357331 11
-        
+
         L 28947.357331 12
         L 29619.106064 12
-        
+
         L 29619.106064 13
         L 34930.573151 13
-        
+
         L 34930.573151 14
         L 39835.670554 14
-        
+
         L 39835.670554 15
         L 94525.834917 15
-        
+
         L 94525.834917 16
         L 131634.140517 16
-        
+
         L 131634.140517 17
         L 139325.79745 17
-        
+
         L 139325.79745 18
         L 269080.367816 18
-        
+
         L 269080.367816 19
         L 292251.821862 19
-        
+
         L 292251.821862 20
         L 297290.081319 20
-        
+
         L 297290.081319 21
         L 357307.921188 21
-        
+
         L 357307.921188 22
         L 383605.247565 22
-        
+
         L 383605.247565 23
         L 389138.479555 23
-        
+
         L 389138.479555 24
         L 402653.975764 24
-        
+
         L 402653.975764 25
         L 403216.972592 25
-        
+
         L 403216.972592 26
         L 459220.509514 26
-        
+
         L 459220.509514 27
         L 464865.583255 27
-        
+
         L 464865.583255 28
         L 538471.091248 28
-        
+
         L 538471.091248 29
         L 561425.143972 29
-        
+
         L 561425.143972 30
         L 562553.114311 30
-        
+
         L 562553.114311 31
         L 564398.244569 31
-        
+
         L 564398.244569 32
         L 569194.417208 32
-        
+
         L 569194.417208 33
         L 600515.076366 33
-        
+
         L 600515.076366 34
         L 601243.450266 34
-        
+
         L 601243.450266 35
         L 601658.665621 35
-        
+
         L 601658.665621 36
         L 651795.107746 36
-        
+
         L 651795.107746 37
         L 653070.457475 37
-        
+
         L 653070.457475 38
         L 714317.028146 38
-        
+
         L 714317.028146 39
         L 715073.910303 39
-        
+
         L 715073.910303 40
         L 715108.860416 40
-        
+
         L 715108.860416 41
         L 736032.856813 41
-        
+
         L 736032.856813 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 28947.357331 0 L 28947.357331 41" class="bar"></path>
-        
+
         <path d="M 601658.665621 0 L 601658.665621 41" class="bar"></path>
-        
+
         <path d="M 651795.107746 0 L 651795.107746 41" class="bar"></path>
-        
+
         <path d="M 714317.028146 0 L 714317.028146 41" class="bar"></path>
-        
+
         <path d="M 736032.856813 0 L 736032.856813 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=WIT.html">WIT</a></td>
+    <td><a href="../teams/teams%3Fteam=WIT.html">WIT</a></td>
     <td>Mar 24, 23:21</td>
     <td>5h58m</td>
     <td>Mar 25, 05:19</td>
@@ -5264,151 +5264,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 9951.751049 1
-        
+
         L 9951.751049 2
         L 12536.191957 2
-        
+
         L 12536.191957 3
         L 15277.418433 3
-        
+
         L 15277.418433 4
         L 22920.395188 4
-        
+
         L 22920.395188 5
         L 23899.46422 5
-        
+
         L 23899.46422 6
         L 27137.993552 6
-        
+
         L 27137.993552 7
         L 119620.626109 7
-        
+
         L 119620.626109 8
         L 124577.895024 8
-        
+
         L 124577.895024 9
         L 130403.446269 9
-        
+
         L 130403.446269 10
         L 134043.720798 10
-        
+
         L 134043.720798 11
         L 167432.26998 11
-        
+
         L 167432.26998 12
         L 174055.152727 12
-        
+
         L 174055.152727 13
         L 180472.01606 13
-        
+
         L 180472.01606 14
         L 187220.645316 14
-        
+
         L 187220.645316 15
         L 195311.447997 15
-        
+
         L 195311.447997 16
         L 214968.770668 16
-        
+
         L 214968.770668 17
         L 353171.566565 17
-        
+
         L 353171.566565 18
         L 358293.968281 18
-        
+
         L 358293.968281 19
         L 374443.113714 19
-        
+
         L 374443.113714 20
         L 381574.360421 20
-        
+
         L 381574.360421 21
         L 387932.872377 21
-        
+
         L 387932.872377 22
         L 401742.828616 22
-        
+
         L 401742.828616 23
         L 430029.19924 23
-        
+
         L 430029.19924 24
         L 454694.648767 24
-        
+
         L 454694.648767 25
         L 470407.376537 25
-        
+
         L 470407.376537 26
         L 473009.507756 26
-        
+
         L 473009.507756 27
         L 495702.898572 27
-        
+
         L 495702.898572 28
         L 559329.102672 28
-        
+
         L 559329.102672 29
         L 640971.144477 29
-        
+
         L 640971.144477 30
         L 646230.387688 30
-        
+
         L 646230.387688 31
         L 654026.09571 31
-        
+
         L 654026.09571 32
         L 659831.190398 32
-        
+
         L 659831.190398 33
         L 660716.034677 33
-        
+
         L 660716.034677 34
         L 665742.141885 34
-        
+
         L 665742.141885 35
         L 703521.29979 35
-        
+
         L 703521.29979 36
         L 709062.042428 36
-        
+
         L 709062.042428 37
         L 712182.450866 37
-        
+
         L 712182.450866 38
         L 716491.692125 38
-        
+
         L 716491.692125 39
         L 720446.160076 39
-        
+
         L 720446.160076 40
         L 720560.195042 40
-        
+
         L 720560.195042 41
         L 741958.886282 41
-        
+
         L 741958.886282 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 180472.01606 0 L 180472.01606 41" class="bar"></path>
-        
+
         <path d="M 703521.29979 0 L 703521.29979 41" class="bar"></path>
-        
+
         <path d="M 716491.692125 0 L 716491.692125 41" class="bar"></path>
-        
+
         <path d="M 720446.160076 0 L 720446.160076 41" class="bar"></path>
-        
+
         <path d="M 741958.886282 0 L 741958.886282 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=The%2520Magpie.html">The Magpie</a></td>
+    <td><a href="../teams/teams%3Fteam=The%2520Magpie.html">The Magpie</a></td>
     <td>Mar 23, 20:27</td>
     <td>35h26m</td>
     <td>Mar 25, 07:54</td>
@@ -5417,151 +5417,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1193.777777 1
-        
+
         L 1193.777777 2
         L 2776.230222 2
-        
+
         L 2776.230222 3
         L 4703.385239 3
-        
+
         L 4703.385239 4
         L 9581.95833 4
-        
+
         L 9581.95833 5
         L 12068.387874 5
-        
+
         L 12068.387874 6
         L 16521.642134 6
-        
+
         L 16521.642134 7
         L 51040.961706 7
-        
+
         L 51040.961706 8
         L 55433.486086 8
-        
+
         L 55433.486086 9
         L 60107.762111 9
-        
+
         L 60107.762111 10
         L 62041.374664 10
-        
+
         L 62041.374664 11
         L 64353.546363 11
-        
+
         L 64353.546363 12
         L 67892.012566 12
-        
+
         L 67892.012566 13
         L 76512.448766 13
-        
+
         L 76512.448766 14
         L 79898.896412 14
-        
+
         L 79898.896412 15
         L 150666.400817 15
-        
+
         L 150666.400817 16
         L 163759.517164 16
-        
+
         L 163759.517164 17
         L 193062.950461 17
-        
+
         L 193062.950461 18
         L 215761.840522 18
-        
+
         L 215761.840522 19
         L 241010.239385 19
-        
+
         L 241010.239385 20
         L 248685.8563 20
-        
+
         L 248685.8563 21
         L 273699.241344 21
-        
+
         L 273699.241344 22
         L 305552.691652 22
-        
+
         L 305552.691652 23
         L 314932.554543 23
-        
+
         L 314932.554543 24
         L 332036.623355 24
-        
+
         L 332036.623355 25
         L 353685.223462 25
-        
+
         L 353685.223462 26
         L 404126.975021 26
-        
+
         L 404126.975021 27
         L 414214.67261 27
-        
+
         L 414214.67261 28
         L 423525.947846 28
-        
+
         L 423525.947846 29
         L 448316.722086 29
-        
+
         L 448316.722086 30
         L 457110.33873 30
-        
+
         L 457110.33873 31
         L 484004.487063 31
-        
+
         L 484004.487063 32
         L 486559.56275 32
-        
+
         L 486559.56275 33
         L 487771.902451 33
-        
+
         L 487771.902451 34
         L 515458.912313 34
-        
+
         L 515458.912313 35
         L 615820.536384 35
-        
+
         L 615820.536384 36
         L 621817.016349 36
-        
+
         L 621817.016349 37
         L 623630.402562 37
-        
+
         L 623630.402562 38
         L 623919.510017 38
-        
+
         L 623919.510017 39
         L 658149.539088 39
-        
+
         L 658149.539088 40
         L 751215.130596 40
-        
+
         L 751215.130596 41
         L 758899.895868 41
-        
+
         L 758899.895868 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 76512.448766 0 L 76512.448766 41" class="bar"></path>
-        
+
         <path d="M 487771.902451 0 L 487771.902451 41" class="bar"></path>
-        
+
         <path d="M 621817.016349 0 L 621817.016349 41" class="bar"></path>
-        
+
         <path d="M 623630.402562 0 L 623630.402562 41" class="bar"></path>
-        
+
         <path d="M 751215.130596 0 L 751215.130596 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Hobnoblins.html">Hobnoblins</a></td>
+    <td><a href="../teams/teams%3Fteam=Hobnoblins.html">Hobnoblins</a></td>
     <td>Mar 25, 10:42</td>
     <td>5h51m</td>
     <td>Mar 25, 16:33</td>
@@ -5570,145 +5570,145 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1934.592785 1
-        
+
         L 1934.592785 2
         L 3625.944832 2
-        
+
         L 3625.944832 3
         L 8330.803621 3
-        
+
         L 8330.803621 4
         L 8610.198936 4
-        
+
         L 8610.198936 5
         L 9062.322983 5
-        
+
         L 9062.322983 6
         L 9893.866231 6
-        
+
         L 9893.866231 7
         L 12293.364864 7
-        
+
         L 12293.364864 8
         L 13218.75937 8
-        
+
         L 13218.75937 9
         L 17603.005801 9
-        
+
         L 17603.005801 10
         L 18619.424339 10
-        
+
         L 18619.424339 11
         L 21921.639382 11
-        
+
         L 21921.639382 12
         L 57092.531083 12
-        
+
         L 57092.531083 13
         L 63333.925399 13
-        
+
         L 63333.925399 14
         L 64219.558639 14
-        
+
         L 64219.558639 15
         L 90756.130323 15
-        
+
         L 90756.130323 16
         L 96929.791476 16
-        
+
         L 96929.791476 17
         L 107287.694056 17
-        
+
         L 107287.694056 18
         L 108860.170137 18
-        
+
         L 108860.170137 19
         L 139544.55363 19
-        
+
         L 139544.55363 20
         L 148442.565174 20
-        
+
         L 148442.565174 21
         L 160758.271394 21
-        
+
         L 160758.271394 22
         L 164178.976089 22
-        
+
         L 164178.976089 23
         L 261207.903496 23
-        
+
         L 261207.903496 24
         L 269471.680882 24
-        
+
         L 269471.680882 25
         L 278701.295507 25
-        
+
         L 278701.295507 26
         L 309016.496931 26
-        
+
         L 309016.496931 27
         L 407990.422488 27
-        
+
         L 407990.422488 28
         L 445376.253516 28
-        
+
         L 445376.253516 29
         L 568359.232869 29
-        
+
         L 568359.232869 30
         L 568657.824449 30
-        
+
         L 568657.824449 31
         L 569337.076053 31
-        
+
         L 569337.076053 32
         L 660612.885756 32
-        
+
         L 660612.885756 33
         L 662355.099608 33
-        
+
         L 662355.099608 34
         L 698487.110751 34
-        
+
         L 698487.110751 35
         L 753143.723023 35
-        
+
         L 753143.723023 36
         L 758188.856084 36
-        
+
         L 758188.856084 37
         L 761309.300627 37
-        
+
         L 761309.300627 38
         L 762890.312796 38
-        
+
         L 762890.312796 39
         L 782394.215723 39
-        
+
         L 782394.215723 40
         L 820800.0 40
-        
+
         " class="area"></path>
-        
+
         <path d="M 21921.639382 0 L 21921.639382 41" class="bar"></path>
-        
+
         <path d="M 662355.099608 0 L 662355.099608 41" class="bar"></path>
-        
+
         <path d="M 758188.856084 0 L 758188.856084 41" class="bar"></path>
-        
+
         <path d="M 761309.300627 0 L 761309.300627 41" class="bar"></path>
-        
+
         <path d="M 782394.215723 0 L 782394.215723 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Dinosheep.html">Dinosheep</a></td>
+    <td><a href="../teams/teams%3Fteam=Dinosheep.html">Dinosheep</a></td>
     <td>Mar 25, 00:15</td>
     <td>17h12m</td>
     <td>Mar 25, 17:27</td>
@@ -5717,151 +5717,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1952.115849 1
-        
+
         L 1952.115849 2
         L 9620.473827 2
-        
+
         L 9620.473827 3
         L 10322.55091 3
-        
+
         L 10322.55091 4
         L 13625.385952 4
-        
+
         L 13625.385952 5
         L 33333.920181 5
-        
+
         L 33333.920181 6
         L 36329.572949 6
-        
+
         L 36329.572949 7
         L 104329.499993 7
-        
+
         L 104329.499993 8
         L 120178.261842 8
-        
+
         L 120178.261842 9
         L 124026.166068 9
-        
+
         L 124026.166068 10
         L 124462.716887 10
-        
+
         L 124462.716887 11
         L 159714.144609 11
-        
+
         L 159714.144609 12
         L 169976.097723 12
-        
+
         L 169976.097723 13
         L 254104.347728 13
-        
+
         L 254104.347728 14
         L 259160.091365 14
-        
+
         L 259160.091365 15
         L 264574.039717 15
-        
+
         L 264574.039717 16
         L 330811.039319 16
-        
+
         L 330811.039319 17
         L 334171.848095 17
-        
+
         L 334171.848095 18
         L 336316.779706 18
-        
+
         L 336316.779706 19
         L 360144.131131 19
-        
+
         L 360144.131131 20
         L 375173.785826 20
-        
+
         L 375173.785826 21
         L 452858.360764 21
-        
+
         L 452858.360764 22
         L 462190.638499 22
-        
+
         L 462190.638499 23
         L 524418.44765 23
-        
+
         L 524418.44765 24
         L 555982.459756 24
-        
+
         L 555982.459756 25
         L 559532.670089 25
-        
+
         L 559532.670089 26
         L 590791.066317 26
-        
+
         L 590791.066317 27
         L 610132.456567 27
-        
+
         L 610132.456567 28
         L 613748.240011 28
-        
+
         L 613748.240011 29
         L 619855.60864 29
-        
+
         L 619855.60864 30
         L 622158.448037 30
-        
+
         L 622158.448037 31
         L 636688.953614 31
-        
+
         L 636688.953614 32
         L 693257.089774 32
-        
+
         L 693257.089774 33
         L 696562.638086 33
-        
+
         L 696562.638086 34
         L 698563.990752 34
-        
+
         L 698563.990752 35
         L 717352.967854 35
-        
+
         L 717352.967854 36
         L 720078.272991 36
-        
+
         L 720078.272991 37
         L 723697.963239 37
-        
+
         L 723697.963239 38
         L 723968.086715 38
-        
+
         L 723968.086715 39
         L 724457.370439 39
-        
+
         L 724457.370439 40
         L 725876.80811 40
-        
+
         L 725876.80811 41
         L 785639.39346 41
-        
+
         L 785639.39346 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 159714.144609 0 L 159714.144609 41" class="bar"></path>
-        
+
         <path d="M 717352.967854 0 L 717352.967854 41" class="bar"></path>
-        
+
         <path d="M 720078.272991 0 L 720078.272991 41" class="bar"></path>
-        
+
         <path d="M 723697.963239 0 L 723697.963239 41" class="bar"></path>
-        
+
         <path d="M 785639.39346 0 L 785639.39346 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Crazed%2520Adventuring%2520Team%2520of%2520Squirrels.html">Crazed Adventuring Team of Squirrels</a></td>
+    <td><a href="../teams/teams%3Fteam=Crazed%2520Adventuring%2520Team%2520of%2520Squirrels.html">Crazed Adventuring Team of Squirrels</a></td>
     <td>Mar 25, 03:58</td>
     <td>16h36m</td>
     <td>Mar 25, 20:35</td>
@@ -5870,151 +5870,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 1580.70412 1
-        
+
         L 1580.70412 2
         L 2873.029715 2
-        
+
         L 2873.029715 3
         L 4795.446557 3
-        
+
         L 4795.446557 4
         L 7674.10694 4
-        
+
         L 7674.10694 5
         L 8054.906162 5
-        
+
         L 8054.906162 6
         L 15280.776314 6
-        
+
         L 15280.776314 7
         L 20256.496364 7
-        
+
         L 20256.496364 8
         L 23290.464214 8
-        
+
         L 23290.464214 9
         L 23420.903478 9
-        
+
         L 23420.903478 10
         L 28932.327789 10
-        
+
         L 28932.327789 11
         L 34705.203109 11
-        
+
         L 34705.203109 12
         L 35047.978195 12
-        
+
         L 35047.978195 13
         L 35439.323395 13
-        
+
         L 35439.323395 14
         L 49313.870604 14
-        
+
         L 49313.870604 15
         L 90199.530424 15
-        
+
         L 90199.530424 16
         L 108199.582738 16
-        
+
         L 108199.582738 17
         L 115169.527015 17
-        
+
         L 115169.527015 18
         L 125267.904753 18
-        
+
         L 125267.904753 19
         L 189720.009668 19
-        
+
         L 189720.009668 20
         L 259042.9545 20
-        
+
         L 259042.9545 21
         L 290235.021579 21
-        
+
         L 290235.021579 22
         L 313637.714209 22
-        
+
         L 313637.714209 23
         L 431090.04608 23
-        
+
         L 431090.04608 24
         L 436404.910953 24
-        
+
         L 436404.910953 25
         L 442738.906877 25
-        
+
         L 442738.906877 26
         L 462323.13539 26
-        
+
         L 462323.13539 27
         L 467147.405712 27
-        
+
         L 467147.405712 28
         L 471793.80298 28
-        
+
         L 471793.80298 29
         L 551556.152208 29
-        
+
         L 551556.152208 30
         L 596557.297411 30
-        
+
         L 596557.297411 31
         L 599388.747349 31
-        
+
         L 599388.747349 32
         L 613343.810719 32
-        
+
         L 613343.810719 33
         L 629562.172056 33
-        
+
         L 629562.172056 34
         L 634640.114505 34
-        
+
         L 634640.114505 35
         L 635239.616487 35
-        
+
         L 635239.616487 36
         L 652473.428796 36
-        
+
         L 652473.428796 37
         L 679096.130237 37
-        
+
         L 679096.130237 38
         L 688346.835615 38
-        
+
         L 688346.835615 39
         L 737044.671341 39
-        
+
         L 737044.671341 40
         L 737775.33853 40
-        
+
         L 737775.33853 41
         L 796860.059364 41
-        
+
         L 796860.059364 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 35047.978195 0 L 35047.978195 41" class="bar"></path>
-        
+
         <path d="M 635239.616487 0 L 635239.616487 41" class="bar"></path>
-        
+
         <path d="M 652473.428796 0 L 652473.428796 41" class="bar"></path>
-        
+
         <path d="M 737044.671341 0 L 737044.671341 41" class="bar"></path>
-        
+
         <path d="M 796860.059364 0 L 796860.059364 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=oATMEal%2520raisin.html">oATMEal raisin</a></td>
+    <td><a href="../teams/teams%3Fteam=oATMEal%2520raisin.html">oATMEal raisin</a></td>
     <td>Mar 25, 18:02</td>
     <td>4h39m</td>
     <td>Mar 25, 22:42</td>
@@ -6023,142 +6023,142 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 3892.336941 1
-        
+
         L 3892.336941 2
         L 5522.717634 2
-        
+
         L 5522.717634 3
         L 6656.977846 3
-        
+
         L 6656.977846 4
         L 6752.602551 4
-        
+
         L 6752.602551 5
         L 30806.742759 5
-        
+
         L 30806.742759 6
         L 39305.529094 6
-        
+
         L 39305.529094 7
         L 68567.761647 7
-        
+
         L 68567.761647 8
         L 109117.454815 8
-        
+
         L 109117.454815 9
         L 111645.761897 9
-        
+
         L 111645.761897 10
         L 113239.58498 10
-        
+
         L 113239.58498 11
         L 115944.820697 11
-        
+
         L 115944.820697 12
         L 116736.347864 12
-        
+
         L 116736.347864 13
         L 118671.441047 13
-        
+
         L 118671.441047 14
         L 143202.698133 14
-        
+
         L 143202.698133 15
         L 175710.412098 15
-        
+
         L 175710.412098 16
         L 189679.764235 16
-        
+
         L 189679.764235 17
         L 196368.772482 17
-        
+
         L 196368.772482 18
         L 198665.760077 18
-        
+
         L 198665.760077 19
         L 202976.846771 19
-        
+
         L 202976.846771 20
         L 209390.706253 20
-        
+
         L 209390.706253 21
         L 261880.413523 21
-        
+
         L 261880.413523 22
         L 296340.963773 22
-        
+
         L 296340.963773 23
         L 300827.480838 23
-        
+
         L 300827.480838 24
         L 308679.65343 24
-        
+
         L 308679.65343 25
         L 347311.953054 25
-        
+
         L 347311.953054 26
         L 352838.620338 26
-        
+
         L 352838.620338 27
         L 372915.646224 27
-        
+
         L 372915.646224 28
         L 376606.543717 28
-        
+
         L 376606.543717 29
         L 379018.524523 29
-        
+
         L 379018.524523 30
         L 382091.880089 30
-        
+
         L 382091.880089 31
         L 383329.278408 31
-        
+
         L 383329.278408 32
         L 438017.664951 32
-        
+
         L 438017.664951 33
         L 473914.910633 33
-        
+
         L 473914.910633 34
         L 557389.313991 34
-        
+
         L 557389.313991 35
         L 722384.724023 35
-        
+
         L 722384.724023 36
         L 787724.920093 36
-        
+
         L 787724.920093 37
         L 788068.211929 37
-        
+
         L 788068.211929 38
         L 804502.771174 38
-        
+
         L 804502.771174 39
         L 820800.0 39
-        
+
         " class="area"></path>
-        
+
         <path d="M 115944.820697 0 L 115944.820697 41" class="bar"></path>
-        
+
         <path d="M 473914.910633 0 L 473914.910633 41" class="bar"></path>
-        
+
         <path d="M 557389.313991 0 L 557389.313991 41" class="bar"></path>
-        
+
         <path d="M 787724.920093 0 L 787724.920093 41" class="bar"></path>
-        
+
         <path d="M 804502.771174 0 L 804502.771174 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=barbara%2520kingsolver.html">barbara kingsolver</a></td>
+    <td><a href="../teams/teams%3Fteam=barbara%2520kingsolver.html">barbara kingsolver</a></td>
     <td>Mar 25, 19:01</td>
     <td>3h41m</td>
     <td>Mar 25, 22:42</td>
@@ -6167,148 +6167,148 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 2589.159598 1
-        
+
         L 2589.159598 2
         L 19064.154126 2
-        
+
         L 19064.154126 3
         L 20891.421353 3
-        
+
         L 20891.421353 4
         L 21026.80108 4
-        
+
         L 21026.80108 5
         L 23914.734444 5
-        
+
         L 23914.734444 6
         L 24847.683564 6
-        
+
         L 24847.683564 7
         L 27020.58293 7
-        
+
         L 27020.58293 8
         L 42460.076393 8
-        
+
         L 42460.076393 9
         L 48151.619322 9
-        
+
         L 48151.619322 10
         L 109033.179197 10
-        
+
         L 109033.179197 11
         L 110542.557009 11
-        
+
         L 110542.557009 12
         L 111986.666883 12
-        
+
         L 111986.666883 13
         L 117904.277124 13
-        
+
         L 117904.277124 14
         L 122806.445831 14
-        
+
         L 122806.445831 15
         L 131366.53233 15
-        
+
         L 131366.53233 16
         L 131748.938478 16
-        
+
         L 131748.938478 17
         L 133028.664982 17
-        
+
         L 133028.664982 18
         L 135702.836295 18
-        
+
         L 135702.836295 19
         L 196293.279632 19
-        
+
         L 196293.279632 20
         L 201727.8491 20
-        
+
         L 201727.8491 21
         L 203614.451903 21
-        
+
         L 203614.451903 22
         L 299804.7174 22
-        
+
         L 299804.7174 23
         L 300255.024381 23
-        
+
         L 300255.024381 24
         L 369837.367472 24
-        
+
         L 369837.367472 25
         L 373448.291583 25
-        
+
         L 373448.291583 26
         L 458949.102138 26
-        
+
         L 458949.102138 27
         L 462318.291582 27
-        
+
         L 462318.291582 28
         L 464726.152627 28
-        
+
         L 464726.152627 29
         L 467330.073319 29
-        
+
         L 467330.073319 30
         L 472541.862732 30
-        
+
         L 472541.862732 31
         L 541138.829691 31
-        
+
         L 541138.829691 32
         L 541826.65389 32
-        
+
         L 541826.65389 33
         L 551782.202502 33
-        
+
         L 551782.202502 34
         L 643783.680126 34
-        
+
         L 643783.680126 35
         L 645304.742229 35
-        
+
         L 645304.742229 36
         L 685347.021979 36
-        
+
         L 685347.021979 37
         L 707200.37245 37
-        
+
         L 707200.37245 38
         L 789920.439557 38
-        
+
         L 789920.439557 39
         L 791237.518528 39
-        
+
         L 791237.518528 40
         L 804507.975375 40
-        
+
         L 804507.975375 41
         L 820800.0 41
-        
+
         " class="area"></path>
-        
+
         <path d="M 110542.557009 0 L 110542.557009 41" class="bar"></path>
-        
+
         <path d="M 645304.742229 0 L 645304.742229 41" class="bar"></path>
-        
+
         <path d="M 685347.021979 0 L 685347.021979 41" class="bar"></path>
-        
+
         <path d="M 791237.518528 0 L 791237.518528 41" class="bar"></path>
-        
+
         <path d="M 804507.975375 0 L 804507.975375 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Win%2520Mints.html">Win Mints</a></td>
+    <td><a href="../teams/teams%3Fteam=Win%2520Mints.html">Win Mints</a></td>
     <td>Mar 25, 19:30</td>
     <td>4h55m</td>
     <td>Mar 26, 00:26</td>
@@ -6317,136 +6317,136 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 5626.088247 1
-        
+
         L 5626.088247 2
         L 6562.057452 2
-        
+
         L 6562.057452 3
         L 8680.88046 3
-        
+
         L 8680.88046 4
         L 9073.861771 4
-        
+
         L 9073.861771 5
         L 10950.361997 5
-        
+
         L 10950.361997 6
         L 13008.20168 6
-        
+
         L 13008.20168 7
         L 16093.344346 7
-        
+
         L 16093.344346 8
         L 21421.384525 8
-        
+
         L 21421.384525 9
         L 24406.406955 9
-        
+
         L 24406.406955 10
         L 31006.488186 10
-        
+
         L 31006.488186 11
         L 33943.934314 11
-        
+
         L 33943.934314 12
         L 44150.19245 12
-        
+
         L 44150.19245 13
         L 89209.167628 13
-        
+
         L 89209.167628 14
         L 99081.193773 14
-        
+
         L 99081.193773 15
         L 168872.44387 15
-        
+
         L 168872.44387 16
         L 179785.052395 16
-        
+
         L 179785.052395 17
         L 181638.807402 17
-        
+
         L 181638.807402 18
         L 203047.407546 18
-        
+
         L 203047.407546 19
         L 361454.560466 19
-        
+
         L 361454.560466 20
         L 463683.54831 20
-        
+
         L 463683.54831 21
         L 492206.280412 21
-        
+
         L 492206.280412 22
         L 541513.888155 22
-        
+
         L 541513.888155 23
         L 543609.439223 23
-        
+
         L 543609.439223 24
         L 620383.359516 24
-        
+
         L 620383.359516 25
         L 623528.943238 25
-        
+
         L 623528.943238 26
         L 629069.206531 26
-        
+
         L 629069.206531 27
         L 670693.503708 27
-        
+
         L 670693.503708 28
         L 671375.233116 28
-        
+
         L 671375.233116 29
         L 688429.127991 29
-        
+
         L 688429.127991 30
         L 703179.556993 30
-        
+
         L 703179.556993 31
         L 746001.089957 31
-        
+
         L 746001.089957 32
         L 750195.740581 32
-        
+
         L 750195.740581 33
         L 765243.036426 33
-        
+
         L 765243.036426 34
         L 767007.503222 34
-        
+
         L 767007.503222 35
         L 793000.285346 35
-        
+
         L 793000.285346 36
         L 810757.327555 36
-        
+
         L 810757.327555 37
         L 820800.0 37
-        
+
         " class="area"></path>
-        
+
         <path d="M 33943.934314 0 L 33943.934314 41" class="bar"></path>
-        
+
         <path d="M 750195.740581 0 L 750195.740581 41" class="bar"></path>
-        
+
         <path d="M 767007.503222 0 L 767007.503222 41" class="bar"></path>
-        
+
         <path d="M 793000.285346 0 L 793000.285346 41" class="bar"></path>
-        
+
         <path d="M 810757.327555 0 L 810757.327555 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Stealth%2520Vehicle.html">Stealth Vehicle</a></td>
+    <td><a href="../teams/teams%3Fteam=Stealth%2520Vehicle.html">Stealth Vehicle</a></td>
     <td>Mar 25, 16:03</td>
     <td>9h10m</td>
     <td>Mar 26, 01:13</td>
@@ -6455,145 +6455,145 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 90269.457281 1
-        
+
         L 90269.457281 2
         L 105984.825151 2
-        
+
         L 105984.825151 3
         L 113247.618358 3
-        
+
         L 113247.618358 4
         L 118434.15604 4
-        
+
         L 118434.15604 5
         L 121113.563807 5
-        
+
         L 121113.563807 6
         L 129519.215368 6
-        
+
         L 129519.215368 7
         L 134492.994122 7
-        
+
         L 134492.994122 8
         L 175052.492647 8
-        
+
         L 175052.492647 9
         L 176873.532269 9
-        
+
         L 176873.532269 10
         L 178413.112265 10
-        
+
         L 178413.112265 11
         L 185774.564364 11
-        
+
         L 185774.564364 12
         L 189708.356361 12
-        
+
         L 189708.356361 13
         L 267583.085088 13
-        
+
         L 267583.085088 14
         L 287908.045543 14
-        
+
         L 287908.045543 15
         L 376760.985262 15
-        
+
         L 376760.985262 16
         L 381910.656139 16
-        
+
         L 381910.656139 17
         L 439207.079999 17
-        
+
         L 439207.079999 18
         L 440600.353384 18
-        
+
         L 440600.353384 19
         L 444766.207498 19
-        
+
         L 444766.207498 20
         L 459674.805421 20
-        
+
         L 459674.805421 21
         L 463623.3837 21
-        
+
         L 463623.3837 22
         L 515415.015403 22
-        
+
         L 515415.015403 23
         L 526996.563841 23
-        
+
         L 526996.563841 24
         L 538714.614074 24
-        
+
         L 538714.614074 25
         L 550904.224313 25
-        
+
         L 550904.224313 26
         L 560101.719365 26
-        
+
         L 560101.719365 27
         L 567197.440996 27
-        
+
         L 567197.440996 28
         L 610266.636068 28
-        
+
         L 610266.636068 29
         L 623051.568438 29
-        
+
         L 623051.568438 30
         L 645414.902501 30
-        
+
         L 645414.902501 31
         L 647045.444788 31
-        
+
         L 647045.444788 32
         L 693605.829908 32
-        
+
         L 693605.829908 33
         L 700462.889621 33
-        
+
         L 700462.889621 34
         L 700705.694121 34
-        
+
         L 700705.694121 35
         L 728997.828644 35
-        
+
         L 728997.828644 36
         L 780351.8098 36
-        
+
         L 780351.8098 37
         L 780522.527309 37
-        
+
         L 780522.527309 38
         L 780561.871949 38
-        
+
         L 780561.871949 39
         L 813577.630489 39
-        
+
         L 813577.630489 40
         L 820800.0 40
-        
+
         " class="area"></path>
-        
+
         <path d="M 185774.564364 0 L 185774.564364 41" class="bar"></path>
-        
+
         <path d="M 647045.444788 0 L 647045.444788 41" class="bar"></path>
-        
+
         <path d="M 700462.889621 0 L 700462.889621 41" class="bar"></path>
-        
+
         <path d="M 780561.871949 0 L 780561.871949 41" class="bar"></path>
-        
+
         <path d="M 813577.630489 0 L 813577.630489 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=The%2520Eggplant%2520Parms.html">The Eggplant Parms</a></td>
+    <td><a href="../teams/teams%3Fteam=The%2520Eggplant%2520Parms.html">The Eggplant Parms</a></td>
     <td>Mar 25, 11:00</td>
     <td>15h45m</td>
     <td>Mar 26, 02:46</td>
@@ -6602,151 +6602,151 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 2139.922845 1
-        
+
         L 2139.922845 2
         L 8213.329276 2
-        
+
         L 8213.329276 3
         L 18666.634961 3
-        
+
         L 18666.634961 4
         L 20496.294464 4
-        
+
         L 20496.294464 5
         L 21727.650022 5
-        
+
         L 21727.650022 6
         L 23468.873248 6
-        
+
         L 23468.873248 7
         L 27173.038789 7
-        
+
         L 27173.038789 8
         L 34514.838566 8
-        
+
         L 34514.838566 9
         L 73047.916801 9
-        
+
         L 73047.916801 10
         L 119504.735828 10
-        
+
         L 119504.735828 11
         L 123905.118783 11
-        
+
         L 123905.118783 12
         L 134948.310539 12
-        
+
         L 134948.310539 13
         L 200398.137559 13
-        
+
         L 200398.137559 14
         L 250635.693845 14
-        
+
         L 250635.693845 15
         L 295046.539398 15
-        
+
         L 295046.539398 16
         L 296000.354336 16
-        
+
         L 296000.354336 17
         L 301332.373366 17
-        
+
         L 301332.373366 18
         L 307525.443939 18
-        
+
         L 307525.443939 19
         L 313919.236631 19
-        
+
         L 313919.236631 20
         L 344629.101146 20
-        
+
         L 344629.101146 21
         L 369332.542026 21
-        
+
         L 369332.542026 22
         L 372137.924119 22
-        
+
         L 372137.924119 23
         L 452570.748218 23
-        
+
         L 452570.748218 24
         L 476542.979407 24
-        
+
         L 476542.979407 25
         L 506269.434513 25
-        
+
         L 506269.434513 26
         L 507566.545229 26
-        
+
         L 507566.545229 27
         L 594349.040625 27
-        
+
         L 594349.040625 28
         L 596309.036307 28
-        
+
         L 596309.036307 29
         L 601374.014837 29
-        
+
         L 601374.014837 30
         L 606799.748662 30
-        
+
         L 606799.748662 31
         L 631453.070262 31
-        
+
         L 631453.070262 32
         L 636604.189017 32
-        
+
         L 636604.189017 33
         L 639062.4773 33
-        
+
         L 639062.4773 34
         L 640816.229263 34
-        
+
         L 640816.229263 35
         L 654379.152747 35
-        
+
         L 654379.152747 36
         L 742086.407249 36
-        
+
         L 742086.407249 37
         L 761985.396995 37
-        
+
         L 761985.396995 38
         L 762411.626957 38
-        
+
         L 762411.626957 39
         L 763225.091968 39
-        
+
         L 763225.091968 40
         L 817532.534213 40
-        
+
         L 817532.534213 41
         L 819165.04061 41
-        
+
         L 819165.04061 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 123905.118783 0 L 123905.118783 41" class="bar"></path>
-        
+
         <path d="M 640816.229263 0 L 640816.229263 41" class="bar"></path>
-        
+
         <path d="M 654379.152747 0 L 654379.152747 41" class="bar"></path>
-        
+
         <path d="M 762411.626957 0 L 762411.626957 41" class="bar"></path>
-        
+
         <path d="M 819165.04061 0 L 819165.04061 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
   <tr>
-    <td><a href="../teams%3Fteam=Team%2520Eagle%2520Time.html">Team Eagle Time</a></td>
+    <td><a href="../teams/teams%3Fteam=Team%2520Eagle%2520Time.html">Team Eagle Time</a></td>
     <td>Mar 25, 19:55</td>
     <td>6h55m</td>
     <td>Mar 26, 02:50</td>
@@ -6755,149 +6755,149 @@ svg {
     <td colspan="4">
       <svg viewbox="0 0 820800.0 41" preserveAspectRatio="none">
         <path d="M 820800.0 0
-        
+
         L 0.0 1
         L 2300.228499 1
-        
+
         L 2300.228499 2
         L 5077.634391 2
-        
+
         L 5077.634391 3
         L 6488.102842 3
-        
+
         L 6488.102842 4
         L 11615.170593 4
-        
+
         L 11615.170593 5
         L 13230.10169 5
-        
+
         L 13230.10169 6
         L 18517.516987 6
-        
+
         L 18517.516987 7
         L 24048.043415 7
-        
+
         L 24048.043415 8
         L 26443.350484 8
-        
+
         L 26443.350484 9
         L 83395.60763 9
-        
+
         L 83395.60763 10
         L 86195.606439 10
-        
+
         L 86195.606439 11
         L 98933.183501 11
-        
+
         L 98933.183501 12
         L 117840.164219 12
-        
+
         L 117840.164219 13
         L 177202.260814 13
-        
+
         L 177202.260814 14
         L 182438.136089 14
-        
+
         L 182438.136089 15
         L 188132.060164 15
-        
+
         L 188132.060164 16
         L 221091.311756 16
-        
+
         L 221091.311756 17
         L 276704.549462 17
-        
+
         L 276704.549462 18
         L 355853.41981 18
-        
+
         L 355853.41981 19
         L 358936.983524 19
-        
+
         L 358936.983524 20
         L 372496.231474 20
-        
+
         L 372496.231474 21
         L 384060.442402 21
-        
+
         L 384060.442402 22
         L 436641.665032 22
-        
+
         L 436641.665032 23
         L 443672.021934 23
-        
+
         L 443672.021934 24
         L 471695.768002 24
-        
+
         L 471695.768002 25
         L 563868.455513 25
-        
+
         L 563868.455513 26
         L 600294.143297 26
-        
+
         L 600294.143297 27
         L 602781.98151 27
-        
+
         L 602781.98151 28
         L 608289.828639 28
-        
+
         L 608289.828639 29
         L 609782.73721 29
-        
+
         L 609782.73721 30
         L 628122.998952 30
-        
+
         L 628122.998952 31
         L 628827.033145 31
-        
+
         L 628827.033145 32
         L 696600.172778 32
-        
+
         L 696600.172778 33
         L 700103.757874 33
-        
+
         L 700103.757874 34
         L 704623.890318 34
-        
+
         L 704623.890318 35
         L 728233.719158 35
-        
+
         L 728233.719158 36
         L 777789.774524 36
-        
+
         L 777789.774524 37
         L 791439.411367 37
-        
+
         L 791439.411367 38
         L 794465.967302 38
-        
+
         L 794465.967302 39
         L 794539.034065 39
-        
+
         L 794539.034065 40
         L 794617.478218 40
-        
+
         L 794617.478218 41
         L 819370.112747 41
-        
+
         L 819370.112747 42
         L 820800.0 42
-        
+
         " class="area"></path>
-        
+
         <path d="M 117840.164219 0 L 117840.164219 41" class="bar"></path>
-        
+
         <path d="M 700103.757874 0 L 700103.757874 41" class="bar"></path>
-        
+
         <path d="M 704623.890318 0 L 704623.890318 41" class="bar"></path>
-        
+
         <path d="M 794465.967302 0 L 794465.967302 41" class="bar"></path>
-        
+
         <path d="M 819370.112747 0 L 819370.112747 41" class="bar"></path>
-        
+
       </svg>
     </td>
   </tr>
-  
+
 </table>
 
 </div>
@@ -6905,7 +6905,7 @@ svg {
 
             </div>
         </div>
-        
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -6917,7 +6917,7 @@ svg {
 
 </script>
 
-        
+
         <div style="display: none">
             <img src="../static/images/btnleft8-h.png%3F1517887534">
             <img src="../static/images/btnmid8-h.png%3F1517887534">
