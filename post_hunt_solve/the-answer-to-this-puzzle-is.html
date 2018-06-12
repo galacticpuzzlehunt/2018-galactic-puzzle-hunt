@@ -74,7 +74,99 @@
         form.onsubmit=function() {
           right_answer = 'HALT'
           answer = document.getElementById('id_answer').value
-          answer = normalize_puzzle_answer(answer)
+          answer = normalize_puzzle_answer(answer);
+
+          answer_map = 	{
+              'GOING' : 'the first word of a Phil Collins studio album that is also the last word of a different Phil Collins studio album',
+              'BACK' : 'the body part that could also appear as a button on your browser',
+              'TOWARDS' : 'the seven-letter preposition containing the letters A and W',
+              'UNITED' : 'the airline company that also appears in two other clues in this puzzle',
+              'KINGDOM' : 'the taxonomic rank shared by scorpions and giraffes but not giraffes and venus fly traps',
+              'WINGEDDRAGONOFRA' : 'the surname of the character who invites Superintendent Chalmers over for &ldquo;steamed hams&rdquo;',
+              'EDSEL' : 'the second word in the name of the web browser with a majority market share in the late 1990s',
+              'WALCOTT' : 'the first word of a Phil Collins studio album that is also the last word of a different Phil Collins studio album',
+              'WENS' : 'the surname of the man who directed a live-action movie starring Batman in this century',
+              'ELBRUS' : 'the puzzle game commercially released by Increpare Games',
+              'EURUS' : 'the first name of the artist who helped design a &ldquo;shoe hat&rdquo; and a &ldquo;lobster dress&rdquo;',
+              'WISHYOUWEREHERE' : 'the online game that was purchased by the creator of the JumpStart games from Viacom in 2014',
+              'WINTER' : 'the Egyptian God Card whose name includes an actual Egyptian god (disregarding any leading article)',
+              'EXPLORER' : 'the character in the Super Smash Bros. franchise whose name starts and ends with the same letter',
+              'WISDOM' : 'the surname of the literature Nobelist born in a Caribbean country',
+              'WESTWING' : 'the four-letter Scrabble-playable word using each of the four compass points exactly once',
+              'ENGLISHCOUNTRYTUNE' : 'the body part that could also appear as a button on your browser',
+              'ELSA' : 'the surname of the president of the United States who resigned',
+              'WAKAYAMA' : 'the Pink Floyd album that contains a nine-part song',
+              'WATERWORKS' : 'the season with a solstice',
+              'WABAN' : 'the character in the Super Smash Bros. franchise whose name starts and ends with the same letter',
+              'WATER' : 'the two-syllable D&D stat',
+              'WALES' : 'the Aaron Sorkin TV series that ran for at least two seasons (disregarding any leading article)',
+              'WEAK' : 'the body part that could also appear as a button on your browser',
+              'WESTBROMWICHALBION' : 'the surname of the president of the United States who resigned',
+              'WELLS' : 'the Japanese prefecture whose flag is a blue symbol on a white background',
+              'ELECTRICCOMPANY' : 'the country that contains the Blue Nile',
+              'ELIOT' : 'the first name of the Supreme Court justice appointed by Barack Obama',
+              'EBBING' : 'the seven-letter preposition containing the letters A and W',
+              'ENGLAND' : 'the non-radioactive element whose atomic weight is between 142 and 152',
+              'ELECTROMAGNETIC' : 'the zodiac constellation that contains another constellation as a substring',
+              'EVERTON' : 'the part of the Freudian psyche that is not present at birth',
+              'ELLISON' : 'the play by Sophocles that shares a name with one of the Pleiades',
+              'ETHIOPIA' : 'the three-letter SI prefix',
+              'ELENA' : 'the restaurant that has topped Restaurant Magazine&rsquo;s list of best restaurants in the world at least 3 times',
+              'WARWICK' : 'the seven-letter preposition containing the letters A and W',
+              'EUROPIUM' : 'the digit in the top row of a standard numpad',
+              'WEDNESDAY' : 'the zodiac constellation that contains another constellation as a substring',
+              'EGO' : 'the film starring Jake Gyllenhaal set entirely in Los Angeles',
+              'ELECTRA' : 'the blue planet that isn&rsquo;t Uranus',
+              'EXA' : 'the airline company that also appears in two other clues in this puzzle',
+              'ELBULLI' : 'the country that won gold medals in both men&rsquo;s and women&rsquo;s speed skating events at the 2018 Olympics',
+              'WALLE' : 'the League of Legends character based on a canine',
+              'EIGHT' : 'the lion Zazu babysits at the beginning of The Lion King',
+              'WAKANDA' : 'the day of the week that Lent starts on, in Roman Catholic tradition',
+              'ENDOFWATCH' : 'the Neal Stephenson novel whose title is a palindrome',
+              'EARTH' : 'the taxonomic rank shared by scorpions and giraffes but not giraffes and venus fly traps',
+              'SKINNER' : 'the automobile brand mentioned in &ldquo;We Didn&rsquo;t Start the Fire&rdquo;',
+              'STUDEBAKER' : 'the first word of a Phil Collins studio album that is also the last word of a different Phil Collins studio album',
+              'NOLAN' : 'the first word of a Phil Collins studio album that is also the last word of a different Phil Collins studio album',
+              'SNYDER' : 'the mountain (without Mount) that is the tallest in its continent and also shares the same first letter as that continent',
+              'NOTUS' : 'the mountain (without Mount) that is the tallest in its continent and also shares the same first letter as that continent',
+              'NEOPETS' : 'the wind in Greek mythology whose name is 5 letters long',
+              'NAVIGATOR' : 'the Egyptian God Card whose name includes an actual Egyptian god (disregarding any leading article)',
+              'NAIPAUL' : 'the second word in the name of the web browser with a majority market share in the late 1990s',
+              'NEWS' : 'the surname of the literature Nobelist born in a Caribbean country',
+              'SEWN' : 'the puzzle game commercially released by Increpare Games',
+              'STEPHENSSAUSAGEROLL' : 'the first name of the artist who helped design a &ldquo;shoe hat&rdquo; and a &ldquo;lobster dress&rdquo;',
+              'SALVADOR' : 'the Pink Floyd album that contains a nine-part song',
+              'SUMMER' : 'the character in the Super Smash Bros. franchise whose name starts and ends with the same letter',
+              'SAMUS' : 'the two-syllable D&D stat',
+              'NEWSROOM' : 'the two-syllable D&D stat',
+              'SPORTSNIGHT' : 'the body part that could also appear as a button on your browser',
+              'NIXON' : 'the body part that could also appear as a button on your browser',
+              'NAGASAKI' : 'the surname of the president of the United States who resigned',
+              'NEWTONHIGHLANDS' : 'the Monopoly utility',
+              'NAME' : 'the Boston T station between Newton Centre and Woodland',
+              'NORTHERNIRELAND' : 'the last Scrabble-playable word in the 2018 Oscar nominee for Best Picture whose title is at least 4 words long',
+              'SCOTLAND' : 'the force unified by a Grand Unified Theory',
+              'STRONG' : 'the 2016-2017 Premier League team whose name ends with &ldquo;on&rdquo;',
+              'SOUTHAMPTON' : 'the surname of the author of a famous novel whose title refers to an &ldquo;invisible man&rdquo;',
+              'SUDAN' : 'the first name of the Supreme Court justice appointed by Barack Obama',
+              'SONIA' : 'the seven-letter preposition containing the letters A and W',
+              'NEODYMIUM' : 'the seven-letter preposition containing the letters A and W',
+              'SAMARIUM' : 'the zodiac constellation that contains another constellation as a substring',
+              'SAGITTARIUS' : 'the part of the Freudian psyche that is not present at birth',
+              'SUPEREGO' : 'the play by Sophocles that shares a name with one of the Pleiades',
+              'NOMA' : 'the three-letter SI prefix',
+              'NASUS' : 'the restaurant that has topped Restaurant Magazine&rsquo;s list of best restaurants in the world at least 3 times',
+              'NINE' : 'the League of Legends character based on a canine',
+              'SEVEN' : 'the day of the week that Lent starts on, in Roman Catholic tradition',
+              'NIGHTCRAWLER' : 'the day of the week that Lent starts on, in Roman Catholic tradition',
+              'NEPTUNE' : 'the film starring Jake Gyllenhaal set entirely in Los Angeles',
+              'NETHERLANDS' : 'the airline company that also appears in two other clues in this puzzle',
+              'NEMO' : 'the country that won gold medals in both men&rsquo;s and women&rsquo;s speed skating events at the 2018 Olympics',
+              'NALA' : 'the title character of a Pixar film released in the 2000s',
+              'SIMBA' : 'the fictional country in the Marvel Cinematic Universe',
+              'SOKOVIA' : 'the Neal Stephenson novel whose title is a palindrome',
+              'SEVENEVES' : 'the taxonomic rank shared by scorpions and giraffes but not giraffes and venus fly traps',
+          };
 
           // Remove solved panel if it exists
           if (document.contains(document.getElementById('solved-panel'))) {
@@ -87,9 +179,12 @@
           if (answer == right_answer) {
             node.setAttribute('class', 'solved-panel')
             node.innerHTML = "<h3>Solved!</h3>\n<p>The answer was <b>" + right_answer + "</b>.</p>"
+          } else if (answer in answer_map) {
+            node.setAttribute('class', 'solved-panel solved-panel--incorrect')
+            node.innerHTML = "<h3>Incorrect!</h3>\n<p>Your answer, " + answer + ", was incorrect! The actual answer is " + answer_map[answer] + ".</p>"
           } else {
             node.setAttribute('class', 'solved-panel solved-panel--incorrect')
-            node.innerHTML = "<h3>incorrect!</h3>"
+            node.innerHTML = "<h3>Incorrect!</h3>\n<p>Your answer, " + answer + ", was incorrect!"
           }
 
           // Inject it

@@ -5,7 +5,6 @@ This site, to be hosted at [2018.galacticpuzzlehunt.com](https://2018.galacticpu
 ## TODO
 
 * Make the following puzzles static:
-  - The Answer to This Puzzle Is...
   - Word Search
   - The Wepp Perflontus Bake Off
   - Adventure
