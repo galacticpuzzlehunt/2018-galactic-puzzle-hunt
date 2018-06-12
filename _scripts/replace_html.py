@@ -2,7 +2,7 @@ import os
 import argparse
 
 text = '<a href="../login.html" class="btn btn--small">Login</a>'
-replacement = ""
+replacement = '<a href="../puzzles.html" class="btn btn--small">All Puzzles</a>'
 
 
 
