@@ -24,6 +24,84 @@ class="puzzle-page"
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<style>
+#cookies {
+  display: flex;
+  margin-bottom: 50px;
+  position: relative;
+}
+#cookies .cookie {
+  flex: 1;
+  position: relative;
+}
+#cookies .particle {
+  position: absolute;
+  margin-left: 50%;
+  margin-top: -1em;
+  transform: translateX(-50%);
+  font-weight: bold;
+  pointer-events: none;
+  transition: 1s linear all;
+  font-size: 32px;
+}
+#cookies .particle img {
+  display: inline;
+  height: 1em;
+  width: 1em;
+  vertical-align: middle;
+}
+#cookies .particle.float {
+  opacity: 0;
+  transform: translate(-50%, -50px);
+}
+#cookies img {
+  width: 70%;
+  image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges; /* Firefox                        */
+  image-rendering: -o-crisp-edges; /* Opera                          */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+  image-rendering: pixelated; /* Chrome */
+  image-rendering: optimize-contrast; /* CSS3 Proposed                  */
+  -ms-interpolation-mode: nearest-neighbor; /* IE8+                           */
+  max-width: 256px;
+  display: block;
+  margin: 30px auto;
+  transition: filter 0.1s, transform 0.3s cubic-bezier(.5,3,.5,.5)
+}
+#cookies img:hover {
+  filter: brightness(1.2);
+  transform: scale(1.04);
+  cursor: pointer;
+}
+#cookies img:active {
+  transform: scale(1);
+}
+#cookie-count {
+  text-align: center;
+  font-size: 24px;
+}
+</style>
+
+
+
+<script>
+
+
+window.onload = function() {
+  cookieCountElement = document.getElementById("cookie-count");
+  cookieCountElement.innerHTML = "234234";
+};
+
+function cookieClick() {
+  cookieCountElement = document.getElementById("cookie-count");
+  cookieCount = parseInt(cookieCountElement.innerHTML);
+  cookieCount++;
+  cookieCountElement.innerHTML = cookieCount;
+}
+
+</script>
+
     </head>
     <body>
         <div class="top-bar-container">
@@ -84,11 +162,13 @@ class="puzzle-page"
 
         <img src="../static/images/chocolatechip32.png%3F1521187167" class="puzzle-page-round-logo">
 
+        <div id="cookies">
+        <div class="cookie">
+                        <img src="../static/images/chocolatechip32.png%3F1521187167" onclick="cookieClick()">
+                        <p id="cookie-count"></p>
 
-
-
-
-<p class="puzzle-erratum">(This puzzle is no longer solvable since the end of the hunt. Sorry about that! We&rsquo;ll try to get a substitute version up soon.)</p>
+                    </div>
+                  </div>
 
 
 
