@@ -87,10 +87,26 @@ class="puzzle-page"
 
 <script>
 
+var images = [
+  ["ad88017e", 9],
+  ["a1528594", 6],
+  ["3d09d37d", 11],
+  ["071897d5", 4],
+  ["47292022", 8],
+  ["958f6243", 1],
+  ["4ea78588", 3],
+  ["38fc481e", 7],
+  ["8533717e", 2],
+  ["f1ac608f", 5],
+  ["dec5b174", 10],
+  ["88c3fcc7", 12]
+];
+
 
 window.onload = function() {
   cookieCountElement = document.getElementById("cookie-count");
-  cookieCountElement.innerHTML = "234234";
+  cookieCountElement.innerHTML = "314159";
+  showImages();
 };
 
 function cookieClick() {
@@ -98,6 +114,20 @@ function cookieClick() {
   cookieCount = parseInt(cookieCountElement.innerHTML);
   cookieCount++;
   cookieCountElement.innerHTML = cookieCount;
+  showImages();
+}
+
+function showImages() {
+  cookieCountElement = document.getElementById("cookie-count");
+  cookieCount = parseInt(cookieCountElement.innerHTML);
+  puzzleBody = document.getElementById("puzzlebodyimages");
+  puzzleBody.innerHTML = '';
+  images.forEach(function(image, index, array) {
+    if (cookieCount % image[1] == 0){
+      imageHTML = "<img src=\"../static/puzzle_resources/intro-round-meta/cookie_" + image[0] + ".png\" width=\"200px\">\n";
+      puzzleBody.innerHTML += imageHTML;
+    }
+  });
 }
 
 </script>
@@ -170,7 +200,8 @@ function cookieClick() {
                     </div>
                   </div>
 
-
+      <div id="puzzlebodyimages">
+      </div>
 
 
     </div>
