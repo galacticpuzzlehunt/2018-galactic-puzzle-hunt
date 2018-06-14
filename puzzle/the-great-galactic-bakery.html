@@ -23,6 +23,7 @@ class="puzzle-page"
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script type="text/javascript" src="../static/js/jquery.formset.js%3F1517035269"></script>
+        <script type="text/javascript" src="../static/puzzle_resources/the-great-galactic-bakery/biginteger.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
         <style>
@@ -201,42 +202,202 @@ cookieHTML = `<div id="cookie-list">
             </div>
         </div>
     </div>
-    <!-- <div v-if="toolMsg" class="cookies-msg">
-        <p>{{ toolMsg }}</p>
-    </div> -->`;
+    <ul>
+      <li><b>Android:</b> Select two piles. Add the number of cookies of the first type to the number of cookies of the second type.</li>
+      <li><b>Best Selling Crime Novel:</b> Select a pile. Steal half the cookies (rounded down) from the cookie type with the most cookies and give them to this pile.</li>
+      <li><b>Call Sign:</b> For each type of cookies, if the number of cookies of this type is equal to the phonespell of some number x, then replace the number of cookies in the pile with x. E.G., a pile with 896 = TWO cookies becomes a pile with two cookies after this operation, and a pile with 6639376749 = ONEZEROSIX cookies becomes a pile with 106 cookies after this operation.</li>
+      <li><b>The Great Galactic Oven:</b> Reset cookie counts to their initial values.</li>
+    </ul>
+    <div id="cookies-msg">
+    </div>`;
+
+    var DIGITS = [
+        '9376',
+        '663',
+        '896',
+        '84733',
+        '3687',
+        '3483',
+        '749',
+        '73836',
+        '34448',
+        '6463'
+    ];
 
 
-window.onload = function() {
 
-  if (document.cookie.split(';').filter(function(item) {
-      return item.indexOf('cookie=mewantcookie_cupcake_corpse_charlie') >= 0
-  }).length) {
-    console.log("cookie monster's account");
-    puzzleBody = document.getElementById("puzzle-body");
-    puzzleBody.innerHTML = cookieHTML;
-  } else {
-    document.cookie = "cookie=username_answer1_answer2_answer3";
-  };
-};
-
-function cookieClick(cookieID) {
-  cookieCountElement = document.getElementById("cookie-count-" + cookieID);
-  cookieCount = parseInt(cookieCountElement.innerHTML);
-  cookieCount++;
-  cookieCountElement.innerHTML = cookieCount;
-}
-
-function toolClick(toolID) {
-  cookieCounts = [0,0,0,0];
-  for (var i = 0; i < 4; i++) {
-    cookieCountElement = document.getElementById("cookie-count-" + i);
-    cookieCount = parseInt(cookieCountElement.innerHTML);
-    cookieCounts[i] = cookieCount;
-  };
-  console.log(cookieCounts);
-}
+    var COOKIE_MIN = 1000000;
+    var COOKIE_MAX = 10000000;
+    var BUTTER_OVERFLOW = BigInteger("100000000000000000000000000000000");
 
 
+    var cookieCounts = [
+                        BigInteger(314159265),
+                        BigInteger(358979323),
+                        BigInteger(846264338),
+                        BigInteger(327950288)
+                      ];
+    var cookieNames = ['cookie', 'chessmen', 'fortune', 'animal']
+    var N = cookieNames.length;
+    var highlight = false;
+    var highlight2 = false;
+    var currentAbility = '';
+
+    function getPrefix(s){
+        for(var i=0;i<=9;i++){
+            if(s.startsWith(DIGITS[i])){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    MINUS_ONE = BigInteger(-1);
+
+    function decode(s){
+        var answer = BigInteger.ZERO;
+        while(s.length > 0){
+            var pref = getPrefix(s);
+            if(pref==-1){
+                return MINUS_ONE;
+            }else{
+                answer = answer.multiply(10).add(pref);
+            }
+
+            s = s.substr(DIGITS[pref].length);
+        }
+
+        return answer;
+    }
+
+    var abilityA = function(from, to){
+        cookieCounts[to] = cookieCounts[to].add(cookieCounts[from]);
+        highlight=false;
+        highlight2=false;
+    }
+
+    var abilityB = function(to){
+        // find largest
+        var largestI = 0;
+        for(i=1;i<cookieNames.length;i++){
+            if(cookieCounts[i].subtract(cookieCounts[largestI])
+                             .isPositive()){
+                largestI = i;
+            }
+        }
+
+
+        var half = cookieCounts[largestI].divide(2);
+        cookieCounts[largestI] = cookieCounts[largestI].subtract(half);
+        cookieCounts[to] = cookieCounts[to].add(half);
+
+        highlight=false;
+        highlight2=false;
+    }
+
+    var abilityC = function() {
+        for(var i=0;i<cookieNames.length;i++){
+            var tryDecode = decode(cookieCounts[i].toString());
+            if(!tryDecode.isNegative()) cookieCounts[i] = tryDecode;
+        }
+    }
+
+    var abilityD = function() {
+        cookieCounts = [
+                            BigInteger(314159265),
+                            BigInteger(358979323),
+                            BigInteger(846264338),
+                            BigInteger(327950288)
+                          ];
+    }
+
+    var update = function() {
+        total = BigInteger.ZERO;
+        for(var i=0;i<N;i++){
+            total = total.add(cookieCounts[i]);
+        }
+
+        if(total.subtract(BUTTER_OVERFLOW).isPositive()){
+            abilityD();
+            // TODO: alert for butter overflow
+        }
+
+        if(total.isZero()){
+            console.log("success");
+            // TODO: redirect to success video
+        }
+
+        for(var i=0;i<cookieNames.length;i++){
+            cookieCountElement = document.getElementById("cookie-count-" + i);
+            cookieCountElement.innerHTML = cookieCounts[i].toString();
+
+            if(highlight){
+              // cookieCountElement.addClass('highlight');
+            } else{
+              // cookieCountElement.removeClass('highlight');
+            }
+
+            if(highlight2){
+              // cookieCountElement.addClass('highlight2');
+            } else{
+              // cookieCountElement.removeClass('highlight2');
+            }
+        }
+    }
+
+    window.onload = function() {
+      if (document.cookie.split(';').filter(function(item) {
+          return item.indexOf('cookie=mewantcookie_cupcake_corpse_charlie') >= 0
+      }).length || true) {
+        puzzleBody = document.getElementById("puzzle-body");
+        puzzleBody.innerHTML = cookieHTML;
+      } else {
+        document.cookie = "cookie=username_answer1_answer2_answer3";
+      };
+    };
+
+    function cookieClick(cookieID) {
+      cookieCountElement = document.getElementById("cookie-count-" + cookieID);
+      cookieCount = parseInt(cookieCountElement.innerHTML);
+
+      if (highlight) {
+          if (currentAbility == 'a') {
+              from = cookieID;
+              highlight = false;
+              highlight2 = true;
+          } else if (currentAbility == 'b') {
+              abilityB(cookieID);
+          }
+      } else if (highlight2) {
+          abilityA(from, cookieID);
+      } else {
+          cookieCounts[cookieID] = cookieCounts[cookieID].next();
+      }
+      update();
+    }
+
+    function toolClick(toolID) {
+      if (toolID == 0) {
+          highlight2 = false;
+          highlight = true;
+          currentAbility = 'a';
+          update();
+      } else if (toolID == 1) {
+          highlight = true;
+          currentAbility = 'b';
+          update();
+      } else if (toolID == 2) {
+          highlight=false;
+          highlight2=false;
+          abilityC();
+          update();
+      } else {
+          highlight = false;
+          highlight2 = false;
+          abilityD();
+          update();
+      }
+    }
 
 </script>
 
