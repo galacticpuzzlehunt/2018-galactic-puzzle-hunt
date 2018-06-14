@@ -122,7 +122,7 @@ class="puzzle-page"
     background-color: rgba(180, 160, 140, 0.3);
 }
 
-.tools__item--selected {
+.tool_selected {
   border: solid #f8bc4e;
 }
 
@@ -177,25 +177,25 @@ cookieHTML = `<div id="cookie-list">
         </div>
     </div>
     <div class="tools__container">
-        <div class="tools__item" onclick="toolClick(0)">
+        <div class="tools__item" id="tool-0" onclick="toolClick(0)">
             <div>
                 <img class="tools__item-graphic" src="../static/images/robot32.png">
                 <h4></h4>
             </div>
         </div>
-        <div class="tools__item" onclick="toolClick(1)">
+        <div class="tools__item" id="tool-1" onclick="toolClick(1)">
             <div>
                 <img class="tools__item-graphic" src="../static/images/novel32.png">
                 <h4></h4>
             </div>
         </div>
-        <div class="tools__item" onclick="toolClick(2)">
+        <div class="tools__item" id="tool-2" onclick="toolClick(2)">
             <div>
                 <img class="tools__item-graphic" src="../static/images/radio32.png">
                 <h4></h4>
             </div>
         </div>
-        <div class="tools__item" onclick="toolClick(3)">
+        <div class="tools__item" id="tool-3" onclick="toolClick(3)">
             <div>
                 <img class="tools__item-graphic" src="../static/images/oven32.png">
                 <h4></h4>
@@ -208,6 +208,7 @@ cookieHTML = `<div id="cookie-list">
       <li><b>Call Sign:</b> For each type of cookies, if the number of cookies of this type is equal to the phonespell of some number x, then replace the number of cookies in the pile with x. E.G., a pile with 896 = TWO cookies becomes a pile with two cookies after this operation, and a pile with 6639376749 = ONEZEROSIX cookies becomes a pile with 106 cookies after this operation.</li>
       <li><b>The Great Galactic Oven:</b> Reset cookie counts to their initial values.</li>
     </ul>
+    <p>Good job on finding the Cookie Monster -- and the Great Galactic Oven! It is time to use the abilities you’ve unlocked to defeat him and take away ALL of his cookies! Yes, we must leave him with zero total cookies. We cannot risk any chance of this happening ever again.</p>
     <div id="cookies-msg">
     </div>`;
 
@@ -319,12 +320,10 @@ cookieHTML = `<div id="cookie-list">
 
         if(total.subtract(BUTTER_OVERFLOW).isPositive()){
             abilityD();
-            // TODO: alert for butter overflow
         }
 
         if(total.isZero()){
-            console.log("success");
-            // TODO: redirect to success video
+            window.location.replace("https://www.youtube.com/watch?v=StBK8Hedkjg");
         }
 
         for(var i=0;i<cookieNames.length;i++){
@@ -367,28 +366,44 @@ cookieHTML = `<div id="cookie-list">
               highlight2 = true;
           } else if (currentAbility == 'b') {
               abilityB(cookieID);
+              removeSelection();
           }
       } else if (highlight2) {
           abilityA(from, cookieID);
+          removeSelection();
       } else {
           cookieCounts[cookieID] = cookieCounts[cookieID].next();
       }
       update();
     }
 
+    function removeSelection() {
+        toolElement = document.getElementById("tool-" + 0);
+        toolElement.classList.remove("tool_selected");
+        toolElement = document.getElementById("tool-" + 1);
+        toolElement.classList.remove("tool_selected");
+    }
+
     function toolClick(toolID) {
+      removeSelection();
+
       if (toolID == 0) {
           highlight2 = false;
           highlight = true;
           currentAbility = 'a';
+
+          toolElement = document.getElementById("tool-" + toolID);
+          toolElement.classList.add("tool_selected");
           update();
       } else if (toolID == 1) {
           highlight = true;
           currentAbility = 'b';
+          toolElement = document.getElementById("tool-" + toolID);
+          toolElement.classList.add("tool_selected");
           update();
       } else if (toolID == 2) {
-          highlight=false;
-          highlight2=false;
+          highlight = false;
+          highlight2 = false;
           abilityC();
           update();
       } else {
