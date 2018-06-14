@@ -347,7 +347,7 @@ cookieHTML = `<div id="cookie-list">
     window.onload = function() {
       if (document.cookie.split(';').filter(function(item) {
           return item.indexOf('cookie=mewantcookie_cupcake_corpse_charlie') >= 0
-      }).length || true) {
+      }).length) {
         puzzleBody = document.getElementById("puzzle-body");
         puzzleBody.innerHTML = cookieHTML;
       } else {
