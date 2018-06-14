@@ -81,6 +81,71 @@ class="puzzle-page"
           text-align: center;
           font-size: 24px;
         }
+
+
+        .tools__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
+    grid-gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+@media(max-width:1000px) {
+    .tools__container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.tools__item {
+    width: auto;
+    align-items: flex-start;
+    background-color: rgba(180, 160, 140, 0.3);
+    padding: 16px;
+    text-decoration: none;
+    text-shadow: 0px 0px 6px #000,0px 1px 1px #000;
+    cursor: pointer;
+}
+
+.tools__item:hover {
+    background-color: rgba(180, 160, 140, 0.5);
+}
+
+.tools__item--inactive {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.tools__item--inactive:hover {
+    background-color: rgba(180, 160, 140, 0.3);
+}
+
+.tools__item--selected {
+  border: solid #f8bc4e;
+}
+
+.tools__item-graphic {
+    width: 70px;
+    margin: 0 1rem 0 0;
+}
+
+@media(min-width: 1200px) {
+    .tools__item-graphic {
+        width: 100px;
+        margin: 0 2rem 0 0;
+    }
+}
+
+.tools__item h4 {
+    font-weight: 500;
+    margin: 0 0 0.5rem 0;
+    color: #edece8;
+}
+
+.tools__item p {
+    margin-bottom: 0;
+}
         </style>
 
 <script>
@@ -89,27 +154,56 @@ class="puzzle-page"
 cookieHTML = `<div id="cookie-list">
         <div id="cookies">
             <div class="cookie" onclick="cookieClick('0')">
-                <img src="static/images/chocolatechip32.png%3F1521187167">
+                <img src="../static/images/chocolatechip32.png%3F1521187167">
                 <p id="cookie-count-0">314159265</p>
 
             </div>
             <div class="cookie" onclick="cookieClick('1')">
-                <img src="static/images/chessmen32.png%3F1521187167">
+                <img src="../static/images/chessmen32.png%3F1521187167">
                 <p id="cookie-count-1">358979323</p>
 
             </div>
             <div class="cookie" onclick="cookieClick('2')">
-                <img src="static/images/fortunecookie32.png%3F1521187167">
+                <img src="../static/images/fortunecookie32.png%3F1521187167">
                 <p id="cookie-count-2">846264338</p>
 
             </div>
             <div class="cookie" onclick="cookieClick('3')">
-                <img src="static/images/animalcracker32.png%3F1521187167">
+                <img src="../static/images/animalcracker32.png%3F1521187167">
                 <p id="cookie-count-3">327950288</p>
 
             </div>
         </div>
-    </div>`;
+    </div>
+    <div class="tools__container">
+        <div class="tools__item" onclick="toolClick(0)">
+            <div>
+                <img class="tools__item-graphic" src="../static/images/robot32.png">
+                <h4></h4>
+            </div>
+        </div>
+        <div class="tools__item" onclick="toolClick(1)">
+            <div>
+                <img class="tools__item-graphic" src="../static/images/novel32.png">
+                <h4></h4>
+            </div>
+        </div>
+        <div class="tools__item" onclick="toolClick(2)">
+            <div>
+                <img class="tools__item-graphic" src="../static/images/radio32.png">
+                <h4></h4>
+            </div>
+        </div>
+        <div class="tools__item" onclick="toolClick(3)">
+            <div>
+                <img class="tools__item-graphic" src="../static/images/oven32.png">
+                <h4></h4>
+            </div>
+        </div>
+    </div>
+    <!-- <div v-if="toolMsg" class="cookies-msg">
+        <p>{{ toolMsg }}</p>
+    </div> -->`;
 
 
 window.onload = function() {
@@ -130,6 +224,16 @@ function cookieClick(cookieID) {
   cookieCount = parseInt(cookieCountElement.innerHTML);
   cookieCount++;
   cookieCountElement.innerHTML = cookieCount;
+}
+
+function toolClick(toolID) {
+  cookieCounts = [0,0,0,0];
+  for (var i = 0; i < 4; i++) {
+    cookieCountElement = document.getElementById("cookie-count-" + i);
+    cookieCount = parseInt(cookieCountElement.innerHTML);
+    cookieCounts[i] = cookieCount;
+  };
+  console.log(cookieCounts);
 }
 
 
