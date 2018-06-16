@@ -85,7 +85,7 @@ class="puzzle-page"
         <img src="../static/images/chocolatechip32.png%3F1521187167" class="puzzle-page-round-logo">
 
 
-<script type="text/javascript" src="../static/puzzle_resources/bakeoff/menu-sanitized.js%3F1521359222"></script>
+<script type="text/javascript" src="../static/puzzle_resources/bakeoff/menu-sanitized.js"></script>
 <script>$.ajaxSetup({headers: {'X-CSRFToken': '3PO0gD5XAZBpOiSPs69IXL5pPZs9fD6ng9tknEcoKgEtWgA615w21YNnfINTmysW' }});</script>
 
 <style>
@@ -258,13 +258,13 @@ button.basic {
                         </div>
                         <button id="recipe-cook">cook 🍪</button>
                     </div>
-                    <form id="recipe-controls" style="margin-top: 20px;">
+                    <div id="recipe-controls" style="margin-top: 20px;">
                         <input type="text" name="new-ingredient" id="new-ingredient" style="display: inline-block; width: 260px;">
                         <div id="ingredient-buttons" style="display: inline-block;">
-                            <button id="ingredient-add" class="basic" type="submit">Add</button>
+                            <button id="ingredient-add" class="basic">Add</button>
                             <button id="ingredient-examine" class="basic">Examine</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div id="recipe-feedback">
                 </div>
@@ -295,6 +295,7 @@ button.basic {
       <div id="modal-guess-log"></div>
   </div>
 </div>
+
 
 
     </div>
