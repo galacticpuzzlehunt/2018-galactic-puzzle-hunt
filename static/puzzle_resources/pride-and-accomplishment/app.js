@@ -12,9 +12,9 @@ function generateLootbox() {
         level += 1
   }
   attribute1 = random_choice(["diligent", "belligerent", "eligible", "intelligent", "slight", "profligate", "malignant", "negligible", "religious", "delightful", "obligatory", "negligent", "aligned", "lightweight", "enlightened", "flighty", "light",
-                                "prodigal", "gigantic", "navigator's", "indefatigable", "alligator", "navigational", "Michigan", "investigator's", "brigand's", "mitigating", "fumigating",
-                                "organic", "arrogant", "elegant", "pagan", "extravagant", "gargantuan", "organized", "Ugandan", "propagandist's", "doppelganger's", "manganese", "vegan", "hooligan's",
-                                "standard", "outstanding", "mandatory", "random", "bland", "handsome", "standalone", "grandiose", "handy", "incandescent", "outlandish", "demanding", "handmade", "handheld", "scandalous", "understandable", "Scandinavian", "broadband", "sandy", "upstanding", "Icelandic", "bandit's", "candid", "contraband", "abandoned", "wandering", "expanded"]);
+                                "prodigal", "gigantic", "navigator’s", "indefatigable", "alligator", "navigational", "Michigan", "investigator’s", "brigand’s", "mitigating", "fumigating",
+                                "organic", "arrogant", "elegant", "pagan", "extravagant", "gargantuan", "organized", "Ugandan", "propagandist’s", "doppelganger’s", "manganese", "vegan", "hooligan’s",
+                                "standard", "outstanding", "mandatory", "random", "bland", "handsome", "standalone", "grandiose", "handy", "incandescent", "outlandish", "demanding", "handmade", "handheld", "scandalous", "understandable", "Scandinavian", "broadband", "sandy", "upstanding", "Icelandic", "bandit’s", "candid", "contraband", "abandoned", "wandering", "expanded"]);
   animals = random_choice([[["crimson", "ruby", "vermilion", "rouge", "carmine", "bloody", "sanguine", "scarlet"], "wolf"],
                              [["island", "Hawaiian", "Tahitian",
                                  "tropical", "Samoan"], "rat"],
@@ -26,10 +26,10 @@ function generateLootbox() {
                                  "pine", "balsa", "birch"], "grouse"],
                              [["dappled", "speckled", "dotted",
                                  "patchy", "sprinkled"], "hake"],
-                             [["sovereign", "noble", "monarch", "emperor's", "ruler's", "patriarch"], "rail"]]);
+                             [["sovereign", "noble", "monarch", "emperor’s", "ruler’s", "patriarch"], "rail"]]);
   attribute2 = random_choice(animals[0]);
   attribute3 = random_choice(["ruthless", "religious", "rebellious", "repetitious", "reckless", "relentless", "rimless", "rigorous", "righteous", "ravenous", "ridiculous", "raucous", "rapacious",
-                                "tallowy", "handsewn", "handdown", "sawn", "jackdaw's", "markdown", "warhawk", "Malawi", "Jamestown",
+                                "tallowy", "handsewn", "handdown", "sawn", "jackdaw’s", "markdown", "warhawk", "Malawi", "Jamestown",
                                 "ubiquitous", "ominous", "frivolous", "uniform", "poisonous", "grievous", "oviparous", "ruinous", "blithesome", "rainproof", "odious",
                                 "roundabout", "downbeat", "moonbeam", "thunderbolt", "paintball", "transcribing"]);
   base_item = random_choice(["armet", "cuirass", "eyeshield", "iron-mail", "linothorax", "neckguard", "overcoat", "scimitar", "tunic", "uniform", "bow", "dagger",
