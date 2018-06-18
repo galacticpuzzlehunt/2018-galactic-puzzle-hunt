@@ -8,5 +8,4 @@ This site, to be hosted at [2018.galacticpuzzlehunt.com](https://2018.galacticpu
   - Make Your Own Fillomino
   - Pride and Accomplishment
 * There are two teams ("ROT 26" and "Rot 26") that are currently colliding
-* 404 page
 * Add link to interest mailing list
