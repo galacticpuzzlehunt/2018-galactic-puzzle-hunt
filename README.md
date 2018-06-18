@@ -7,4 +7,3 @@ This site, to be hosted at [2018.galacticpuzzlehunt.com](https://2018.galacticpu
 * Make the following puzzles static:
   - Make Your Own Fillomino
   - Pride and Accomplishment
-* Add link to interest mailing list
