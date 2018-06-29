@@ -226,7 +226,7 @@ var text = {
         "jelly": [ ["berries", "sugar"] ],
 
         "oatmeal": [ ["oats", "milk", "sugar", "salt", "cinnamon"] ],
-        "eggs on toast": [ ["flour", "salt", "leavening agent", "butter", "sugar", "water"], ["butter"], ["eggs, milk, salt"] ],
+        "eggs on toast": [ ["flour", "salt", "leavening agent", "butter", "sugar", "water"], ["butter"], ["eggs", "milk", "salt"] ],
 
         "pasta and cheese": [ ["flour", "eggs"], ["butter"], ["flour"], ["milk", "cheese"] ],
         "pizza": [ ["flour", "salt", "leavening agent", "water"], ["tomatoes"], ["cheese"] ],
@@ -238,7 +238,7 @@ var text = {
         "potato croquettes": [ ["potatoes"], ["water"], ["butter", "milk", "salt"], ["milk", "eggs", "salt"], ["eggs"], ["flour"] ],
 
         "cinnamon rolls": [ ["flour", "salt", "leavening agent", "water"], ["butter"], ["cinnamon", "sugar"], ["sugar", "butter", "milk"] ],
-        "pumpkin pie": [ ["flour", "salt", "sugar"], ["butter"], ["water"], ["salt", "cinnamon", "nutmeg", "cloves", "sugar", "flour"], ["eggs", "pumpkin", "cream"] ],
+        "pumpkin pie": [ ["flour", "salt", "sugar"], ["butter"], ["water"], ["salt", "cinnamon", "nutmeg", "cloves", "sugar", "flour"], ["eggs", "pumpkins", "cream"] ],
         "cookies": [ ["sugar", "peanut butter", "butter", "salt", "leavening agent"], ["eggs"], ["flour", "oats", "chocolate"] ]
     }
 }
