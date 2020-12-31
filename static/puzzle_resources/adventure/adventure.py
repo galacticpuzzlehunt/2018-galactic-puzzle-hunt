@@ -139,7 +139,7 @@ ADVICE = {
 }
 
 MESSAGE = 'TYPESAMETHINGBOTHKEYBOARDS'
-LETTERS = {c: m for c, m in zip(string.uppercase, MESSAGE)}
+LETTERS = {c: m for c, m in zip(string.ascii_uppercase, MESSAGE)}
 
 MAX_COMMANDS = 1000000
 MAX_BLACKBOARD_LENGTH = 50000
@@ -165,7 +165,7 @@ class GameState:
 
     def log(self, msg):
         if self.depth == 0 or self.verbose:
-            print msg
+            print(msg)
 
     def describe_room(self):
         room = self.location
@@ -185,7 +185,7 @@ class GameState:
             self.log('A monkey pops out of the ceiling and says "{}"'.format(ADVICE[room]))
             self.log('')
 
-        exits = [DIRECTION_NAMES[i] for i in xrange(6) if NEIGHBORS[room][i]]
+        exits = [DIRECTION_NAMES[i] for i in range(6) if NEIGHBORS[room][i]]
         exits[-1] = 'and ' + exits[-1]
         self.log('There are exits to the {}.'.format(', '.join(exits)))
 
@@ -198,7 +198,7 @@ class GameState:
 
     def execute(self, line):
         if self.depth > MAX_DEPTH:
-            print "You are in too deep! The air around you becomes difficult to breathe. You slowly fall unconscious..."
+            print("You are in too deep! The air around you becomes difficult to breathe. You slowly fall unconscious...")
             self.running = False
             return
 
@@ -208,7 +208,7 @@ class GameState:
 
             self.num_commands += 1
             if self.num_commands > MAX_COMMANDS:
-                print "You have been wandering around for too long. You die of starvation."
+                print("You have been wandering around for too long. You die of starvation.")
                 self.running = False
                 return
 
@@ -249,7 +249,7 @@ class GameState:
                 # write on blackboard
                 self.blackboards[self.location] = line[1:]
                 if len(self.blackboards[self.location]) >= MAX_BLACKBOARD_LENGTH:
-                    print "While struggling to fit all this text on the blackboard, the blackboard topples over, flattening you."
+                    print("While struggling to fit all this text on the blackboard, the blackboard topples over, flattening you.")
                     self.running = False
                     return
 
@@ -269,7 +269,7 @@ class GameState:
                 # append to blackboard
                 self.blackboards[self.location] += line[1:]
                 if len(self.blackboards[self.location]) >= MAX_BLACKBOARD_LENGTH:
-                    print "While struggling to fit all this text on the blackboard, the blackboard topples over, flattening you."
+                    print("While struggling to fit all this text on the blackboard, the blackboard topples over, flattening you.")
                     self.running = False
                     return
                 self.log("You add some text to the blackboard. The blackboard now says: {}".format(self.blackboards[self.location]))
@@ -301,15 +301,15 @@ class GameState:
                     self.log("You pay closer attention to your actions.")
                     self.verbose = True
             else:
-                print "Invalid command."
+                print("Invalid command.")
                 return
 
             line = line[st:]
 
 
 def prompt():
-    print '>',
-    return ''.join([c for c in raw_input().lower() if c.islower()])
+    print('>', end=' ')
+    return ''.join([c for c in input().lower() if c.islower()])
 
 
 def main():
@@ -327,19 +327,19 @@ def main():
             state.execute(line)
 
         if DEBUG:
-            print state.log1
-            print state.log2
-            print 'num_commands:', state.num_commands
+            print(state.log1)
+            print(state.log2)
+            print('num_commands:', state.num_commands)
 
         if state.won:
-            print "Congratulations, you played yourself. The answer to this puzzle is PASIPHAE."
+            print("Congratulations, you played yourself. The answer to this puzzle is PASIPHAE.")
             return
 
-        print
-        print "----------------"
-        print "-  GAME RESET  -"
-        print "----------------"
-        print
+        print()
+        print("----------------")
+        print("-  GAME RESET  -")
+        print("----------------")
+        print()
 
 if __name__ == "__main__":
     main()
