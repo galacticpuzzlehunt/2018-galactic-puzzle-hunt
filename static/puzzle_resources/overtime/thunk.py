@@ -217,4 +217,4 @@ def input_core(input_text):
 
 if __name__ == '__main__':
   while True:
-    print input_core(raw_input('>> '))
+    print(input_core(input('>> ')))
